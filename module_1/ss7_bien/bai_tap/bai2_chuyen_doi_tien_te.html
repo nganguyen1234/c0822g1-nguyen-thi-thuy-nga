@@ -39,10 +39,12 @@
             <button type="button" onclick="convert()">Convert</button>
         </th>
     </tr>
+    <tr>
+        <div id="result"></div>
+    </tr>
     <script>
 
         function convert() {
-            let b = 0;
             let money = document.getElementById("money").value
 
             let from = document.getElementById("from").value
@@ -50,11 +52,11 @@
             let to = document.getElementById("to").value
 
             if (from === "vnd" && to === "usd") {
-                b = money / 23;
+                money /= 23;
             } else {
-                b = money * 23
+               money *= 23
             }
-            document.write(b)
+            document.getElementById("result").innerHTML = money
         }
 
 

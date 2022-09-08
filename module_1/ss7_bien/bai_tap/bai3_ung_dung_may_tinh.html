@@ -15,16 +15,16 @@
     </tr>
     <tr>
         <td>
-            <button type="button" onclick="addition()">Addition(+)</button>
+            <button type="button" onclick="add()">Addition(+)</button>
         </td>
         <td>
-            <button type="button" onclick="subtraction()">Subtraction(-)</button>
+            <button type="button" onclick="subtract()">Subtraction(-)</button>
         </td>
         <td>
-            <button type="button" onclick="multiplication()">Multiplication(X)</button>
+            <button type="button" onclick="multiply()">Multiplication(X)</button>
         </td>
         <td>
-            <button type="button" onclick="division()">Division(/)</button>
+            <button type="button" onclick="divide()">Division(/)</button>
         </td>
     </tr>
     <tr>
@@ -33,40 +33,28 @@
 
     <script>
 
-        function addition() {
-            let a = document.getElementById("in1").value;
-            let b = document.getElementById("in2").value;
-            c = parseInt(a);
-            d = parseInt(b);
-            let t = c + d
-            document.getElementById("result").innerHTML = t;
+        function add() {
+            let number1 = +document.getElementById("in1").value;
+            let number2 = +document.getElementById("in2").value;
+            document.getElementById("result").innerHTML = number1 + number2;
         }
 
-        function subtraction() {
-            let a = document.getElementById("in1").value;
-            let b = document.getElementById("in2").value;
-            c = parseInt(a);
-            d = parseInt(b);
-            let h = c - d;
-            document.getElementById("result").innerHTML = h;
+        function subtract() {
+            let number1 = +document.getElementById("in1").value;
+            let number2 = +document.getElementById("in2").value;
+            document.getElementById("result").innerHTML = number1 - number2;
         }
 
-        function multiplication() {
-            let a = document.getElementById("in1").value;
-            let b = document.getElementById("in2").value;
-            c = parseInt(a);
-            d = parseInt(b);
-            let n = c*d;
-            document.getElementById("result").innerHTML = n;
+        function multiply() {
+            let number1 = +document.getElementById("in1").value;
+            let number2 = +document.getElementById("in2").value;
+            document.getElementById("result").innerHTML = number1 * number2;
         }
 
-        function division() {
-            let a = document.getElementById("in1").value;
-            let b = document.getElementById("in2").value;
-            c = parseInt(a);
-            d = parseInt(b);
-            let m = c/d;
-            document.getElementById("result").innerHTML = m;
+        function divide() {
+            let number1 = +document.getElementById("in1").value;
+            let number2 = +document.getElementById("in2").value;
+            document.getElementById("result").innerHTML = number1 / number2;
         }
 
     </script>

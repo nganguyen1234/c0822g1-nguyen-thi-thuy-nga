@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng máy tính</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="4"> Caculator</th>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="text" id="in1" placeholder="nhập số thứ nhất"></td>
+        <td colspan="2"><input type="text" id="in2" placeholder="nhập số thứ hai"></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" onclick="addition()">Addition(+)</button>
+        </td>
+        <td>
+            <button type="button" onclick="subtraction()">Subtraction(-)</button>
+        </td>
+        <td>
+            <button type="button" onclick="multiplication()">Multiplication(X)</button>
+        </td>
+        <td>
+            <button type="button" onclick="division()">Division(/)</button>
+        </td>
+    </tr>
+    <tr>
+        <div id="result"></div>
+    </tr>
+
+    <script>
+
+        function addition() {
+            let a = document.getElementById("in1").value;
+            let b = document.getElementById("in2").value;
+            c = parseInt(a);
+            d = parseInt(b);
+            let t = c + d
+            document.getElementById("result").innerHTML = t;
+        }
+
+        function subtraction() {
+            let a = document.getElementById("in1").value;
+            let b = document.getElementById("in2").value;
+            c = parseInt(a);
+            d = parseInt(b);
+            let h = c - d;
+            document.getElementById("result").innerHTML = h;
+        }
+
+        function multiplication() {
+            let a = document.getElementById("in1").value;
+            let b = document.getElementById("in2").value;
+            c = parseInt(a);
+            d = parseInt(b);
+            let n = c*d;
+            document.getElementById("result").innerHTML = n;
+        }
+
+        function division() {
+            let a = document.getElementById("in1").value;
+            let b = document.getElementById("in2").value;
+            c = parseInt(a);
+            d = parseInt(b);
+            let m = c/d;
+            document.getElementById("result").innerHTML = m;
+        }
+
+    </script>
+</table>
+</body>
+</html>

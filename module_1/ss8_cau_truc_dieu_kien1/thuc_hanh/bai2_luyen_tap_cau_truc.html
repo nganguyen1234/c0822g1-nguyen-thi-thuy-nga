@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc</title>
+</head>
+<body>
+<p>What is the "official" name of Javascript?</p>
+<input type="text" id="input" placeholder="Answer">
+<button type="button" onclick="test()">Submit</button>
+<script>
+    function test() {
+        let input = document.getElementById("input").value;
+        if (input === "ECMAScript") {
+            alert("Right!");
+        } else {
+            alert("Didn’t know? ECMAScript!");
+        }
+    }
+</script>
+</body>
+</html>

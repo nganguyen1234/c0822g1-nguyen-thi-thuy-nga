@@ -6,11 +6,10 @@
 </head>
 <body>
  <script>
-     let a = prompt("nhập bán kính của hình tròn");
-     let r = parseInt(a);
-     let s = a * a * 3.14;
-     let p = 2 * 3.14 * r
-     document.write("diện tích hình tròn là " + s + " chu vi hình tròn là " + p);
+     let r = +prompt("nhập bán kính của hình tròn");
+     let dienTich = r * r * 3.14;
+     let chuVi = 2 * 3.14 * r;
+     document.write("diện tích hình tròn là " + dienTich + " chu vi hình tròn là " + chuVi);
  </script>
 </body>
 </html>

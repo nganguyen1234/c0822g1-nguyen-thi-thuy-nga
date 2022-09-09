@@ -6,16 +6,14 @@
 </head>
 <body>
 <script>
-    let a = prompt("nhap diem ly");
-    let b = prompt("nhap diem hoa");
-    let c = prompt("nhap diem sinh");
-    let ly = parseInt(a)
-    let hoa = parseInt(b)
-    let sinh = parseInt(c)
-    let d = (ly + hoa + sinh)/3;
-    let f = (ly + hoa + sinh);
+    let diemLy = +prompt("nhap diem ly");
+    let diemHoa= +prompt("nhap diem hoa");
+    let diemSinh = +prompt("nhap diem sinh");
+    let average = (diemLy + diemHoa + diemSinh)/3;
+    let sum = (diemLy + diemHoa + diemSinh);
 
-    document.write("Điểm trung bình của ba môn là:" + d + " và tổng của ba môn là:" + f)
+
+    document.write("Điểm trung bình của ba môn là:" + average + " và tổng của ba môn là:" + sum)
 </script>
 </body>
 </html>

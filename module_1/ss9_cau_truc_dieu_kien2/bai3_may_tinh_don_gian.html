@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính đơn giản</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><input type="text" id="input"></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" value="1" onclick="result(1)">1</button>
+        </td>
+        <td>
+            <button type="button" value="2" onclick="result(2)">2</button>
+        </td>
+        <td>
+            <button type="button" value="3" onclick="result(3)">3</button>
+        </td>
+        <td>
+            <button type="button" value="+" onclick="add()">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" value="4" onclick="result(4)">4</button>
+        </td>
+        <td>
+            <button type="button" value="5" onclick="result(5)">5</button>
+        </td>
+        <td>
+            <button type="button" value="6" onclick="result(6)">6</button>
+        </td>
+        <td>
+            <button type="button" value="-" onclick="subtract()">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" value="7" onclick="result(7)">7</button>
+        </td>
+        <td>
+            <button type="button" value="8" onclick="result(8)">8</button>
+        </td>
+        <td>
+            <button type="button" value="9" onclick="result(9)">9</button>
+        </td>
+        <td>
+            <button type="button" value="*" onclick="multiply()">x</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" value="C" onclick="xoa()">C</button>
+        </td>
+        <td>
+            <button type="button" value="0" onclick="result(0)">0</button>
+        </td>
+        <td>
+            <button type="button" value="=" onclick="final()">=</button>
+        </td>
+        <td>
+            <button type="button" value="/" onclick="divide()">/</button>
+        </td>
+    </tr>
+
+
+</table>
+<script>
+    let number
+
+    function result(number) {
+        document.getElementById("input").value += number;
+    };
+
+    function add() {
+        document.getElementById("input").value += " + "
+    }
+
+    function substract() {
+        document.getElementById("input").value += " - "
+    }
+
+    function multiply() {
+        document.getElementById("input").value += " * "
+    }
+
+    function divide() {
+        document.getElementById("input").value += " / "
+    }
+
+    function final() {
+        let str = document.getElementById("input").value;
+        document.getElementById("input").value = eval(str);
+    }
+    function xoa() {
+        document.getElementById("input").value = " "
+    }
+</script>
+</body>
+</html>

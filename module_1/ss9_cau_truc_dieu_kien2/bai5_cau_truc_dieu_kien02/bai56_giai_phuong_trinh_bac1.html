@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giải phương trình bậc 1</title>
+</head>
+<body>
+<h3>nhap vao a,b trong phương trình : ax + b = 0</h3>
+a = <input type="text" id="number1">
+<br>
+b = <input type="text" id="number2">
+<button type="button" onclick="calculate()">OK</button>
+<div id="result"></div>
+<script>
+    function calculate() {
+let number1 = +document.getElementById("number1").value;
+let number2 = +document.getElementById("number2").value;
+
+        if (number1 === 0) {
+            if (number2 === 0) {
+                document.getElementById("result").innerHTML = "phương trình có vô số nghiệm";
+            } else {
+                document.getElementById("result").innerHTML = "phương trình vô nghiệm";
+            }
+        } else {
+            document.getElementById("result").innerHTML = "phương trình có nghiệm là: x = " + (-number2 / number1);
+        }
+    }
+</script>
+</body>
+</html>

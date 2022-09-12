@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm số lớn nhất trong 3 số</title>
+</head>
+<body>
+<h3>Nhập vào số thứ nhất</h3>
+<input type="text" id="number1">
+<h3>Nhập vào số thứ hai</h3>
+<input type="text" id="number2">
+<h3>Nhập vào số thứ ba</h3>
+<input type="text" id="number3">
+<br>
+<button type="button" onclick="test()">OK</button>
+<div id="result"></div>
+<script>
+    function test() {
+        let number1 = +document.getElementById("number1").value;
+        let number2 = +document.getElementById("number2").value;
+        let number3 = +document.getElementById("number3").value;
+        if (number1 > number2 && number1 > number3) {
+            document.getElementById("result").innerHTML = number1 + " là số lớn nhất";
+        } else if (number2 > number3) {
+            document.getElementById("result").innerHTML = number2 + " là số lớn nhất";
+        } else {
+            document.getElementById("result").innerHTML = number3 + " là số lớn nhất";
+        }
+
+    }
+
+</script>
+</body>
+</html>

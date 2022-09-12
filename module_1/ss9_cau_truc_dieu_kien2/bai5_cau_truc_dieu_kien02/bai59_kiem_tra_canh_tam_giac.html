@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra ba cạnh của tam giác</title>
+</head>
+<body>
+<h3>nhập vào ba số a, b, c</h3>
+a = <input type="text" id="number1">
+<br>
+b = <input type="text" id="number2">
+<br>
+c = <input type="text" id="number3">
+<button type="button" onclick="test()">OK</button>
+<div id="result"></div>
+<script>
+    function test() {
+        let number1 = +document.getElementById("number1").value;
+        let number2 = +document.getElementById("number2").value;
+        let number3 = +document.getElementById("number3").value;
+        if (number1 > 0 && number2 > 0 && number3 > 0) {
+            if (number1 + number2 > number3 &&
+                number2 + number3 > number1 &&
+                number1 + number3 > number2 ) {
+                document.getElementById("result").innerHTML = "ba số là cạnh của một tam giác"
+            } else {
+                document.getElementById("result").innerHTML = "ba số không phải là cạnh của một tam giác"
+            }
+        } else {
+            document.getElementById("result").innerHTML = "ba số không phải là cạnh của một tam giác"
+        }
+    }
+</script>
+</body>
+</html>

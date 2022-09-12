@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyển từ mét sang feet</title>
+</head>
+<body>
+<h3>nhập số mét</h3>
+<input type="text" id="number"> mét
+<span>=</span>
+<input type="text" id="result"> feet
+<button type="button" onclick="calculate()">OK</button>
+<script>
+    function calculate(){
+        let number = +document.getElementById("number").value;
+        document.getElementById("result").value = number * 3.2808;
+    }
+    </script>
+</body>
+</html>

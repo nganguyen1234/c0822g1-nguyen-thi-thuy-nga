@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính diện tích hình chữ nhật</title>
+</head>
+<body>
+<h3> nhập chiều dài hình chữ nhật</h3>
+<input type="text" id="chieuDai">
+<h3> nhập chiều rộng hình chữ nhật</h3>
+<input type="text" id="chieuRong">
+<button type="button" onclick="calculate()">OK</button>
+<div id="result"></div>
+<script>
+    function calculate(){
+    let chieuDai = +document.getElementById("chieuDai").value;
+    let chieuRong = +document.getElementById("chieuRong").value;
+    document.getElementById("result").innerHTML = "diện tích hình chữ nhật là : " + chieuDai * chieuRong;
+    }
+</script>
+</body>
+</html>

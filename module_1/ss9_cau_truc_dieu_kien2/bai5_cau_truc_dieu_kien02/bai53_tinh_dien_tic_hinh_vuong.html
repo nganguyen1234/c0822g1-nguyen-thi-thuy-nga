@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính diện tích hình vuông</title>
+</head>
+<body>
+<h3>nhập cạnh hình vuông</h3>
+<input type="text" id="canh">
+<button type="button" onclick="calculate()">OK</button>
+<div id="result"></div>
+<script>
+    function calculate(){
+        let canh = +document.getElementById("canh").value;
+        document.getElementById("result").innerHTML = "diện tích hình vuông là : " + canh * canh;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính lãi ngân hàng</title>
+</head>
+<body>
+<h3> nhập số tiền gốc</h3>
+<input type="text" id="tienGoc">
+<h3>nhập lãi suất hằng tháng</h3>
+<input type="text" id="lai">
+<h3>nhập số tháng cho vay</h3>
+<input type="text" id="thang">
+<button type="button" onclick="calculate()">OK</button>
+<div id="result"></div>
+<script>
+    function calculate() {
+let tienGoc = +document.getElementById("tienGoc").value;
+let lai = +document.getElementById("lai").value;
+let thang = +document.getElementById("thang").value;
+document.getElementById("result").innerHTML = "lãi ngân hàng sau " + thang +" thang la: " + (tienGoc*(1+lai*thang/100) - tienGoc);
+    }
+</script>
+</body>
+</html>

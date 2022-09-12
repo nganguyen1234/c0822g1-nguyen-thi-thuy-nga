@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyển độ C qua độ F</title>
+</head>
+<body>
+<h3>nhập độ C</h3>
+<input type="text" id="doC">C
+<span>=</span>
+<input type="text" id="result">F
+<button type="button" onclick="calculate()">OK</button>
+<script>
+    function calculate(){
+    let doC = +document.getElementById("doC").value;
+        document.getElementById("result").value = doC * 9 / 5 + 32;
+    }
+</script>
+</body>
+</html>

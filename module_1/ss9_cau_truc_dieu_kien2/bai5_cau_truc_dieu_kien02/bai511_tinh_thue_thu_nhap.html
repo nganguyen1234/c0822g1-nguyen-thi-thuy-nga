@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<h3> nhập mức lương</h3>
+<input type="text" id="salary">
+<button type="button" onclick="calculate()">OK</button>
+<div id="result"></div>
+<script>
+    function calculate() {
+        let salary = +document.getElementById("salary").value;
+        if (salary <= 4000000) {
+            document.getElementById("result").innerHTML = "thuế thu nhập cá nhân là 0%";
+        } else if (salary <= 6000000) {
+            document.getElementById("result").innerHTML = "thuế thu nhập cá nhân là 5% tương đương: " + salary * 5 / 100;
+        } else if (salary <= 9000000) {
+            document.getElementById("result").innerHTML = "thuế thu nhập cá nhân là 10% tương đương: " + salary * 10 / 100;
+        } else if (salary <= 14000000) {
+            document.getElementById("result").innerHTML = "thuế thu nhập cá nhân là 15% tương đương: " + salary * 15 / 100;
+        } else {
+            document.getElementById("result").innerHTML = "thuế thu nhập cá nhân là 20% tương đương: " + salary * 20 / 100;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra chia hết</title>
+</head>
+<body>
+<h3>Nhập vào số thứ nhất</h3>
+<input type="text" id="number1">
+<h3>Nhập vào số thứ hai</h3>
+<input type="text" id="number2">
+<br>
+<button type="button" onclick="test()">OK</button>
+<div id="result"></div>
+<script>
+    function test() {
+        let number1 = +document.getElementById("number1").value;
+        let number2 = +document.getElementById("number2").value;
+        if (number1 % number2 === 0){
+            document.getElementById("result").innerHTML = "a chia hết cho b";
+        } else {
+            document.getElementById("result").innerHTML = "a không chia hết cho b";
+        }
+
+    }
+</script>
+
+</body>
+</html>

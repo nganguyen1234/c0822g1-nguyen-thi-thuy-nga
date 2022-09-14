@@ -8,10 +8,10 @@
 <h3>Nhập vào một số</h3>
 <input type="text" id="number">
 <br>
-<button type="button" onclick="test()">OK</button>
+<button type="button" onclick="soSanh()">OK</button>
 <div id="result"></div>
 <script>
-    function test() {
+    function soSanh() {
         let number = +document.getElementById("number").value;
         switch (true) {
             case number > 0:
@@ -20,8 +20,8 @@
             case number < 0 :
                 document.getElementById("result").innerHTML = number + " bé hơn 0";
                 break;
-
-        }}
+        }
+    }
 </script>
 </body>
 </html>

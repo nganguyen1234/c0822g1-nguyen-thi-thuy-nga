@@ -9,10 +9,10 @@
 <input type="text" id="canh1">
 <h3> nhập độ dài cạnh góc vuông thứ hai</h3>
 <input type="text" id="canh2">
-<button type="button" onclick="calculate()">OK</button>
+<button type="button" onclick="tinhDienTich()">OK</button>
 <div id="result"></div>
 <script>
-    function calculate(){
+    function tinhDienTich() {
         let canh1 = +document.getElementById("canh1").value;
         let canh2 = +document.getElementById("canh2").value;
         document.getElementById("result").innerHTML = "diện tích tam giác vuông là : " + canh1 * canh2 / 2;

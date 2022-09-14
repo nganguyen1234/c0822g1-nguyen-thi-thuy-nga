@@ -7,18 +7,18 @@
 <body>
 <h3>Nhập doanh số kinh doanh tháng này:</h3>
 <input type="text" id="sales">
-<button type="button" onclick="caculate()">OK</button>
+<button type="button" onclick="tinhHoaHong()">OK</button>
 <div id="result"></div>
 <script>
-    function caculate() {
-let sales = +document.getElementById("sales").value;
-if (sales <= 400000) {
-    document.getElementById("result").innerHTML = " mức hoa hồng là 5% và số tiền hoa hồng là: " + sales * 5 / 100 ;
-} else if(sales <= 600000) {
-    document.getElementById("result").innerHTML = " mức hoa hồng là 10% và số tiền hoa hồng là: " + sales * 10 / 100;
-}  else{
-    document.getElementById("result").innerHTML = " mức hoa hồng là 15% và số tiền hoa hồng là: " + sales * 15 /100;
-}
+    function tinhHoaHong() {
+        let sales = +document.getElementById("sales").value;
+        if (sales <= 400000) {
+            document.getElementById("result").innerHTML = " mức hoa hồng là 5% và số tiền hoa hồng là: " + sales * 5 / 100;
+        } else if (sales <= 600000) {
+            document.getElementById("result").innerHTML = " mức hoa hồng là 10% và số tiền hoa hồng là: " + sales * 10 / 100;
+        } else {
+            document.getElementById("result").innerHTML = " mức hoa hồng là 15% và số tiền hoa hồng là: " + sales * 15 / 100;
+        }
     }
 </script>
 </body>

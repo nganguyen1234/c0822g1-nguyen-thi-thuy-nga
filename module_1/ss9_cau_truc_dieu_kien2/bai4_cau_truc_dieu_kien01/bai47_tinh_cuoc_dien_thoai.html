@@ -9,17 +9,17 @@
 <input type="text" id="number">
 <h3>số tiền phải trả</h3>
 <input type="text" id="payment">
-<button type="button" onclick="calculate()">Ok</button>
+<button type="button" onclick="tinhCuoc()">Ok</button>
 <script>
-    function calculate() {
-let number = +document.getElementById("number").value;
-if (number <= 50){
-    document.getElementById("payment").value = 25 + number * 600;
-} else if(number <= 200) {
-    document.getElementById("payment").value = 25 + 50 * 600 + (number - 50) * 400 ;
-} else {
-    document.getElementById("payment").value = 25 + 50 * 600 + 150 * 400 + (number - 200) * 200 ;
-}
+    function tinhCuoc() {
+        let number = +document.getElementById("number").value;
+        if (number <= 50) {
+            document.getElementById("payment").value = 25 + number * 600;
+        } else if (number <= 200) {
+            document.getElementById("payment").value = 25 + 50 * 600 + (number - 50) * 400;
+        } else {
+            document.getElementById("payment").value = 25 + 50 * 600 + 150 * 400 + (number - 200) * 200;
+        }
     }
 </script>
 </body>

@@ -7,16 +7,16 @@
 <body>
 <h3> nhập số tuổi</h3>
 <input type="text" id="age">
-<button type="button" onclick="test()">OK</button>
+<button type="button" onclick="soSanhTuoi()">OK</button>
 <div id="result"></div>
 <script>
-    function test() {
-    let age = +document.getElementById("age").value;
-    if(age < 120 && age > 0){
-      document.getElementById("result").innerHTML = age + " là tuổi của một người";
+    function soSanhTuoi() {
+        let age = +document.getElementById("age").value;
+        if (age < 120 && age > 0) {
+            document.getElementById("result").innerHTML = age + " là tuổi của một người";
         } else {
-        document.getElementById("result").innerHTML = age + " không phải là tuổi của một người";
-    }
+            document.getElementById("result").innerHTML = age + " không phải là tuổi của một người";
+        }
     }
 </script>
 </body>

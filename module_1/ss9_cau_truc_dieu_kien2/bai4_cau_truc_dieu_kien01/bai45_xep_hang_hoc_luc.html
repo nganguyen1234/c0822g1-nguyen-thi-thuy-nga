@@ -7,7 +7,7 @@
 <body>
 <table>
     <tr>
-       <td></td>
+        <td></td>
         <th> Điểm toán</th>
         <th> Điểm văn</th>
         <th> Điểm anh</th>
@@ -18,63 +18,65 @@
         <td><input type="number" id="diemVan1"></td>
         <td><input type="number" id="diemAnh1"></td>
     </tr>
-<tr>
-    <th>Điểm giữa kì</th>
-    <td><input type="number" id="diemToan2"></td>
-    <td><input type="number" id="diemVan2"></td>
-    <td><input type="number" id="diemAnh2"></td>
-</tr>
     <tr>
-    <th>Điểm cuối kì</th>
-    <td><input type="number" id="diemToan3"></td>
-    <td><input type="number" id="diemVan3"></td>
-    <td><input type="number" id="diemAnh3"></td>
-</tr>
+        <th>Điểm giữa kì</th>
+        <td><input type="number" id="diemToan2"></td>
+        <td><input type="number" id="diemVan2"></td>
+        <td><input type="number" id="diemAnh2"></td>
+    </tr>
     <tr>
-    <th>Trung bình môn</th>
-    <td><input type="number" id="diemToan4"></td>
-    <td><input type="number" id="diemVan4"></td>
-    <td><input type="number" id="diemAnh4"></td>
-</tr>
+        <th>Điểm cuối kì</th>
+        <td><input type="number" id="diemToan3"></td>
+        <td><input type="number" id="diemVan3"></td>
+        <td><input type="number" id="diemAnh3"></td>
+    </tr>
+    <tr>
+        <th>Trung bình môn</th>
+        <td><input type="number" id="diemToan4"></td>
+        <td><input type="number" id="diemVan4"></td>
+        <td><input type="number" id="diemAnh4"></td>
+    </tr>
     <tr>
         <td>Tổng</td>
         <td colspan="3"><input type="text" id="total"></td>
     </tr>
     <tr>
-        <td> <button type="button" onclick="caculate()">ok</button> </td>
+        <td>
+            <button type="button" onclick="tinhDiem()">ok</button>
+        </td>
         <td id="result"></td>
     </tr>
 
-<script>
-    function caculate() {
-let diemToan1 = +document.getElementById("diemToan1").value;
-let diemToan2 = +document.getElementById("diemToan2").value;
-let diemToan3 = +document.getElementById("diemToan3").value;
-let diemVan1 = +document.getElementById("diemVan1").value;
-let diemVan2 = +document.getElementById("diemVan2").value;
-let diemVan3 = +document.getElementById("diemVan3").value;
-let diemAnh1 = +document.getElementById("diemAnh1").value;
-let diemAnh2 = +document.getElementById("diemAnh2").value;
-let diemAnh3 = +document.getElementById("diemAnh3").value;
-let diemToan4 = (diemToan1 + diemToan2 * 2 + diemToan3 * 3)/6;
-document.getElementById("diemToan4").value = diemToan4;
-let diemVan4 = (diemVan1 + diemVan2 * 2 + diemVan3 * 3)/6;
-document.getElementById("diemVan4").value = diemVan4;
-let diemAnh4 = (diemAnh1 + diemAnh2 * 2 + diemAnh3 * 3)/6;
-document.getElementById("diemAnh4").value = diemAnh4;
-let total = (diemToan4 + diemVan4 + diemAnh4)/3;
-document.getElementById("total").value = total;
-if (total >= 8) {
-    document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh giỏi"
-} else if(total >= 6.5) {
-    document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh khá"
-} else {
-    document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh trung bình"
-}
+    <script>
+        function tinhDiem() {
+            let diemToan1 = +document.getElementById("diemToan1").value;
+            let diemToan2 = +document.getElementById("diemToan2").value;
+            let diemToan3 = +document.getElementById("diemToan3").value;
+            let diemVan1 = +document.getElementById("diemVan1").value;
+            let diemVan2 = +document.getElementById("diemVan2").value;
+            let diemVan3 = +document.getElementById("diemVan3").value;
+            let diemAnh1 = +document.getElementById("diemAnh1").value;
+            let diemAnh2 = +document.getElementById("diemAnh2").value;
+            let diemAnh3 = +document.getElementById("diemAnh3").value;
+            let diemToan4 = (diemToan1 + diemToan2 * 2 + diemToan3 * 3) / 6;
+            document.getElementById("diemToan4").value = diemToan4;
+            let diemVan4 = (diemVan1 + diemVan2 * 2 + diemVan3 * 3) / 6;
+            document.getElementById("diemVan4").value = diemVan4;
+            let diemAnh4 = (diemAnh1 + diemAnh2 * 2 + diemAnh3 * 3) / 6;
+            document.getElementById("diemAnh4").value = diemAnh4;
+            let total = (diemToan4 + diemVan4 + diemAnh4) / 3;
+            document.getElementById("total").value = total;
+            if (total >= 8) {
+                document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh giỏi";
+            } else if (total >= 6.5) {
+                document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh khá";
+            } else {
+                document.getElementById("result").innerHTML = "học sinh đạt danh hiệu học sinh trung bình";
+            }
 
 
-    }
-</script>
+        }
+    </script>
 
 
 </table>

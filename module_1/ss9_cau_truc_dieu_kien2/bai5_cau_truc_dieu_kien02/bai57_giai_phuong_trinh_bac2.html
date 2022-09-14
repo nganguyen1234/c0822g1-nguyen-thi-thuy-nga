@@ -11,10 +11,10 @@ a = <input type="text" id="number1">
 b = <input type="text" id="number2">
 <br>
 c = <input type="text" id="number3">
-<button type="button" onclick="calculate()">OK</button>
+<button type="button" onclick="giaiPhuongTrinh()">OK</button>
 <div id="result"></div>
 <script>
-    function calculate() {
+    function giaiPhuongTrinh() {
         let number1 = +document.getElementById("number1").value;
         let number2 = +document.getElementById("number2").value;
         let number3 = +document.getElementById("number3").value;
@@ -28,7 +28,7 @@ c = <input type="text" id="number3">
                 document.getElementById("result").innerHTML = "phương trình có nghiệm kép là: x = " + (-number2 / (2 * number1));
             }
         } else {
-            document.getElementById("result").innerHTML = "phương trình không phải phương trình bậc 2"
+            document.getElementById("result").innerHTML = "phương trình không phải phương trình bậc 2";
         }
     }
 

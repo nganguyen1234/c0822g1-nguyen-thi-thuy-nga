@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính lãi ngân hàng</title>
+</head>
+<body>
+<script>
+    let tienGoc = +prompt("nhập số tiền ban đầu");
+    let thang = +prompt("nhập số tháng cho vay");
+    let laiSuat = +prompt("nhập lãi suất hàng tháng");
+    let tienLai = 0;
+    for (let i = 1; i <= thang; i++) {
+        tienLai = (tienLai + tienGoc) * laiSuat / 100;
+    }
+    document.write(tienLai);
+</script>
+</body>
+</html>

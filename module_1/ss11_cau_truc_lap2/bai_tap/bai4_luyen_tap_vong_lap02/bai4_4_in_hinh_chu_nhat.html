@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in hình chữ nhật</title>
+</head>
+<body>
+<script>
+    let hinh = "<table>";
+    for (let i = 1; i <= 7;) {
+        while (i === 1 || i === 7) {
+            hinh += "<tr>";
+            for (let j = 1; j <= 21; j++) {
+                hinh += "<td>*</td>"
+            }
+            hinh += "</tr>";
+            i++;
+        }
+        while (i < 7 && i > 1) {
+            hinh += "<tr>";
+            hinh += "<td>*</td>";
+            for (let k = 2; k < 21; k++) {
+                hinh += "<td></td>";
+            }
+            hinh += "<td>*</td>";
+            i++;
+        }
+        hinh += "</tr>";
+    }
+    hinh += "</table>";
+    document.write(hinh);
+
+</script>
+</body>
+</html>

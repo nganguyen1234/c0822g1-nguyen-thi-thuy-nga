@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in tam giác vuông</title>
+</head>
+<body>
+<script>
+    let hinh1 = "<table>";
+    for (let i = 1; i <= 5; i++) {
+        hinh1 += "<tr>";
+        let soSao = 1;
+        while (soSao <= i) {
+            hinh1 += "<td>*</td>";
+            soSao++;
+        }
+        hinh1 += "</tr>";
+    }
+    hinh1 += "</table>";
+    document.write(hinh1 + "<br>");
+
+
+    let hinh2 = "<table>";
+    for (let i = 5; i >= 1; i--) {
+        hinh2 += "<tr>";
+        let soSao = 1;
+        while (soSao <= i) {
+            hinh2 += "<td>*</td>";
+            soSao++;
+        }
+        hinh2 += "</tr>";
+    }
+    hinh2 += "</table>";
+    document.write(hinh2 + "<br>");
+
+
+    let hinh3 = "<table>";
+    for (let i = 1; i <= 5; i++) {
+        hinh3 += "<tr>";
+        let khoangTrang = 0;
+        while (khoangTrang < 5 - i) {
+            hinh3 += "<td></td>";
+            khoangTrang++;
+        }
+        let soSao = 1;
+        while (soSao <= i) {
+            hinh3 += "<td>*</td>";
+            soSao++;
+        }
+        hinh3 += "</tr>";
+    }
+    hinh3 += "</table>";
+    document.write(hinh3 + "<br>");
+
+
+    let hinh4 = "<table>";
+    for (let i = 5; i >= 1; i--) {
+        hinh4 += "<tr>";
+        let khoangTrang = 0;
+        while (khoangTrang < 5 - i) {
+            hinh4 += "<td></td>";
+            khoangTrang++;
+        }
+        let soSao = 1;
+        while (soSao <= i) {
+            hinh4 += "<td>*</td>";
+            soSao++;
+        }
+        hinh4 += "</tr>";
+    }
+    hinh4 += "</table>";
+    document.write(hinh4);
+
+
+</script>
+</body>
+</html>

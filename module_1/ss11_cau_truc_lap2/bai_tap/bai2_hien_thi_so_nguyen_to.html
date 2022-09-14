@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hiển thị các số nguyên tố</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let numbers = +prompt("nhập số lượng giá trị cần tìm");
+    let dem = 0;
+    let N = 2;
+    let text = " ";
+    while (dem < numbers) {
+      let  count=0;
+        for (let i = 2; i < N; i++) {
+            if (N % i === 0) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            text = text + N + " ";
+            dem++;
+        }
+        N++;
+
+    }
+    document.getElementById("result").innerHTML = text;
+</script>
+</body>
+</html>

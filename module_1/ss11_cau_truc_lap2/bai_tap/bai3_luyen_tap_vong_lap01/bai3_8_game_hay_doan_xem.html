@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game "hãy thử đoán xem"</title>
+</head>
+<body>
+<button type="button" onclick="play()">Chơi</button>
+<script>
+    function play() {
+        let gioiHan = +prompt("khoảng kết thúc tại:");
+        let soRandom = Math.floor(Math.random() * gioiHan);
+        let soDoan = +prompt("nhập số bạn muốn đoán");
+        while (soDoan < soRandom || soDoan > soRandom) {
+            if (soDoan < soRandom) {
+                alert("số bạn đoán bé hơn giá trị cần tìm");
+            }
+            if (soDoan > soRandom) {
+                alert("số bạn đoán lớn hơn giá trị cần tìm");
+            }
+            soDoan = +prompt("nhập số bạn muốn đoán");
+        }
+        if (soDoan === soRandom) {
+            alert("chúc mừng bạn đã đoán đúng");
+        }
+    }
+</script>
+</body>
+</html>

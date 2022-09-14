@@ -6,30 +6,16 @@
 </head>
 <body>
 <script>
-    let hinh = "<table>";
-    for (let i = 1; i <= 7;) {
-        while (i === 1 || i === 7) {
-            hinh += "<tr>";
-            for (let j = 1; j <= 21; j++) {
-                hinh += "<td>*</td>"
+    for (let i = 1; i <= 7; i++) {
+        for (let j = 1; j <= 21; j++) {
+            if (i === 1 || i === 7 || j === 1 || j === 21) {
+                document.write("*");
+            } else {
+                document.write("&nbsp&nbsp");
             }
-            hinh += "</tr>";
-            i++;
         }
-        while (i < 7 && i > 1) {
-            hinh += "<tr>";
-            hinh += "<td>*</td>";
-            for (let k = 2; k < 21; k++) {
-                hinh += "<td></td>";
-            }
-            hinh += "<td>*</td>";
-            i++;
-        }
-        hinh += "</tr>";
+        document.write("<br>");
     }
-    hinh += "</table>";
-    document.write(hinh);
-
 </script>
 </body>
 </html>

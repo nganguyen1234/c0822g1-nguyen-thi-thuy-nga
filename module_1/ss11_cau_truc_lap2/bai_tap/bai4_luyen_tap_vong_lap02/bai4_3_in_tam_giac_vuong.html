@@ -6,71 +6,45 @@
 </head>
 <body>
 <script>
-    let hinh1 = "<table>";
     for (let i = 1; i <= 5; i++) {
-        hinh1 += "<tr>";
-        let soSao = 1;
-        while (soSao <= i) {
-            hinh1 += "<td>*</td>";
-            soSao++;
+        for (let j = 1; j <= i; j++) {
+            document.write("*");
         }
-        hinh1 += "</tr>";
+        document.write("<br>");
     }
-    hinh1 += "</table>";
-    document.write(hinh1 + "<br>");
-
-
-    let hinh2 = "<table>";
-    for (let i = 5; i >= 1; i--) {
-        hinh2 += "<tr>";
-        let soSao = 1;
-        while (soSao <= i) {
-            hinh2 += "<td>*</td>";
-            soSao++;
-        }
-        hinh2 += "</tr>";
-    }
-    hinh2 += "</table>";
-    document.write(hinh2 + "<br>");
-
-
-    let hinh3 = "<table>";
+    document.write("<br>");
     for (let i = 1; i <= 5; i++) {
-        hinh3 += "<tr>";
-        let khoangTrang = 0;
-        while (khoangTrang < 5 - i) {
-            hinh3 += "<td></td>";
-            khoangTrang++;
+        for (let j = 5; j >= i; j--) {
+            document.write("*");
         }
-        let soSao = 1;
-        while (soSao <= i) {
-            hinh3 += "<td>*</td>";
-            soSao++;
-        }
-        hinh3 += "</tr>";
+        document.write("<br>");
     }
-    hinh3 += "</table>";
-    document.write(hinh3 + "<br>");
+    document.write("<br>");
 
-
-    let hinh4 = "<table>";
-    for (let i = 5; i >= 1; i--) {
-        hinh4 += "<tr>";
-        let khoangTrang = 0;
-        while (khoangTrang < 5 - i) {
-            hinh4 += "<td></td>";
-            khoangTrang++;
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 5; j++) {
+            if (j <= 5 - i) {
+                document.write("&nbsp&nbsp");
+            } else {
+                document.write("*");
+            }
         }
-        let soSao = 1;
-        while (soSao <= i) {
-            hinh4 += "<td>*</td>";
-            soSao++;
-        }
-        hinh4 += "</tr>";
+        document.write("<br>");
     }
-    hinh4 += "</table>";
-    document.write(hinh4);
+    document.write("<br>");
 
+
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 5; j++) {
+            if (j < i) {
+                document.write("&nbsp&nbsp");
+            } else {
+                document.write("*");
+            }
+        }
+        document.write("<br>");
+    }
+    document.write("<br>");
 
 </script>
 </body>

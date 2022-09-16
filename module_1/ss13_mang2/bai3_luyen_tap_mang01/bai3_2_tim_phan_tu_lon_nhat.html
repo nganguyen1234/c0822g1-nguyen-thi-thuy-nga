@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm phần tử lớn nhất trong mảng</title>
+</head>
+<body>
+<script>
+    let numberArray = [12, 13, 45, 34, 25, 67, 56, 87, 59, 90];
+    let index = 0;
+    let max = numberArray[0];
+    for (let i = 0; i < numberArray.length; i++) {
+        if (numberArray[i] > max) {
+            max = numberArray[i];
+            index = i;
+        }
+    }
+    document.write("phần tử có giá trị lớn nhất trong mảng là " + max + " và phần tử có vị trí là: " + index);
+</script>
+</body>
+</html>

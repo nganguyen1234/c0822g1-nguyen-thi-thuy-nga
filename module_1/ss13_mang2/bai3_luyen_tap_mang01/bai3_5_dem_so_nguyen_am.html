@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đếm số nguyên âm trong chuỗi</title>
+</head>
+<body>
+<script>
+    let string = prompt('nhập vào một chuỗi');
+    let nguyenAm = "euoaiEUOAI";
+    let count = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (nguyenAm.indexOf(string[i]) !== -1) {
+            count++;
+        }
+    }
+    document.write("số nguyên âm trong chuỗi trên là: " + count)
+</script>
+</body>
+</html>

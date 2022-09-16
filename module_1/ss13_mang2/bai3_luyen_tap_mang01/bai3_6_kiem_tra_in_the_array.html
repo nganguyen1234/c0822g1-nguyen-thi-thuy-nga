@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra một số thuộc mảng hay không</title>
+</head>
+<body>
+<script>
+    let numberArray = [];
+    for (let i = 0; i < 10; i++) {
+        numberArray[i] = +prompt("nhập vào giá trị thứ " + (i + 1));
+    }
+    let so = +prompt("nhập vào một số nguyên");
+    if (numberArray.indexOf(so) !== -1) {
+        alert(" V is in the array");
+    } else {
+        alert(" V is not in the array");
+    }
+
+</script>
+</body>
+</html>

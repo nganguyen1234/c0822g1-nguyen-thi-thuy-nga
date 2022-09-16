@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="rs"></p>
+<script>
+    let check = true;
+    let array = new Array(10);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = new Array(10);
+        for (let j = 0; j < array[i].length; j++) {
+            array[i][j] = "";
+        }
+    }
+    display();
+
+    function display() {
+        let tableString = '<table border="1">';
+        for (let i = 0; i < 10; i++) {
+            tableString += ' <tr>';
+            for (let j = 0; j < 10; j++) {
+                tableString += ' <td onclick="play(' + i + ',' + j + ')" style="width:30px;height: 30px">' + array[i][j] + '</td>';
+            }
+            tableString += '</tr>';
+        }
+        tableString += '</table>'
+        document.getElementById("rs").innerHTML = tableString;
+    }
+
+    function play(i, j) {
+        if (check === true && array[i][j] === "") {
+            array[i][j] = "X";
+            check = false;
+        } else if (check === false && array[i][j] === "") {
+            array[i][j] = "0";
+            check = true;
+        }
+        display()
+    }
+
+</script>
+</body>
+</html>

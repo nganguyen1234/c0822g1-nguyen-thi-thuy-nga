@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thêm và hiển thị các phần tử trong một mảng</title>
+</head>
+<body>
+<h3>Sample Screen:</h3>
+<input type="text" id="input">
+<button type="button" onclick="add()">Add</button>
+<button type="button" onclick="display()">Display</button>
+<div id="output"></div>
+<script>
+    let i = 0;
+    let array = [];
+
+    function add() {
+        array[i] = +document.getElementById("input").value;
+        alert("phần tử số " + i + " là " + array[i]);
+        i++;
+        document.getElementById("input").value = " ";
+    }
+
+    function display() {
+        let text = "";
+        for (let j = 0; j < array.length; j++) {
+            text += "phần tử số " + j + " là " + array[j] + "<br>";
+        }
+        document.getElementById("output").innerHTML = text;
+    }
+</script>
+</body>
+</html>

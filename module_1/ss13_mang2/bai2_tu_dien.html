@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>từ điển</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let text = prompt("nhập từ bạn cần tìm");
+    let english = ["apple", "banana", "mango", "watermelon", "toy", "doll"];
+    let tiengViet = ["táo", "chuối", "xoài", "dưa hấu", "đồ chơi", "búp bê"];
+
+    if (english.indexOf(text) !== -1) {
+        let index = english.indexOf(text);
+        document.getElementById("result").innerHTML = tiengViet[index];
+    } else {
+        alert("không tìm thấy từ cần tìm");
+    }
+
+
+</script>
+</body>
+</html>

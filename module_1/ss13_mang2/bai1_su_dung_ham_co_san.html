@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nối các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+    document.write(myColor.toString());
+    document.write("<br>");
+    let number = +prompt("nhập vào một số");
+    let string = number.toString();
+    let result = [string[0]];
+    for (let i = 1; i < string.length; i++) {
+        if (string[i - 1] % 2 === 0 && string[i] % 2 === 0) {
+            result.push('-');
+            result.push(string[i]);
+
+        } else {
+            result.push(string[i]);
+        }
+
+    }
+    document.write(result.join(''));
+    document.write("<br>");
+    let text = 'The Quick Brown Fox';
+    let upperString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lowerString = 'abcdefghijklmnopqrstuv';
+    let textArray = [];
+    for (let i = 0; i < text.length; i++) {
+        if (upperString.indexOf(text[i]) !== -1) {
+            textArray.push(text[i].toLowerCase());
+
+        } else if (lowerString.indexOf(text[i]) !== -1) {
+            textArray.push(text[i].toUpperCase());
+        } else {
+            textArray.push(text[i]);
+        }
+
+    }
+    document.write(textArray.join(''));
+</script>
+</body>
+</html>

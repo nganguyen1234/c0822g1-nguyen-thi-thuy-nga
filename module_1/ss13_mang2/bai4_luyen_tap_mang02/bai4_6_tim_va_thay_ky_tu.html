@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm và thay thế ký tự</title>
+</head>
+<body>
+<script>
+    let string = prompt("nhập mảng ký tự :");
+    let array = string.split('');
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "-") {
+
+            array[i] = '_';
+        }
+    }
+    document.write(array.join(''));
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra và xóa số thuộc mảng</title>
+</head>
+<body>
+<script>
+    let numberArray = [];
+    for (let i = 0; i < 10; i++) {
+        numberArray[i] = +prompt("nhập vào giá trị thứ " + (i + 1));
+    }
+    let so = +prompt("nhập vào một số nguyên");
+    let index = numberArray.indexOf(so);
+    if (index !== -1) {
+        numberArray.splice(index, 1);
+    }
+    document.write(numberArray);
+</script>
+</body>
+</html>

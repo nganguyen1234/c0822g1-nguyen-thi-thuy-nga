@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm số nguyên lớn hơn hoặc bằng 10</title>
+</head>
+<body>
+<script>
+    let numberArray = [];
+    for (let i = 0; i < 10; i++) {
+        numberArray[i] = +prompt("nhập vào giá trị thứ " + (i + 1));
+    }
+    let count = 0;
+    for (let j = 0; j < numberArray.length; j++) {
+        if (numberArray[j] >= 10) {
+            count++;
+        }
+    }
+    document.write("có " + count + " số lớn hơn hoặc bằng 10");
+
+</script>
+</body>
+</html>

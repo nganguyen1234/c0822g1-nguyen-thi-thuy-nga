@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính giá trị trung bình của các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let numberArray = [12, 13, 45, 34, 25, 67, 56, 87, 59, 90];
+    let index = 0;
+    let max = numberArray[0];
+    let sum = 0;
+    for (let i = 0; i < numberArray.length; i++) {
+        if (numberArray[i] > max) {
+            max = numberArray[i];
+            index = i;
+        }
+        sum += numberArray[i];
+    }
+    let average = sum / numberArray.length;
+    document.write("phần tử có giá trị lớn nhất trong mảng là " + max + " và giá trị trung bình của các phần tử trong mảng là: " + average);
+</script>
+</body>
+</html>

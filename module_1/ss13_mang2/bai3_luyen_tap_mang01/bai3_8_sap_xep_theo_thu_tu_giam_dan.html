@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp mảng theo thứ tự giảm dần</title>
+</head>
+<body>
+<script>
+    let numberArray = [];
+
+    for (let i = 0; i < 10; i++) {
+        numberArray[i] = +prompt("nhập vào giá trị thứ " + (i + 1));
+    }
+    document.write(numberArray.sort(function (a, b) {
+        return b - a;
+    }))
+
+
+</script>
+</body>
+</html>

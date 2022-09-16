@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tỉnh tổng giá trị</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let sum = 0
+    let number = +prompt("nhập vào 1 số");
+    while (number !== -1) {
+        alert(number);
+        sum += number;
+        number = +prompt("nhập vào 1 số");
+        document.getElementById("result").innerHTML = sum;
+    }
+</script>
+</body>
+</html>

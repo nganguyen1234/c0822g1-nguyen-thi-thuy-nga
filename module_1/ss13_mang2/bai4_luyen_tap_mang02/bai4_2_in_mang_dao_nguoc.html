@@ -7,8 +7,17 @@
 <body>
 <script>
     let textArray = ['c', 's', 'c', '2', '6', '1'];
-    let newArray = textArray.reverse();
-    document.write(newArray.join(""));
+    let index1 = 0;
+    let index2 = textArray.length - 1;
+    while (index1 < index2) {
+        let trungGian = textArray[index2];
+        textArray[index2] = textArray[index1];
+        textArray[index1] = trungGian;
+        index2--;
+        index1++;
+    }
+    document.write(textArray);
+
 </script>
 </body>
 </html>

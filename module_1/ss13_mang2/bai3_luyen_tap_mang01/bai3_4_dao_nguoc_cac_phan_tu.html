@@ -10,7 +10,17 @@
     for (let i = 0; i < 10; i++) {
         numberArray[i] = +prompt("nhập vào giá trị thứ " + (i + 1));
     }
-    document.write(numberArray.reverse());
+    let index1 = 0;
+    let index2 = numberArray.length - 1;
+    while (index1 < index2) {
+        let trungGian = numberArray[index2];
+        numberArray[index2] = numberArray[index1];
+        numberArray[index1] = trungGian;
+        index2--;
+        index1++;
+    }
+    document.write(numberArray);
+
 </script>
 </body>
 </html>

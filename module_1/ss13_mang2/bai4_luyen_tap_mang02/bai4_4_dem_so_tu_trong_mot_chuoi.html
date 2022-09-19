@@ -6,15 +6,16 @@
 </head>
 <body>
 <script>
-    let string = prompt("nhập môt chuỗi");
+    let string = prompt("nhập vào một chuỗi");
+    let array = string.split(" ");
+    alert(array);
     let count = 0;
-    let alphablet = "abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ";
-    for (let i = 0; i < string.length; i++) {
-        if (alphablet.includes(string[i])) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== "") {
             count++;
         }
     }
-    document.write("số ký tự trong chuỗi là: " + count);
+    document.write("số từ trong chuỗi là: " + count);
 </script>
 </body>
 </html>

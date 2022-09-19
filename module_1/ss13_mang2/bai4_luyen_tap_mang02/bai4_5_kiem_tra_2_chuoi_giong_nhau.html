@@ -8,11 +8,23 @@
 <script>
     let string1 = prompt("nhập vào chuỗi 1");
     let string2 = prompt("nhập vào chuỗi 2");
-    if (string1 === string2) {
-        alert("hai chuỗi giống nhau");
+    let count = 0;
+    if (string1.length === string2.length) {
+        for (let i = 0; i < string1.length; i++) {
+            if (string1[i] === string2[i]) {
+                count++;
+            } else {
+                document.write("hai chuỗi không giống nhau");
+                break;
+            }
+            if (count === string1.length) {
+                document.write("hai chuỗi giống nhau");
+            }
+        }
     } else {
-        alert("hai chuỗi ko giống nhau");
+        document.write("hai chuỗi không giống nhau");
     }
+
 </script>
 </body>
 </html>

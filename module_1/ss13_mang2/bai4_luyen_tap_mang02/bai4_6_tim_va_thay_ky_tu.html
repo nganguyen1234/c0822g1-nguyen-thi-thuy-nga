@@ -6,15 +6,28 @@
 </head>
 <body>
 <script>
-    let string = prompt("nhập mảng ký tự :");
-    let array = string.split('');
+    // let string = prompt("nhập mảng ký tự :");
+    // let array = string.split('');
+    // for (let i = 0; i < array.length; i++) {
+    //     if (array[i] === "-") {
+    //
+    //         array[i] = '_';
+    //     }
+    // }
+    // document.write(array.join(''));
+    let array = [];
+    let size = +prompt("nhập vào số phần tử của mảng")
+    for (let i = 0; i < size; i++) {
+        array[i] = prompt("nhập vào giá trị của phần tử thứ " + i);
+    }
+    document.write(array);
     for (let i = 0; i < array.length; i++) {
         if (array[i] === "-") {
-
             array[i] = '_';
         }
     }
-    document.write(array.join(''));
+    document.write("<br>" + array.join(''));
+
 </script>
 </body>
 </html>

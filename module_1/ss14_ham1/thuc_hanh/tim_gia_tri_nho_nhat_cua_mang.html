@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm giá trị nhỏ nhất trong mảng</title>
+</head>
+<body>
+<script>
+    function findMin(array) {
+        let min = array[0];
+        for (let i = 1; i < array.length - 1; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    let arr1 = [3, 5, 1, 8, -3, 7, 8];
+
+    let arr2 = [7, 12, 6, 9, 20, 56, 89];
+
+    let arr3 = [];
+
+    let arr4 = [0, 0, 0, 0, 0, 0];
+    let min1 = findMin(arr1);
+    let min2 = findMin(arr2);
+    let min3 = findMin(arr3);
+    let min4 = findMin(arr4);
+    document.write(min1 + "<br>" + min2 + "<br>" + min3 + "<br>" + min4 + "<br>");
+</script>
+</body>
+</html>

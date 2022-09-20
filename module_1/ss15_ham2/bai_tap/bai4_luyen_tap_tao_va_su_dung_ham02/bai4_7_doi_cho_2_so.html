@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đổi chỗ 2 số</title>
+</head>
+<body>
+<script>
+    function hoanDoi(num1, num2) {
+        let temp = num1;
+        num1 = num2;
+        num2 = temp;
+        document.write(num1 + "<br>" + num2);
+    }
+
+    let number1 = +prompt("nhập vào số thứ nhất");
+    let number2 = +prompt("nhập vào số thứ hai");
+    hoanDoi(number1, number2);
+
+</script>
+</body>
+</html>

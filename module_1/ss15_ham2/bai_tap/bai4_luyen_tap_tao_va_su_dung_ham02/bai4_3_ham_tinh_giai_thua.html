@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hàm tính giai thừa</title>
+</head>
+<body>
+<script>
+    function calculateFactorial(number) {
+        let factorial = 1;
+        for (let i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    let num = +prompt("nhập số muốn tính giai thừa");
+    let result = calculateFactorial(num);
+    alert(result);
+</script>
+</body>
+</html>

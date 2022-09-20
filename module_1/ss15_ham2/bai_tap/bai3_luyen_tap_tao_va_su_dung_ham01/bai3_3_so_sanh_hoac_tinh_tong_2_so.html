@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>so sánh hoặc tính tổng 2 số</title>
+</head>
+<body>
+<script>
+    let number1 = +prompt("nhập vào số thứ nhất");
+    let number2 = +prompt("nhập vào số thứ hai");
+
+    function soSanh(num1, num2) {
+        if (num1 > num2) {
+            alert("số thứ nhất lớn hơn số thứ hai");
+        } else {
+            let sum = num1 + num2;
+            document.write("tổng hai số là: " + sum);
+        }
+    }
+
+    soSanh(number1, number2);
+
+</script>
+</body>
+</html>

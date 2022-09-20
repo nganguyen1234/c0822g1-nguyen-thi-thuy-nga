@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>so sánh 3 số</title>
+</head>
+<body>
+<script>
+    function soSanh(num1, num2, num3) {
+        if (num1 > num2 && num1 > num3) {
+            return num1;
+        } else if (num2 > num3) {
+            return num2;
+        } else {
+            return num3;
+        }
+    }
+
+    let number1 = +prompt(" nhập vào số thứ nhất");
+    let number2 = +prompt(" nhập vào số thứ hai");
+    let number3 = +prompt(" nhập vào số thứ ba");
+    let result = soSanh(number1, number2, number3);
+    document.write(result + " là số lớn nhất trong ba số");
+</script>
+</body>
+</html>

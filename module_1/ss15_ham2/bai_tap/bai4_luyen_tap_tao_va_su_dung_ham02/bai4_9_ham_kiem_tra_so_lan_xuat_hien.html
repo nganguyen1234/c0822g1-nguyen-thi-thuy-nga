@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hàm kiểm tra số lần xuất hiện của một kí tự</title>
+</head>
+<body>
+<script>
+    function checkKyTu(kyTu, array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == kyTu) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            return count = -1;
+        }
+        return count;
+    }
+    let array1 = [1, 2, 3, 3, 36, 4, 5, 7, 5, 5, 1, 8];
+    let number = prompt("nhập vào ký tự muốn check");
+    let result = checkKyTu(number, array1);
+    document.write(result);
+
+</script>
+</body>
+</html>

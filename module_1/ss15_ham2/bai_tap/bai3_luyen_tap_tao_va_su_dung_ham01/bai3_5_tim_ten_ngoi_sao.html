@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tìm tên ngôi sao</title>
+</head>
+<body>
+<script>
+    let array1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let array2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function findName(name) {
+        let count = 0;
+        for (let i = 0; i < array1.length; i++) {
+            if (array1[i] === name) {
+                return alert(array2[i]);
+            } else {
+                count++;
+            }
+            if (count === array1.length) {
+                alert("không tìm thấy tên ngôi sao");
+            }
+        }
+    }
+
+    string = prompt("nhập vào một chuỗi");
+    findName(string);
+</script>
+</body>
+</html>

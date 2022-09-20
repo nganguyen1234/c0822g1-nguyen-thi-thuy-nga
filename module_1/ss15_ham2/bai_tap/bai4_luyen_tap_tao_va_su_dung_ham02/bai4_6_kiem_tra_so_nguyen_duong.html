@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+    function checkNguyenDuong(number) {
+        if (number > 0) {
+            return parseInt(number) === number;
+        } else {
+            return false;
+        }
+    }
+
+    let num = +prompt("nhập vào số cần check");
+    let result = checkNguyenDuong(num);
+    document.write(result);
+</script>
+</body>
+</html>

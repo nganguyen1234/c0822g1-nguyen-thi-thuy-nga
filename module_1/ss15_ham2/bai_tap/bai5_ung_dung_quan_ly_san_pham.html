@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng quản lý sản phẩm</title>
+</head>
+<body>
+<table>
+
+</table>
+<form>
+    <h3>Add new product</h3>
+    <input type="text" id="sanPham">
+    <button type="button" onclick="add()">Add</button>
+    <br>
+    <span>Số lượng sản phẩm</span> <span id="soLuong"></span>
+    <div id="display"></div>
+</form>
+
+<script>
+    let gioHang = [];
+
+    function showProduct(array) {
+        let table = "<table border='1'> <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>Tên sản phẩm</th>\n" +
+            "        <th>Edit</th>\n" +
+            "        <th>Xóa</th>\n" +
+            "        </tr>";
+        for (let i = 0; i < array.length; i++) {
+            table += "<tr>";
+            table += "<td>" + (i + 1) + "</td>";
+            table += "<td>" + array[i] + "</td>";
+            table += "<td>" + "<button type=\"button\" onclick=\"edit(" + i + ")\">Edit</button>" + "</td>";
+            table += "<td>" + "<button type=\"button\" onclick=\"xoa(" + i + ")\">Xóa</button>" + "</td>";
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("display").innerHTML = table;
+        document.getElementById("soLuong").innerHTML = array.length;
+    }
+
+    function add(sanPham) {
+        sanPham = document.getElementById("sanPham").value;
+        if (sanPham !== "") {
+            gioHang.push(sanPham);
+        }
+        document.getElementById("sanPham").value = "";
+        showProduct(gioHang);
+    }
+
+    function edit(index) {
+        let newName = prompt(" nhập tên sản phẩm mới");
+        if (!newName) {
+            return;
+        }
+        if (newName !== "") {
+            gioHang[index] = newName;
+        }
+        showProduct(gioHang);
+    }
+
+    function xoa(index) {
+        gioHang.splice(index, 1);
+        showProduct(gioHang);
+    }
+</script>
+</body>
+</html>

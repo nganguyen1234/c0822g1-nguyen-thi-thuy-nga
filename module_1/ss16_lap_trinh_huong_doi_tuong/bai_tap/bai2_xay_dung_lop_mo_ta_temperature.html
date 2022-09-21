@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp mô tả temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(triSo) {
+            this.triSo = triSo;
+        }
+
+        transferCtoF() {
+            return (this.triSo * 9 / 5 + 32);
+
+        }
+
+        transferCtoK() {
+            return (this.triSo + 273);
+        }
+    }
+
+    let temperature = new Temperature(25);
+    let doF = temperature.transferCtoF();
+    let doK = temperature.transferCtoK();
+    alert(doF + " " + doK);
+</script>
+</body>
+</html>

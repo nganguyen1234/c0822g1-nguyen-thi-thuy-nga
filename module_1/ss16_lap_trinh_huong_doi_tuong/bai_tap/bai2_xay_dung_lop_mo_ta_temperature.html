@@ -11,19 +11,19 @@
             this.triSo = triSo;
         }
 
-        transferCtoF() {
+        convertCtoF() {
             return (this.triSo * 9 / 5 + 32);
 
         }
 
-        transferCtoK() {
+        convertCtoK() {
             return (this.triSo + 273);
         }
     }
 
     let temperature = new Temperature(25);
-    let doF = temperature.transferCtoF();
-    let doK = temperature.transferCtoK();
+    let doF = temperature.convertCtoF();
+    let doK = temperature.convertCtoK();
     alert(doF + " " + doK);
 </script>
 </body>

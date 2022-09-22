@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mô phỏng câu chuyện Adam và Eva</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+
+        setAppleWeight() {
+            this.weight--;
+        }
+
+        getAppleWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        setHumanWeight() {
+            return this.weight++;
+        }
+
+        say(message) {
+            console.log(message);
+        }
+
+        eat(apple) {
+            if (this.checkAppleWeigth(apple)) {
+                apple.setAppleWeight();
+                this.setHumanWeight();
+            }
+        }
+
+        checkAppleWeigth(apple) {
+            return apple.getAppleWeight()>0;
+        }
+
+    }
+
+    let apple1 = new Apple();
+    let eva = new Human("Eva", "nữ", 45);
+    let adam = new Human("Adam", "nam", 60);
+    let check = true;
+    while (apple1.getAppleWeight() > 0) {
+        if (check === true) {
+            eva.eat(apple1);
+            check = false;
+            document.write("<br>" + "Eva đã ăn 1 miếng, cân nặng hiện tại là: " + eva.weight + "<br>" + " Cân nặng quả táo hiện tại là: " + apple1.weight)
+        }
+        if (check === false) {
+            adam.eat(apple1);
+            check = true;
+            document.write("<br>" + "Adam đã ăn 1 miếng, cân nặng hiện tại là: " + adam.weight + "<br>" + " Cân nặng quả táo hiện tại là: " + apple1.weight)
+        }
+    }
+</script>
+</body>
+</html>

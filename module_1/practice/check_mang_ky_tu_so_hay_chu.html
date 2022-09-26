@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check mảng ký tự</title>
+</head>
+<body>
+<script>
+
+    function check(array, sampleArr) {
+        let countChu = 0;
+        let countSo = 0;
+
+        for (let i = 0; i < array.length; i++) {
+            if (sampleArr.indexOf(array[i]) !== -1) {
+                countChu++;
+            }
+            if (typeof array1[i] == 'number') {
+                countSo++;
+            }
+        } if (countChu === array.length) {
+            return "0";
+        } else if (countSo === array.length) {
+            return "1";
+        } else {
+            return "-1"
+        }
+    }
+
+    let array1 = [5, 2, 8, 12, "a"]
+    let alphabetArray = "ABCDEFGHIJKLNMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+   alert(check(array1,alphabetArray));
+</script>
+</body>
+</html>

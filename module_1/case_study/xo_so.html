@@ -54,12 +54,24 @@
             ketQua[i] = Math.floor(Math.random() * 99);
             document.getElementById(7 + i).value = ketQua[i];
         }
-        for (let i = 0; i < ketQua.length ; i++) {
-           let veXoSo = document.getElementById(i+1).value;
-           if (veXoSo !== ketQua[i]){
-               return "chúc bạn may mắn lần kế";
-           }
-        } document.getElementById("result").innerHTML = "chúc mừng bạn";
+        let count = 0;
+        for (let i = 0; i < ketQua.length; i++) {
+            let veXoSo = document.getElementById(i + 1).value;
+            if (veXoSo !== ketQua[i] && i > 0) {
+                count++;
+                if (i > 3) {
+                    return document.getElementById("result").innerHTML = "chúc bạn may mắn lần sau"
+                }
+            }
+        }
+
+        switch (count) {
+            case 1:
+                return document.getElementById("result").innerHTML = "bạn đã đạt giải nhì"
+            case 3:
+                return document.getElementById("result").innerHTML = "bạn đã đạt giải khuyến khích";
+
+        }
     }
 
     function check() {

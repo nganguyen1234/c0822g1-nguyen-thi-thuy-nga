@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function checkFibonacci(number) {
+        let num1 = 0;
+        let num2 = 1;
+        let num3;
+        while (num1 < number) {
+            num3 = num1 + num2;
+            num1 = num2;
+            num2 = num3;
+            if (number === num1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    let n = +prompt("nhập vào độ dài mảng muốn tạo");
+    let arr = [];
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("nhập phần tử của mảng");
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if (checkFibonacci(arr[i])) {
+            count++;
+        }
+    }
+    if (count === arr.length) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp theo tần suất xuất hiện</title>
+</head>
+<body>
+<script>
+    function tinhTanSuat(array) {
+        let countArr = [];
+        let soArr = [];
+        let index = 0;
+        for (let i = 0; i < array.length; i++) {
+            let charactor = array[0];
+            let count = 1;
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[j] === charactor) {
+                    count++;
+                    array.splice(j, 1);
+                    j--;
+                }
+            }
+            countArr[index] = count;
+            soArr[index] = charactor;
+            index++
+            array.splice(0, 1);
+            i--;
+        }
+        return sapXep(countArr, soArr);
+    }
+
+    function sapXep(str1, str2) {
+        for (let i = 0; i < str1.length; i++) {
+            for (let j = 0; j < str1.length; j++) {
+                if (str1[i] < str1[j]) {
+                    let temp1 = str1[i];
+                    str1[i] = str1[j];
+                    str1[j] = temp1;
+                    let temp2 = str2[i];
+                    str2[i] = str2[j];
+                    str2[j] = temp2;
+                }
+            }
+        }
+        return str2;
+    }
+
+    let numArray = [1, 2, 2, 3, 3, 6, 5, 4, 5];
+    let result = tinhTanSuat(numArray);
+    document.write(result);
+
+</script>
+</body>
+</html>

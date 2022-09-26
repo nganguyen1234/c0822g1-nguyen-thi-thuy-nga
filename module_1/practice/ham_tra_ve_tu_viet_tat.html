@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let array = str.split(" ");
+        let newArray = [];
+        let arr2 = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] !== "") {
+                newArray.push(array[i]);
+            }
+        }
+        if (newArray.length === 1) {
+            return newArray[0];
+        } else {
+            for (let i = 0; i < newArray.length; i++) {
+                let arr1 = newArray[i].split("")
+                arr2.push(arr1[0].toUpperCase());
+            }
+
+        }
+        return arr2.join("");
+    }
+
+    document.write(checkString("hello world"));
+</script>
+</body>
+</html>

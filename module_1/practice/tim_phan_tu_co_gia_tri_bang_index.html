@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkPhanTu(array) {
+        let resultArray = [];
+        let index = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == (i + 1)) {
+                resultArray[index] = array[i];
+                index++;
+            }
+        }
+        if (resultArray.length === 0) {
+            return "không tìm thấy phần tử";
+        } else {
+            return resultArray;
+        }
+
+    }
+
+    let array1 = [-10, -3, 3, 4, 7, 6];
+    let array2 = [2, 3, 4, 5, 6, 7];
+    let result1 = checkPhanTu(array1);
+    let result2 = checkPhanTu(array2);
+    document.write(result1 + "<br>");
+    document.write(result2);
+
+</script>
+</body>
+</html>

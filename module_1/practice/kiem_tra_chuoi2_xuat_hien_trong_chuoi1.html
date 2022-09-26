@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function stringMatch(str1, str2) {
+        let check = true;
+        for (let i = 0; i < str1.length; i++) {
+            if (str2[0] === str1[i]) {
+                let last = str2.length - 1;
+                for (let j = i + last; j >= i; j--) {
+                    if (str2[last--] !== str1[j] && last >= 0) {
+                        check = false;
+                    }
+                }
+                if (check === true) {
+                    return "vị trí đầu tiên mà chuỗi 2 xuất hiện trong chuỗi 1 là: " + i;
+                }
+
+            }
+        }
+        return "vị trí cần tìm là -1";
+    }
+
+    let s1 = "AbbAbbbabbb";
+    let s2 = "ab";
+    let result = stringMatch(s1, s2);
+    alert(result);
+</script>
+</body>
+</html>

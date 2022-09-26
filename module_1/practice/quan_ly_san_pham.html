@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quản lý sản phẩm</title>
+</head>
+<body>
+<form>
+    <h3>Add new product</h3>
+    <input type="text" id="ten" placeholder="tên">
+    <input type="text" id="maSo" placeholder="mã số">
+    <input type="text" id="mau" placeholder="màu">
+
+    <button type="button" onclick="add()">Add</button>
+    <br>
+    <div id="display"></div>
+</form>
+<script>
+
+    class SanPham {
+        constructor(ten, maSo, mau) {
+            this.ten = ten;
+            this.maSo = maSo;
+            this.mau = mau;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        getMaSo() {
+            return this.maSo;
+        }
+
+        getMau() {
+            return this.mau;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        setMaSo(maSo) {
+            this.maSo = maSo;
+        }
+
+        setMau(mau) {
+            this.mau = mau;
+        }
+    }
+
+    function showProduct(array) {
+        let table = "<table border='1'> <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>Tên sản phẩm</th>\n" +
+            "        <th>Mã số sản phẩm</th>\n" +
+            "        <th>Màu sản phẩm</th>\n" +
+            "        <th>Edit</th>\n" +
+            "        <th>Xóa</th>\n" +
+            "        </tr>";
+        for (let i = 0; i < array.length; i++) {
+            table += "<tr>";
+            table += "<td>" + (i + 1) + "</td>";
+            table += "<td>" + array[i].getTen() + "</td>";
+            table += "<td>" + array[i].getMaSo() + "</td>";
+            table += "<td>" + array[i].getMau() + "</td>";
+            table += "<td>" + "<button type=\"button\" onclick=\"edit(" + i + ")\">Edit</button>" + "</td>";
+            table += "<td>" + "<button type=\"button\" onclick=\"xoa(" + i + ")\">Xóa</button>" + "</td>";
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("display").innerHTML = table;
+    }
+
+    function edit(index) {
+        let tenMoi = prompt(" nhập tên sản phẩm mới");
+        let maMoi = prompt("nhập mã số sản phẩm mới");
+        let mauMoi = prompt("nhập màu sản phẩm mới");
+        if (!tenMoi || !maMoi || !mauMoi) {
+            return;
+        }
+        if (tenMoi !== "" && maMoi !== "" && mauMoi !== "") {
+            gioHang[index].setTen(tenMoi);
+            gioHang[index].setMaSo(maMoi);
+            gioHang[index].setMau(mauMoi);
+        }
+        // if (maMoi !== ""){
+        //     gioHang[index].setMaSo(maMoi);
+        // }
+        // if (mauMoi !== ""){
+        //     gioHang[index].setMau(mauMoi);
+        // }
+        showProduct(gioHang);
+    }
+
+    function xoa(index) {
+        gioHang.splice(index, 1);
+        showProduct(gioHang);
+    }
+
+    let gioHang = [];
+
+    function add() {
+        let ten = document.getElementById("ten").value;
+        let maSo = document.getElementById("maSo").value;
+        let mau = document.getElementById("mau").value;
+        let sanPhamMoi = new SanPham(ten, maSo, mau);
+        if (ten !== "" && maSo !== "" && mau !== "") {
+            gioHang.push(sanPhamMoi);
+        } else {
+            alert("bạn chưa điền đủ thuộc tính sản phẩm");
+        }
+        document.getElementById("ten").value = "";
+        document.getElementById("maSo").value = "";
+        document.getElementById("mau").value = "";
+
+        showProduct(gioHang);
+    }
+</script>
+</body>
+</html>

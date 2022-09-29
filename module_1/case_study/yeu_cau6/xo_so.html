@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xổ số</title>
+</head>
+<body>
+<h1>Xổ số Codegym</h1>
+<script>
+    //. Sẽ có hai tuỳ chọn cho khách hàng thực hiện chọn số trên mỗi vé.
+    let choice = prompt("bạn có 2 lựa chọn : " + "\n"
+        + "1. Bạn muốn tự chọn số" + "\n"
+        + "2.Hệ thống chọn random");
+    let cacVeDaDat = [];
+    let countVe = 0;
+    let countKetQua = 0;
+
+    //- Nếu khách hàng chọn tự nhập thì cứ mỗi ô tròn KH click vào sẽ hiển thị 1 bảng chọn số từ 0-99
+    function tuChonSo(so) {
+        let form = '<select id="' + so + '">';
+        for (let i = 0; i <= 99; i++) {
+            form += '<option value="' + i + '">' + i + '</option>';
+        }
+        form += '</select>';
+        document.write(form);
+    }
+
+    // tự chọn số
+    if (choice == 1) {
+        tuChonSo(1);
+        tuChonSo(2);
+        tuChonSo(3);
+        tuChonSo(4);
+        tuChonSo(5);
+        tuChonSo(6);
+        let form = '<p>Kết quả:</p>\n';
+        for (let i = 7; i <= 12; i++) {
+            form += '<input type="text" id="' + i + '" disabled>\n';
+        }
+        form += '<button type="button" onclick="datVe()">đặt vé</button>\n' +
+            '<button type="button" onclick="xemKetQua()" >kiểm tra kết quả</button>' + '<div id="veSo"></div><div id="result"></div>';
+        document.write(form);
+    }
+    // hệ thống random
+    if (choice == 2) {
+        let size;
+        do {
+            size = prompt("Nhập số vé bạn muốn mua( giới hạn trong 4 vé) ");
+            if (size <= 4) {
+                for (let i = 0; i <= size - 1; i++) {
+                    cacVeDaDat[i] = [];
+                    for (let j = 0; j < 6; j++) {
+                        cacVeDaDat[i][j] = Math.floor(Math.random() * 99);
+                    }
+                    document.write("<br>Vé đã đặt là: " + cacVeDaDat[i].join(" "));
+                }
+            } else {
+                alert("nhập sai số lượng vé xổ số cho phép");
+            }
+        } while (size > 4 || size < 1);
+        let form = '<p>Kết quả:</p>\n';
+        for (let i = 7; i <= 12; i++) {
+            form += '<input type="text" id="' + i + '" disabled>\n';
+        }
+        form += '<button type="button" onclick="xemKetQua()" >kiểm tra kết quả</button>' + '<div id="veSo"></div><div id="result"></div>';
+        document.write(form);
+    }
+
+
+    // hiển thị lại vé đã đặt
+    function datVe() {
+        countVe++;
+        let veDaDat = [];
+        if (countVe <= 4 && countKetQua == 0) {
+            for (let i = 0; i < 6; i++) {
+                veDaDat[i] = document.getElementById(i + 1).value;
+            }
+            document.getElementById("veSo").innerHTML += "<br>" + "vé đã đặt là: " + veDaDat.join(" ");
+            cacVeDaDat.push(veDaDat);
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(i + 1).value = "0";
+            }
+            return cacVeDaDat;
+        }
+    }
+
+    //Sau khi khách hàng hoàn tất việc chọn số trên vé thì nhấn hoàn tất để thực hiện quay số
+
+
+    function xemKetQua() {
+
+        if (countKetQua == 0) {
+            let ketQuaCuoi = "";
+            let ketQua = [];
+            for (let i = 0; i < 6; i++) {
+                ketQua[i] = Math.floor(Math.random() * 99);
+                document.getElementById(7 + i).value = ketQua[i];
+            }
+            // Hệ thống sẽ so khớp dãy số trên vé với dãy số của hệ thống xem KH có trúng thưởng không
+            for (let i = 0; i < cacVeDaDat.length; i++) {
+                let soKhongTrung = [];
+                for (let j = 0; j < ketQua.length; j++) {
+                    if (cacVeDaDat[i][j] != ketQua[j]) {
+                        soKhongTrung.push(j);
+                    }
+                }
+                switch (true) {
+                    case JSON.stringify(soKhongTrung) == JSON.stringify([0]) :
+                        ketQuaCuoi += "<br> Kết quả vé số " + (parseInt(i) + 1) + " :chúc mừng bạn đã đạt giải nhì";
+                        break;
+                    case JSON.stringify(soKhongTrung) == JSON.stringify([0, 1, 2]):
+                    case JSON.stringify(soKhongTrung) == JSON.stringify([1, 2]):
+                    case JSON.stringify(soKhongTrung) == JSON.stringify([0, 1]):
+                        ketQuaCuoi += "<br>Kết quả vé số " + (parseInt(i) + 1) + " : chúc mừng bạn đã đạt giải khuyến khích";
+                        break;
+                    case soKhongTrung.length === 0:
+                        ketQuaCuoi += "<br>Kết quả vé số " + (parseInt(i) + 1) + " : chúc mừng bạn đã đạt giải nhất";
+                        break;
+                    default:
+                        ketQuaCuoi += "<br>Kết quả vé số " + (parseInt(i) + 1) + " : chúc bạn may mắn lần sau";
+                        break;
+                }
+            }
+            document.getElementById("result").innerHTML = ketQuaCuoi;
+        }
+        countKetQua++;
+    }
+
+</script>
+</body>
+</html>

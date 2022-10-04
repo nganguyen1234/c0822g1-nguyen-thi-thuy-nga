@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function checkTriangle(x, y, z) {
+        let positiveCheck = x > 0 && y > 0 && z > 0
+        if (positiveCheck) {
+            let triangleCheck = x + y > z && x + z > y && y + z > x
+            if (triangleCheck) {
+                squareTriangle = x * x + y * y === z * z ||
+                    z * z + x * x === y * y ||
+                    y * y + z * z === x * x;
+                if (squareTriangle) {
+                    return "là 3 cạnh của tam giác vuông";
+                } else {
+                    return "chỉ là 3 cạnh của một tam giác";
+                }
+            } else {
+                return "không phải là cạnh tam giác";
+            }
+        } else {
+            return "không phải là cạnh tam giác";
+        }
+    }
+
+    let result = checkTriangle(6,8,10);
+    document.write(result);
+</script>
+</body>
+</html>

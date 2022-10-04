@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="id" placeholder="nhập mã tài khoản"><br>
+<input type="text" id="tenChu" placeholder="nhập tên chủ ngân hàng"><br>
+<input type="text" id="tenNganHang" placeholder="nhập tên ngân hàng"><br>
+<input type="text" id="tongTien" placeholder="nhập tổng tiền trong tài khoản"><br>
+<button onclick="themTaiKhoan()">Thêm tài khoản ngân hàng</button>
+<p id="display"></p>
+<script>
+    class TaiKhoanNganHang{
+        constructor(maTaiKhoan,tenChu,tenNganHang,tongTien) {
+            this.maTaiKhoan = maTaiKhoan;
+            this.tenChu = tenChu;
+            this.tenNganHang = tenNganHang;
+            this.tongTien = tongTien;
+        }
+        getMaTaiKhoan(){
+            return this.maTaiKhoan;
+        }
+        getTenChu(){
+            return this.tenChu;
+        }
+        getTenNganHang(){
+            return this.tenNganHang;
+        }
+        getTongTien(){
+            return this.tongTien;
+        }
+        setMaTaiKhoan(maTaiKhoan){
+            this.maTaiKhoan = maTaiKhoan;
+        }
+        setTenChu(tenChu){
+            this.tenChu = tenChu;
+        }
+        setTenNganHang(tenNganHang){
+            this.tenNganHang = tenNganHang;
+        }
+        setTongTien(tongTien){
+            this.tongTien = tongTien;
+        }
+        toString(){
+
+        }
+    }
+    let taiKhoanList = [];
+    function display(list) {
+        let data = '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã ngân hàng</th>\n' +
+            '        <th>Tên chủ ngân hàng</th>\n' +
+            '        <th>Tên ngân hàng</th>\n' +
+            '        <th>Tổng tiền</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < list.length; i++) {
+            data += ' <tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + list[i].getMaTaiKhoan() + '</td>\n' +
+                '        <td>' + list[i].getTenChu() + '</td>\n' +
+                '        <td>' + list[i].getTenNganHang() + '</td>\n' +
+                '        <td>' + list[i].getTongTien() + '</td>\n' +
+                '    </tr>';
+        }
+        data += '</table>';
+        document.getElementById("display").innerHTML = data;
+    }
+    function themTaiKhoan() {
+        let id = document.getElementById("id").value;
+        let tenChu = document.getElementById("tenChu").value;
+        let tenNganHang = document.getElementById("tenNganHang").value;
+        let tongTien = document.getElementById("tongTien").value;
+        if (tongTien < 10000 && tongTien){
+            alert("mã tài khoản không hợp lệ")
+        }
+        let taiKhoan = new TaiKhoanNganHang(id, tenChu, tenNganHang,tongTien);
+        taiKhoanList.push(taiKhoan);
+        document.getElementById("id").value = "";
+        document.getElementById("tenChu").value = "";
+        document.getElementById("tenNganHang").value = "";
+        document.getElementById("tongTien").value = "";
+        display(taiKhoanList);
+    }
+
+</script>
+</body>
+</html>

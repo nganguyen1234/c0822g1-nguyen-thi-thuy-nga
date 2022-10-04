@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function changeBinary(number) {
+        let dividend = number;
+        let remainderArr = [];
+        let i = 0
+        do {
+            remainderArr[i] = dividend % 2;
+            dividend = parseInt(dividend / 2);
+            i++;
+        }
+        while (dividend !== 0);
+        return remainderArr.reverse().join("");
+    }
+    document.write(changeBinary(10));
+
+</script>
+</body>
+</html>

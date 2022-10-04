@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tinhTongUoc(number) {
+        let sum = 0;
+        for (let i = 1; i <= number; i++) {
+            if (!(number % i)) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    let arr = [2, 4, 7, 9, 1];
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        newArr[i] = tinhTongUoc(arr[i]);
+    }
+    document.write(newArr);
+</script>
+</body>
+</html>

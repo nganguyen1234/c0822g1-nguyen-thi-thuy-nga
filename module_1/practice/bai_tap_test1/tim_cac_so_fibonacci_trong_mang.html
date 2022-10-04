@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isFibonacci(number) {
+        let num1 = 0;
+        let num2 = 1;
+        let num3;
+        while (num1 <= number) {
+            if (number === num1) {
+                return true;
+            }
+            num3 = num1 + num2;
+            num1 = num2;
+            num2 = num3;
+        }
+        return false;
+    }
+
+    console.log(isFibonacci(0))
+
+    function checkArr(arr) {
+        let fibonacciArr = [];
+        let index = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (isFibonacci(arr[i])) {
+                fibonacciArr[index] = arr[i];
+                index++;
+            }
+        }
+        return fibonacciArr.sort(function (a, b) {
+            return a - b
+        });
+    }
+
+    console.log(checkArr([1, 5, 6, 13, 9, 12, 8, 0, 5, 1]))
+</script>
+</body>
+</html>

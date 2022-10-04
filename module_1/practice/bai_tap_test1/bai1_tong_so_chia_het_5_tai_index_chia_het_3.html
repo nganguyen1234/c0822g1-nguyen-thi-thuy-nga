@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    let array = [];
+    let tong = 0;
+    let dem = 0;
+    do {
+        n = +prompt("nhập vào số lượng phần tử của mảng");
+    } while (n > 50 && !isNaN(n));
+    for (let i = 0; i < n; i++) {
+        array[i] = +prompt("nhập vào giá trị phần tử của mảng");
+    }
+    document.write("mảng vừa nhập là " + array);
+    for (let i = 0; i < n; i++) {
+        if (!(array[i] % 5) && !(i % 3)) {
+            tong += array[i];
+            dem++;
+        }
+    }
+    let trungBinh = tong / dem;
+    document.write("giá trị trung bình của các phần tử cần tìm là: " + trungBinh);
+</script>
+</body>
+</html>

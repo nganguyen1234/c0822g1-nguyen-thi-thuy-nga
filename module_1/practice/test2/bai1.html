@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("nhập vào số lượng phần tử của mảng");
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        array[i] = +prompt("nhập vào giá trị phần tử thứ " + i);
+    }
+    document.write("mảng vừa nhập là: " + array);
+    let first = 0;
+    let last = array.length - 1;
+    let check = "OK";
+    while (first < last) {
+        if (array[first] !== array[last]) {
+            check = "NO";
+            break;
+        }
+        first++;
+        last--;
+    }
+    document.write("<br>" + check);
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkArr(array) {
+        for (let i = 0; i < array.length; i++) {
+            if (isNaN(array[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    document.write(checkArr(["7", 12, "45", 67, 45]));
+</script>
+</body>
+</html>

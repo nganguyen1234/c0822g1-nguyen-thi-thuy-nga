@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let n;
+    do {
+        n = +prompt("nhập vào số lượng phần tử của mảng");
+    } while (n > 50);
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        array[i] = +prompt("nhập vào giá trị của phần tử");
+    }
+    document.write("mảng vừa nhập là :" + array);
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        if (array[i] % 2 === 1 && !(i % 2)) {
+            sum += array[i];
+            count++;
+        }
+    }
+    let avg = sum / count;
+    document.write(" trung bình cộng các số lẻ ở vị trí chẵn là: " + avg);
+
+</script>
+</body>
+</html>

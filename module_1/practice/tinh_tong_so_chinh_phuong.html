@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkChinhPhuong(number) {
+        if (number <= 1) {
+            return false;
+        }
+        let canBacHai = Math.sqrt(number);
+        return parseInt(canBacHai) == canBacHai;
+    }
+
+    let array = [];
+    let size = +prompt("nhập vào độ dài mảng");
+    let sum = 0;
+    for (let i = 0; i < size; i++) {
+        array[i] = +prompt("nhập vào giá trị phần tử của mảng");
+    }
+    document.write(array);
+    for (let i = 0; i < size; i++) {
+        if (checkChinhPhuong(array[i])) {
+            sum += array[i];
+        }
+    }
+    document.write("<br>" + "tổng các số chính phương trong mảng là " + sum)
+
+</script>
+</body>
+</html>

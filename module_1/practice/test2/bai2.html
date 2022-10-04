@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findUCLN(num1, num2) {
+        let soBe;
+        if (num1 > num2) {
+            soBe = num2;
+        } else {
+            soBe = num1;
+        }
+        for (let i = soBe; i > 0; i--) {
+            if (num1 % i === 0 && num2 % i === 0) {
+                return i;
+            }
+        }
+    }
+
+    function checkArr(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (isNaN(arr[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function find(x) {
+        if (x.includes("/")) {
+            let arr = x.split("/");
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === "") {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+            if (arr.length === 2 && checkArr(arr)) {
+                let tuSo = parseInt(arr[0]);
+                let mauSo = parseInt(arr[1])
+                let uocChung = findUCLN(tuSo, mauSo);
+                arr[0] = tuSo / uocChung;
+                arr[1] = mauSo / uocChung;
+                return arr.join("/");
+            } else {
+                return "không phải là phân số";
+            }
+        }
+        return "không phải là phân số";
+    }
+
+    document.write(find(prompt("nhập số muốn kiếm tra")));
+    //
+    // function check(x) {
+    //     let reg = /^\d+\/\d+$/;
+    //     return reg.test(x)
+    // }
+    //
+    // alert(check("01/0"));
+
+
+</script>
+</body>
+</html>

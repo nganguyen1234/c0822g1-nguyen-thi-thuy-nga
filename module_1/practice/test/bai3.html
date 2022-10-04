@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findMaxNumber(n) {
+        if (!isNaN(n)) {
+            let size = n.toString().split("").length;
+            if (size === 4 && Number.isInteger(n) && n > 0 ) {
+                let numArr = [];
+                for (let i = 0; i < 4; i++) {
+                    numArr[i] = n.toString().split("");
+                    numArr[i].splice(i, 1);
+                    numArr[i] = numArr[i].join("");
+                }
+                console.log(numArr)
+                numArr.sort(function (a, b) {
+                    return b - a;
+                });
+                return numArr[0];
+            } else {
+                return -1;
+            }
+        }
+    }
+
+    let result = findMaxNumber(9234);
+    document.write(result);
+</script>
+</body>
+</html>

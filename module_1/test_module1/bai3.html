@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">Quản lí sách</h1>
+<div id="hienThi"></div>
+<br>
+<table align="center">
+    <tr>
+        <td><input type="button" value="Thêm sách đã có" onclick="themSachDaCo()"></td>
+        <td><input type="button" value="Thêm sách mới" onclick="themSachMoi()"></td>
+        <td><input type="button" value="Mượn sách" onclick="muonSach()"></td>
+        <td><input type="button" value="Hiển thị sách nhiều nhất" onclick=""></td>
+
+    </tr>
+</table>
+<script>
+    class Sach {
+        constructor(maSo, tenSach, namXuatBan, soQuyen, tinhTrang) {
+            this.maSo = maSo;
+            this.tenSach = tenSach;
+            this.namXuatBan = namXuatBan;
+            this.soQuyen = soQuyen;
+            this.tinhTrang = tinhTrang;
+        }
+
+        getMaSo() {
+            return this.maSo;
+        }
+
+        getTenSach() {
+            return this.tenSach;
+        }
+
+        getNamXuatBan() {
+            return this.namXuatBan;
+        }
+
+        getSoQuyen() {
+            return this.soQuyen;
+        }
+
+        getTinhTrang() {
+            return this.tinhTrang;
+        }
+
+        setMaSo(maSo) {
+            this.maSo = maSo;
+        }
+
+        setTenSach(tenSach) {
+            this.tenSach = tenSach;
+        }
+
+        setNamXuatBan(namXuatBan) {
+            this.namXuatBan = namXuatBan;
+        }
+
+        setSoQuyen(soQuyen) {
+            this.soQuyen = soQuyen;
+        }
+
+        setTinhTrang(tinhTrang) {
+            this.tinhTrang = tinhTrang;
+        }
+    }
+
+    let danhSachSach = [];
+    let sach1 = new Sach(12345, "Toán", 2000, 3, true);
+    let sach2 = new Sach(23456, "Văn", 1998, 4, true);
+    let sach3 = new Sach(37456, "Tiếng Anh", 1999, 5, false);
+    danhSachSach.push(sach1, sach2, sach3);
+    hienThi(danhSachSach);
+
+    function themSachDaCo() {
+        let maSo = +prompt("nhập mã số sách muốn thêm");
+        for (let i = 0; i < danhSachSach.length; i++) {
+            if (maSo === danhSachSach[i].getMaSo()) {
+                let soQuyen = danhSachSach[i].getSoQuyen();
+                danhSachSach[i].setSoQuyen(soQuyen += 1);
+            }
+        }
+        hienThi(danhSachSach);
+    }
+
+    function muonSach() {
+        let maSo = +prompt("nhập mã số sách muốn mượn");
+        for (let i = 0; i < danhSachSach.length; i++) {
+            if (maSo === danhSachSach[i].getMaSo()) {
+                var soQuyen = danhSachSach[i].getSoQuyen();
+                if (soQuyen > 0) {
+                    danhSachSach[i].setSoQuyen(soQuyen -= 1);
+                    if (soQuyen === 0) {
+                        danhSachSach[i].setTinhTrang(false);
+                    }
+                }
+            }
+        }
+        hienThi(danhSachSach);
+    }
+
+    function themSachMoi() {
+        let maSo;
+        let tenSach;
+        let namXuatBan;
+        let soQuyen;
+        do {
+            maSo = +prompt("nhập mã số sách mới");
+            tenSach = prompt("nhập tên sách mới");
+            namXuatBan = +prompt("nhập năm xuất bản của sách");
+            soQuyen = +prompt("nhập số lượng sách mới");
+            if (kiemTraMaSo(maSo) && kiemTraNam(namXuatBan) && !isNaN(soQuyen)) {
+                let sach = new Sach(maSo, tenSach, namXuatBan, soQuyen, true);
+                danhSachSach.push(sach);
+                alert("đã thêm sách mới thành công");
+            } else {
+                alert("thông tin chưa hợp lệ");
+            }
+        } while (!kiemTraMaSo(maSo) || !kiemTraNam(namXuatBan) || isNaN(soQuyen));
+        hienThi(danhSachSach);
+    }
+
+    function kiemTraMaSo(maSo) {
+        maSo = maSo.toString();
+        if (maSo.length === 5) {
+            switch (true) {
+                case maSo[0] > 5 || maSo[0] < 1 :
+                case maSo[1] > 9 || maSo[1] < 0:
+                case maSo[2] > 9 || maSo[2] < 0:
+                case maSo[3] > 9 || maSo[3] < 0:
+                case maSo[4] > 9 || maSo[4] < 0:
+                case isNaN(maSo):
+                    return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function kiemTraNam(nam) {
+        return !(nam < 0 || nam > 9999 || isNaN(nam));
+    }
+
+    function hienThi(danhSach) {
+        let giaoDien = '<table border="1" style="border-collapse: collapse" align="center">\n' +
+            '    <tr>\n' +
+            '        <th>Mã số sách</th>\n' +
+            '        <th>Tên sách</th>\n' +
+            '        <th>Năm xuất bản</th>\n' +
+            '        <th>số quyển</th>\n' +
+            '        <th>Tình trạng</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            giaoDien += ' <tr>\n' +
+                '        <td>' + danhSach[i].getMaSo() + '</td>\n' +
+                '        <td>' + danhSach[i].getTenSach() + '</td>\n' +
+                '        <td>' + danhSach[i].getNamXuatBan() + '</td>\n' +
+                '        <td>' + danhSach[i].getSoQuyen() + '</td>\n' +
+                '        <td>' + danhSach[i].getTinhTrang() + '</td>\n' +
+                '    </tr>';
+        }
+        giaoDien += '</table>';
+        document.getElementById("hienThi").innerHTML = giaoDien;
+    }
+
+</script>
+</body>
+</html>

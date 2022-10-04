@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let n = +prompt("nhập vào giá trị độ dài mảng");
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("nhập vào giá trị phần tử của mảng số");
+    }
+
+    function checkArr(array) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < i; j++) {
+                if (arr[i] % arr[j] !== 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    document.write(checkArr(arr));
+</script>
+</body>
+</html>

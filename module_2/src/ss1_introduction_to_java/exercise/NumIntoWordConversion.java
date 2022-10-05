@@ -112,7 +112,7 @@ public class NumIntoWordConversion {
             System.out.print(tens + " ");
         }
         if (number < 10) {
-            if ((temp % 100 != 0) && temp%10 != 0 && temp > 20 || temp == 0) {
+            if ((temp % 100 != 0) && temp % 10 != 0 && temp > 20 || temp == 0) {
                 switch (number) {
                     case 0:
                         units = "zero";

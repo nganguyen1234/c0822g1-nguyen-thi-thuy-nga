@@ -10,6 +10,7 @@ public class NumIntoWordConversion {
         String hundreds = null;
         String tens = null;
         String units = null;
+        int temp = 0;
         if (number < 1000 && number > 99) {
             switch (number / 100) {
                 case 1:
@@ -41,7 +42,7 @@ public class NumIntoWordConversion {
                     break;
             }
             number %= 100;
-            System.out.print( hundreds + " ");
+            System.out.print(hundreds + " ");
         }
         if (number < 100 && number > 9) {
             switch (number / 10) {
@@ -78,7 +79,6 @@ public class NumIntoWordConversion {
                             tens = "nineteen";
                             break;
                     }
-                    number -= number;
                     break;
                 case 2:
                     tens = "twenty";
@@ -106,41 +106,48 @@ public class NumIntoWordConversion {
                     break;
 
             }
+            temp = number;
             number %= 10;
             System.out.print(tens + " ");
         }
-        if (number<10) {
-            switch (number) {
-                case 1:
-                    units = "one";
-                    break;
-                case 2:
-                    units = "two";
-                    break;
-                case 3:
-                    units = "three";
-                    break;
-                case 4:
-                    units = "four";
-                    break;
-                case 5:
-                    units = "five";
-                    break;
-                case 6:
-                    units = "six";
-                    break;
-                case 7:
-                    units = "seven";
-                    break;
-                case 8:
-                    units = "eight";
-                    break;
-                case 9:
-                    units = "nine";
-                    break;
+        if (number < 10) {
+            if ((temp % 10 != 0) && temp > 20 || temp == 0) {
+                switch (number) {
+                    case 0:
+                        units = "zero";
+                        break;
+                    case 1:
+                        units = "one";
+                        break;
+                    case 2:
+                        units = "two";
+                        break;
+                    case 3:
+                        units = "three";
+                        break;
+                    case 4:
+                        units = "four";
+                        break;
+                    case 5:
+                        units = "five";
+                        break;
+                    case 6:
+                        units = "six";
+                        break;
+                    case 7:
+                        units = "seven";
+                        break;
+                    case 8:
+                        units = "eight";
+                        break;
+                    case 9:
+                        units = "nine";
+                        break;
+                }
+
             }
-            if (units != null){
-                System.out.print(units +" ");
+            if (units != null) {
+                System.out.print(units + " ");
             }
 
         }

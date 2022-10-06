@@ -3,7 +3,7 @@ package ss2_loop_array.practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ItemDeletion {
+public class ItemRemove {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int index = 0;

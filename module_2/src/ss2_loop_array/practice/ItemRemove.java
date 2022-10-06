@@ -7,7 +7,13 @@ public class ItemRemove {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int index = 0;
-        int[] arr = {10, 4, 6, 6, 7, 8, 6};
+        int n = 10;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("nhập vào phần tử thứ " + i);
+            arr[i] = Integer.parseInt(scanner.nextLine());
+        }
+        System.out.println("Mảng vừa nhập là: " + Arrays.toString(arr));
         boolean check = false;
         System.out.print("Nhập số muốn xóa: ");
         int number = Integer.parseInt(scanner.nextLine());

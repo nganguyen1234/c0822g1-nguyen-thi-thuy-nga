@@ -6,7 +6,13 @@ import java.util.Scanner;
 public class ItemAdd {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] arr = {10, 4, 6, 23, 5, 0, 0, 2, 3, 0};
+        int n = 10;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("nhập vào phần tử thứ " + i);
+            arr[i] = Integer.parseInt(scanner.nextLine());
+        }
+        System.out.println("Mảng vừa nhập là: " + Arrays.toString(arr));
         System.out.println("Nhập vào số muốn chèn");
         int number = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập vào vị trí muốn chèn");

@@ -14,21 +14,21 @@ public class DiagonalLineSum {
             }
         } while (m < 0);
 
-        int[][] arr = new int[m][m];
+        double[][] arr = new double[m][m];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.print(" nhập vào giá trị phần tử thứ [" + i + "][" + j + "] ");
-                arr[i][j] = Integer.parseInt(scanner.nextLine());
+                arr[i][j] = Double.parseDouble(scanner.nextLine());
             }
         }
         System.out.println("Ma trận vừa nhập là: ");
-        for (int[] items : arr) {
-            for (int item : items) {
+        for (double[] items : arr) {
+            for (double item : items) {
                 System.out.print(item + "\t");
             }
             System.out.println();
         }
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
                 if (i == j) {

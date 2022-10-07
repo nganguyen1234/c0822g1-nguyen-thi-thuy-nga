@@ -22,16 +22,16 @@ public class ColumnSum {
                 System.out.println("thông tin không hợp lệ. Vui lòng nhập lại");
             }
         } while (n < 0);
-        int[][] arr = new int[m][n];
+        double[][] arr = new double[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(" nhập vào giá trị phần tử thứ [" + i + "][" + j + "] ");
-                arr[i][j] = Integer.parseInt(scanner.nextLine());
+                arr[i][j] = Double.parseDouble(scanner.nextLine());
             }
         }
         System.out.println("Ma trận vừa nhập là: ");
-        for (int[] items : arr) {
-            for (int item : items) {
+        for (double[] items : arr) {
+            for (double item : items) {
                 System.out.print(item + "\t");
             }
             System.out.println();
@@ -45,7 +45,7 @@ public class ColumnSum {
                 System.out.println("vị trí cột không hợp lệ. Vui lòng nhập lại ");
             }
         } while (column > n || column < 0);
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < m; i++) {
             sum += arr[i][column];
         }

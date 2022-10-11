@@ -1,10 +1,10 @@
 package ss4_class_object.excercise.excercise2;
 
 public class Fan {
-    static final int slow = 1;
-    static final int medium = 2;
-    static final int fast = 3;
-    int speed = slow;
+    static final int SLOW = 1;
+    static final int MEDIUM = 2;
+    static final int FAST = 3;
+    int speed = SLOW;
     boolean on = false;
     double radius = 5;
     String color = "blue";

@@ -1,7 +1,7 @@
 package ss6_inheritance.exercise.exercise2;
 
 public class Point3D extends Point2D {
-    float z = 0.0f;
+   private float z = 0.0f;
 
     public Point3D(float x, float y, float z) {
         super(x, y);

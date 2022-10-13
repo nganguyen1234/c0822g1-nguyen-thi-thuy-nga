@@ -1,8 +1,8 @@
 package ss6_inheritance.exercise.exercise2;
 
 public class Point2D {
-   private float x = 0.0f;
-  private   float y = 0.0f;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
     public Point2D(float x, float y) {
         this.x = x;
@@ -34,7 +34,7 @@ public class Point2D {
     }
 
     public float[] getXY() {
-        float[] array = {this.x,this.y};
+        float[] array = {this.x, this.y};
         return array;
     }
 

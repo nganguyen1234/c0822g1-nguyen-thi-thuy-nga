@@ -1,6 +1,6 @@
 package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
 
-public class Shape {
+public class Shape implements Resizeable,Colorable{
     private String color = "green";
     private boolean filled = true;
 
@@ -27,12 +27,19 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
     @Override
     public String toString() {
         return "A Shape with color of "
                 + getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    @Override
+    public void howToColor() {
+    }
+
+    @Override
+    public void resize(double percent) {
     }
 }

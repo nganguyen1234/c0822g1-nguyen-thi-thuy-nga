@@ -1,8 +1,8 @@
 package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
 
-    public class Circle extends Shape implements Resizeable {
-        private double radius = 1.0;
 
+public class Circle extends Shape implements Resizeable,Colorable {
+        private double radius = 1.0;
         public Circle() {
         }
 
@@ -43,5 +43,10 @@ package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
         public void resize(double percent) {
             this.setRadius(this.getRadius()* (100 + percent) / 100);
         }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color the whole circle");
     }
+}
 

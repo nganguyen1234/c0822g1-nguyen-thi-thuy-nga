@@ -2,7 +2,7 @@ package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
 
 import java.util.Random;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape implements Resizeable,Colorable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -58,5 +58,10 @@ public class Rectangle extends Shape implements Resizeable {
     public void resize(double percent) {
         this.setLength(this.getLength() * (100 + percent) / 100);
         this.setWidth(this.getWidth() * (100 + percent) / 100);
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides of the Rectangle.");
     }
 }

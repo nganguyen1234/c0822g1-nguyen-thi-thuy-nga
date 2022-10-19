@@ -1,6 +1,4 @@
-package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
-
-import java.util.Random;
+package ss7_abstract_class_and_interface.exercise.excercise1.geometric;
 
 public class Rectangle extends Shape implements Resizeable,Colorable {
     private double width = 1.0;

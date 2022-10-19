@@ -1,4 +1,4 @@
-package ss7_abstract_class_and_interface.practice.excercise1.animal;
+package ss7_abstract_class_and_interface.practice.exercise1.animal;
 
 public class TestAnimal {
     public static void main(String[] args) {

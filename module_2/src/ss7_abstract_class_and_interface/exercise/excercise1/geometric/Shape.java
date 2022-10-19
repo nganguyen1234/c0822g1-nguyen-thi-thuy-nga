@@ -1,4 +1,4 @@
-package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
+package ss7_abstract_class_and_interface.exercise.excercise1.geometric;
 
 public class Shape implements Resizeable,Colorable{
     private String color = "green";

@@ -1,4 +1,4 @@
-package ss7_abstract_class_and_interface.excercise.excercise1.geometric;
+package ss7_abstract_class_and_interface.exercise.excercise1.geometric;
 
 public class Square extends Shape implements Resizeable,Colorable {
     private double side = 5;

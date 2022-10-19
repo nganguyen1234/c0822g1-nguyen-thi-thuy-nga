@@ -1,4 +1,4 @@
-package giai_thuat.excercise1;
+package giai_thuat.exercise1;
 
 public class Rhombus {
     public static void main(String[] args) {

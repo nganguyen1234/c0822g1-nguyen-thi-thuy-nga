@@ -1,4 +1,4 @@
-package oop_extra_exercise.controller;
+package oop_exercise.controller;
 
 import java.util.Scanner;
 

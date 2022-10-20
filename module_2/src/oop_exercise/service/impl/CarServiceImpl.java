@@ -1,8 +1,7 @@
-package oop_extra_exercise.service.impl;
+package oop_exercise.service.impl;
 
-import oop_extra_exercise.model.Car;
-import oop_extra_exercise.model.Truck;
-import oop_extra_exercise.service.TransportSerive;
+import oop_exercise.model.Car;
+import oop_exercise.service.TransportSerive;
 
 import java.util.ArrayList;
 import java.util.Scanner;

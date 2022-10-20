@@ -1,4 +1,4 @@
-package oop_extra_exercise.service;
+package oop_exercise.service;
 
 public interface TransportSerive {
     void add();

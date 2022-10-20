@@ -1,12 +1,13 @@
 package ss11_dsa_stack_queue.exercise.exercise2;
 
 import java.util.Scanner;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class WordCount {
     public void count() {
         Scanner scanner = new Scanner(System.in);
-        TreeMap<String, Integer> map1 = new TreeMap<String, Integer>();
+        Map<String, Integer> map1 = new TreeMap<String, Integer>();
         System.out.println("Nhập vào một chuỗi");
         String string = scanner.nextLine().toUpperCase();
         String[] array = string.split(" ");

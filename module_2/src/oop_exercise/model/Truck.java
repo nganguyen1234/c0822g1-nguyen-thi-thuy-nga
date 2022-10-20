@@ -1,6 +1,4 @@
-package oop_extra_exercise.model;
-
-import java.time.Year;
+package oop_exercise.model;
 
 public class Truck extends Transport {
     private int load;

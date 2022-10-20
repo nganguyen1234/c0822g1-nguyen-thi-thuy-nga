@@ -1,4 +1,4 @@
-package oop_extra_exercise.model;
+package oop_exercise.model;
 
 public class CarCompany {
     private int id;

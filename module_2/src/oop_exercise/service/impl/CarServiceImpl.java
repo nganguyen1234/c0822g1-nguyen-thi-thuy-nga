@@ -4,12 +4,13 @@ import oop_exercise.model.Car;
 import oop_exercise.service.TransportSerive;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CarServiceImpl implements TransportSerive {
-    ArrayList<Car> cars = new ArrayList<>();
+    Car[] cars = new Car[100];
     Scanner scanner = new Scanner(System.in);
-
+int size = 0;
     @Override
     public void add() {
         Car car = new Car();
@@ -25,7 +26,14 @@ public class CarServiceImpl implements TransportSerive {
         car.setNumberOfSeat(Integer.parseInt(scanner.nextLine()));
         System.out.print("Nhập kiểu xe:");
         car.setOwnerName(scanner.nextLine());
-        cars.add(car);
+        if (size >= cars.length) {
+            cars = Arrays.copyOf(cars, size + cars.length / 2);
+            cars[size] = car;
+            size++;
+        }else {
+            cars[size] = car;
+            size++;
+        }
     }
 
     @Override

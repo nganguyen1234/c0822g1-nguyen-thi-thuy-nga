@@ -14,7 +14,9 @@ public class BinarySearch {
             arr[i] = Integer.parseInt(scanner.nextLine());
         }
         Arrays.sort(arr);
-        System.out.println(binarySearch(arr, 0, arr.length - 1, 2));
+        System.out.println("Nhập vào giá trị muốn tìm");
+        int value = Integer.parseInt(scanner.nextLine());
+        System.out.println(binarySearch(arr, 0, arr.length - 1, value));
     }
 
     public static int binarySearch(int[] array, int left, int right, int value) {

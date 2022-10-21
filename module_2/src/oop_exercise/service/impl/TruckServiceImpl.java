@@ -27,9 +27,11 @@ public class TruckServiceImpl implements TransportSerive {
         truck.setLoad(Integer.parseInt(scanner.nextLine()));
         if (size >= trucks.length) {
             trucks = Arrays.copyOf(trucks, size + trucks.length / 2);
-            trucks[++size] = truck;
+            trucks[size] = truck;
+            size++;
         }else {
             trucks[size] = truck;
+            size++;
         }
 
     }

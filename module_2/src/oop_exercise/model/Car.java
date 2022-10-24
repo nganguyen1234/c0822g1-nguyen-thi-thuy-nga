@@ -5,7 +5,7 @@ public class Car extends Transport{
     private String type;
     public Car(){}
 
-    public Car(int licensePlate, String carCompany, int manufacturingYear, String ownerName, int numberOfSeat, String type) {
+    public Car(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName, int numberOfSeat, String type) {
         super(licensePlate, carCompany, manufacturingYear, ownerName);
         this.numberOfSeat = numberOfSeat;
         this.type = type;
@@ -25,5 +25,13 @@ public class Car extends Transport{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "numberOfSeat=" + numberOfSeat +
+                ", type='" + type + '\'' +
+                "} " + super.toString();
     }
 }

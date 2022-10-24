@@ -1,48 +1,59 @@
 package oop_exercise.service.impl;
 
 import oop_exercise.model.Car;
-import oop_exercise.service.TransportSerive;
+import oop_exercise.service.ICarService;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CarServiceImpl implements TransportSerive {
-    Car[] cars = new Car[100];
-    Scanner scanner = new Scanner(System.in);
-int size = 0;
+public class CarServiceImpl implements ICarService {
+    private Car[] cars = new Car[100];
+    private Scanner scanner = new Scanner(System.in);
+    private int size = 0;
+
     @Override
-    public void add() {
-        Car car = new Car();
-        System.out.print("Nhập biển kiểm soát: ");
-        car.setLicensePlate(Integer.parseInt(scanner.nextLine()));
-        System.out.print("Nhập tên hãng xe: ");
-        car.setCarCompany(scanner.nextLine());
-        System.out.print("Nhập năm sản xuất xe:");
-        car.setManufacturingYear(Integer.parseInt(scanner.nextLine()));
-        System.out.print("Nhập tên chủ sở hữu:");
-        car.setOwnerName(scanner.nextLine());
-        System.out.print("Nhập số chỗ ngồi của xe:");
-        car.setNumberOfSeat(Integer.parseInt(scanner.nextLine()));
-        System.out.print("Nhập kiểu xe:");
-        car.setOwnerName(scanner.nextLine());
+    public void add(Car car) {
         if (size >= cars.length) {
             cars = Arrays.copyOf(cars, size + cars.length / 2);
             cars[size] = car;
             size++;
-        }else {
+        } else {
             cars[size] = car;
             size++;
         }
     }
 
     @Override
-    public void remove() {
-
+    public boolean remove(int licensePlate) {
+        int index = this.find(licensePlate);
+        if (index != -1) {
+            System.arraycopy(cars, index + 1, cars, index, size - 1 - index);
+            cars[size-1] = null;
+            size--;
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void find() {
+    public int find(int licensePlate) {
+        for (int i = 0; i < size; i++) {
+            if (cars[i].getLicensePlate() == licensePlate) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
+    @Override
+    public void display(int index) {
+        System.out.println(cars[index].toString());
+    }
+
+    @Override
+    public void display() {
+        for (int i = 0; i < size ; i++) {
+            System.out.println(cars[i].toString());
+        }
     }
 }

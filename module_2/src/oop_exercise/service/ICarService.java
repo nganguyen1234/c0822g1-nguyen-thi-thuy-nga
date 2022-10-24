@@ -1,11 +1,11 @@
 package oop_exercise.service;
 
-import sun.plugin2.message.transport.Transport;
+import oop_exercise.model.Car;
 
-public interface TransportSerive {
-    void add();
+public interface ICarService {
+    void add(Car car);
     boolean remove(int licensePlate);
     int find(int licensePlate);
-    void display();
     void display(int index);
+    void display();
 }

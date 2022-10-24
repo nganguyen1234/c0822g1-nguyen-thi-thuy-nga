@@ -2,13 +2,13 @@ package oop_exercise.model;
 
 public abstract class Transport {
     private int licensePlate;
-    private String carCompany;
+    private CarManufacturer carManufacturer;
     private int manufacturingYear;
     private String ownerName;
 
-    public Transport(int licensePlate, String carCompany, int manufacturingYear, String ownerName) {
+    public Transport(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName) {
         this.licensePlate = licensePlate;
-        this.carCompany = carCompany;
+        this.carManufacturer = carCompany;
         this.manufacturingYear = manufacturingYear;
         this.ownerName = ownerName;
     }
@@ -22,12 +22,12 @@ public abstract class Transport {
         this.licensePlate = licensePlate;
     }
 
-    public String getCarCompany() {
-        return carCompany;
+    public CarManufacturer getCarManufacturer() {
+        return carManufacturer;
     }
 
-    public void setCarCompany(String carCompany) {
-        this.carCompany = carCompany;
+    public void setCarManufacturer(CarManufacturer carManufacturer) {
+        this.carManufacturer = carManufacturer;
     }
 
     public int getManufacturingYear() {
@@ -44,6 +44,16 @@ public abstract class Transport {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "licensePlate=" + licensePlate +
+                ", carCompany='" + carManufacturer + '\'' +
+                ", manufacturingYear=" + manufacturingYear +
+                ", ownerName='" + ownerName + '\'' +
+                '}';
     }
 }
 

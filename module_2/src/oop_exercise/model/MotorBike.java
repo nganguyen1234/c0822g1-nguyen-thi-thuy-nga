@@ -5,7 +5,7 @@ public class MotorBike extends Transport {
 
     public MotorBike() {}
 
-    public MotorBike(int licensePlate, String carCompany, int manufacturingYear, String ownerName, int capacity) {
+    public MotorBike(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName, int capacity) {
         super(licensePlate, carCompany, manufacturingYear, ownerName);
         this.capacity = capacity;
     }
@@ -16,5 +16,12 @@ public class MotorBike extends Transport {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+        return "MotorBike{" +
+                "capacity=" + capacity +
+                "} " + super.toString();
     }
 }

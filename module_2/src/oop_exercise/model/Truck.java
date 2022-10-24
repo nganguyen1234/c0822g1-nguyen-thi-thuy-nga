@@ -6,7 +6,7 @@ public class Truck extends Transport {
     public Truck() {
     }
 
-    public Truck(int licensePlate, String carCompany, int manufacturingYear, String ownerName, int load) {
+    public Truck(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName, int load) {
         super(licensePlate, carCompany, manufacturingYear, ownerName);
         this.load = load;
     }
@@ -17,5 +17,10 @@ public class Truck extends Transport {
 
     public void setLoad(int load) {
         this.load = load;
+    }
+
+    @Override
+    public String toString() {
+        return "Truck{} " + super.toString();
     }
 }

@@ -47,7 +47,7 @@ public class ExceptionStudy {
 
     public static void triangleCheck(int side) throws IllegalTriangleException {
         if (side <= 0) {
-            throw new IllegalTriangleException("cạnh tam giác không thể nhận giá trị âm");
+            throw new IllegalTriangleException("cạnh tam giác không thể nhận giá trị âm hoặc bằng 0");
         }
     }
 

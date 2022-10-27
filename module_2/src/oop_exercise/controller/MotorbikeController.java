@@ -1,6 +1,6 @@
 package oop_exercise.controller;
 
-import oop_exercise.model.MotorBike;
+import oop_exercise.model.Motorbike;
 import oop_exercise.service.impl.CarManufacturerImpl;
 import oop_exercise.service.impl.MotorbikeServiceImpl;
 
@@ -11,7 +11,7 @@ public class MotorbikeController {
     private Scanner scanner = new Scanner(System.in);
 
     public void add() {
-        MotorBike motorBike = new MotorBike();
+        Motorbike motorBike = new Motorbike();
         System.out.print("Nhập biển kiểm soát: ");
         motorBike.setLicensePlate(Integer.parseInt(scanner.nextLine()));
         System.out.print("Chọn hãng xe: ");

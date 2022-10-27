@@ -4,12 +4,12 @@ public class Employee extends Person {
     private int employeeId;
     private String position;
     private double salary;
-    private String educationLevel;
+    private EducationLevel educationLevel;
 
     public Employee() {
     }
 
-    public Employee(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email, int employeeId, String position, double salary, String educationLevel) {
+    public Employee(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email, int employeeId, String position, double salary, EducationLevel educationLevel) {
         super(name, dateOfBirth, gender, phoneNumber, cmnd, email);
         this.employeeId = employeeId;
         this.position = position;
@@ -41,11 +41,11 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public String getEducationLevel() {
+    public EducationLevel getEducationLevel() {
         return educationLevel;
     }
 
-    public void setEducationLevel(String educationLevel) {
+    public void setEducationLevel(EducationLevel educationLevel) {
         this.educationLevel = educationLevel;
     }
 

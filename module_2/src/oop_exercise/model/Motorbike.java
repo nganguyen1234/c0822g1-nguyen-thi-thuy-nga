@@ -1,11 +1,11 @@
 package oop_exercise.model;
 
-public class MotorBike extends Transport {
+public class Motorbike extends Transport {
     private int capacity;
 
-    public MotorBike() {}
+    public Motorbike() {}
 
-    public MotorBike(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName, int capacity) {
+    public Motorbike(int licensePlate, CarManufacturer carCompany, int manufacturingYear, String ownerName, int capacity) {
         super(licensePlate, carCompany, manufacturingYear, ownerName);
         this.capacity = capacity;
     }

@@ -1,6 +1,6 @@
 package case_study.furama_resort.services;
 
-public interface Service {
-    void addInfor();
+public interface Service<T> {
     void display();
+
 }

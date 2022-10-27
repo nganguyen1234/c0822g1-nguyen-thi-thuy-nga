@@ -2,16 +2,49 @@ package case_study.furama_resort.models.Person;
 
 public class Customer extends Person {
     private int customerId;
-    private String customerType;
+    private CustomerType customerType;
     private String address;
 
     public Customer() {
     }
 
-    public Customer(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email, int customerId, String customerType, String address) {
+    public Customer(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email, int customerId, CustomerType customerType, String address) {
         super(name, dateOfBirth, gender, phoneNumber, cmnd, email);
         this.customerId = customerId;
         this.customerType = customerType;
         this.address = address;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerType='" + customerType + '\'' +
+                ", address='" + address + '\'' +
+                "} " + super.toString();
     }
 }

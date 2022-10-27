@@ -1,21 +1,21 @@
 package oop_exercise.service.impl;
 
-import oop_exercise.model.MotorBike;
+import oop_exercise.model.Motorbike;
 import oop_exercise.service.IMotorbikeService;
 
 import java.util.Arrays;
 
 public class MotorbikeServiceImpl implements IMotorbikeService {
-    private MotorBike[] motorBikes = new MotorBike[100];
+    private Motorbike[] motorbikes = new Motorbike[100];
     private int size = 0;
     @Override
-    public void add(MotorBike motorBike) {
-        if (size >= motorBikes.length) {
-            motorBikes = Arrays.copyOf(motorBikes, size + motorBikes.length / 2);
-            motorBikes[size] = motorBike;
+    public void add(Motorbike motorBike) {
+        if (size >= motorbikes.length) {
+            motorbikes = Arrays.copyOf(motorbikes, size + motorbikes.length / 2);
+            motorbikes[size] = motorBike;
             size++;
         } else {
-            motorBikes[size] = motorBike;
+            motorbikes[size] = motorBike;
             size++;
         }
     }
@@ -24,8 +24,8 @@ public class MotorbikeServiceImpl implements IMotorbikeService {
     public boolean remove(int licensePlate) {
         int index = this.find(licensePlate);
         if (index != -1) {
-            System.arraycopy(motorBikes, index + 1, motorBikes, index, size - 1 - index);
-            motorBikes[size-1] = null;
+            System.arraycopy(motorbikes, index + 1, motorbikes, index, size - 1 - index);
+            motorbikes[size-1] = null;
             size--;
             return true;
         }
@@ -35,7 +35,7 @@ public class MotorbikeServiceImpl implements IMotorbikeService {
     @Override
     public int find(int licensePlate) {
         for (int i = 0; i < size; i++) {
-            if (motorBikes[i].getLicensePlate() == licensePlate) {
+            if (motorbikes[i].getLicensePlate() == licensePlate) {
                 return i;
             }
         }
@@ -44,13 +44,13 @@ public class MotorbikeServiceImpl implements IMotorbikeService {
 
     @Override
     public void display(int index) {
-        System.out.println(motorBikes[index].toString());
+        System.out.println(motorbikes[index].toString());
     }
 
     @Override
     public void display() {
         for (int i = 0; i < size ; i++) {
-            System.out.println(motorBikes[i].toString());
+            System.out.println(motorbikes[i].toString());
         }
     }
 }

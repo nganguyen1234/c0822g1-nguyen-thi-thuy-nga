@@ -1,10 +1,9 @@
 package oop_exercise.service;
 
-import oop_exercise.model.MotorBike;
-import oop_exercise.model.Truck;
+import oop_exercise.model.Motorbike;
 
 public interface IMotorbikeService {
-    void add(MotorBike motorBike);
+    void add(Motorbike motorBike);
     boolean remove(int licensePlate);
     int find(int licensePlate);
     void display(int index);

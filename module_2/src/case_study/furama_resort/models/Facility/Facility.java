@@ -4,13 +4,13 @@ public abstract class Facility {
     private String serviceName;
     private double area;
     private double cost;
-    private String rent;
+    private RentalType rent;
     private int numberOfPeople;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, double area, double cost, String rentalType, int numberOfPeople) {
+    public Facility(String serviceName, double area, double cost, RentalType rentalType, int numberOfPeople) {
         this.serviceName = serviceName;
         this.area = area;
         this.cost = cost;
@@ -42,11 +42,11 @@ public abstract class Facility {
         this.cost = cost;
     }
 
-    public String getRent() {
+    public RentalType getRent() {
         return rent;
     }
 
-    public void setRent(String rent) {
+    public void setRent(RentalType rent) {
         this.rent = rent;
     }
 
@@ -56,5 +56,16 @@ public abstract class Facility {
 
     public void setNumberOfPeople(int numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "service name='" + serviceName + '\'' +
+                "- area=" + area +
+                "- cost=" + cost +
+                "- rent='" + rent + '\'' +
+                "- numberOfPeople=" + numberOfPeople +
+                '}';
     }
 }

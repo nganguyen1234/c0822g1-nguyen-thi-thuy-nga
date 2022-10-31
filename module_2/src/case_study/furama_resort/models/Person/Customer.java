@@ -8,8 +8,8 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email, int customerId, CustomerType customerType, String address) {
-        super(name, dateOfBirth, gender, phoneNumber, cmnd, email);
+    public Customer(String name, int dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email, int customerId, CustomerType customerType, String address) {
+        super(name, dateOfBirth, gender, phoneNumber, citizenIdentityNumber, email);
         this.customerId = customerId;
         this.customerType = customerType;
         this.address = address;
@@ -40,11 +40,17 @@ public class Customer extends Person {
     }
 
     @Override
+    public String convertLine() {
+        String comma = ",";
+        return super.convertLine() + comma + this.customerId + comma + this.customerType.convertLine() + comma + this.address;
+    }
+
+    @Override
     public String toString() {
-        return "Customer{" +
+        return "Customer{" + super.toString() +
                 "customerId=" + customerId +
-                ", customerType='" + customerType + '\'' +
+                ", customerType=" + customerType +
                 ", address='" + address + '\'' +
-                "} " + super.toString();
+                "} ";
     }
 }

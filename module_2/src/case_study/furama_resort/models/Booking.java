@@ -3,19 +3,20 @@ package case_study.furama_resort.models;
 import case_study.furama_resort.models.Facility.Facility;
 import case_study.furama_resort.models.Person.Customer;
 
+import java.util.Comparator;
 import java.util.Date;
 
-public class Booking {
+public class Booking implements Comparator<Booking> {
     private int bookingId;
     private Date startDate;
     private Date endDate;
     private Facility serviceName;
-    private Customer customerId;
+    private int customerId;
 
-    public Booking(){
+    public Booking() {
     }
 
-    public Booking(int bookingId, Date startDate, Date endDate, Facility serviceName, Customer customerId) {
+    public Booking(int bookingId, Date startDate, Date endDate, Facility serviceName, int customerId) {
         this.bookingId = bookingId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -55,11 +56,19 @@ public class Booking {
         this.serviceName = serviceName;
     }
 
-    public Customer getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Customer customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    @Override
+    public int compare(Booking o1, Booking o2) {
+        if (o1.getStartDate() == o2.getStartDate()) {
+            return o1.getEndDate().compareTo(o2.getEndDate());
+        }
+        return o1.getStartDate().compareTo(o2.getStartDate());
     }
 }

@@ -1,13 +1,17 @@
 package case_study.furama_resort.models.Facility;
 
 public abstract class Facility {
-    private String serviceName;
+    protected String serviceName;
     private double area;
     private double cost;
     private RentalType rent;
     private int numberOfPeople;
 
     public Facility() {
+    }
+
+    public Facility(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public Facility(String serviceName, double area, double cost, RentalType rentalType, int numberOfPeople) {
@@ -17,6 +21,7 @@ public abstract class Facility {
         this.rent = rentalType;
         this.numberOfPeople = numberOfPeople;
     }
+
 
     public String getServiceName() {
         return serviceName;

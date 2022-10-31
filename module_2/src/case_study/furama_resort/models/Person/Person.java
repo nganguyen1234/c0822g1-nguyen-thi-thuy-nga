@@ -5,15 +5,15 @@ public abstract class Person {
     private int dateOfBirth;
     private String gender;
     private int phoneNumber;
-    private int cmnd;
+    private int citizenIdentityNumber;
     private String email;
 
-    public Person(String name, int dateOfBirth, String gender, int phoneNumber, int cmnd, String email) {
+    public Person(String name, int dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
-        this.cmnd = cmnd;
+        this.citizenIdentityNumber = citizenIdentityNumber;
         this.email = email;
     }
 
@@ -52,12 +52,12 @@ public abstract class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getCmnd() {
-        return cmnd;
+    public int getCitizenIdentityNumber() {
+        return citizenIdentityNumber;
     }
 
-    public void setCmnd(int cmnd) {
-        this.cmnd = cmnd;
+    public void setCitizenIdentityNumber(int citizenIdentityNumber) {
+        this.citizenIdentityNumber = citizenIdentityNumber;
     }
 
     public String getEmail() {
@@ -66,5 +66,20 @@ public abstract class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String convertLine() {
+        String comma = ",";
+        return this.name + comma + this.dateOfBirth + comma + this.gender + comma + this.phoneNumber + comma + this.citizenIdentityNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "name:'" + name + '\'' +
+                ", date of birth:" + dateOfBirth +
+                ", gender:'" + gender + '\'' +
+                ", phone number:" + phoneNumber +
+                ", citizen identity number:" + citizenIdentityNumber +
+                ", email:'" + email;
     }
 }

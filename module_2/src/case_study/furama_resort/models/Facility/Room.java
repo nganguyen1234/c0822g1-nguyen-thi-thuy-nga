@@ -4,6 +4,7 @@ public class Room extends Facility {
     private String complimentaryService;
 
     public Room() {
+        super("Room");
     }
 
     public Room(String serviceName, double area, double cost, RentalType rentalType, int numberOfPeople, String complimentaryService) {

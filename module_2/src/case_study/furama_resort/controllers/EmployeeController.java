@@ -52,7 +52,7 @@ public class EmployeeController {
         System.out.println("Gender");
         employee.setGender(scanner.nextLine());
         System.out.println("Citizen Identity Number");
-        employee.setCmnd(Integer.parseInt(scanner.nextLine()));
+        employee.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
         System.out.println("Phone number");
         employee.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
         System.out.println("Email address:");
@@ -116,7 +116,7 @@ public class EmployeeController {
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
-                        employee.setCmnd(Integer.parseInt(scanner.nextLine()));
+                        employee.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
                         break;
                     case 5:
                         System.out.println("New phone number");

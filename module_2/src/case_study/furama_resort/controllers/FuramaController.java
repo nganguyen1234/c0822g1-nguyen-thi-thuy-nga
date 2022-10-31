@@ -1,12 +1,14 @@
 package case_study.furama_resort.controllers;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class FuramaController {
-    public void displayMainMenu() {
+    public void displayMainMenu() throws ParseException {
         EmployeeController employeeController = new EmployeeController();
         CustomerController customerController = new CustomerController();
         FacilityController facilityController = new FacilityController();
+        BookingController bookingController = new BookingController();
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -30,9 +32,7 @@ public class FuramaController {
                    facilityController.displayMenu();
                     break;
                 case 4:
-                    System.out.println("1.\tAdd new booking\n" +
-                            "2.\tDisplay list booking\n" +
-                            "3.\tReturn main menu\n");
+                    bookingController.displayMenu();
                     break;
                 case 5:
                     System.out.println("1.\tDisplay list customers use service\n" +

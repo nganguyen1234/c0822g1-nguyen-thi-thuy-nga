@@ -1,6 +1,5 @@
 package case_study.furama_resort.controllers;
 
-import case_study.furama_resort.models.Facility.Facility;
 import case_study.furama_resort.models.Facility.Room;
 import case_study.furama_resort.models.Facility.Villa;
 import case_study.furama_resort.services.impl_classes.FacilityServiceImpl;
@@ -22,23 +21,23 @@ public class FacilityController {
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    displayList();
+                    this.displayList();
                     break;
                 case 2:
-                    addFacility();
+                    this.addFacility();
                     break;
                 case 3:
-                    displayMaintenance();
+                    this.displayMaintenance();
                     break;
                 case 4:
                     return;
             }
-        } while (choice > 4 || choice < 1);
+        } while (true);
 
     }
 
     private void displayList() {
-        facilityService.display();
+        facilityService.displayAllFacilities();
     }
 
     private void displayMaintenance() {
@@ -88,7 +87,7 @@ public class FacilityController {
         villa.setNumberOfPeople(Integer.parseInt(scanner.nextLine()));
         System.out.println("has used: ");
         int count = Integer.parseInt(scanner.nextLine());
-        facilityService.addVillaInfo(villa, count);
+        facilityService.addFacility(villa, count);
     }
 
     private void addRoom() {
@@ -115,6 +114,6 @@ public class FacilityController {
         room.setComplimentaryService(scanner.nextLine());
         System.out.println("has used: ");
         int count = Integer.parseInt(scanner.nextLine());
-        facilityService.addRoomInfo(room, count);
+        facilityService.addFacility(room, count);
     }
 }

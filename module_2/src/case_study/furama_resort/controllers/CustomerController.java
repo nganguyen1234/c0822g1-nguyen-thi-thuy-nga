@@ -50,7 +50,7 @@ public class CustomerController {
         System.out.println("Gender");
         customer.setGender(scanner.nextLine());
         System.out.println("Citizen Identity Number");
-        customer.setCmnd(Integer.parseInt(scanner.nextLine()));
+        customer.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
         System.out.println("Phone number");
         customer.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
         System.out.println("Email address:");
@@ -111,7 +111,7 @@ public class CustomerController {
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
-                        customer.setCmnd(Integer.parseInt(scanner.nextLine()));
+                        customer.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
                         break;
                     case 5:
                         System.out.println("New phone number");
@@ -167,6 +167,6 @@ public class CustomerController {
 //    }
 
     private void display() {
-        customerService.display();
+        customerService.displayCustomerList();
     }
 }

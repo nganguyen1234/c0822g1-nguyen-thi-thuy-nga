@@ -51,6 +51,6 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "name: " + getName() + "\tdate of birth: " + getDateOfBirth() + "\tgender: " + getGender() + "\tphone number: " + getPhoneNumber() + "\tid:" + getEmployeeId() + "\tcmnd: " + getCmnd() + "\temail: " + getEmail() + "\tposition: " + getPosition() + "\tsalary: " + getSalary() + "\teducation level: " + getEducationLevel();
+        return "name: " + getName() + "\tdate of birth: " + getDateOfBirth() + "\tgender: " + getGender() + "\tphone number: " + getPhoneNumber() + "\tid:" + getEmployeeId() + "\tcmnd: " + getCitizenIdentityNumber() + "\temail: " + getEmail() + "\tposition: " + getPosition() + "\tsalary: " + getSalary() + "\teducation level: " + getEducationLevel();
     }
 }

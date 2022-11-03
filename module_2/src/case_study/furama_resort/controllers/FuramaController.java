@@ -9,6 +9,7 @@ public class FuramaController {
         CustomerController customerController = new CustomerController();
         FacilityController facilityController = new FacilityController();
         BookingController bookingController = new BookingController();
+        PromotionController promotionController = new PromotionController();
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -26,18 +27,16 @@ public class FuramaController {
                     employeeController.displayMenu();
                     break;
                 case 2:
-                 customerController.displayMenu();
+                    customerController.displayMenu();
                     break;
                 case 3:
-                   facilityController.displayMenu();
+                    facilityController.displayMenu();
                     break;
                 case 4:
                     bookingController.displayMenu();
                     break;
                 case 5:
-                    System.out.println("1.\tDisplay list customers use service\n" +
-                            "2.\tDisplay list customers get voucher\n" +
-                            "3.\tReturn main menu\n");
+                    promotionController.displayMenu();
                     break;
                 case 6:
                     System.exit(6);

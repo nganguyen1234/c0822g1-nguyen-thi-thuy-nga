@@ -6,5 +6,6 @@ public interface BookingService extends Service {
     void addBooking(Booking booking);
     void displayBooking();
     int countFacility(String name);
+    void displayCustomerList(int year);
 
 }

@@ -89,7 +89,7 @@ public class CustomerController {
         int index = customerService.search(id);
         if (index != -1) {
             int choice;
-            Customer customer = customerService.get(index);
+            Customer customer = customerService.get(id);
             do {
                 System.out.println("1.\tEdit Name\n" +
                         "2.\tEdit date of birth\n" +
@@ -154,6 +154,8 @@ public class CustomerController {
                         break;
                 }
             } while (choice < 9);
+        } else {
+            System.out.println("ID is not found!!!");
         }
     }
 

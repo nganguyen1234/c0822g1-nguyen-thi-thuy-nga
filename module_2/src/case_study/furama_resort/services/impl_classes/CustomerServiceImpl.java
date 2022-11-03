@@ -9,7 +9,6 @@ import java.util.*;
 public class CustomerServiceImpl implements CustomerService {
     private FileService fileService = new FileService();
     private LinkedList<Customer> customerList = fileService.readCustomer("src\\case_study\\furama_resort\\data\\customer.csv");
-//ArrayList<Integer> customerIdList = new ArrayList<>();
 
     private void readCustomer() {
         customerList = fileService.readCustomer("src\\case_study\\furama_resort\\data\\customer.csv");
@@ -34,10 +33,19 @@ public class CustomerServiceImpl implements CustomerService {
 //        return false;
 //    }
 
-    public Customer get(int index) {
+    public Customer get(int id) {
         readCustomer();
-        return customerList.get(index);
+        for (Customer customer : customerList) {
+            if (customer.getCustomerId() == id) {
+                return customer;
+            }
+        }
+        return customerList.get(-1);
     }
+
+//    public Customer get(int id) {
+//
+//    }
 
     @Override
     public int search(int customerId) {

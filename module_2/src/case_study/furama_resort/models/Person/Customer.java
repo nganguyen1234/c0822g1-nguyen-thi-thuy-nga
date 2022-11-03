@@ -1,5 +1,7 @@
 package case_study.furama_resort.models.Person;
 
+import java.util.Objects;
+
 public class Customer extends Person {
     private int customerId;
     private CustomerType customerType;
@@ -52,5 +54,18 @@ public class Customer extends Person {
                 ", customerType=" + customerType +
                 ", address='" + address + '\'' +
                 "} ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        Customer customer = (Customer) o;
+        return getCustomerId() == customer.getCustomerId();
+    }
+
+    @Override
+    public int hashCode() {
+        return 1 + Objects.hash(getCustomerId());
     }
 }

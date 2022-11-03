@@ -1,20 +1,18 @@
 package case_study.furama_resort.controllers;
 
 import case_study.furama_resort.models.Booking;
-import case_study.furama_resort.models.Facility.Facility;
 import case_study.furama_resort.services.impl_classes.BookingServiceImpl;
 import case_study.furama_resort.services.impl_classes.CustomerServiceImpl;
 import case_study.furama_resort.services.impl_classes.FacilityServiceImpl;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class BookingController {
-    private CustomerServiceImpl customerService = new CustomerServiceImpl();
-    private BookingServiceImpl bookingService = new BookingServiceImpl();
-    private Scanner scanner = new Scanner(System.in);
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+    private final CustomerServiceImpl customerService = new CustomerServiceImpl();
+    private final BookingServiceImpl bookingService = new BookingServiceImpl();
+    private final Scanner scanner = new Scanner(System.in);
+
     public void displayMenu() throws ParseException {
         int choice;
         do {
@@ -23,13 +21,15 @@ public class BookingController {
                     "3.\tReturn main menu\n" +
                     "Enter your choice:");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
                     addBooking();
                     break;
                 case 2:
+                    displayBookingList();
                     break;
-
+                case 3:
+                    return;
             }
         } while (true);
     }
@@ -37,39 +37,50 @@ public class BookingController {
     private void addBooking() throws ParseException {
         Booking booking = new Booking();
         System.out.println("Please complete the following information:");
-        System.out.println("Booking ID:");
+        System.out.println("1. Booking ID:");
         booking.setBookingId(Integer.parseInt(scanner.nextLine()));
-        System.out.println("Start date(dd/mm/yyyy):");
-        booking.setStartDate(simpleDateFormat.parse(scanner.nextLine()));
-        System.out.println("End date(dd/mm/yyyy)");
-        booking.setEndDate(simpleDateFormat.parse(scanner.nextLine()));
-//        chooseFacility(booking);
-//        chooseCustomer(booking);
+        System.out.println("2. Start date(dd/mm/yyyy):");
+        booking.setStartDate(scanner.nextLine());
+        System.out.println("3. End date(dd/mm/yyyy)");
+        booking.setEndDate(scanner.nextLine());
+        chooseService(booking);
+        chooseCustomer(booking);
+        bookingService.addBooking(booking);
     }
 
-    private void chooseFacility(Booking booking) {
-        System.out.println("Service Name");
+    private void chooseService(Booking booking) {
+        System.out.println("All services:");
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         facilityService.displayAllFacilities();
+        System.out.println("Service name:");
+        String name;
+        boolean isContain;
         do {
-            System.out.println("Enter your choice:");
-            int choice = Integer.parseInt(scanner.nextLine());
-//           booking.setServiceName();
-        } while (true);
+            name = scanner.nextLine();
+            isContain = facilityService.containsServiceName(name);
+            if (isContain) {
+                booking.setServiceName(name);
+            } else {
+                System.out.println("Please enter valid service name!!");
+            }
+        } while (!isContain);
     }
 
     private void chooseCustomer(Booking booking) {
-
         customerService.displayCustomerList();
         int id;
         do {
-            System.out.println("Customer ID:");
+            System.out.println("5. Customer ID:");
             id = Integer.parseInt(scanner.nextLine());
-            if (customerService.idContains(id)) {
+            if (customerService.containsId(id)) {
                 booking.setCustomerId(id);
                 return;
             }
             System.out.println("please enter valid ID");
         } while (true);
-}
+    }
+
+    private void displayBookingList() {
+        bookingService.displayBooking();
+    }
 }

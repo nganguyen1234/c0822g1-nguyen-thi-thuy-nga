@@ -40,9 +40,18 @@ public class CustomerController {
 
     private void add() {
         Customer customer = new Customer();
-        System.out.println("Please fill the following information");
-        System.out.println("ID");
-        customer.setCustomerId(Integer.parseInt(scanner.nextLine()));
+        System.out.println("Please complete the following information");
+        int id;
+        do {
+            System.out.println("ID");
+            id = Integer.parseInt(scanner.nextLine());
+            if (customerService.containsId(id)) {
+                System.out.println("This ID has existed, please enter new ID");
+            } else {
+                customer.setCustomerId(id);
+            }
+        } while (customerService.containsId(id));
+
         System.out.println("Name");
         customer.setName(scanner.nextLine());
         System.out.println("Date of birth:");
@@ -147,24 +156,6 @@ public class CustomerController {
             } while (choice < 9);
         }
     }
-
-//    private void delete() {
-//        System.out.println("Enter employee id to delete");
-//        int customerId = Integer.parseInt(scanner.nextLine());
-//        if (customerService.search(customerId) != -1) {
-//            System.out.println("Are you sure that you want delete information of customer with id " + customerId + "????\n" +
-//                    "1. Yes\n" +
-//                    "2. No");
-//            int choice = Integer.parseInt(scanner.nextLine());
-//            if (choice == 1) {
-//                customerService.deleteInformation(customerId, true);
-//            } else {
-//                return;
-//            }
-//        } else {
-//            System.out.println("Customer ID are not available, please enter a valid ID!!");
-//        }
-//    }
 
     private void display() {
         customerService.displayCustomerList();

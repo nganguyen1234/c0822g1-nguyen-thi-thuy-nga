@@ -2,7 +2,8 @@ package case_study.furama_resort.models.Facility;
 
 public class RentalType {
     private String type;
-    public RentalType(){
+
+    public RentalType() {
     }
 
     public RentalType(String type) {
@@ -15,6 +16,10 @@ public class RentalType {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String convertLine() {
+        return this.type;
     }
 
     @Override

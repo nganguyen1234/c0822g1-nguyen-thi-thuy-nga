@@ -8,7 +8,7 @@ public abstract class Person {
     private int citizenIdentityNumber;
     private String email;
 
-    public Person(String name, int dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email) {
+    protected Person(String name, int dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -70,7 +70,7 @@ public abstract class Person {
 
     public String convertLine() {
         String comma = ",";
-        return this.name + comma + this.dateOfBirth + comma + this.gender + comma + this.phoneNumber + comma + this.citizenIdentityNumber;
+        return this.name + comma + this.dateOfBirth + comma + this.gender + comma + this.phoneNumber + comma + this.citizenIdentityNumber + comma + this.email;
     }
 
     @Override

@@ -62,7 +62,7 @@ public class FileService {
         writeFile(filePath, strings);
     }
 
-    public List readFile(String filePath) {
+    public List<String> readFile(String filePath) {
         List<String> list = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -110,7 +110,7 @@ public class FileService {
                 CustomerType customerType = new CustomerType();
                 String[] info = line.split(",");
                 customer.setName(info[0]); // read customer
-                customer.setDateOfBirth(Integer.parseInt(info[1]));
+//                customer.setDateOfBirth(Integer.parseInt(info[1]));
                 customer.setGender(info[2]);
                 customer.setPhoneNumber(Integer.parseInt(info[3]));
                 customer.setCitizenIdentityNumber(Integer.parseInt(info[4]));
@@ -160,7 +160,7 @@ public class FileService {
                 villa.setRent(rent);
                 villa.setNumberOfPeople(Integer.parseInt(info[5]));
                 villa.setPoolArea(Double.parseDouble(info[6]));
-                villa.setTypeOfRoom(info[7]);
+                villa.setRoomStandard(info[7]);
                 villa.setNumberOfFloors(Integer.parseInt(info[8]));
                 value = bookingService.countFacility(info[1]);
                 villaMap.put(villa, value);

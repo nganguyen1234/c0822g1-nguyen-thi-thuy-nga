@@ -11,6 +11,7 @@ import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     private final FileService fileService = new FileService();
+    private final CustomerService customerService = new CustomerServiceImpl();
     private final String FILE_PATH = "src\\case_study\\furama_resort\\data\\booking.csv";
     private TreeSet<Booking> bookingSet = fileService.readBooking(FILE_PATH);
 
@@ -35,6 +36,16 @@ public class BookingServiceImpl implements BookingService {
         });
     }
 
+    public boolean containId(int id) {
+        readBooking();
+        for (Booking booking : bookingSet) {
+            if (booking.getBookingId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int countFacility(String name) {
         readBooking();
         int count = 0;
@@ -50,10 +61,10 @@ public class BookingServiceImpl implements BookingService {
         return count;
     }
 
-    public void displayCustomerList(int year) {
+
+    public Set<Customer> getCustomerList(int year) {
         readBooking();
-        Set<Customer> customers = new HashSet<>();
-        CustomerService customerService = new CustomerServiceImpl();
+        Set<Customer> customers = new LinkedHashSet<>();
         int bookingYear;
         int customerId;
         for (Booking booking : bookingSet) {
@@ -64,9 +75,26 @@ public class BookingServiceImpl implements BookingService {
                 customers.add(customer);
             }
         }
-        for (Customer customer : customers) {
-            System.out.println(customer);
+        return customers;
+    }
+
+    public Stack<Customer> getMonthlyCustomerList() {
+        readBooking();
+        Calendar cal = Calendar.getInstance();
+        Stack<Customer> customers = new Stack<>();
+        int currentMonth = cal.get(Calendar.MONTH) + 1;
+        int currentYear = cal.get(Calendar.YEAR);
+        int month;
+        int year;
+        for (Booking booking : bookingSet) {
+            month = Integer.parseInt(booking.getStartDate().split("/")[1]);
+            year = Integer.parseInt(booking.getStartDate().split("/")[2]);
+            if (month == currentMonth && year == currentYear) {
+                Customer customer = customerService.get(booking.getCustomerId());
+                customers.push(customer);
+            }
         }
+        return customers;
     }
 
 }

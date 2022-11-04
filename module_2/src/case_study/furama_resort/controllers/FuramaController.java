@@ -1,5 +1,7 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.common.ExceptionHandling;
+
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -10,6 +12,7 @@ public class FuramaController {
         FacilityController facilityController = new FacilityController();
         BookingController bookingController = new BookingController();
         PromotionController promotionController = new PromotionController();
+        ExceptionHandling exceptionHandling = new ExceptionHandling();
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -21,7 +24,7 @@ public class FuramaController {
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n");
             System.out.println("Enter your choice:");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = exceptionHandling.enterPositiveInteger();
             switch (choice) {
                 case 1:
                     employeeController.displayMenu();

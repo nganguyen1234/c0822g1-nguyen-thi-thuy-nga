@@ -1,6 +1,8 @@
 package case_study.furama_resort.controllers;
 
 
+import case_study.furama_resort.common.ExceptionHandling;
+import case_study.furama_resort.common.RegexCheck;
 import case_study.furama_resort.models.Person.Customer;
 import case_study.furama_resort.models.Person.CustomerType;
 import case_study.furama_resort.services.impl_classes.CustomerServiceImpl;
@@ -11,6 +13,8 @@ import java.util.Scanner;
 public class CustomerController {
     private final Scanner scanner = new Scanner(System.in);
     private CustomerServiceImpl customerService = new CustomerServiceImpl();
+    private final ExceptionHandling exceptionHandling = new ExceptionHandling();
+    private RegexCheck regexCheck = new RegexCheck();
 
     public void displayMenu() {
         int choice;
@@ -21,7 +25,7 @@ public class CustomerController {
                     "3.\tEdit customer\n" +
                     "4.\tReturn main menu\n");
             System.out.println("Enter your next choice:");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = exceptionHandling.enterPositiveInteger();
             switch (choice) {
                 case 1:
                     this.display();
@@ -44,7 +48,7 @@ public class CustomerController {
         int id;
         do {
             System.out.println("ID");
-            id = Integer.parseInt(scanner.nextLine());
+            id = exceptionHandling.enterPositiveInteger();
             if (customerService.containsId(id)) {
                 System.out.println("This ID has existed, please enter new ID");
             } else {
@@ -55,13 +59,14 @@ public class CustomerController {
         System.out.println("Name");
         customer.setName(scanner.nextLine());
         System.out.println("Date of birth:");
-        customer.setDateOfBirth(Integer.parseInt(scanner.nextLine()));
+        customer.setDateOfBirth(regexCheck.enterDate());
+//        customer.setDateOfBirth(exceptionHandling.enterInteger());
         System.out.println("Gender");
         customer.setGender(scanner.nextLine());
         System.out.println("Citizen Identity Number");
-        customer.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
+        customer.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Phone number");
-        customer.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
+        customer.setPhoneNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Email address:");
         customer.setEmail(scanner.nextLine());
         System.out.println("Address:");
@@ -74,7 +79,7 @@ public class CustomerController {
                 System.out.println(i++ + " " + type.toString());
             }
             System.out.println("Enter your choice");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = exceptionHandling.enterPositiveInteger();
             if (choice > 5 || choice < 1) {
                 System.out.println("Please enter valid level");
             }
@@ -85,7 +90,7 @@ public class CustomerController {
 
     private void edit() {
         System.out.println("Enter ID of the customer that you want to edit:");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = exceptionHandling.enterPositiveInteger();
         int index = customerService.search(id);
         if (index != -1) {
             int choice;
@@ -101,7 +106,7 @@ public class CustomerController {
                         "8.\tEdit customer type\n" +
                         "9.\tExit\n" +
                         "**Enter your choice:**");
-                choice = Integer.parseInt(scanner.nextLine());
+                choice = exceptionHandling.enterPositiveInteger();
                 if (choice > 9 || choice < 1) {
                     System.out.println("!!!!!Please enter valid choice");
                 }
@@ -112,7 +117,7 @@ public class CustomerController {
                         break;
                     case 2:
                         System.out.println("New date of birth:");
-                        customer.setDateOfBirth(Integer.parseInt(scanner.nextLine()));
+                        customer.setDateOfBirth(regexCheck.enterDate());
                         break;
                     case 3:
                         System.out.println("New gender");
@@ -120,11 +125,11 @@ public class CustomerController {
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
-                        customer.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
+                        customer.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
                         break;
                     case 5:
                         System.out.println("New phone number");
-                        customer.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
+                        customer.setPhoneNumber(exceptionHandling.enterPositiveInteger());
                         break;
                     case 6:
                         System.out.println("New email address:");
@@ -143,7 +148,7 @@ public class CustomerController {
                                 System.out.println(i++ + " " + level.toString());
                             }
                             System.out.println("Enter your choice");
-                            choice2 = Integer.parseInt(scanner.nextLine());
+                            choice2 = exceptionHandling.enterPositiveInteger();
                             if (choice2 > 5 || choice2 < 1) {
                                 System.out.println("Please enter valid level");
                             }

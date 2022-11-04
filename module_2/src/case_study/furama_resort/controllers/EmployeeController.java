@@ -1,5 +1,7 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.common.ExceptionHandling;
+import case_study.furama_resort.common.RegexCheck;
 import case_study.furama_resort.models.Person.EducationLevel;
 import case_study.furama_resort.models.Person.Employee;
 import case_study.furama_resort.services.impl_classes.EducationLevelImpl;
@@ -10,7 +12,10 @@ import java.util.Scanner;
 public class EmployeeController {
     private final Scanner scanner = new Scanner(System.in);
     private EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-    public  void displayMenu() {
+    private ExceptionHandling exceptionHandling = new ExceptionHandling();
+    private RegexCheck regexCheck = new RegexCheck();
+
+    public void displayMenu() {
         int choice;
         Scanner scanner = new Scanner(System.in);
         do {
@@ -20,7 +25,7 @@ public class EmployeeController {
                     "4\tEdit employee\n" +
                     "5\tReturn main menu\n");
             System.out.println("Enter your next choice:");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = exceptionHandling.enterPositiveInteger();
             switch (choice) {
                 case 1:
                     this.display();
@@ -44,17 +49,17 @@ public class EmployeeController {
         Employee employee = new Employee();
         System.out.println("Please fill the following information");
         System.out.println("ID");
-        employee.setEmployeeId(Integer.parseInt(scanner.nextLine()));
+        employee.setEmployeeId(exceptionHandling.enterPositiveInteger());
         System.out.println("Name");
         employee.setName(scanner.nextLine());
         System.out.println("Date of birth:");
-        employee.setDateOfBirth(Integer.parseInt(scanner.nextLine()));
+        employee.setDateOfBirth(regexCheck.enterDate());
         System.out.println("Gender");
         employee.setGender(scanner.nextLine());
         System.out.println("Citizen Identity Number");
-        employee.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
+        employee.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Phone number");
-        employee.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
+        employee.setPhoneNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Email address:");
         employee.setEmail(scanner.nextLine());
         System.out.println("Salary:");
@@ -69,7 +74,7 @@ public class EmployeeController {
                 System.out.println(i++ + " " + level.toString());
             }
             System.out.println("Enter your choice");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = exceptionHandling.enterPositiveInteger();
             if (choice > 4 || choice < 1) {
                 System.out.println("Please enter valid level");
             }
@@ -80,7 +85,7 @@ public class EmployeeController {
 
     private void edit() {
         System.out.println("Enter ID of the employee that you want to edit:");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = exceptionHandling.enterPositiveInteger();
         int index = employeeService.searchInfo(id);
         if (index != -1) {
             int choice;
@@ -97,8 +102,8 @@ public class EmployeeController {
                         "9.\tEdit education level\n" +
                         "10.\tExit\n" +
                         "**Enter your choice:**");
-                choice = Integer.parseInt(scanner.nextLine());
-                if (choice > 10|| choice < 1) {
+                choice = exceptionHandling.enterPositiveInteger();
+                if (choice > 10 || choice < 1) {
                     System.out.println("!!!!!Please enter valid choice");
                 }
                 switch (choice) {
@@ -108,7 +113,7 @@ public class EmployeeController {
                         break;
                     case 2:
                         System.out.println("New date of birth:");
-                        employee.setDateOfBirth(Integer.parseInt(scanner.nextLine()));
+                        employee.setDateOfBirth(regexCheck.enterDate());
                         break;
                     case 3:
                         System.out.println("New gender");
@@ -116,11 +121,11 @@ public class EmployeeController {
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
-                        employee.setCitizenIdentityNumber(Integer.parseInt(scanner.nextLine()));
+                        employee.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
                         break;
                     case 5:
                         System.out.println("New phone number");
-                        employee.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
+                        employee.setPhoneNumber(exceptionHandling.enterPositiveInteger());
                         break;
                     case 6:
                         System.out.println("New email address:");
@@ -143,7 +148,7 @@ public class EmployeeController {
                                 System.out.println(i++ + " " + level.toString());
                             }
                             System.out.println("Enter your choice");
-                            choice2 = Integer.parseInt(scanner.nextLine());
+                            choice2 = exceptionHandling.enterPositiveInteger();
                             if (choice2 > 4 || choice2 < 1) {
                                 System.out.println("Please enter valid level");
                             }
@@ -151,20 +156,20 @@ public class EmployeeController {
                         employee.setEducationLevel(EducationLevelImpl.educationLevels[choice2 - 1]);
                         break;
                     case 10:
-                       break;
+                        break;
                 }
-            } while (choice<10);
+            } while (choice < 10);
         }
     }
 
     private void delete() {
         System.out.println("Enter employee id to delete");
-        int employeeId = Integer.parseInt(scanner.nextLine());
+        int employeeId = exceptionHandling.enterPositiveInteger();
         if (employeeService.searchInfo(employeeId) != -1) {
             System.out.println("Are you sure that you want delete information of employee with id " + employeeId + "????\n" +
                     "1. Yes\n" +
                     "2. No");
-            int choice = Integer.parseInt(scanner.nextLine());
+            int choice = exceptionHandling.enterPositiveInteger();
             if (choice == 1) {
                 employeeService.deleteInformation(employeeId, true);
             } else {

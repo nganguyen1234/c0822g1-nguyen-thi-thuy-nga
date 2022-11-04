@@ -1,5 +1,6 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.common.RegexCheck;
 import case_study.furama_resort.models.Booking;
 import case_study.furama_resort.services.impl_classes.BookingServiceImpl;
 import case_study.furama_resort.services.impl_classes.CustomerServiceImpl;
@@ -12,6 +13,7 @@ public class BookingController {
     private final CustomerServiceImpl customerService = new CustomerServiceImpl();
     private final BookingServiceImpl bookingService = new BookingServiceImpl();
     private final Scanner scanner = new Scanner(System.in);
+    private final RegexCheck regexCheck = new RegexCheck();
 
     public void displayMenu() throws ParseException {
         int choice;
@@ -38,7 +40,18 @@ public class BookingController {
         Booking booking = new Booking();
         System.out.println("Please complete the following information:");
         System.out.println("1. Booking ID:");
-        booking.setBookingId(Integer.parseInt(scanner.nextLine()));
+        boolean checkId;
+        int id;
+        do {
+            id = Integer.parseInt(scanner.nextLine());
+            checkId = bookingService.containId(id);
+            if (checkId) {
+                System.out.println("This ID has existed, please try again!!!");
+            } else {
+                booking.setBookingId(id);
+            }
+        } while (checkId);
+
         System.out.println("2. Start date(dd/mm/yyyy):");
         booking.setStartDate(scanner.nextLine());
         System.out.println("3. End date(dd/mm/yyyy)");

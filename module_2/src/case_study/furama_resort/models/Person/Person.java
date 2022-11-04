@@ -2,13 +2,13 @@ package case_study.furama_resort.models.Person;
 
 public abstract class Person {
     private String name;
-    private int dateOfBirth;
+    private String dateOfBirth;
     private String gender;
     private int phoneNumber;
     private int citizenIdentityNumber;
     private String email;
 
-    protected Person(String name, int dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email) {
+    protected Person(String name, String dateOfBirth, String gender, int phoneNumber, int citizenIdentityNumber, String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -28,11 +28,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(int dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerList = fileService.readCustomer("src\\case_study\\furama_resort\\data\\customer.csv");
     }
 
-    private void writeCustomer() {
+    public void writeCustomer() {
         fileService.writeCustomer("src\\case_study\\furama_resort\\data\\customer.csv", customerList);
     }
 

@@ -57,20 +57,19 @@ public class CustomerController {
         } while (customerService.containsId(id));
 
         System.out.println("Name");
-        customer.setName(scanner.nextLine());
+        customer.setName(regexCheck.enterWord());
         System.out.println("Date of birth:");
-        customer.setDateOfBirth(regexCheck.enterDate());
-//        customer.setDateOfBirth(exceptionHandling.enterInteger());
+        customer.setDateOfBirth(exceptionHandling.enterDateOfBirth());
         System.out.println("Gender");
-        customer.setGender(scanner.nextLine());
+        customer.setGender(regexCheck.enterWord());
         System.out.println("Citizen Identity Number");
         customer.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Phone number");
         customer.setPhoneNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Email address:");
-        customer.setEmail(scanner.nextLine());
+        customer.setEmail(regexCheck.enterEmail());
         System.out.println("Address:");
-        customer.setAddress(scanner.nextLine());
+        customer.setAddress(regexCheck.enterWord());
         System.out.println("Customer type:");
         int choice;
         do {
@@ -113,15 +112,15 @@ public class CustomerController {
                 switch (choice) {
                     case 1:
                         System.out.println("New name:");
-                        customer.setName(scanner.nextLine());
+                        customer.setName(regexCheck.enterWord());
                         break;
                     case 2:
                         System.out.println("New date of birth:");
-                        customer.setDateOfBirth(regexCheck.enterDate());
+                        customer.setDateOfBirth(exceptionHandling.enterDateOfBirth());
                         break;
                     case 3:
                         System.out.println("New gender");
-                        customer.setGender(scanner.nextLine());
+                        customer.setGender(regexCheck.enterWord());
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
@@ -133,11 +132,11 @@ public class CustomerController {
                         break;
                     case 6:
                         System.out.println("New email address:");
-                        customer.setEmail(scanner.nextLine());
+                        customer.setEmail(regexCheck.enterEmail());
                         break;
                     case 7:
                         System.out.println("New Address:");
-                        customer.setAddress(scanner.nextLine());
+                        customer.setAddress(regexCheck.enterWord());
                         break;
                     case 8:
                         System.out.println("New customer type:");
@@ -158,6 +157,7 @@ public class CustomerController {
                     case 9:
                         break;
                 }
+                customerService.writeCustomer();
             } while (choice < 9);
         } else {
             System.out.println("ID is not found!!!");

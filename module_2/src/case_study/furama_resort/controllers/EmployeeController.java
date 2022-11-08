@@ -51,21 +51,21 @@ public class EmployeeController {
         System.out.println("ID");
         employee.setEmployeeId(exceptionHandling.enterPositiveInteger());
         System.out.println("Name");
-        employee.setName(scanner.nextLine());
+        employee.setName(regexCheck.enterWord());
         System.out.println("Date of birth:");
-        employee.setDateOfBirth(regexCheck.enterDate());
+        employee.setDateOfBirth(exceptionHandling.enterDateOfBirth());
         System.out.println("Gender");
-        employee.setGender(scanner.nextLine());
+        employee.setGender(regexCheck.enterWord());
         System.out.println("Citizen Identity Number");
         employee.setCitizenIdentityNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Phone number");
         employee.setPhoneNumber(exceptionHandling.enterPositiveInteger());
         System.out.println("Email address:");
-        employee.setEmail(scanner.nextLine());
+        employee.setEmail(regexCheck.enterEmail());
         System.out.println("Salary:");
-        employee.setSalary(Double.parseDouble(scanner.nextLine()));
+        employee.setSalary(exceptionHandling.enterDouble());
         System.out.println("Position");
-        employee.setPosition(scanner.nextLine());
+        employee.setPosition(regexCheck.enterWord());
         System.out.println("Education level:");
         int choice;
         do {
@@ -109,15 +109,15 @@ public class EmployeeController {
                 switch (choice) {
                     case 1:
                         System.out.println("New name:");
-                        employee.setName(scanner.nextLine());
+                        employee.setName(regexCheck.enterWord());
                         break;
                     case 2:
                         System.out.println("New date of birth:");
-                        employee.setDateOfBirth(regexCheck.enterDate());
+                        employee.setDateOfBirth(exceptionHandling.enterDateOfBirth());
                         break;
                     case 3:
                         System.out.println("New gender");
-                        employee.setGender(scanner.nextLine());
+                        employee.setGender(regexCheck.enterWord());
                         break;
                     case 4:
                         System.out.println("New Citizen Identity Number");
@@ -129,15 +129,15 @@ public class EmployeeController {
                         break;
                     case 6:
                         System.out.println("New email address:");
-                        employee.setEmail(scanner.nextLine());
+                        employee.setEmail(regexCheck.enterEmail());
                         break;
                     case 7:
                         System.out.println("New salary:");
-                        employee.setSalary(Double.parseDouble(scanner.nextLine()));
+                        employee.setSalary(exceptionHandling.enterDouble());
                         break;
                     case 8:
                         System.out.println("New position");
-                        employee.setPosition(scanner.nextLine());
+                        employee.setPosition(regexCheck.enterWord());
                         break;
                     case 9:
                         System.out.println("New education level:");
@@ -158,6 +158,7 @@ public class EmployeeController {
                     case 10:
                         break;
                 }
+                employeeService.writeFile();
             } while (choice < 10);
         }
     }

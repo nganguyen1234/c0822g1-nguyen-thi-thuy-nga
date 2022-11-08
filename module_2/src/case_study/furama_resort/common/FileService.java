@@ -7,6 +7,8 @@ import case_study.furama_resort.models.Facility.Room;
 import case_study.furama_resort.models.Facility.Villa;
 import case_study.furama_resort.models.Person.Customer;
 import case_study.furama_resort.models.Person.CustomerType;
+import case_study.furama_resort.models.Person.EducationLevel;
+import case_study.furama_resort.models.Person.Employee;
 import case_study.furama_resort.services.BookingComparator;
 import case_study.furama_resort.services.BookingService;
 import case_study.furama_resort.services.impl_classes.BookingServiceImpl;
@@ -30,6 +32,14 @@ public class FileService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void writeEmployee(String filePath, List<Employee> employeeList) {
+        List<String> strings = new ArrayList<>();
+        for (Employee employee : employeeList) {
+            strings.add(employee.convertLine());
+        }
+        writeFile(filePath, strings);
     }
 
     public void writeBooking(String filePath, TreeSet<Booking> bookingSet) {
@@ -80,6 +90,30 @@ public class FileService {
         return list;
     }
 
+    public List<Employee> readEmployee(String filePath) {
+        List<Employee> employeeList = new LinkedList<>();
+        File file = new File(filePath);
+        if (file.exists()) {
+            List<String> strings = readFile(filePath);
+            for (String line : strings) {
+                Employee employee = new Employee();
+                String[] info = line.split(",");
+                employee.setName(info[0]);
+                employee.setDateOfBirth(info[1]);
+                employee.setGender(info[2]);
+                employee.setPhoneNumber(Integer.parseInt(info[3]));
+                employee.setCitizenIdentityNumber(Integer.parseInt(info[4]));
+                employee.setEmail(info[5]);
+                employee.setEmployeeId(Integer.parseInt(info[6]));
+                employee.setPosition(info[7]);
+                employee.setSalary(Double.parseDouble(info[8]));
+                employee.setEducationLevel(new EducationLevel(info[9]));
+                employeeList.add(employee);
+            }
+        }
+        return employeeList;
+    }
+
     public TreeSet<Booking> readBooking(String filePath) {
         TreeSet<Booking> bookingList = new TreeSet<>(new BookingComparator());
         File file = new File(filePath);
@@ -110,7 +144,7 @@ public class FileService {
                 CustomerType customerType = new CustomerType();
                 String[] info = line.split(",");
                 customer.setName(info[0]); // read customer
-//                customer.setDateOfBirth(Integer.parseInt(info[1]));
+                customer.setDateOfBirth(info[1]);
                 customer.setGender(info[2]);
                 customer.setPhoneNumber(Integer.parseInt(info[3]));
                 customer.setCitizenIdentityNumber(Integer.parseInt(info[4]));
@@ -142,7 +176,7 @@ public class FileService {
 
 
     public LinkedHashMap<Villa, Integer> readVillaMap(String filePath) {
-         BookingService bookingService = new BookingServiceImpl();
+        BookingService bookingService = new BookingServiceImpl();
         LinkedHashMap<Villa, Integer> villaMap = new LinkedHashMap<>();
         File file = new File(filePath);
         if (file.exists()) {
@@ -170,7 +204,7 @@ public class FileService {
     }
 
     public LinkedHashMap<Room, Integer> readRoomMap(String filePath) {
-         BookingService bookingService = new BookingServiceImpl();
+        BookingService bookingService = new BookingServiceImpl();
         LinkedHashMap<Room, Integer> roomMap = new LinkedHashMap<>();
         File file = new File(filePath);
         if (file.exists()) {

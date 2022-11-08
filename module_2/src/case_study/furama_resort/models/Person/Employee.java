@@ -49,6 +49,11 @@ public class Employee extends Person {
         this.educationLevel = educationLevel;
     }
 
+    public String convertLine() {
+        String comma = ",";
+        return super.convertLine() + comma + this.employeeId + comma + this.position + comma + this.salary + comma + this.educationLevel.convertLine();
+    }
+
     @Override
     public String toString() {
         return "name: " + getName() + "\tdate of birth: " + getDateOfBirth() + "\tgender: " + getGender() + "\tphone number: " + getPhoneNumber() + "\tid:" + getEmployeeId() + "\tcmnd: " + getCitizenIdentityNumber() + "\temail: " + getEmail() + "\tposition: " + getPosition() + "\tsalary: " + getSalary() + "\teducation level: " + getEducationLevel();

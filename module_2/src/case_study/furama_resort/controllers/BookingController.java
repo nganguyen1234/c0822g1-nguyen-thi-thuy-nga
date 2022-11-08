@@ -1,5 +1,6 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.common.ExceptionHandling;
 import case_study.furama_resort.common.RegexCheck;
 import case_study.furama_resort.models.Booking;
 import case_study.furama_resort.services.impl_classes.BookingServiceImpl;
@@ -14,6 +15,7 @@ public class BookingController {
     private final BookingServiceImpl bookingService = new BookingServiceImpl();
     private final Scanner scanner = new Scanner(System.in);
     private final RegexCheck regexCheck = new RegexCheck();
+    private final ExceptionHandling exceptionHandling = new ExceptionHandling();
 
     public void displayMenu() throws ParseException {
         int choice;
@@ -43,7 +45,7 @@ public class BookingController {
         boolean checkId;
         int id;
         do {
-            id = Integer.parseInt(scanner.nextLine());
+            id = exceptionHandling.enterPositiveInteger();
             checkId = bookingService.containId(id);
             if (checkId) {
                 System.out.println("This ID has existed, please try again!!!");
@@ -53,9 +55,9 @@ public class BookingController {
         } while (checkId);
 
         System.out.println("2. Start date(dd/mm/yyyy):");
-        booking.setStartDate(scanner.nextLine());
+        booking.setStartDate(exceptionHandling.enterDate());
         System.out.println("3. End date(dd/mm/yyyy)");
-        booking.setEndDate(scanner.nextLine());
+        booking.setEndDate(exceptionHandling.enterEndDate(booking.getStartDate()));
         chooseService(booking);
         chooseCustomer(booking);
         bookingService.addBooking(booking);
@@ -69,7 +71,7 @@ public class BookingController {
         String name;
         boolean isContain;
         do {
-            name = scanner.nextLine();
+            name = regexCheck.enterServiceInfo();
             isContain = facilityService.containsServiceName(name);
             if (isContain) {
                 booking.setServiceName(name);
@@ -84,7 +86,7 @@ public class BookingController {
         int id;
         do {
             System.out.println("5. Customer ID:");
-            id = Integer.parseInt(scanner.nextLine());
+            id = exceptionHandling.enterPositiveInteger();
             if (customerService.containsId(id)) {
                 booking.setCustomerId(id);
                 return;

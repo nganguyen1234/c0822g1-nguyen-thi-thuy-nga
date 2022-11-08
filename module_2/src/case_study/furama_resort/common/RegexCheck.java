@@ -1,6 +1,5 @@
 package case_study.furama_resort.common;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class RegexCheck {
@@ -44,22 +43,28 @@ public class RegexCheck {
             }
         } while (true);
     }
-    public String enterDate(){
-        String date;
-        String dateRegex= "\\d{2}/\\d{2}/\\d{4}";
+
+
+    public String enterWord() {
+        String word;
         do {
-            try {
-                date = scanner.nextLine();
-                if (date.matches(dateRegex)){
-                    return date;
-                } throw new IllegalDateException("Try again");
-//                if (number > 0 && number < 20) {
-//                    return number;
-//                }
-            } catch (IllegalDateException e) {
-                System.out.println(e.getMessage());
+            word = scanner.nextLine();
+            if (word.length() != 0) {
+                return word;
             }
+            System.out.println("Try again");
         } while (true);
     }
 
+    public String enterEmail() {
+        String email;
+        String mailRegex = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+";
+        do {
+            email = scanner.nextLine();
+            if (email.matches(mailRegex)) {
+                return email;
+            }
+            System.out.println("Try again");
+        } while (true);
+    }
 }

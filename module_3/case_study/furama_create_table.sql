@@ -40,16 +40,17 @@ create table loai_khach(
 -- tạo bảng khach_hang--
 create table khach_hang(
   ma_khach_hang int primary key, 
-  ma_loai_khach int, 
-  foreign key (ma_loai_khach) references loai_khach(ma_loai_khach), 
   ho_ten varchar(45), 
   ngay_sinh date, 
-  gioi_tinh bit(1), 
+  gioi_tinh int, 
   so_cmnd varchar(45), 
   so_dien_thoai varchar(45), 
   email varchar(45), 
-  dia_chi varchar(45)
+  dia_chi varchar(45),
+   ma_loai_khach int, 
+  foreign key (ma_loai_khach) references loai_khach(ma_loai_khach)
 );
+
 -- tạo bảng loai_dich_vu --
 create table loai_dich_vu(
   ma_loai_dich_vu int not null primary key, 
@@ -67,16 +68,19 @@ create table dich_vu(
   dien_tich int, 
   chi_phi_thue double, 
   so_nguoi_toi_da int, 
-  ma_kieu_thue int,
-  foreign key(ma_kieu_thue) references kieu_thue(ma_kieu_thue), 
-  ma_loai_dich_vu int,
-  foreign key(ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu), 
   tieu_chuan_phong varchar(45), 
   mo_ta_tien_nghi_khac varchar(45), 
   dien_tich_ho_boi double, 
   so_tang int, 
-  dich_vu_mien_phi_di_kem text
+  dich_vu_mien_phi_di_kem text,
+   ma_kieu_thue int,
+  foreign key(ma_kieu_thue) references kieu_thue(ma_kieu_thue), 
+  ma_loai_dich_vu int,
+  foreign key(ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu)
 );
+drop table dich_vu;
+drop table hop_dong;
+drop table hop_dong_chi_tiet;
 -- tạo bảng hop_dong--
 create table hop_dong(
   ma_hop_dong int not null primary key, 

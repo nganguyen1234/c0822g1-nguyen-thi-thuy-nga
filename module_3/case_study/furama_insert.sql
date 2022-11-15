@@ -1,4 +1,4 @@
-use furama_create_table;
+usebo_phan furama;
 insert into vi_tri values
 (1,"Quản Lý"),
 (2,"Nhân Viên");
@@ -96,4 +96,3 @@ insert into dich_vu values
 	('6', '1', '1', '3'),
 	('7', '2', '1', '2'),
 	('8', '2', '12', '2');
-select * from hop_dong;

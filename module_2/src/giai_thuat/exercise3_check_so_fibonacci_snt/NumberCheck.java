@@ -16,7 +16,7 @@ public class NumberCheck {
     public boolean fibonacciCheck(int number) {
         int number1 = 0;
         int number2 = 1;
-        int number3 ;
+        int number3;
         do {
             if (number1 == number) {
                 return true;
@@ -24,8 +24,13 @@ public class NumberCheck {
             number3 = number1 + number2;
             number1 = number2;
             number2 = number3;
-        }while (number1 <= number);
+        } while (number1 <= number);
 
         return false;
+    }
+
+    public boolean squareNumberCheck(int number) {
+        double sqrt = Math.sqrt(number);
+        return sqrt == (int) sqrt;
     }
 }

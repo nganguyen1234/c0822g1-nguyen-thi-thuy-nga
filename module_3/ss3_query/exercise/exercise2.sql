@@ -51,8 +51,7 @@ from
   
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select 
-  c.customer_name, 
-  o.order_id 
+  c.customer_name
 from 
   customer as c 
   left join `order` as o on c.customer_id = o.customer_id 

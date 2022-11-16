@@ -5,11 +5,13 @@ create table customer(
   customer_name varchar(50), 
   customer_age int
 );
+
 create table product(
   product_id int auto_increment primary key, 
   product_name varchar(50), 
   product_price double
 );
+
 create table `order`(
   order_id int auto_increment primary key, 
   customer_id int, 
@@ -17,6 +19,7 @@ create table `order`(
   order_date date, 
   order_total_price double
 );
+
 create table order_detail(
   order_id int, 
   product_id int, 

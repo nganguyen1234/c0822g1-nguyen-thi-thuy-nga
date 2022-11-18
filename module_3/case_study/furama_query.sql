@@ -74,3 +74,20 @@ where year(hd.ngay_lam_hop_dong) =2020 and dv.ma_dich_vu not in (select distinct
 from dich_vu as dv
 left join hop_dong as hd on hd.ma_dich_vu= dv.ma_dich_vu 
 where year(hd.ngay_lam_hop_dong) = 2021) ;
+
+-- 8.	Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
+-- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+
+-- C1:
+select distinct ho_ten from khach_hang;
+
+-- C2:
+select ho_ten from khach_hang
+group by ho_ten;
+
+-- C3:
+
+-- 9.	Thực hiện thống kê doanh thu theo tháng, 
+-- nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+ select *, count(distinct ma_khach_hang) from hop_dong where year(ngay_lam_hop_dong) = 2021 
+ group by month(ngay_lam_hop_dong);

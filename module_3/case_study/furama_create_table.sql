@@ -1,3 +1,5 @@
+drop database if exists furama;
+
 create database if not exists furama;
 use furama;
 -- tạo bảng vi_tri--

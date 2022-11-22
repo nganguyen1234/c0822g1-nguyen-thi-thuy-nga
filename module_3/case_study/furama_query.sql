@@ -273,19 +273,7 @@ where
   ) 
 group by 
   dvdk.ma_dich_vu_di_kem;
-select 
-  dvdk.*, 
-  sum(hdct.so_luong) as tong_so_luong 
-from 
-  hop_dong as hd 
-  left join hop_dong_chi_tiet as hdct on hdct.ma_hop_dong = hd.ma_hop_dong 
-  left join dich_vu_di_kem as dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem 
-group by 
-  hdct.ma_dich_vu - di_kem 
-order by 
-  tong_so_luong desc 
-limit 
-  5;
+
   
 -- 14.  Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
 -- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung

@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        h1 {
+        h1, .button {
             position: relative;
-            top: 100px;
-            left: 300px;
-        }
-
-        #no_button {
-            position: absolute;
             top: 100px;
             left: 300px;
         }
     </style>
 </head>
 <body>
-<h1>Yes or yes?</h1>
-<button type="button" class="button" onclick="display()">Yes</button>
-<button type="button" class="button" id="no_button" onmouseover="move()">No</button>
-
+<div>
+    <h1>Yes or yes?</h1>
+    <button type="button" class="button" onclick="display()">Yes</button>
+    <button type="button" class="button" id="no_button" onmouseover="move()"
+            style="position: absolute; margin-top: 80px; margin-left: 100px">No
+    </button>
+</div>
 <script>
     function display() {
         alert("100 points")

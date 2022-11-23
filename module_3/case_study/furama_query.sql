@@ -69,9 +69,8 @@ select
   dv.ten_dich_vu, 
   hd.ngay_lam_hop_dong, 
   hd.ngay_ket_thuc, 
-  sum(
-    ifnull(dv.chi_phi_thue, 0)
-  ) + sum(
+  
+  ifnull(dv.chi_phi_thue, 0)+ sum(
     ifnull(dvdk.gia * hdct.so_luong, 0)
   ) as tong_tien 
 from 
@@ -159,7 +158,7 @@ from khach_hang as kh;
 -- nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 select 
   *, 
-  count(distinct ma_khach_hang) 
+  count( ma_khach_hang) 
 from 
   hop_dong 
 where 
@@ -440,9 +439,19 @@ from
 
 -- 21.  Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu”
 -- và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
+select * from nhan_vien;
+select * from hop_dong;
+insert into hop_dong values 
+(13,'2020/12/12','2021/12/12',23,11,2,2),
+(14,'2020/12/12','2021/10/12',0,12,2,4);
+
+insert into nhan_vien values 
+(11,'nuong','2004/11/11',111111,111111,11111,'nuongne@gmail.com','Hải Châu',1,2,2),
+(12,'nga','2004/12/12',12121212,12121212,121212,'nga234@gmail.com','Hải Châu',3,2,3);
+drop view v_nhan_vien;
 create view v_nhan_vien as 
 select 
-  * 
+  nv.* 
 from 
   nhan_vien as nv 
   inner join hop_dong as hd on hd.ma_nhan_vien = nv.ma_nhan_vien 
@@ -515,21 +524,47 @@ call sp_them_moi_hop_dong(
 -- 25.  Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng hop_dong 
 -- thì hiển thị tổng số lượng bản ghi còn lại có trong bảng hop_dong ra giao diện console của database.
 -- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
-create table `lich_su`(
+create table lich_su(
   stt int auto_increment primary key, 
   tong_ban_ghi int
 );
+drop trigger tr_xoa_hop_dong;
 delimiter // 
 create trigger tr_xoa_hop_dong 
 after 
   delete on hop_dong for each row begin insert into lich_su(tong_ban_ghi) 
-values 
-  (
-    sum(ma_hop_dong)
-  );
+	select count(*) from hop_dong;
 end // 
+delimiter //
+-- SET SQL_SAFE_UPDATES = 0;
+-- set 
+--   foreign_key_checks = 0;
+delete from hop_dong where ma_hop_dong = 4;
+
+-- 26.	Tạo Trigger có tên tr_cap_nhat_hop_dong khi cập nhật ngày kết thúc hợp đồng,
+-- cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau:
+-- Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày.
+-- Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database.
+-- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
+create table lich_su_cap_nhat (
+stt int auto_increment primary key,
+trang_thai varchar(50),
+thoi_gian datetime
+);
+
+delimiter //
+create trigger tr_cap_nhat_hop_dong 
+before update on hop_dong
+for each row
+begin
+if (datediff(new.ngay_ket_thuc,old.ngay_lam_hop_dong)>=2) then
+insert into lich_su_cap_nhat(trang_thai,thoi_gian)
+values ("đã cập nhật thành công",now());
+else
+insert into lich_su_cap_nhat(trang_thai,thoi_gian)
+values ("Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày",now());
+end if;
+end //
 delimiter ;
-set 
-  foreign_key_checks = 0;
-delete from 
-  hop_dong;
+
+

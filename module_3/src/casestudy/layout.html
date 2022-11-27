@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.css">
+<style>
+    #footer {
+        background-color: #3C4554;
+        height: 50px;
+        margin-bottom: 1px;
+        position: relative;
+        padding: 10px 50px;
+        justify-content: center;
+        color: white;
+    }
+    #header{
+        height: 90px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row  justify-content-between" id="header" >
+    <div class="col-lg-2" >
+    <img src="img/logo.png" height="70%" width="70%"/>
+</div>
+<div class="col-lg-2 justify-content-center text-center" >
+    <button type="button" class="btn btn-light">User Name</button>
+
+</div>
+</div>
+<div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Employee</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Customer</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Contract</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="row main vh-100" >
+    <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
+        <ul class="list-group">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+        </ul>
+    </div>
+    <div class="col-lg-9">
+
+    </div>
+</div>
+<div class="row bg-dark" id="footer">@copyright by me</div>
+</div>
+<script src="../bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+</body>
+</html>

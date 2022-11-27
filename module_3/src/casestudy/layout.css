@@ -1,0 +1,14 @@
+
+#footer {
+    background-color: #3C4554;
+    height: 50px;
+    margin-bottom: 1px;
+    position: relative;
+    padding: 10px 50px;
+    justify-content: center;
+    color: white;
+}
+#header{
+    height: 90px;
+    margin-bottom: 20px;
+}

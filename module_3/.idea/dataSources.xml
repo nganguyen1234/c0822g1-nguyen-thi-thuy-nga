@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="furama resort" uuid="ebac0830-f15e-43db-b119-e30ee207c5fc">
+    <data-source source="LOCAL" name="furama_resort_create_table" uuid="ebac0830-f15e-43db-b119-e30ee207c5fc">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>display facility info</title>
+    <title>Display customer</title>
     <link rel="stylesheet" href="../../../bootstrap-5.0.2-dist/css/bootstrap.css">
     <style>
         #footer {
@@ -20,13 +20,16 @@
             margin-bottom: 20px;
         }
     </style>
+
+
 </head>
 <body>
 <div class="container-fluid">
     <div class="row  justify-content-between" id="header">
         <div class="col-lg-2">
+
             <img src="../../img/logo.png" height="70%" width="70%"/></div>
-        <div class="col-lg-2 justify-content-center text-center">
+        <div class="col-lg-2 text-center">
             <button type="button" class="btn btn-light">User Name</button>
 
         </div>
@@ -72,57 +75,33 @@
         </div>
         <div class="col-lg-9">
             <div class="row">
-                <h4>Facility list</h4>
+                <h4>Customer list</h4>
             </div>
             <div class="row">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">Cost</th>
-                        <th scope="col">Max people</th>
-                        <th scope="col">Rent type ID</th>
-                        <th scope="col">Standard room</th>
-                        <th scope="col">Description other convenience</th>
-                        <th scope="col">Pool area</th>
-                        <th scope="col">Number of floors</th>
-                        <th scope="col">Facility free</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">ID card</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Customer type ID</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Villa</td>
-                        <td>123</td>
+                        <td>Nga</td>
+                        <td>12/11/1111</td>
+                        <td>0</td>
                         <td>100</td>
-                        <td>10</td>
+                        <td>10000</td>
+                        <td>nga@gmail</td>
                         <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Room</td>
-                        <td>123</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                         <td>10</td>
                         <td>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
@@ -132,17 +111,30 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>House</td>
-                        <td>123</td>
+                        <td>Nương</td>
+                        <td>12/11/1111</td>
+                        <td>0</td>
                         <td>100</td>
-                        <td>10</td>
+                        <td>10000</td>
+                        <td>nga@gmail</td>
                         <td>1</td>
                         <td>10</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Linh</td>
+                        <td>12/11/1111</td>
+                        <td>0</td>
+                        <td>100</td>
+                        <td>10000</td>
+                        <td>nga@gmail</td>
+                        <td>1</td>
                         <td>10</td>
-                        <td></td>
-                        <td>10</td>
-                        <td></td>
                         <td>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
@@ -155,8 +147,8 @@
             </div>
         </div>
     </div>
-
-    <div class="row" id="footer">@copyright by me</div>
+</div>
+<div class="row " id="footer">@copyright by me</div>
 </div>
 <!--    modal xóa-->
 
@@ -168,7 +160,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure that you want to delete information of this facility ?
+                Are you sure that you want to delete information of this customer ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

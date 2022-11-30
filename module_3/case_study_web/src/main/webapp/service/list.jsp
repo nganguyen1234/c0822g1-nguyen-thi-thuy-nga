@@ -169,7 +169,7 @@
                         <th scope="col">Area</th>
                         <th scope="col">Cost</th>
                         <th scope="col">Max people</th>
-                        <th scope="col">Rent type ID</th>
+                        <th scope="col">Rent type</th>
                         <th scope="col">Standard room</th>
                         <th scope="col">Description other convenience</th>
                         <th scope="col">Pool area</th>
@@ -271,7 +271,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure that you want to delete information of this facility ?
+                Are you sure that you want to delete information of this service ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

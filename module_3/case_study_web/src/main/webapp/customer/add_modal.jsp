@@ -48,7 +48,7 @@
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Customer type ID</label>
+                        <label class="form-label">Customer type</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">

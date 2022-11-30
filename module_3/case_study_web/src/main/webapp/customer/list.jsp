@@ -117,7 +117,7 @@
                                href="http://localhost:8080/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Employee</a>
+                            <a class="nav-link" href="http://localhost:8080/employee/list.jsp">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"

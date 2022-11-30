@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Nga
-  Date: 11/30/2022
-  Time: 9:16 PM
+  Date: 12/1/2022
+  Time: 12:09 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee</title>
+    <title>Contract list</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -145,7 +145,7 @@
         </div>
         <div class="col-lg-9">
             <div class="row">
-                <h4>Employee list</h4>
+                <h4>Contract list</h4>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4">
@@ -155,7 +155,7 @@
                     </form>
                 </div>
                 <div class="col-lg-4">
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addEmployee">
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
                         <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                     </button>
                 </div>
@@ -165,19 +165,13 @@
                     <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Date of birth</th>
-                        <th scope="col">ID card</th>
-                        <th scope="col">Salary</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Education degree</th>
-                        <th scope="col">Division</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Start date</th>
+                        <th scope="col">End date</th>
+                        <th scope="col">Deposit</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Attach facility</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -189,21 +183,13 @@
                         <td>0</td>
                         <td>100</td>
                         <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
+                                Attach facility list
                             </button>
                         </td>
                     </tr>
@@ -214,21 +200,13 @@
                         <td>0</td>
                         <td>100</td>
                         <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
+                                Attach facility list
                             </button>
                         </td>
                     </tr>
@@ -239,53 +217,27 @@
                         <td>0</td>
                         <td>100</td>
                         <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>10</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
+                                Attach facility list
                             </button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<c:import url="add_modal.jsp"></c:import>
-<c:import url="edit_modal.jsp"></c:import>
-<!--    modal xóa-->
-<div class="modal fade" id="deleteEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete customer information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure that you want to delete information of this employee ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<c:import url="add_detail_ct_modal.jsp"></c:import>
 </body>
 </html>

@@ -127,7 +127,7 @@
                             <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contract</a>
+                            <a class="nav-link" href="http://localhost:8080/contract/list.jsp">Contract</a>
                         </li>
                     </ul>
                     <form class="d-flex">

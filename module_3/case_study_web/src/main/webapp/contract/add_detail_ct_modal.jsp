@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Total</label>
-                        <input class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                        <input class="form-control" type="text"  aria-label="Disabled input example" disabled readonly>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Customer</label>

@@ -1,9 +1,19 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Nga
+  Date: 11/30/2022
+  Time: 4:05 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.css">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         #footer {
             background-color: #264F1A;
@@ -19,7 +29,8 @@
             height: 90px;
             margin-bottom: 20px;
         }
-        body{
+
+        body {
             font-family: sans-serif;
             font-size: 90%;
         }
@@ -27,7 +38,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row" style="margin-top: 10px" >
+    <div class="row" style="margin-top: 10px">
         <div class="col-auto col-sm-5 col-lg-3 d-flex align-items-center bestel-logo">
             <a href="https://furamavietnam.com/" class="header-logo"><img
                     src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt="logo " class="img-fluid"
@@ -58,7 +69,8 @@
 
         <div class="col-sm-3 d-none d-lg-block col-lg-3">
             <div class="header-contact d-flex">
-                <div class="header-contact-icon"><img src="https://img.icons8.com/material-outlined/24/null/marker.png"/></div>
+                <div class="header-contact-icon"><img
+                        src="https://img.icons8.com/material-outlined/24/null/marker.png"/></div>
                 <div class="header-contact-txt">
                     <p>
                         103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam </p>
@@ -70,14 +82,16 @@
 
         <div class="col-sm-3 d-none d-lg-block col-lg-2">
             <div class="header-contact d-flex">
-                <div class="header-contact-icon"><img src="https://img.icons8.com/ios-glyphs/30/null/phone--v1.png"/></div>
+                <div class="header-contact-icon"><img src="https://img.icons8.com/ios-glyphs/30/null/phone--v1.png"/>
+                </div>
                 <div class="header-contact-txt">
                     <p class="txt-lg">
                         84-236-3847 333/888 </p>
                 </div>
             </div>
             <div class="header-contact d-flex col-lg-2">
-                <div class="header-contact-icon"><img src="https://img.icons8.com/ios-glyphs/30/null/circled-envelope.png"/></div>
+                <div class="header-contact-icon"><img
+                        src="https://img.icons8.com/ios-glyphs/30/null/circled-envelope.png"/></div>
                 <div class="header-contact-txt">
                     <a href="mailto:reservation@furamavietnam.com">
                         reservation@furamavietnam.com </a>
@@ -95,17 +109,17 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                               href="http://localhost:63342/module_3/casestudy/home.html?_ijt=51jpols55dijikrmnmcekf6os">Home</a>
+                               href="http://localhost:8080/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:63342/module_3/casestudy/propotype/customer/list.html?_ijt=51jpols55dijikrmnmcekf6os">Customer</a>
+                                href="http://localhost:8080/customer/list.jsp">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Service</a>
+                            <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contract</a>
@@ -118,9 +132,6 @@
                 </div>
             </div>
         </nav>
-    </div>
-    <div class="row">
-        <img src="img/home1.png" height="100%" width="100%"/>
     </div>
     <div class="row main vh-100">
         <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
@@ -137,6 +148,8 @@
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<script src="../bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

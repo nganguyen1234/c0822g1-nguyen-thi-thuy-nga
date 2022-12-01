@@ -185,7 +185,7 @@
                         <td>10000</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
                                 <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
@@ -202,7 +202,7 @@
                         <td>10000</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
                                 <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
@@ -219,7 +219,7 @@
                         <td>10000</td>
                         <td>10</td>
                         <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
                                 <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                             </button>
                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">

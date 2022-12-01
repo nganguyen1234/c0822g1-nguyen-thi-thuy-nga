@@ -14,6 +14,10 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<form class="d-flex" action="/product?action=search" method="post">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 <table class="table">
     <thead>
     <tr>
@@ -23,6 +27,7 @@
         <th scope="col">Description</th>
         <th scope="col">Manufacturer</th>
         <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -37,6 +42,11 @@
                     <a href="/product?action=edit&id=${product.id}">
                         <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
                     </a>
+            </td>
+            <td>
+                <a href="/product?action=delete&id=${product.id}">
+                    <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                </a>
             </td>
         </tr>
     </c:forEach>

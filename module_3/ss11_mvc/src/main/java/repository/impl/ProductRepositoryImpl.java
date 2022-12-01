@@ -11,10 +11,10 @@ public class ProductRepositoryImpl implements IProductRepository {
     static List<Product> productList = new ArrayList<>();
 
     static {
-        productList.add(new Product(1, "car", 123, "good", "Toyata"));
-        productList.add(new Product(2, "car", 123, "good", "Ford"));
+        productList.add(new Product(1, "car 1", 123, "good", "Toyata"));
+        productList.add(new Product(2, "car 2", 123, "good", "Ford"));
         productList.add(new Product(3, "motorbike", 123, "good", "Hyundai"));
-        productList.add(new Product(4, "car", 123, "good", "Audi"));
+        productList.add(new Product(4, "car 3", 123, "good", "Audi"));
     }
 
     @Override

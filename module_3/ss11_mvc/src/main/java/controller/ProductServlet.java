@@ -23,22 +23,22 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "edit":
                 edit(request, response);
+            case "search":
+                searchByName(request,response);
         }
     }
 
-    private void edit(HttpServletRequest request, HttpServletResponse response) {
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String description = request.getParameter("description");
-        String manufacturer = request.getParameter("manufacturer");
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = new Product(id, name, price, description, manufacturer);
-        productService.update(id, product);
-//        product.setName(name);
-//        product.setPrice(price);
-//        product.setDescription(description);
-//        product.setManufacturer(manufacturer);
-        displayList(request, response);
+        Product product = productService.findByName(name);
+        request.setAttribute("product",product);
+        try {
+            request.getRequestDispatcher("/view/searchResult.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +52,26 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "edit":
                 displayEditForm(request, response);
+            case "delete":
+                deleteProcduct(request,response);
         }
+    }
+
+    private void deleteProcduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        productService.remove(id);
+        displayList(request,response);
+    }
+
+    private void edit(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        double price = Double.parseDouble(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String manufacturer = request.getParameter("manufacturer");
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = new Product(id, name, price, description, manufacturer);
+        productService.update(id, product);
+        displayList(request, response);
     }
 
     private void displayEditForm(HttpServletRequest request, HttpServletResponse response) {

@@ -23,8 +23,10 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "edit":
                 edit(request, response);
+                break;
             case "search":
                 searchByName(request,response);
+                break;
         }
     }
 
@@ -52,8 +54,10 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "edit":
                 displayEditForm(request, response);
+                break;
             case "delete":
                 deleteProcduct(request,response);
+                break;
         }
     }
 

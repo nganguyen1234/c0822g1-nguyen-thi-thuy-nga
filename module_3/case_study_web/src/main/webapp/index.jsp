@@ -116,7 +116,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                                href="http://localhost:8080/customer/list.jsp">Customer</a>
+                                href="/customer">Customer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>

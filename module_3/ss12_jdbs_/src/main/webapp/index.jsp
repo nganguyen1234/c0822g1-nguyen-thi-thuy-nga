@@ -1,16 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Nga
-  Date: 12/2/2022
-  Time: 10:57 PM
+  User: ASUS
+  Date: 3/23/2021
+  Time: 2:10 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Home</title>
   </head>
   <body>
-  $END$
+  <a href="/users">Display list</a>
+  <br>
+  <a href="user/create.jsp">Add new user</a>
   </body>
 </html>

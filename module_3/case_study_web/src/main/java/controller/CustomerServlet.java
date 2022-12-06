@@ -52,7 +52,7 @@ public class CustomerServlet extends HttpServlet {
         CustomerType customerType = new CustomerType(customerTypeId);
         Customer customer = new Customer(id, customerType, name, birthday, gender, idCard, phoneNumber, email, address);
         boolean check = customerService.editCustomer(customer);
-        String message = "newCustomerType";
+        String message = "successfully edited";
         if (!check) {
             message = "failed to edit";
         }

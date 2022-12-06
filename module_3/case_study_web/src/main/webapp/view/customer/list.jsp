@@ -204,13 +204,15 @@
                             <td>${customer.customerType.name}</td>
                             <td>${customer.address}</td>
                             <td>
-                                <button onclick="getCustomerInfo('${customer}')" type="button" class="btn btn-light" data-bs-toggle="modal"
+                                <button onclick="getCustomerInfo('${customer.id}','${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.idCard}','${customer.phoneNumber}','${customer.email}','${customer.address}')"
+                                        type="button" class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#editCustomer">
                                     <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
                                 </button>
                             </td>
                             <td>
-                                <button onclick="getCustomerId('${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.idCard}','${customer.phoneNumber}','${customer.email}','${customer.address}')" type="button"
+                                <button onclick="getCustomerId('${customer.id}','${customer.name}')"
+                                        type="button"
                                         class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#deleteCustomer">
                                     <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
@@ -242,7 +244,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Birthday</label>
-                            <input type="date" class="form-control" name="dateOfBirth " required pattern="\d{4}-\d{2}-\d{2}">
+                            <input type="date" class="form-control" name="dateOfBirth " required
+                                   pattern="\d{4}-\d{2}-\d{2}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Gender</label>
@@ -293,7 +296,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/customer?action=edit" method="post">
-            <div class="modal-body">
+                <div class="modal-body">
+                    <input type="text" id="id" name="id" hidden>
                     <div class="mb-3">
                         <label class="form-label">New name</label>
                         <input type="text" class="form-control" name="newName" id="newName">
@@ -332,11 +336,11 @@
                         <input type="text" class="form-control" name="newAddress" id="newAddress">
                     </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-danger">Save changes</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Save changes</button>
+                </div>
             </form>
         </div>
     </div>
@@ -367,17 +371,17 @@
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
     }
-    function getCustomerInfo(name,dateOfBirth,gender,idCard,phoneNumber,email,address) {
-        document.getElementById("newName").value =name ;
-        document.getElementById("newBirthday").value =dateOfBirth ;
+
+    function getCustomerInfo(id, name, dateOfBirth, gender, idCard, phoneNumber, email, address) {
+        document.getElementById("id").value = id
+        document.getElementById("newName").value = name;
+        document.getElementById("newBirthday").value = dateOfBirth;
         document.getElementById("newGender").value = gender;
         document.getElementById("newIdCard").value = idCard;
         document.getElementById("newPhoneNumber").value = phoneNumber;
-        document.getElementById("newEmail").value =email ;
+        document.getElementById("newEmail").value = email;
         // document.getElementById("").value = ;
         document.getElementById("newAddress").value = address;
-
-
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

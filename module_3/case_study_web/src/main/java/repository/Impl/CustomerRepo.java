@@ -15,6 +15,7 @@ public class CustomerRepo implements ICustomerRepo {
             "         left join customer_type ct on c.customer_type_id = ct.id";
     private final String CREATE_NEW_CUSTOMER = "insert into customer(customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address) values(?,?,?,?,?,?,?,?);";
     private final String DELETE_CUSTOMER = "delete from customer where id = ?;";
+    private final String EDIT_CUSTOMER = "call edit_customer(?,?,?,?,?,?,?,?,?);";
 
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
@@ -91,7 +92,25 @@ public class CustomerRepo implements ICustomerRepo {
         }
         return false;
     }
-public boolean editCustomer(int id,Customer customer){
 
-}
+    public boolean editCustomer(Customer customer) {
+        BaseRepository bs = new BaseRepository();
+        Connection connection = bs.getConnection();
+        try {
+            CallableStatement cs = connection.prepareCall(EDIT_CUSTOMER);
+            cs.setInt(1, customer.getId());
+            cs.setString(2, customer.getName());
+            cs.setString(3, customer.getDateOfBirth());
+            cs.setInt(4, customer.getGender());
+            cs.setString(5, customer.getIdCard());
+            cs.setString(6, customer.getPhoneNumber());
+            cs.setString(7, customer.getEmail());
+            cs.setString(8, customer.getAddress());
+            cs.setInt(9, customer.getCustomerType().getId());
+            return cs.executeUpdate() > 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -9,4 +9,5 @@ public interface ICustomerService {
     List<String> getAllCustomerType();
     List<Customer> getAllCustomer();
     boolean deleteCustomer(int id);
+    boolean editCustomer(Customer customer);
 }

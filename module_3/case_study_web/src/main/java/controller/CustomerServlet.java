@@ -32,8 +32,32 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "delete":
                 deleteCustomer(request, response);
+                break;
+            case "edit":
+                editCustomer(request, response);
             default:
         }
+    }
+
+    private void editCustomer(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("newName");
+        String birthday = request.getParameter("newBirthday");
+        int gender = Integer.parseInt(request.getParameter("newGender"));
+        String idCard = request.getParameter("newIdCard");
+        String phoneNumber = request.getParameter("newPhoneNumber");
+        String email = request.getParameter("newEmail");
+        int customerTypeId = Integer.parseInt(request.getParameter("newCustomerType"));
+        String address = request.getParameter("newAddress");
+        CustomerType customerType = new CustomerType(customerTypeId);
+        Customer customer = new Customer(id, customerType, name, birthday, gender, idCard, phoneNumber, email, address);
+        boolean check = customerService.editCustomer(customer);
+        String message = "newCustomerType";
+        if (!check) {
+            message = "failed to edit";
+        }
+        request.setAttribute("message", message);
+        showCustomerList(request, response);
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {

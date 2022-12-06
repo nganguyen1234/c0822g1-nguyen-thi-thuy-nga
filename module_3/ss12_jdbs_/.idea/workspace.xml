@@ -27,17 +27,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2842a5d-be62-4b63-80d6-add71a4e4ffb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_2/src/case_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/src/case_study/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/controller/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/controller/CustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/repository/ICustomerRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/repository/ICustomerRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/repository/Impl/CustomerRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/repository/Impl/CustomerRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/service/ICustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/service/ICustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/service/Impl/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/classes/java/main/service/Impl/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/build/libs/case_study_web-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/build/libs/case_study_web-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/controller/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/model/customer/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/model/customer/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/ICustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/ICustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/ICustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/ICustomerTypeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/Impl/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/Impl/CustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/Impl/CustomerTypeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/repository/Impl/CustomerTypeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/java/service/Impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/java/service/Impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_web/src/main/webapp/view/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_web/src/main/webapp/view/customer/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/user-manager-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/user-manager-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss13_transaction/exercise1/exercise1_servlet/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss13_transaction/exercise1/exercise1_servlet/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +212,8 @@
       <workItem from="1670002460441" duration="608000" />
       <workItem from="1670032737551" duration="1738000" />
       <workItem from="1670213301842" duration="1059000" />
+      <workItem from="1670259623679" duration="45000" />
+      <workItem from="1670318992882" duration="423000" />
     </task>
     <servers />
   </component>

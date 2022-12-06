@@ -1,5 +1,9 @@
 package controller;
 
+import model.customer.Customer;
+import model.customer.CustomerType;
+import repository.ICustomerTypeRepo;
+import repository.Impl.CustomerTypeRepo;
 import service.ICustomerService;
 import service.Impl.CustomerService;
 
@@ -15,6 +19,7 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", value = "/customer")
 public class CustomerServlet extends HttpServlet {
     private ICustomerService customerService = new CustomerService();
+    private ICustomerTypeRepo customerTypeRepo = new CustomerTypeRepo();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -25,20 +30,41 @@ public class CustomerServlet extends HttpServlet {
             case "add":
                 addCustomer(request, response);
                 break;
+            case "delete":
+                deleteCustomer(request, response);
             default:
         }
     }
 
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("deleteId"));
+        boolean check = customerService.deleteCustomer(id);
+        String message = "Successfully deleted";
+        if (!check) {
+            message = "Failed to delete";
+        }
+        request.setAttribute("message", message);
+        showCustomerList(request, response);
+    }
+
     private void addCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        String dateOfBirth =request.getParameter("dateOfBirth");
+        String dateOfBirth = request.getParameter("dateOfBirth");
         int gender = Integer.parseInt(request.getParameter("gender"));
         String idCard = request.getParameter("idCard");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String customerType = request.getParameter("customerType");
-
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        CustomerType customerType = new CustomerType(customerTypeId);
+        Customer customer = new Customer(name, dateOfBirth, customerType, gender, idCard, phoneNumber, email, address);
+        boolean check = customerService.addCustomer(customer);
+        String message = "Was successfully added ";
+        if (!check) {
+            message = "Failed to add";
+        }
+        request.setAttribute("message", message);
+        showCustomerList(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,6 +83,10 @@ public class CustomerServlet extends HttpServlet {
 
     private void showCustomerList(HttpServletRequest request, HttpServletResponse response) {
         try {
+            List<Customer> customerList = customerService.getAllCustomer();
+            List<CustomerType> customerTypeList = customerTypeRepo.getAllCustomerType();
+            request.setAttribute("customerList", customerList);
+            request.setAttribute("customerTypeList", customerTypeList);
             request.getRequestDispatcher("/view/customer/list.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();

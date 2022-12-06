@@ -1,6 +1,7 @@
 package repository.Impl;
 
 import model.customer.Customer;
+import model.customer.CustomerType;
 import repository.BaseRepository;
 import repository.ICustomerRepo;
 
@@ -9,11 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepo implements ICustomerRepo {
+    private final String SELECT_ALL_CUSTOMER = "select c.*, ct.name as customer_type_name\n" +
+            "from customer as c\n" +
+            "         left join customer_type ct on c.customer_type_id = ct.id";
+    private final String CREATE_NEW_CUSTOMER = "insert into customer(customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address) values(?,?,?,?,?,?,?,?);";
+    private final String DELETE_CUSTOMER = "delete from customer where id = ?;";
+
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
         Connection connection = baseRepository.getConnection();
         PreparedStatement ps = connection.prepareStatement(queryStatement);
         return ps;
+    }
+
+    public boolean deleteCustomer(int id) {
+        try {
+            PreparedStatement ps = query(DELETE_CUSTOMER);
+            ps.setInt(1, id);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
     public List<String> getAllCustomerType() {
@@ -30,11 +48,36 @@ public class CustomerRepo implements ICustomerRepo {
         return typeNameList;
     }
 
+    public List<Customer> getAllCustomer() {
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            PreparedStatement ps = query(SELECT_ALL_CUSTOMER);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int customerTypeId = rs.getInt("customer_type_id");
+                String customerTypeName = rs.getString("customer_type_name");
+                String name = rs.getString("name");
+                String dateOfBirth = rs.getString("date_of_birth");
+                int gender = rs.getInt("gender");
+                String idCard = rs.getString("id_card");
+                String phoneNumber = rs.getString("phone_number");
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                CustomerType customerType = new CustomerType(customerTypeId, customerTypeName);
+                customerList.add(new Customer(id, customerType, name, dateOfBirth, gender, idCard, phoneNumber, email, address));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
+    }
+
     @Override
     public boolean addCustomer(Customer customer) {
         try {
-            PreparedStatement ps = query("insert into customer(name,customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address values(?,?,?,?,?,?,?,?);");
-            ps.setInt(1, customer.getCustomerTypeId());
+            PreparedStatement ps = query(CREATE_NEW_CUSTOMER);
+            ps.setInt(1, customer.getCustomerType().getId());
             ps.setString(2, customer.getName());
             ps.setString(3, customer.getDateOfBirth());
             ps.setInt(4, customer.getGender());
@@ -48,5 +91,7 @@ public class CustomerRepo implements ICustomerRepo {
         }
         return false;
     }
+public boolean editCustomer(int id,Customer customer){
 
+}
 }

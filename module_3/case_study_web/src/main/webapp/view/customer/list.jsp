@@ -121,7 +121,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:8080/customer/list.jsp">Customer</a>
+                               href="/view/customer/list.jsp">Customer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
@@ -160,15 +160,18 @@
                     </form>
                 </div>
                 <div class="col-lg-4">
-<%--                    <form action="/customer?action=add">--%>
-                        <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                data-bs-target="#addCustomer">
-                            <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
-                        </button>
-<%--                    </form>--%>
-<%--                    <a href="/customer?action=add">--%>
-<%--                        <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>--%>
-<%--                    </a>--%>
+                    <%--                    <form action="/customer?action=add">--%>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#addCustomer">
+                        <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
+                    </button>
+                    <%--                    </form>--%>
+                    <%--                    <a href="/customer?action=add">--%>
+                    <%--                        <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>--%>
+                    <%--                    </a>--%>
+                </div>
+                <div class="col-lg-3">
+                    <p style="color: red">${message}</p>
                 </div>
             </div>
             <div class="row">
@@ -189,76 +192,32 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Nga</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#editCustomer">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteCustomer">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nương</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#editCustomer">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteCustomer">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Linh</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#editCustomer">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteCustomer">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
+                    <c:forEach var="customer" items="${customerList}" varStatus="stt">
+                        <tr>
+                            <td>${stt.count}</td>
+                            <td>${customer.name}</td>
+                            <td>${customer.dateOfBirth}</td>
+                            <td>${customer.gender}</td>
+                            <td>${customer.idCard}</td>
+                            <td>${customer.phoneNumber}</td>
+                            <td>${customer.email}</td>
+                            <td>${customer.customerType.name}</td>
+                            <td>${customer.address}</td>
+                            <td>
+                                <button onclick="getCustomerInfo('${customer}')" type="button" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#editCustomer">
+                                    <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                                </button>
+                            </td>
+                            <td>
+                                <button onclick="getCustomerId('${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.idCard}','${customer.phoneNumber}','${customer.email}','${customer.address}')" type="button"
+                                        class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#deleteCustomer">
+                                    <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -266,8 +225,122 @@
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<c:import url="add_modal.jsp"></c:import>
-<c:import url="edit_modal.jsp"></c:import>
+<%--add modal--%>
+<div class="modal fade" id="addCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add customer information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/customer?action=add" method="post">
+                <div class="modal-body">
+                    <form class="vh-100">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Birthday</label>
+                            <input type="date" class="form-control" name="dateOfBirth " required pattern="\d{4}-\d{2}-\d{2}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gender</label>
+                            <input type="text" class="form-control" name="gender">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ID card</label>
+                            <input type="text" class="form-control" name="idCard">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" name="phoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" id="inputGroupSelect03"
+                                    aria-label="Example select with button addon" name="customerTypeId">
+                                <c:forEach var="type" items="${customerTypeList}">
+                                    <option value="${type.id}">${type.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address">
+
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="Submit" class="btn btn-danger">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<%--<c:import url="edit_modal.jsp"></c:import>--%>
+<div class="modal fade" id="editCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit customer information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/customer?action=edit" method="post">
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">New name</label>
+                        <input type="text" class="form-control" name="newName" id="newName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New birthday</label>
+                        <input type="text" class="form-control" name="newBirthday" id="newBirthday">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New gender</label>
+                        <input type="text" class="form-control" name="newGender" id="newGender">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New ID card</label>
+                        <input type="text" class="form-control" name="newIdCard" id="newIdCard">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New phone number</label>
+                        <input type="text" class="form-control" name="newPhoneNumber" id="newPhoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New email</label>
+                        <input type="text" class="form-control" name="newEmail" id="newEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New customer type</label>
+                        <select class="form-select"
+                                aria-label="Example select with button addon" name="newCustomerType" id="customerType">
+                            <c:forEach var="type" items="${customerTypeList}">
+                                <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New address</label>
+                        <input type="text" class="form-control" name="newAddress" id="newAddress">
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!--    modal xóa-->
 <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -276,16 +349,37 @@
                 <h5 class="modal-title" id="exampleModalLabel">Delete customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                Are you sure that you want to delete information of this customer ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
+            <form action="/customer?action=delete" method="post">
+                <div class="modal-body">
+                    <input id="deleteId" type="text" name="deleteId" hidden>
+                    <span>Are you sure that you want to delete information of </span><span id="deleteName"> ?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<script>
+    function getCustomerId(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+    function getCustomerInfo(name,dateOfBirth,gender,idCard,phoneNumber,email,address) {
+        document.getElementById("newName").value =name ;
+        document.getElementById("newBirthday").value =dateOfBirth ;
+        document.getElementById("newGender").value = gender;
+        document.getElementById("newIdCard").value = idCard;
+        document.getElementById("newPhoneNumber").value = phoneNumber;
+        document.getElementById("newEmail").value =email ;
+        // document.getElementById("").value = ;
+        document.getElementById("newAddress").value = address;
+
+
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

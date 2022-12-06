@@ -19,4 +19,14 @@ public class CustomerService implements ICustomerService {
     public List<String> getAllCustomerType() {
         return customerRepo.getAllCustomerType();
     }
+
+    @Override
+    public List<Customer> getAllCustomer() {
+        return customerRepo.getAllCustomer();
+    }
+
+    @Override
+    public boolean deleteCustomer(int id) {
+        return customerRepo.deleteCustomer(id);
+    }
 }

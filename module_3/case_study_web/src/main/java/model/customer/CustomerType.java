@@ -3,7 +3,13 @@ package model.customer;
 public class CustomerType {
     private int id;
     private String name;
-    public CustomerType(){}
+
+    public CustomerType() {
+    }
+
+    public CustomerType(int id) {
+        this.id = id;
+    }
 
     public CustomerType(int id, String name) {
         this.id = id;

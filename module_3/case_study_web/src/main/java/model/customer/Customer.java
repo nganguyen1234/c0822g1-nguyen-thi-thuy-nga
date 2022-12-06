@@ -3,7 +3,7 @@ package model.customer;
 
 public class Customer {
     private int id;
-    private int customerTypeId;
+    private CustomerType customerType;
     private String name;
     private String dateOfBirth;
     private int gender;
@@ -15,9 +15,9 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id,int customerTypeId, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
+    public Customer(int id,CustomerType customerType, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
         this.id = id;
-        this.customerTypeId = customerTypeId;
+        this.customerType = customerType;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -27,8 +27,8 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer(String name, String dateOfBirth,int customerTypeId, int gender, String idCard, String phoneNumber, String email, String address) {
-        this.customerTypeId = customerTypeId;
+    public Customer(String name, String dateOfBirth,CustomerType customerType, int gender, String idCard, String phoneNumber, String email, String address) {
+        this.customerType = customerType;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -102,11 +102,11 @@ public class Customer {
         this.address = address;
     }
 
-    public int getCustomerTypeId() {
-        return customerTypeId;
+    public CustomerType getCustomerType() {
+        return customerType;
     }
 
-    public void setCustomerTypeId(int customerTypeId) {
-        this.customerTypeId = customerTypeId;
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 }

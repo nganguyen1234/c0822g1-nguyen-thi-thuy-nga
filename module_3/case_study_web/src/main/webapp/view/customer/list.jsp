@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+<%---------------------------------------------------------header------------------------------------------------------%>
 <div class="container-fluid">
     <div class="row" style="margin-top: 10px">
         <div class="col-auto col-sm-5 col-lg-3 d-flex align-items-center bestel-logo">
@@ -84,7 +85,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-sm-3 d-none d-lg-block col-lg-2">
             <div class="header-contact d-flex">
                 <div class="header-contact-icon"><img src="https://img.icons8.com/ios-glyphs/30/null/phone--v1.png"/>
@@ -108,6 +108,7 @@
         </div>
     </div>
     <div class="row">
+        <%---------------------------------------------------------navbar------------------------------------------------------%>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -138,6 +139,7 @@
             </div>
         </nav>
     </div>
+    <%---------------------------------------------------------list------------------------------------------------------%>
     <div class="row main vh-100">
         <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
             <ul class="list-group">
@@ -148,6 +150,7 @@
                 <li class="list-group-item">And a fifth one</li>
             </ul>
         </div>
+        <%---------------------------------------------------------display customer list------------------------------------------------------%>
         <div class="col-lg-9">
             <div class="row">
                 <h4>Customer list</h4>
@@ -160,15 +163,10 @@
                     </form>
                 </div>
                 <div class="col-lg-4">
-                    <%--                    <form action="/customer?action=add">--%>
                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
                             data-bs-target="#addCustomer">
                         <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                     </button>
-                    <%--                    </form>--%>
-                    <%--                    <a href="/customer?action=add">--%>
-                    <%--                        <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>--%>
-                    <%--                    </a>--%>
                 </div>
                 <div class="col-lg-3">
                     <p style="color: red">${message}</p>
@@ -227,7 +225,7 @@
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<%--add modal--%>
+<%--------------------------------------------------------- add modal------------------------------------------------------%>
 <div class="modal fade" id="addCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -240,7 +238,7 @@
                     <form class="vh-100">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name" >
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Birthday</label>
@@ -264,6 +262,7 @@
                             <input type="text" class="form-control" name="email">
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Customer type</label>
                             <select class="form-select" id="inputGroupSelect03"
                                     aria-label="Example select with button addon" name="customerTypeId">
                                 <c:forEach var="type" items="${customerTypeList}">
@@ -287,7 +286,7 @@
     </div>
 </div>
 </div>
-<%--<c:import url="edit_modal.jsp"></c:import>--%>
+<%--------------------------------------------------------- edit modal------------------------------------------------------%>
 <div class="modal fade" id="editCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -345,7 +344,7 @@
         </div>
     </div>
 </div>
-<!--    modal xóa-->
+<%--------------------------------------------------------- delete modal------------------------------------------------------%>
 <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -380,7 +379,6 @@
         document.getElementById("newIdCard").value = idCard;
         document.getElementById("newPhoneNumber").value = phoneNumber;
         document.getElementById("newEmail").value = email;
-        // document.getElementById("").value = ;
         document.getElementById("newAddress").value = address;
     }
 </script>

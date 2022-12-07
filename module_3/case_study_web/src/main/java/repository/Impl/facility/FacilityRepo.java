@@ -15,12 +15,25 @@ import java.util.List;
 
 public class FacilityRepo implements IFacilityRepo {
     private final String SELECT_ALL_FACILITY = "select f.*,ft.name as facility_type_name,rt.name as rent_type_name from facility as f left join facility_type ft on f.facility_type_id = ft.id left join rent_type rt on f.rent_type_id = rt.id;";
+    private final String INSERT_INTO_FACILITY = "insert into facility( name, area, cost, max_people, rent_type_id, facility_type_id, standard_room, description_other_convenience, pool_area, number_of_floors, facility_free)\n" +
+            " values (?,?,?,?,?,?,?,?,?,?,?);";
 
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
         Connection connection = baseRepository.getConnection();
         PreparedStatement ps = connection.prepareStatement(queryStatement);
         return ps;
+    }
+    public boolean addFacility(Facility facility){
+        try {
+            PreparedStatement ps = query(INSERT_INTO_FACILITY);
+            ps.setString(1,facility.getName());
+            ps.setInt(2,facility.getArea());
+            ps.setDouble(3,facility.getCost());
+            ps.setInt(4,facility.getMaxPeople());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public List<RentType> getAllRentType() {

@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+<%---------------------------------------------------------header------------------------------------------------------%>
 <div class="container-fluid">
     <div class="row" style="margin-top: 10px">
         <div class="col-auto col-sm-5 col-lg-3 d-flex align-items-center bestel-logo">
@@ -102,6 +103,7 @@
             <button type="button" class="btn btn-light">User Name</button>
         </div>
     </div>
+    <%---------------------------------------------------------navbar------------------------------------------------------%>
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -133,6 +135,7 @@
             </div>
         </nav>
     </div>
+    <%---------------------------------------------------------list------------------------------------------------------%>
     <div class="row main vh-100">
         <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
             <ul class="list-group">
@@ -143,6 +146,7 @@
                 <li class="list-group-item">And a fifth one</li>
             </ul>
         </div>
+        <%---------------------------------------------------------display service list------------------------------------------------------%>
         <div class="col-lg-9">
             <div class="row">
                 <h4>Service list</h4>
@@ -181,30 +185,32 @@
                     </thead>
                     <tbody>
                     <c:forEach var="facility" items="${facilityList}" varStatus="stt">
-                    <tr>
-                        <th scope="row">${stt.count}</th>
-                        <td>${facility.name}</td>
-                        <td>${facility.area}</td>
-                        <td>${facility.cost}</td>
-                        <td>${facility.maxPeople}</td>
-                        <td>${facility.rentType.name}</td>
-                        <td>${facility.standardRoom}</td>
-                        <td>${facility.descriptionOtherConvenience}</td>
-                        <td>${facility.poolArea}</td>
-                        <td>${facility.numberOfFloors}</td>
-                        <td>${facility.facilityFree}</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteService">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">${stt.count}</th>
+                            <td>${facility.name}</td>
+                            <td>${facility.area}</td>
+                            <td>${facility.cost}</td>
+                            <td>${facility.maxPeople}</td>
+                            <td>${facility.rentType.name}</td>
+                            <td>${facility.standardRoom}</td>
+                            <td>${facility.descriptionOtherConvenience}</td>
+                            <td>${facility.poolArea}</td>
+                            <td>${facility.numberOfFloors}</td>
+                            <td>${facility.facilityFree}</td>
+                            <td>
+                                <button type="button"
+                                        onclick="getFacilityInfo('${facility.id}','${facility.facilityType.id}','${facility.name}','${facility.area}','${facility.cost}','${facility.maxPeople}','${facility.standardRoom}','${facility.descriptionOtherConvenience}','${facility.poolArea}','${facility.numberOfFloors}','${facility.facilityFree}')"
+                                        class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
+                                    <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#deleteService">
+                                    <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                                </button>
+                            </td>
+                        </tr>
                     </c:forEach>
                     </tbody>
                 </table>
@@ -214,61 +220,67 @@
     <div class="row " id="footer">@copyright by me</div>
 </div>
 <%--<c:import url="add_modal.jsp"></c:import>--%>
-<%--add modal--%>
+<%--------------------------------------------------------- add modal ------------------------------------------------------%>
 <div class="modal fade" id="addService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" >Add service information</h5>
+                <h5 class="modal-title">Add service information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/service?action=add" method="post">
                     <div class="mb-3">
                         <label class="form-label">Facility type</label>
-                        <button type="button" onclick="showVillaAddForm()"  >Villa</button>
+                        <input type="text" name="facilityTypeId" hidden>
+                        <button type="button" onclick="showVillaAddForm()">Villa</button>
                         <button type="button" onclick="showHouseAddForm()">House</button>
                         <button type="button" onclick="showRoomAddForm()">Room</button>
                     </div>
-                    <div class="mb-3" >
+                    <div class="mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="name">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Area</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="area">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Cost</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="cost">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Max people</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="maxPeople">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Rent type</label>
-                        <input type="text" class="form-control">
+                        <select class="form-select" id="rentTypeId"
+                                aria-label="Example select with button addon" name="rentTypeId">
+                            <c:forEach var="rentType" items="${rentTypeList}">
+                                <option value="${rentType.id}">${rentType.name}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="mb-3" id="standardRoom">
                         <label class="form-label">Standard room</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="standardRoom">
                     </div>
                     <div class="mb-3" id="descriptionOtherConvenience">
                         <label class="form-label">Description other convenience</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="descriptionOtherConvenience">
                     </div>
                     <div class="mb-3" id="poolArea">
                         <label class="form-label">Pool area</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="poolArea">
                     </div>
                     <div class="mb-3" id="numberOfFloors">
                         <label class="form-label">Number of floors</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="numberOfFloors">
                     </div>
                     <div class="mb-3" id="facilityFree">
                         <label class="form-label">Facility free</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="facilityFree">
                     </div>
                 </form>
             </div>
@@ -280,9 +292,72 @@
     </div>
 </div>
 
-<c:import url="edit_modal.jsp"></c:import>
-
-<%--modal xóa--%>
+<%--<c:import url="edit_modal.jsp"></c:import>--%>
+<%--------------------------------------------------------- edit modal ------------------------------------------------------%>
+<div class="modal fade" id="editService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit service information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/service?action=edit" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">New name</label>
+                        <input type="text" class="form-control" id="newName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New area</label>
+                        <input type="text" class="form-control" id="newArea">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New cost</label>
+                        <input type="text" class="form-control" id="newCost">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New max people</label>
+                        <input type="text" class="form-control" id="newMaxPeople">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New rent type</label>
+                        <select class="form-select" id="newRentTypeId"
+                                aria-label="Example select with button addon" name="rentTypeId">
+                            <c:forEach var="rentType" items="${rentTypeList}">
+                                <option value="${rentType.id}">${rentType.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3" id="editStandardRoom">
+                        <label class="form-label">New standard room</label>
+                        <input type="text" class="form-control" id="newStandardRoom">
+                    </div>
+                    <div class="mb-3" id="editDescriptionOtherConvenience">
+                        <label class="form-label">New description other convenience</label>
+                        <input type="text" class="form-control" id="newDescriptionOtherConvenience">
+                    </div>
+                    <div class="mb-3" id="editPoolArea">
+                        <label class="form-label">New pool area</label>
+                        <input type="text" class="form-control" id="newPoolArea">
+                    </div>
+                    <div class="mb-3" id="editNumberOfFloors">
+                        <label class="form-label">New number of floors</label>
+                        <input type="text" class="form-control" id="newNumberOfFloors">
+                    </div>
+                    <div class="mb-3" id="editFacilityFree">
+                        <label class="form-label">New facility free</label>
+                        <input type="text" class="form-control" id="newFacilityFree">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%--------------------------------------------------------- delete modal ------------------------------------------------------%>
 <div class="modal fade" id="deleteService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -300,20 +375,24 @@
         </div>
     </div>
 </div>
+
 <script>
     function showVillaAddForm() {
+        document.getElementById("facilityTypeId").value = 1;
         var facilityFree = document.getElementById("facilityFree");
         var standardRoom = document.getElementById("standardRoom");
         var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
         var poolArea = document.getElementById("poolArea");
         var numberOfFloors = document.getElementById("numberOfFloors");
-            facilityFree.style.display = "none";
+        facilityFree.style.display = "none";
         standardRoom.style.display = "block";
         descriptionOtherConvenience.style.display = "block";
         poolArea.style.display = "block";
         numberOfFloors.style.display = "block";
     }
+
     function showHouseAddForm() {
+        document.getElementById("facilityTypeId").value = 2;
         var facilityFree = document.getElementById("facilityFree");
         var standardRoom = document.getElementById("standardRoom");
         var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
@@ -325,19 +404,60 @@
         poolArea.style.display = "none";
         numberOfFloors.style.display = "block";
     }
+
     function showRoomAddForm() {
+        document.getElementById("facilityTypeId").value = 3;
         var poolArea = document.getElementById("poolArea");
         var standardRoom = document.getElementById("standardRoom");
         var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
-        var numberOfFloors =document.getElementById("numberOfFloors");
+        var numberOfFloors = document.getElementById("numberOfFloors");
         var facilityFree = document.getElementById("facilityFree");
-            poolArea.style.display = "none";
-            standardRoom.style.display = "none";
-            descriptionOtherConvenience.style.display = "none";
-            numberOfFloors.style.display = "none";
+        poolArea.style.display = "none";
+        standardRoom.style.display = "none";
+        descriptionOtherConvenience.style.display = "none";
+        numberOfFloors.style.display = "none";
         facilityFree.style.display = "none";
-        }
+    }
 
+    function getFacilityInfo(id, facilityType, name, area, cost, maxPeople, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree) {
+
+        document.getElementById("newName").value = name;
+        document.getElementById("newArea").value = area;
+        document.getElementById("newCost").value = cost;
+        document.getElementById("newMaxPeople").value = maxPeople;
+        // document.getElementById("newRentType").value =rent;
+        document.getElementById("newStandardRoom").value = standardRoom;
+        document.getElementById("newDescriptionOtherConvenience").value = descriptionOtherConvenience;
+        document.getElementById("newPoolArea").value = poolArea;
+        document.getElementById("newNumberOfFloors").value = numberOfFloors;
+        document.getElementById("newFacilityFree").value = facilityFree;
+        var editPoolArea = document.getElementById("editPoolArea");
+        var editStandardRoom = document.getElementById("editStandardRoom");
+        var editDescriptionOtherConvenience = document.getElementById("editDescriptionOtherConvenience");
+        var editNumberOfFloors = document.getElementById("editNumberOfFloors");
+        var editFacilityFree = document.getElementById("editFacilityFree");
+        debugger
+        if (facilityType == 1) {
+            editPoolArea.style.display = "block";
+            editStandardRoom.style.display = "block";
+            editDescriptionOtherConvenience.style.display = "block";
+            editNumberOfFloors.style.display = "block";
+            editFacilityFree.style.display = "none";
+
+        } else if (facilityType == 2) {
+            editPoolArea.style.display = "none";
+            editStandardRoom.style.display = "block";
+            editDescriptionOtherConvenience.style.display = "block";
+            editNumberOfFloors.style.display = "block";
+            editFacilityFree.style.display = "none";
+        } else {
+            editPoolArea.style.display = "none";
+            editStandardRoom.style.display = "none";
+            editDescriptionOtherConvenience.style.display = "none";
+            editNumberOfFloors.style.display = "none";
+            editFacilityFree.style.display = "block";
+        }
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

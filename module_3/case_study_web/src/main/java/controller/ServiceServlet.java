@@ -47,12 +47,26 @@ public class ServiceServlet extends HttpServlet {
     }
 
     private void addFacility(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        int area = Integer.parseInt(request.getParameter("area"));
+        double cost = Double.parseDouble(request.getParameter("cost"));
+        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
+        int rentTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
+        RentType rentType = new RentType(rentTypeId);
+        String standardRoom = request.getParameter("standardRoom");
+        FacilityType facilityType = new FacilityType(Integer.parseInt(request.getParameter("facilityTypeId")));
+        String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
+        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
+        int numberOfFloors = Integer.parseInt(request.getParameter("numberOfFloors"));
+        String facilityFree = request.getParameter("facilityFree");
+        Facility facility = new Facility(name, area, cost, maxPeople, rentType, facilityType, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree);
+        facilityService.
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action==null){
-            action="";
+        if (action == null) {
+            action = "";
         }
         switch (action) {
             default:

@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+<%---------------------------------------------------------header------------------------------------------------------%>
 <div class="container-fluid">
     <div class="row" style="margin-top: 10px">
         <div class="col-auto col-sm-5 col-lg-3 d-flex align-items-center bestel-logo">
@@ -103,6 +104,7 @@
         </div>
     </div>
     <div class="row">
+        <%---------------------------------------------------------navbar------------------------------------------------------%>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -133,7 +135,8 @@
             </div>
         </nav>
     </div>
-    <div class="row main vh-100">
+    <div class="row ">
+        <%---------------------------------------------------------list------------------------------------------------------%>
         <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
             <ul class="list-group">
                 <li class="list-group-item">An item</li>
@@ -143,6 +146,8 @@
                 <li class="list-group-item">And a fifth one</li>
             </ul>
         </div>
+        <%---------------------------------------------------------display customer list------------------------------------------------------%>
+
         <div class="col-lg-9">
             <div class="row">
                 <h4>Employee list</h4>
@@ -158,6 +163,9 @@
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addEmployee">
                         <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                     </button>
+                </div>
+                <div class="col-lg-3">
+                    <p style="color: red">${message}</p>
                 </div>
             </div>
             <div class="row">
@@ -181,90 +189,122 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Nga</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nương</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Linh</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>nga@gmail</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editEmployee">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteEmployee">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
+                    <c:forEach var="employee" items="${employeeList}" varStatus="stt">
+                        <tr>
+                            <td>${stt.count}</td>
+                            <td>${employee.name}</td>
+                            <td>${employee.birthday}</td>
+                            <td>${employee.idCard}</td>
+                            <td>${employee.salary}</td>
+                            <td>${employee.phoneNumber}</td>
+                            <td>${employee.email}</td>
+                            <td>${employee.address}</td>
+                            <td>${employee.position.name}</td>
+                            <td>${employee.educationDegree.name}</td>
+                            <td>${employee.division.name}</td>
+                            <td>${employee.user.username}</td>
+                            <td>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#editEmployee">
+                                    <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#deleteEmployee">
+                                    <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <%---------------------------------------------    footer------------------------------------------------%>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<c:import url="add_modal.jsp"></c:import>
+<%---------------------------------------------    footer------------------------------------------------%>
+<div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add employee information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="vh-100" action="/employee?action=add" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date of birth</label>
+                        <input type="text" class="form-control" name="birthday">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ID card</label>
+                        <input type="text" class="form-control" name="idCard">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Salary</label>
+                        <input type="text" class="form-control" name="salary">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone number</label>
+                        <input type="text" class="form-control" name="phoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Position</label>
+                        <select class="form-select"
+                                aria-label="Example select with button addon" name="positionId">
+                            <c:forEach var="type" items="${positionList}">
+                                <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Education degree</label>
+                        <select class="form-select"
+                                aria-label="Example select with button addon" name="educationDegreeId">
+                            <c:forEach var="type" items="${educationDegreeList}">
+                                <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Division</label>
+                        <select class="form-select"
+                                aria-label="Example select with button addon" name="divisionId">
+                            <c:forEach var="type" items="${divisionList}">
+                                <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <c:import url="edit_modal.jsp"></c:import>
 <!--    modal xóa-->
 <div class="modal fade" id="deleteEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

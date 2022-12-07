@@ -112,7 +112,7 @@
                                href="/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/customer">Employee</a>
+                            <a class="nav-link" href="/employee">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"

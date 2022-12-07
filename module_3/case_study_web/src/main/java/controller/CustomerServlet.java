@@ -3,7 +3,7 @@ package controller;
 import model.customer.Customer;
 import model.customer.CustomerType;
 import repository.ICustomerTypeRepo;
-import repository.Impl.CustomerTypeRepo;
+import repository.Impl.customer.CustomerTypeRepo;
 import service.ICustomerService;
 import service.Impl.CustomerService;
 
@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", value = "/customer")

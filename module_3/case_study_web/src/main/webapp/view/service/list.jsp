@@ -109,20 +109,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                               href="http://localhost:8080/index.jsp">Home</a>
+                               href="/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Employee</a>
+                            <a class="nav-link" href="/employee">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:8080/customer/list.jsp">Customer</a>
+                               href="/customer">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
+                            <a class="/service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/contract/list.jsp">Contract</a>
+                            <a class="/contract">Contract</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -180,18 +180,19 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="facility" items="${facilityList}" varStatus="stt">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Villa</td>
-                        <td>123</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td></td>
+                        <th scope="row">${stt.count}</th>
+                        <td>${facility.name}</td>
+                        <td>${facility.area}</td>
+                        <td>${facility.cost}</td>
+                        <td>${facility.maxPeople}</td>
+                        <td>${facility.rentType.name}</td>
+                        <td>${facility.standardRoom}</td>
+                        <td>${facility.descriptionOtherConvenience}</td>
+                        <td>${facility.poolArea}</td>
+                        <td>${facility.numberOfFloors}</td>
+                        <td>${facility.facilityFree}</td>
                         <td>
                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
                                 <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
@@ -204,54 +205,7 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Room</td>
-                        <td>123</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteService">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>House</td>
-                        <td>123</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>1</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td></td>
-                        <td>10</td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
-                                <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#deleteService">
-                                <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
-                            </button>
-                        </td>
-                    </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -259,7 +213,73 @@
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
-<c:import url="add_modal.jsp"></c:import>
+<%--<c:import url="add_modal.jsp"></c:import>--%>
+<%--add modal--%>
+<div class="modal fade" id="addService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Add service information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Facility type</label>
+                        <button type="button" onclick="showVillaAddForm()"  >Villa</button>
+                        <button type="button" onclick="showHouseAddForm()">House</button>
+                        <button type="button" onclick="showRoomAddForm()">Room</button>
+                    </div>
+                    <div class="mb-3" >
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Area</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cost</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Max people</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Rent type</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3" id="standardRoom">
+                        <label class="form-label">Standard room</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3" id="descriptionOtherConvenience">
+                        <label class="form-label">Description other convenience</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3" id="poolArea">
+                        <label class="form-label">Pool area</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3" id="numberOfFloors">
+                        <label class="form-label">Number of floors</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3" id="facilityFree">
+                        <label class="form-label">Facility free</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <c:import url="edit_modal.jsp"></c:import>
 
 <%--modal xóa--%>
@@ -280,6 +300,45 @@
         </div>
     </div>
 </div>
+<script>
+    function showVillaAddForm() {
+        var facilityFree = document.getElementById("facilityFree");
+        var standardRoom = document.getElementById("standardRoom");
+        var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
+        var poolArea = document.getElementById("poolArea");
+        var numberOfFloors = document.getElementById("numberOfFloors");
+            facilityFree.style.display = "none";
+        standardRoom.style.display = "block";
+        descriptionOtherConvenience.style.display = "block";
+        poolArea.style.display = "block";
+        numberOfFloors.style.display = "block";
+    }
+    function showHouseAddForm() {
+        var facilityFree = document.getElementById("facilityFree");
+        var standardRoom = document.getElementById("standardRoom");
+        var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
+        var poolArea = document.getElementById("poolArea");
+        var numberOfFloors = document.getElementById("numberOfFloors");
+        facilityFree.style.display = "none";
+        standardRoom.style.display = "block";
+        descriptionOtherConvenience.style.display = "block";
+        poolArea.style.display = "none";
+        numberOfFloors.style.display = "block";
+    }
+    function showRoomAddForm() {
+        var poolArea = document.getElementById("poolArea");
+        var standardRoom = document.getElementById("standardRoom");
+        var descriptionOtherConvenience = document.getElementById("descriptionOtherConvenience");
+        var numberOfFloors =document.getElementById("numberOfFloors");
+        var facilityFree = document.getElementById("facilityFree");
+            poolArea.style.display = "none";
+            standardRoom.style.display = "none";
+            descriptionOtherConvenience.style.display = "none";
+            numberOfFloors.style.display = "none";
+        facilityFree.style.display = "none";
+        }
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

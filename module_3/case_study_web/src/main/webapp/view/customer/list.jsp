@@ -114,20 +114,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                               href="http://localhost:8080/index.jsp">Home</a>
+                               href="/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/employee/list.jsp">Employee</a>
+                            <a class="nav-link" href="/employee">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="/view/customer/list.jsp">Customer</a>
+                               href="/customer">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
+                            <a class="nav-link" href="/service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/contract/list.jsp">Contract</a>
+                            <a class="nav-link" href="/contract">Contract</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -240,7 +240,7 @@
                     <form class="vh-100">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Birthday</label>

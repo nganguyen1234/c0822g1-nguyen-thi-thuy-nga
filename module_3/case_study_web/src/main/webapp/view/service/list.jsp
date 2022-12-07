@@ -121,10 +121,10 @@
                                href="/customer">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="/service">Service</a>
+                            <a class="nav-link" href="/service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="/contract">Contract</a>
+                            <a class="nav-link" href="/contract">Contract</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -162,6 +162,9 @@
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addService">
                         <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                     </button>
+                </div>
+                <div class="col-lg-3">
+                    <p style="color: red">${message}</p>
                 </div>
             </div>
             <div class="row">
@@ -205,7 +208,8 @@
                                 </button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                <button type="button" onclick="getFacilityId('${facility.id}','${facility.name}')"
+                                        class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#deleteService">
                                     <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
                                 </button>
@@ -228,11 +232,11 @@
                 <h5 class="modal-title">Add service information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form action="/service?action=add" method="post">
+            <form action="/service?action=add" method="post">
+                <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Facility type</label>
-                        <input type="text" name="facilityTypeId" hidden>
+                        <input type="text" name="facilityTypeId" id="facilityTypeId" hidden>
                         <button type="button" onclick="showVillaAddForm()">Villa</button>
                         <button type="button" onclick="showHouseAddForm()">House</button>
                         <button type="button" onclick="showRoomAddForm()">Room</button>
@@ -282,12 +286,12 @@
                         <label class="form-label">Facility free</label>
                         <input type="text" class="form-control" name="facilityFree">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Save changes</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -301,28 +305,30 @@
                 <h5 class="modal-title">Edit service information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form action="/service?action=edit" method="post">
+            <form action="/service?action=edit" method="post">
+                <div class="modal-body">
+                    <input type="text" id="editId" name="editId" hidden>
+                    <input type="text" id="editFacilityType" name="editFacilityType" hidden>
                     <div class="mb-3">
                         <label class="form-label">New name</label>
-                        <input type="text" class="form-control" id="newName">
+                        <input type="text" class="form-control" id="newName" name="newName">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New area</label>
-                        <input type="text" class="form-control" id="newArea">
+                        <input type="text" class="form-control" id="newArea" name="newArea">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New cost</label>
-                        <input type="text" class="form-control" id="newCost">
+                        <input type="text" class="form-control" id="newCost" name="newCost">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New max people</label>
-                        <input type="text" class="form-control" id="newMaxPeople">
+                        <input type="text" class="form-control" id="newMaxPeople" name="newMaxPeople">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New rent type</label>
                         <select class="form-select" id="newRentTypeId"
-                                aria-label="Example select with button addon" name="rentTypeId">
+                                aria-label="Example select with button addon" name="newRentTypeId">
                             <c:forEach var="rentType" items="${rentTypeList}">
                                 <option value="${rentType.id}">${rentType.name}</option>
                             </c:forEach>
@@ -330,30 +336,30 @@
                     </div>
                     <div class="mb-3" id="editStandardRoom">
                         <label class="form-label">New standard room</label>
-                        <input type="text" class="form-control" id="newStandardRoom">
+                        <input type="text" class="form-control" id="newStandardRoom" name="newStandardRoom">
                     </div>
                     <div class="mb-3" id="editDescriptionOtherConvenience">
                         <label class="form-label">New description other convenience</label>
-                        <input type="text" class="form-control" id="newDescriptionOtherConvenience">
+                        <input type="text" class="form-control" id="newDescriptionOtherConvenience" name="newDescriptionOtherConvenience">
                     </div>
                     <div class="mb-3" id="editPoolArea">
                         <label class="form-label">New pool area</label>
-                        <input type="text" class="form-control" id="newPoolArea">
+                        <input type="text" class="form-control" id="newPoolArea" name="newPoolArea">
                     </div>
                     <div class="mb-3" id="editNumberOfFloors">
                         <label class="form-label">New number of floors</label>
-                        <input type="text" class="form-control" id="newNumberOfFloors">
+                        <input type="text" class="form-control" id="newNumberOfFloors" name="newNumberOfFloors">
                     </div>
                     <div class="mb-3" id="editFacilityFree">
                         <label class="form-label">New facility free</label>
-                        <input type="text" class="form-control" id="newFacilityFree">
+                        <input type="text" class="form-control" id="newFacilityFree" name="newFacilityFree">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Save changes</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -361,22 +367,31 @@
 <div class="modal fade" id="deleteService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete service information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure that you want to delete information of this service ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
+            <form method="post" action="/service?action=delete">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete service information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="deleteId" id="deleteId" hidden>
+                    <span>Are you sure that you want to delete information of </span><span
+                        id="deleteName"> ?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
+    function getFacilityId(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+
     function showVillaAddForm() {
         document.getElementById("facilityTypeId").value = 1;
         var facilityFree = document.getElementById("facilityFree");
@@ -420,7 +435,8 @@
     }
 
     function getFacilityInfo(id, facilityType, name, area, cost, maxPeople, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree) {
-
+        document.getElementById("editId").value = id;
+        document.getElementById("editFacilityType").value = facilityType;
         document.getElementById("newName").value = name;
         document.getElementById("newArea").value = area;
         document.getElementById("newCost").value = cost;

@@ -26,4 +26,20 @@ public class FacilityService implements IFacilityService {
     public List<Facility> getAllFacility() {
         return facilityRepo.getAllFacility();
     }
+
+    @Override
+    public boolean addFacility(Facility facility) {
+        return facilityRepo.addFacility(facility);
+    }
+
+    @Override
+    public boolean deleteFacility(int id) {
+        return facilityRepo.deleteFacility(id);
+    }
+
+    @Override
+    public boolean editFacility(Facility facility) {
+        return facilityRepo.editFacility(facility);
+    }
+
 }

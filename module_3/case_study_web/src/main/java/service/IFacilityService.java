@@ -10,4 +10,7 @@ public interface IFacilityService {
     List<RentType> getAllRentType();
     List<FacilityType> getAllFacilityType();
     List<Facility> getAllFacility();
+    boolean addFacility(Facility facility);
+    boolean deleteFacility(int id);
+    boolean editFacility(Facility facility);
 }

@@ -12,9 +12,10 @@ import java.util.List;
 public class CustomerRepo implements ICustomerRepo {
     private final String SELECT_ALL_CUSTOMER = "select c.*, ct.name as customer_type_name\n" +
             "from customer as c\n" +
-            "         left join customer_type ct on c.customer_type_id = ct.id";
+            "         left join customer_type ct on c.customer_type_id = ct.id\n" +
+            "where c.is_deleted = 0;";
     private final String CREATE_NEW_CUSTOMER = "insert into customer(customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address) values(?,?,?,?,?,?,?,?);";
-    private final String DELETE_CUSTOMER = "delete from customer where id = ?;";
+    private final String DELETE_CUSTOMER = "update customer set is_deleted=1 where id =?;";
     private final String EDIT_CUSTOMER = "call edit_customer(?,?,?,?,?,?,?,?,?);";
 
     private PreparedStatement query(String queryStatement) throws SQLException {

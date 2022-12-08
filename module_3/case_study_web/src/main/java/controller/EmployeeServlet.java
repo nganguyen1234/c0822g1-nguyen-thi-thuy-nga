@@ -43,7 +43,9 @@ public class EmployeeServlet extends HttpServlet {
         EducationDegree educationDegree = new EducationDegree(educationDegreeId);
         int divisionId = Integer.parseInt(request.getParameter("divisionId"));
         Division division = new Division(divisionId);
-        User user = new User(request.getParameter("username"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        User user = new User(username, password);
         Employee employee = new Employee(name, birthday, idCard, salary, phoneNumber, email, address, position, educationDegree, division, user);
         boolean check = employeeService.addEmployee(employee);
         String message = "Was successfully added ";

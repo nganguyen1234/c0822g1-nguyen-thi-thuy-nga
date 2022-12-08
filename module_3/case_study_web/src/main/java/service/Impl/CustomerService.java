@@ -6,12 +6,13 @@ import repository.Impl.customer.CustomerRepo;
 import service.ICustomerService;
 
 import java.util.List;
+import java.util.Map;
 
 public class CustomerService implements ICustomerService {
     ICustomerRepo customerRepo = new CustomerRepo();
 
     @Override
-    public boolean addCustomer(Customer customer) {
+    public Map<String,String> addCustomer(Customer customer) {
         return customerRepo.addCustomer(customer);
     }
 

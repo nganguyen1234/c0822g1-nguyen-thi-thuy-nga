@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", value = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -55,22 +56,26 @@ public class CustomerServlet extends HttpServlet {
         if (!check) {
             message = "failed to edit";
         }
-        request.setAttribute("message", message);
-        showCustomerList(request, response);
+        try {
+            response.sendRedirect("/customer?message="+message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("deleteId"));
         boolean check = customerService.deleteCustomer(id);
         String message = "Successfully deleted";
         if (!check) {
             message = "Failed to delete";
         }
-        request.setAttribute("message", message);
-        showCustomerList(request, response);
+//        request.setAttribute("message", message);
+       // showCustomerList(request, response);
+        response.sendRedirect("/customer?message="+message);
     }
 
-    private void addCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void addCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String dateOfBirth = request.getParameter("dateOfBirth");
         int gender = Integer.parseInt(request.getParameter("gender"));
@@ -81,13 +86,15 @@ public class CustomerServlet extends HttpServlet {
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         CustomerType customerType = new CustomerType(customerTypeId);
         Customer customer = new Customer(name, dateOfBirth, customerType, gender, idCard, phoneNumber, email, address);
-        boolean check = customerService.addCustomer(customer);
+        Map<String,String> errorMap = customerService.addCustomer(customer);
         String message = "Was successfully added ";
-        if (!check) {
+        if (!errorMap.isEmpty()) {
             message = "Failed to add";
+            //request.setAttribute("map", "map");
+            request.getRequestDispatcher("/view/customer/list.jsp?isModal=true").forward(request, response);
+            return;
         }
-        request.setAttribute("message", message);
-        showCustomerList(request, response);
+        response.sendRedirect("/customer?message="+message);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

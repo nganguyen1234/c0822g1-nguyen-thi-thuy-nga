@@ -1,5 +1,6 @@
 package repository.Impl.customer;
 
+import common.RegexCheck;
 import model.customer.Customer;
 import model.customer.CustomerType;
 import repository.BaseRepository;
@@ -7,7 +8,9 @@ import repository.ICustomerRepo;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerRepo implements ICustomerRepo {
     private final String SELECT_ALL_CUSTOMER = "select c.*, ct.name as customer_type_name\n" +
@@ -17,7 +20,7 @@ public class CustomerRepo implements ICustomerRepo {
     private final String CREATE_NEW_CUSTOMER = "insert into customer(customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address) values(?,?,?,?,?,?,?,?);";
     private final String DELETE_CUSTOMER = "update customer set is_deleted=1 where id =?;";
     private final String EDIT_CUSTOMER = "call edit_customer(?,?,?,?,?,?,?,?,?);";
-
+private RegexCheck regexCheck = new RegexCheck();
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
         Connection connection = baseRepository.getConnection();
@@ -76,22 +79,25 @@ public class CustomerRepo implements ICustomerRepo {
     }
 
     @Override
-    public boolean addCustomer(Customer customer) {
+    public Map<String,String> addCustomer(Customer customer) {
+        Map<String,String> errorMap = new LinkedHashMap<>();
         try {
             PreparedStatement ps = query(CREATE_NEW_CUSTOMER);
             ps.setInt(1, customer.getCustomerType().getId());
             ps.setString(2, customer.getName());
+            if (!regexCheck.checkName(customer.getName())){
+                errorMap.put("name","The first letter of your name should be capitalized,can't be blank and can't have numbers");
+            }
             ps.setString(3, customer.getDateOfBirth());
             ps.setInt(4, customer.getGender());
             ps.setString(5, customer.getIdCard());
             ps.setString(6, customer.getPhoneNumber());
             ps.setString(7, customer.getEmail());
             ps.setString(8, customer.getAddress());
-            return ps.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return false;
+        return errorMap;
     }
 
     public boolean editCustomer(Customer customer) {

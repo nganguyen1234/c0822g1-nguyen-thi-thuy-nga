@@ -19,7 +19,7 @@ public class EmployeeRepo implements IEmployeeRepo {
             "         left join division d on e.division_id = d.id\n" +
             "         left join education_degree ed on e.education_degree_id = ed.id\n" +
             "where e.is_deleted = 0;";
-    private final String ADD_EMPLOYEE = "insert into employee(name, date_of_birth, id_card, salary, phone_number, email, address, position_id, education_degree_id, division_id, username) values(?,?,?,?,?,?,?,?,?,?,?);";
+    private final String ADD_EMPLOYEE = "call add_employee(?,?,?,?,?,?,?,?,?,?,?,?);";
 
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
@@ -90,6 +90,7 @@ public class EmployeeRepo implements IEmployeeRepo {
             ps.setInt(9, employee.getEducationDegree().getId());
             ps.setInt(10, employee.getDivision().getId());
             ps.setString(11, employee.getUser().getUsername());
+            ps.setString(12,employee.getUser().getPassword());
             return ps.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();

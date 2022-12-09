@@ -20,7 +20,8 @@ public class CustomerRepo implements ICustomerRepo {
     private final String CREATE_NEW_CUSTOMER = "insert into customer(customer_type_id,name,date_of_birth,gender,id_card,phone_number,email,address) values(?,?,?,?,?,?,?,?);";
     private final String DELETE_CUSTOMER = "update customer set is_deleted=1 where id =?;";
     private final String EDIT_CUSTOMER = "call edit_customer(?,?,?,?,?,?,?,?,?);";
-private RegexCheck regexCheck = new RegexCheck();
+    private RegexCheck regexCheck = new RegexCheck();
+
     private PreparedStatement query(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
         Connection connection = baseRepository.getConnection();
@@ -79,25 +80,17 @@ private RegexCheck regexCheck = new RegexCheck();
     }
 
     @Override
-    public Map<String,String> addCustomer(Customer customer) {
-        Map<String,String> errorMap = new LinkedHashMap<>();
-        try {
+    public boolean addCustomer(Customer customer) throws SQLException {
             PreparedStatement ps = query(CREATE_NEW_CUSTOMER);
             ps.setInt(1, customer.getCustomerType().getId());
             ps.setString(2, customer.getName());
-            if (!regexCheck.checkName(customer.getName())){
-                errorMap.put("name","The first letter of your name should be capitalized,can't be blank and can't have numbers");
-            }
             ps.setString(3, customer.getDateOfBirth());
             ps.setInt(4, customer.getGender());
             ps.setString(5, customer.getIdCard());
             ps.setString(6, customer.getPhoneNumber());
             ps.setString(7, customer.getEmail());
             ps.setString(8, customer.getAddress());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return errorMap;
+            return ps.executeUpdate() > 0;
     }
 
     public boolean editCustomer(Customer customer) {

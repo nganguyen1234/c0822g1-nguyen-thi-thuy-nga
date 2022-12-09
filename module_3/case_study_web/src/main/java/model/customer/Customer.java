@@ -15,7 +15,12 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id,CustomerType customerType, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Customer(int id, CustomerType customerType, String name, String dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address) {
         this.id = id;
         this.customerType = customerType;
         this.name = name;
@@ -27,7 +32,7 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer(String name, String dateOfBirth,CustomerType customerType, int gender, String idCard, String phoneNumber, String email, String address) {
+    public Customer(String name, String dateOfBirth, CustomerType customerType, int gender, String idCard, String phoneNumber, String email, String address) {
         this.customerType = customerType;
         this.name = name;
         this.dateOfBirth = dateOfBirth;

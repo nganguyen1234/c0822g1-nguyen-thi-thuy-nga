@@ -57,7 +57,7 @@ public class CustomerServlet extends HttpServlet {
             message = "failed to edit";
         }
         try {
-            response.sendRedirect("/customer?message="+message);
+            response.sendRedirect("/customer?message=" + message);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,8 +71,8 @@ public class CustomerServlet extends HttpServlet {
             message = "Failed to delete";
         }
 //        request.setAttribute("message", message);
-       // showCustomerList(request, response);
-        response.sendRedirect("/customer?message="+message);
+        // showCustomerList(request, response);
+        response.sendRedirect("/customer?message=" + message);
     }
 
     private void addCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -86,15 +86,22 @@ public class CustomerServlet extends HttpServlet {
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         CustomerType customerType = new CustomerType(customerTypeId);
         Customer customer = new Customer(name, dateOfBirth, customerType, gender, idCard, phoneNumber, email, address);
-        Map<String,String> errorMap = customerService.addCustomer(customer);
+        Map<String, String> errorMap = customerService.addCustomer(customer);
         String message = "Was successfully added ";
         if (!errorMap.isEmpty()) {
             message = "Failed to add";
-            //request.setAttribute("map", "map");
-            request.getRequestDispatcher("/view/customer/list.jsp?isModal=true").forward(request, response);
+            request.setAttribute("errorMap", errorMap);
+            request.setAttribute("errorCustomer",customer);
+//            request.setAttribute("name", errorMap.get("name"));
+//            request.setAttribute("email", errorMap.get("email"));
+//            request.setAttribute("phoneNumber", errorMap.get("phoneNumber"));
+//            request.setAttribute("idCard", errorMap.get("idCard"));
+            request.setAttribute("isModal", true);
+            request.setAttribute("customerTypeList", customerTypeRepo.getAllCustomerType());
+            request.getRequestDispatcher("/view/customer/list.jsp").forward(request, response);
             return;
         }
-        response.sendRedirect("/customer?message="+message);
+        response.sendRedirect("/customer?message=" + message);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

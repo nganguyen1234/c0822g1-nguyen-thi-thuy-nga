@@ -210,7 +210,8 @@
                                 </button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                <button type="button" onclick="getEmployeeId('${employee.id}','${employee.name}','${employee.user.username}')"
+                                        class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#deleteEmployee">
                                     <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
                                 </button>
@@ -318,16 +319,27 @@
                 <h5 class="modal-title" id="exampleModalLabel">Delete customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                Are you sure that you want to delete information of this employee ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
+            <form action="/employee?action=delete" method="post">
+                <div class="modal-body">
+                    <input type="text" id="deleteId" name="deleteId" hidden>
+                    <input type="text" id="deleteUsername" name="deleteUsername" hidden>
+                    <span>Are you sure that you want to delete information of </span> <span id="deleteName"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<script>
+    function getEmployeeId(id, name,username) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+        document.getElementById("deleteUsername").value = username;
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

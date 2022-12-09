@@ -109,20 +109,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                               href="http://localhost:8080/index.jsp">Home</a>
+                               href="/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/employee/list.jsp">Employee</a>
+                            <a class="nav-link" href="/employee">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:8080/customer/list.jsp">Customer</a>
+                               href="/customer">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/service/list.jsp">Service</a>
+                            <a class="nav-link" href="/service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/contract/list.jsp">Contract</a>
+                            <a class="nav-link" href="/contract">Contract</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -155,7 +155,8 @@
                     </form>
                 </div>
                 <div class="col-lg-4">
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addDetailContract">
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#addDetailContract">
                         <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                     </button>
                 </div>
@@ -175,62 +176,30 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Nga</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
-                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
-                            </button>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
-                                Attach facility list
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nương</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
-                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
-                            </button>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
-                                Attach facility list
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Linh</td>
-                        <td>12/11/1111</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>10000</td>
-                        <td>10</td>
-                        <td>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
-                                <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
-                            </button>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#dislayAttachFacility">
-                                Attach facility list
-                            </button>
-                        </td>
-                    </tr>
+                    <c:forEach var="detailContract" items="${detailContractList}" varStatus="stt">
+                        <tr>
+                            <td>${stt.count}</td>
+                            <td>${detailContract.contract.facility.name}</td>
+                            <td>${detailContract.contract.customer.name}</td>
+                            <td>${detailContract.contract.startDate}</td>
+                            <td>${detailContract.contract.endDate}</td>
+                            <td>${detailContract.contract.deposit}</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#addAttachFacility">
+                                    <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
+                                </button>
+                                <button type="button" onclick="getAttachFacilityInfo('${detailContract.attachFacility.name}','${detailContract.attachFacility.cost}','${detailContract.attachFacility.unit}','${detailContract.attachFacility.status}')" class="btn btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#dislayAttachFacility">
+                                    Attach facility list
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
     <div class="row " id="footer">@copyright by me</div>
@@ -238,6 +207,136 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<c:import url="add_detail_ct_modal.jsp"></c:import>
+<%--<c:import url="add_detail_ct_modal.jsp"></c:import>--%>
+<%----------------------------------------------add detail contract modal----------------------------------------------%>
+<div class="modal fade" id="addDetailContract" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add detail contract</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="vh-100" >
+                    <div class="mb-3">
+                        <label class="form-label">Start date</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">End date</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Deposit</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Total</label>
+                        <input class="form-control" type="text"  aria-label="Disabled input example" disabled readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Customer</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Service</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Attach facility</label>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAttachFacility">
+                            <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%-----------------------------------------------------attach facility modal--------------------------------------------%>
+<div class="modal fade" id="addAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Add attach facility</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <select class="form-select" aria-label="Default select example">
+                        <c:forEach var="attachFacility" items="${attachFacilityList}">
+                        <option value="${attachFacility.id}">${attachFacility.name}</option>
+                        </c:forEach>
+                    </select>
+
+                    <div class="mb-3">
+                        <label class="form-label">Quantity</label>
+                        <input type="number" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="dislayAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Attach facility</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Unit</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td id="name"></td>
+                        <td id="cost"></td>
+                        <td id="unit"></td>
+                        <td id="status"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function getAttachFacilityInfo(name,cost,unit,status) {
+document.getElementById("name").innerText = name;
+document.getElementById("cost").innerText = cost;
+document.getElementById("unit").innerText = unit;
+document.getElementById("status").innerText = status;
+    }
+</script>
 </body>
 </html>

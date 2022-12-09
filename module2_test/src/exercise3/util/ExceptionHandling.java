@@ -19,5 +19,9 @@ public class ExceptionHandling {
 
         }while (true);
     }
-    
+
+    public static void main(String[] args) {
+        String name = "(84)+911234567";
+        System.out.println(name.matches("(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})"));
+    }
 }

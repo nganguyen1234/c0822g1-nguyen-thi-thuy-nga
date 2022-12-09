@@ -1,14 +1,10 @@
 package repository.Impl.employee;
 
-import model.customer.CustomerType;
 import model.employee.*;
 import repository.BaseRepository;
 import repository.IEmployeeRepo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +16,19 @@ public class EmployeeRepo implements IEmployeeRepo {
             "         left join education_degree ed on e.education_degree_id = ed.id\n" +
             "where e.is_deleted = 0;";
     private final String ADD_EMPLOYEE = "call add_employee(?,?,?,?,?,?,?,?,?,?,?,?);";
+    private final String DELETE_EMPLOYEE = "call delete_employee(?,?);";
 
-    private PreparedStatement query(String queryStatement) throws SQLException {
+    private PreparedStatement queryByPS(String queryStatement) throws SQLException {
         BaseRepository baseRepository = new BaseRepository();
         Connection connection = baseRepository.getConnection();
         PreparedStatement ps = connection.prepareStatement(queryStatement);
         return ps;
+    }
+    private CallableStatement queryByCS(String queryStatement) throws SQLException {
+        BaseRepository baseRepository = new BaseRepository();
+        Connection connection = baseRepository.getConnection();
+        CallableStatement cs = connection.prepareCall(queryStatement);
+        return cs;
     }
 
     public List<Division> getAllDivision() {
@@ -46,7 +49,7 @@ public class EmployeeRepo implements IEmployeeRepo {
     public List<Employee> getAllEmployee() {
         List<Employee> employeeList = new ArrayList<>();
         try {
-            PreparedStatement ps = query(SELECT_ALL_EMPLOYEE);
+            PreparedStatement ps = queryByPS(SELECT_ALL_EMPLOYEE);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -78,7 +81,7 @@ public class EmployeeRepo implements IEmployeeRepo {
 
     public boolean addEmployee(Employee employee) {
         try {
-            PreparedStatement ps = query(ADD_EMPLOYEE);
+            PreparedStatement ps = queryByPS(ADD_EMPLOYEE);
             ps.setString(1, employee.getName());
             ps.setString(2, employee.getBirthday());
             ps.setString(3, employee.getIdCard());
@@ -90,11 +93,15 @@ public class EmployeeRepo implements IEmployeeRepo {
             ps.setInt(9, employee.getEducationDegree().getId());
             ps.setInt(10, employee.getDivision().getId());
             ps.setString(11, employee.getUser().getUsername());
-            ps.setString(12,employee.getUser().getPassword());
+            ps.setString(12, employee.getUser().getPassword());
             return ps.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return false;
     }
+
+//    public boolean deleteEmployee(int id, String username) {
+//
+//    }
 }

@@ -239,28 +239,41 @@
                     <form class="vh-100">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" value="${errorCustomer.name}" class="form-control" name="name" required>
+                            <c:if test="${!errorMap.isEmpty}">
+                                <p style="color: red">${errorMap.get("name")}</p>
+                            </c:if>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Birthday</label>
-                            <input type="date" class="form-control" name="dateOfBirth " required
-                                   pattern="\d{4}-\d{2}-\d{2}">
+                            <input type="date" value="${errorCustomer.dateOfBirth}" class="form-control" name="dateOfBirth " required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Gender</label>
-                            <input type="text" class="form-control" name="gender">
+                            <input type="text" value="${errorCustomer.gender}" class="form-control" name="gender" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">ID card</label>
-                            <input type="text" class="form-control" name="idCard">
+                            <input type="text" value="${errorCustomer.idCard}" class="form-control" name="idCard" required>
+                            <c:if test="${!errorMap.isEmpty}">
+                                <p style="color: red">${errorMap.get("idCard")}</p>
+                            </c:if>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Phone</label>
-                            <input type="text" class="form-control" name="phoneNumber">
+                            <label class="form-label">Phone number</label>
+                            <input type="text" value="${errorCustomer.phoneNumber}" pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
+                                   class="form-control" name="phoneNumber" required>
+                            <c:if test="${!errorMap.isEmpty}">
+                                <p style="color: red">${errorMap.get("phoneNumber")}</p>
+                            </c:if>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" value="${errorCustomer.email}" pattern="[a-zA-Z]\w+@gmail\.com" class="form-control" name="email"
+                                   required>
+                            <c:if test="${!errorMap.isEmpty}">
+                                <p style="color: red">${errorMap.get("email")}</p>
+                            </c:if>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer type</label>
@@ -273,12 +286,14 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" class="form-control" name="address">
+                            <input type="text" value="${errorCustomer.address}" class="form-control" name="address" required>
 
                         </div>
                     </form>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form action="/customer">
+                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </form>
                         <button type="Submit" class="btn btn-danger">Submit</button>
                     </div>
                 </div>
@@ -366,6 +381,7 @@
         </div>
     </div>
 </div>
+<input id="flag" type="text" value="${isModal}" hidden>
 <script>
     function getCustomerId(id, name) {
         document.getElementById("deleteId").value = id;
@@ -383,16 +399,15 @@
         document.getElementById("newAddress").value = address;
     }
 
-// show message after delete,add,edit
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        document.getElementById("message").innerText = urlParams.get('message');
-// show edit , add modal if have error
+    // show message after delete,add,edit
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    debugger
-    if (urlParams.get("isModal")== "true"){
-        $(document).ready(function(){
+    document.getElementById("message").innerText = urlParams.get('message');
+
+
+    // show edit , add modal if have error
+    if ($("#flag").val() == "true") {
+        $(document).ready(function () {
             $("#addCustomer").modal("show");
         });
     }

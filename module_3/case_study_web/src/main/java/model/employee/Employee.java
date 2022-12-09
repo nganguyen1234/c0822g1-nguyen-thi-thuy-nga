@@ -17,6 +17,11 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(int id,String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Employee(int id, String name, String birthday, String idCard, double salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, User user) {
         this.id = id;
         this.name = name;

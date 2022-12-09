@@ -14,7 +14,12 @@ public class Facility {
     private int numberOfFloors;
     private String facilityFree;
 
-    public Facility(int id, String name, int area, double cost,int maxPeople, RentType rentType, FacilityType facilityType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
+    public Facility(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Facility(int id, String name, int area, double cost, int maxPeople, RentType rentType, FacilityType facilityType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -29,7 +34,7 @@ public class Facility {
         this.facilityFree = facilityFree;
     }
 
-    public Facility(String name, int area, double cost,int maxPeople, RentType rentType, FacilityType facilityType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
+    public Facility(String name, int area, double cost, int maxPeople, RentType rentType, FacilityType facilityType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
         this.name = name;
         this.area = area;
         this.cost = cost;

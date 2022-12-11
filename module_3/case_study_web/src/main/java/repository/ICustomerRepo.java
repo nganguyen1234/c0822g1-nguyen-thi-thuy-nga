@@ -12,4 +12,5 @@ public interface ICustomerRepo {
     List<Customer> getAllCustomer();
     boolean deleteCustomer(int id);
     boolean editCustomer(Customer customer);
+    List<Customer> searchCustomer(String searchName, String searchPhoneNumber, String searchEmail);
 }

@@ -19,7 +19,8 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap520/css/bootstrap.css">
+    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap5.min.css">
     <style>
         #footer {
             background-color: #264F1A;
@@ -157,12 +158,24 @@
                 <h4>Customer list</h4>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" action="/customer?action=search" method="post">
+                    <div class="col-lg-3">
+                        <input class="form-control me-2" name="searchName" type="search" placeholder="Search by name"
+                               aria-label="Search">
+                    </div>
+                    <div class="col-lg-3">
+                        <input class="form-control me-2" name="searchEmail" type="search" placeholder="Search by email"
+                               aria-label="Search">
+                    </div>
+                    <div class="col-lg-3">
+
+                        <input class="form-control me-2" name="searchPhoneNumber" type="search"
+                               placeholder="Search by phone number" aria-label="Search">
+                    </div>
+                    <div class="col-lg-3">
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+                    </div>
+                </form>
                 <div class="col-lg-4">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
                             data-bs-target="#addCustomer">
@@ -174,7 +187,7 @@
                 </div>
             </div>
             <div class="row">
-                <table class="table">
+                <table class="table table-striped table-bordered" style="width: 100%;" id="customerTable">
                     <thead>
                     <tr>
                         <th scope="col">STT</th>
@@ -246,22 +259,26 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Birthday</label>
-                            <input type="date" value="${errorCustomer.dateOfBirth}" class="form-control" name="dateOfBirth " required>
+                            <input type="date" value="${errorCustomer.dateOfBirth}" class="form-control"
+                                   name="dateOfBirth " required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Gender</label>
-                            <input type="text" value="${errorCustomer.gender}" class="form-control" name="gender" required>
+                            <input type="text" value="${errorCustomer.gender}" class="form-control" name="gender"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">ID card</label>
-                            <input type="text" value="${errorCustomer.idCard}" class="form-control" name="idCard" required>
+                            <input type="text" value="${errorCustomer.idCard}" class="form-control" name="idCard"
+                                   required>
                             <c:if test="${!errorMap.isEmpty}">
                                 <p style="color: red">${errorMap.get("idCard")}</p>
                             </c:if>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone number</label>
-                            <input type="text" value="${errorCustomer.phoneNumber}" pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
+                            <input type="text" value="${errorCustomer.phoneNumber}"
+                                   pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
                                    class="form-control" name="phoneNumber" required>
                             <c:if test="${!errorMap.isEmpty}">
                                 <p style="color: red">${errorMap.get("phoneNumber")}</p>
@@ -269,7 +286,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="text" value="${errorCustomer.email}" pattern="[a-zA-Z]\w+@gmail\.com" class="form-control" name="email"
+                            <input type="text" value="${errorCustomer.email}" pattern="[a-zA-Z]\w+@gmail\.com"
+                                   class="form-control" name="email"
                                    required>
                             <c:if test="${!errorMap.isEmpty}">
                                 <p style="color: red">${errorMap.get("email")}</p>
@@ -286,7 +304,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" value="${errorCustomer.address}" class="form-control" name="address" required>
+                            <input type="text" value="${errorCustomer.address}" class="form-control" name="address"
+                                   required>
 
                         </div>
                     </form>
@@ -412,7 +431,22 @@
         });
     }
 
+    // setting for table paging sorting
+    $(document).ready(function () {
+        $('#customerTable').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<%--<script src="../../jquery/jquery-3.5.1.min.js"></script>--%>
+<%--<script src="../../datatables/js/dataTables.bootstrap5.js"></script>--%>
+<script src="../../jquery/jquery-3.5.1.min.js"></script>
+<script src="../../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../datatables/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

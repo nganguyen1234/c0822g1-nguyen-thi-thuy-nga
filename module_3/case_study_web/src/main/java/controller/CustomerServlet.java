@@ -35,7 +35,24 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "edit":
                 editCustomer(request, response);
+            case "search":
+                searchCustomer(request, response);
             default:
+        }
+    }
+
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String searchName = request.getParameter("searchName");
+        String searchEmail = request.getParameter("searchEmail");
+        String searchPhoneNumber = request.getParameter("searchPhoneNumber");
+List<Customer> customerList = customerService.searchCustomer(searchName,searchPhoneNumber,searchEmail);
+request.setAttribute("customerList",customerList);
+        try {
+            request.getRequestDispatcher("/view/customer/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -91,7 +108,7 @@ public class CustomerServlet extends HttpServlet {
         if (!errorMap.isEmpty()) {
             message = "Failed to add";
             request.setAttribute("errorMap", errorMap);
-            request.setAttribute("errorCustomer",customer);
+            request.setAttribute("errorCustomer", customer);
 //            request.setAttribute("name", errorMap.get("name"));
 //            request.setAttribute("email", errorMap.get("email"));
 //            request.setAttribute("phoneNumber", errorMap.get("phoneNumber"));

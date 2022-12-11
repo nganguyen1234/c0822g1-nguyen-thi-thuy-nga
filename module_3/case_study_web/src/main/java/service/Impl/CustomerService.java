@@ -15,6 +15,11 @@ public class CustomerService implements ICustomerService {
     private RegexCheck regexCheck = new RegexCheck();
 
     @Override
+    public List<Customer> searchCustomer(String searchName, String searchPhoneNumber, String searchEmail) {
+        return customerRepo.searchCustomer(searchName,searchPhoneNumber,searchEmail);
+    }
+
+    @Override
     public Map<String, String> addCustomer(Customer customer) {
         Map<String, String> errorMap = new HashMap<>();
         if (!regexCheck.checkName(customer.getName())) {

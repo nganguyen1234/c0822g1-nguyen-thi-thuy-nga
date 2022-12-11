@@ -431,7 +431,7 @@
         standardRoom.style.display = "none";
         descriptionOtherConvenience.style.display = "none";
         numberOfFloors.style.display = "none";
-        facilityFree.style.display = "none";
+        facilityFree.style.display = "block";
     }
 
     function getFacilityInfo(id, facilityType, name, area, cost, maxPeople, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree) {

@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Controller
 public class DictionaryController {
-    DictionaryService dictionaryService = new DictionaryService();
+    private DictionaryService dictionaryService = new DictionaryService();
 
     @RequestMapping("/dictionary-form")
     public String showDictionaryForm(Model model) {
@@ -21,7 +21,7 @@ public class DictionaryController {
     }
 
     @RequestMapping("/translate")
-    public String translate(Model model,  String word) {
+    public String translate(Model model, String word) {
         model.addAttribute("word", word);
         model.addAttribute("meaning", dictionaryService.translate(word));
         return "dictionary";

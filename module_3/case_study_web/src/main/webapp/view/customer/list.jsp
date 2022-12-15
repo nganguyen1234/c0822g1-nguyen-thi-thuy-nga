@@ -19,8 +19,10 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../bootstrap520/css/bootstrap.css">
-    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap5.min.css">
+<%--    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css" />--%>
+<%--    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css" />--%>
+<%--    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap5.min.css">--%>
+<%--    <link rel="stylesheet" href="../../bootstrap520/css/bootstrap.css">--%>
     <style>
         #footer {
             background-color: #264F1A;
@@ -186,8 +188,8 @@
                     <p style="color: red" id="message"></p>
                 </div>
             </div>
-            <div class="row">
-                <table class="table table-striped table-bordered" style="width: 100%;" id="customerTable">
+<%--            <div class="row">--%>
+                <table class="table table-striped table-bordered" id="tableStudent">
                     <thead>
                     <tr>
                         <th scope="col">STT</th>
@@ -203,6 +205,7 @@
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
+
                     <tbody>
                     <c:forEach var="customer" items="${customerList}" varStatus="stt">
                         <tr>
@@ -235,7 +238,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+<%--        </div>--%>
     </div>
     <div class="row " id="footer">@copyright by me</div>
 </div>
@@ -432,24 +435,33 @@
     }
 
     // setting for table paging sorting
-    $(document).ready(function () {
-        $('#customerTable').dataTable({
+
+</script>
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableStudent').dataTable( {
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
-        });
-    });
-
+        } );
+    } );
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>--%>
+<%--&lt;%&ndash;<script src="../../jquery/jquery-3.5.1.min.js"></script>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<script src="../../datatables/js/dataTables.bootstrap5.js"></script>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<script src="jquery/jquery-3.5.1.min.js"></script>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<script src="datatables/js/jquery.dataTables.min.js"></script>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<script src="datatables/js/dataTables.bootstrap5.min.js"></script>&ndash;%&gt;--%>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"--%>
+<%--        crossorigin="anonymous"></script>--%>
 <%--<script src="../../jquery/jquery-3.5.1.min.js"></script>--%>
+<%--<script src="../../datatables/js/jquery.dataTables.min.js"></script>--%>
 <%--<script src="../../datatables/js/dataTables.bootstrap5.js"></script>--%>
-<script src="../../jquery/jquery-3.5.1.min.js"></script>
-<script src="../../datatables/js/jquery.dataTables.min.js"></script>
-<script src="../../datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
 </body>
 </html>
 </body>

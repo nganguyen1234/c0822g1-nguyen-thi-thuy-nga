@@ -1,0 +1,265 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#main {
+    flex: 1 0 auto
+}
+
+/*thanh tìm kiếm*/
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchTerm:focus {
+    color: #00B4CC;
+}
+
+.searchButton {
+    width: 100px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.wrap {
+    width: 30%;
+    position: absolute;
+    top: 6%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+#footer {
+    background-color: #3C4554;
+    height: 50px;
+    margin-bottom: 1px;
+    position: relative;
+    padding: 10px 50px;
+    justify-content: center;
+    color: white;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0px;
+    margin-left: 5px;
+    font-family: sans-serif;
+}
+
+#header {
+    background-color: #F6F7F0;
+    margin-bottom: 20px;
+}
+
+#task-bar {
+    background-color: #F6F7F0;
+    height: 20px;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+}
+
+#main-video {
+    height: 500px;
+}
+
+/*màn hình điện thoai*/
+@media only screen and (max-width: 740px ) {
+    .col-s-1 {
+        width: 8.33333%;
+    }
+
+    .col-s-2 {
+        width: 16.66667%;
+    }
+
+    .col-s-3 {
+        width: 25%;
+    }
+
+    .col-s-4 {
+        width: 33.33333%;
+    }
+
+    .col-s-5 {
+        width: 41.66667%;
+    }
+
+    .col-s-6 {
+        width: 50%;
+    }
+
+    .col-s-7 {
+        width: 58.33333%;
+    }
+
+    .col-s-8 {
+        width: 66.66667%;
+    }
+
+    .col-s-9 {
+        width: 75%;
+    }
+
+    .col-s-10 {
+        width: 83.33333%;
+    }
+
+    .col-s-11 {
+        width: 91.66667%;
+    }
+
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+/*Màn hinh laptop và máy tính bảng*/
+@media only screen and (min-width: 741px)and (max-width: 1240px) {
+    .col-m-1 {
+        width: 8.33333%;
+    }
+
+    .col-m-2 {
+        width: 16.66667%;
+    }
+
+    .col-m-3 {
+        width: 25%;
+    }
+
+    .col-m-4 {
+        width: 33.33333%;
+    }
+
+    .col-m-5 {
+        width: 41.66667%;
+    }
+
+    .col-m-6 {
+        width: 50%;
+    }
+
+    .col-m-7 {
+        width: 58.33333%;
+    }
+
+    .col-m-8 {
+        width: 66.66667%;
+    }
+
+    .col-m-9 {
+        width: 75%;
+    }
+
+    .col-m-10 {
+        width: 83.33333%;
+    }
+
+    .col-m-11 {
+        width: 91.66667%;
+    }
+
+    .col-m-12 {
+        width: 100%;
+    }
+}
+
+/*Màn hình máy tính pc và tivi smart*/
+@media only screen and (min-width: 1241px) {
+    .col-l-1 {
+        width: 8.33333%;
+    }
+
+    .col-l-2 {
+        width: 16.66667%;
+    }
+
+    .col-l-3 {
+        width: 25%;
+    }
+
+    .col-l-4 {
+        width: 33.33333%;
+    }
+
+    .col-l-5 {
+        width: 41.66667%;
+    }
+
+    .col-l-6 {
+        width: 50%;
+    }
+
+    .col-l-7 {
+        width: 58.33333%;
+    }
+
+    .col-l-8 {
+        width: 66.66667%;
+    }
+
+    .col-l-9 {
+        width: 75%;
+    }
+
+    .col-l-10 {
+        width: 83.33333%;
+    }
+
+    .col-l-11 {
+        width: 91.66667%;
+    }
+
+    .col-l-12 {
+        width: 100%;
+    }
+}

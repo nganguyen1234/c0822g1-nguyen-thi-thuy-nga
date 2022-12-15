@@ -5,7 +5,7 @@ import com.example.repository.DictionaryRepository;
 import java.util.Map;
 
 public class DictionaryService {
-    DictionaryRepository dictionaryRepository = new DictionaryRepository();
+    private DictionaryRepository dictionaryRepository = new DictionaryRepository();
 
     public Map<String, String> getAllVocabulary() {
         return dictionaryRepository.getAllVocabulary();

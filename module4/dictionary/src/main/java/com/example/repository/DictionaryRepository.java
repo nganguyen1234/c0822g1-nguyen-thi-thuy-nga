@@ -32,7 +32,7 @@ public class DictionaryRepository {
     public String translate(String word) {
         Map<String, String> map = getAllVocabulary();
         for (String word1 : map.keySet()) {
-            if (word.equals(word1)) {
+            if (word1.equals(word)) {
                 return map.get(word1);
             }
         }

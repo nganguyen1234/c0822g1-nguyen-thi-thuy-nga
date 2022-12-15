@@ -21,7 +21,7 @@ public class ExceptionHandling {
     }
 
     public static void main(String[] args) {
-        String name = "(84)+911234567";
-        System.out.println(name.matches("(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})"));
+        String name = "123-12-1 ";
+        System.out.println(name.matches("[\\dA-Z]{3}-[\\dA-Z]{2}-[\\dA-Z]{2}"));
     }
 }

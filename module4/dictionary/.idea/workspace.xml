@@ -20,18 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe12e60d-87a4-43a2-9131-53c1aaa4aaff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/java/com/example/SandwichCondimentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/webapp/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/webapp/WEB-INF/views/sandwichCondiments.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandwich-condiments/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoXau.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SuaChuoiNoiLien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2_test/out/production/module2_test/exercise1/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2_test/out/production/module2_test/exercise1/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module2_test/out/production/module2_test/exercise3/util/ExceptionHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2_test/out/production/module2_test/exercise3/util/ExceptionHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2_test/src/exercise1/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2_test/src/exercise1/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module2_test/src/exercise3/util/ExceptionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2_test/src/exercise3/util/ExceptionHandling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/DictionaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/BaseRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/DictionaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/DictionaryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/DictionaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dictionary.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dictionary.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../money_converter/src/main/java/com/example/controller/ConverterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../money_converter/src/main/java/com/example/controller/ConverterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../money_converter/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../money_converter/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../money_converter/src/main/webapp/WEB-INF/views/converter.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../money_converter/src/main/webapp/WEB-INF/views/converter.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../money_converter/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../money_converter/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_2/src/case_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/src/case_study/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -42,6 +49,9 @@
       <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/src/main/webapp/view/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/src/main/webapp/view/customer/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/practice/do_you_application.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/ss6_css/exercise/exercise1/exercise1_inline_style.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/ss6_css/exercise/exercise1/exercise1_inline_style.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/CapSoCong.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/CapSoCong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/DauNgoacDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/DauNgoacDon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/DemSoKiTu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/DemSoKiTu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/KiemTraTanSuatXH.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/KiemTraTanSuatXH.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangChuaSoLienTiep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangChuaSoLienTiep.java" afterDir="false" />
@@ -51,6 +61,7 @@
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoVong.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoVong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/TaoMangPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TaoMangPrefix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/TimSoCuoiGiaiThua.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TimSoCuoiGiaiThua.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/TrungBinhCong5so.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TrungBinhCong5so.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/test/src/main/java/controller/MatBangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/test/src/main/java/controller/MatBangServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/test/src/main/java/model/LoaiMatBang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/test/src/main/java/model/LoaiMatBang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module_3/test/src/main/java/model/MatBang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/test/src/main/java/model/MatBang.java" afterDir="false" />
@@ -260,6 +271,9 @@
       <option name="presentableId" value="Default" />
       <updated>1671003712288</updated>
       <workItem from="1671003717749" duration="6693000" />
+      <workItem from="1671076759083" duration="823000" />
+      <workItem from="1671078546548" duration="632000" />
+      <workItem from="1671079700921" duration="1276000" />
     </task>
     <servers />
   </component>
@@ -276,6 +290,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="535" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1671006896182">

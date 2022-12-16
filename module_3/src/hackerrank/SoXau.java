@@ -1,5 +1,9 @@
 package hackerrank;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class SoXau {
     public static void main(String[] args) {
         System.out.println(solve(6));

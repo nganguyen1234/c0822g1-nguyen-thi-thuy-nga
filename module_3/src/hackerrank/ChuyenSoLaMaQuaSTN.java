@@ -6,71 +6,83 @@ import java.util.List;
 
 public class ChuyenSoLaMaQuaSTN {
     public static void main(String[] args) {
-        System.out.println(sovle("MCMXCIV"));
+//        System.out.println(sovle("MCMXCIV"));
+        System.out.println(Integer.toBinaryString(0121));
     }
 
     public static int sovle(String s) {
         String[] str = s.split("");
+        String soLaMaRegex = "[IVXLCDM]";
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(str));
+        if (list.isEmpty()){
+            return 0;
+        }
+        for (int i = 0; i < list.size() ; i++) {
+            if (!list.get(i).matches(soLaMaRegex)){
+                list.remove(i);
+            }
+        }
         int result = 0;
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals("I")) {
-                if (list.get(i+1).equals("V")) {
-                    result += 4;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
+            if (i != list.size() - 1) {
+                if (list.get(i).equals("I")) {
+                    if (list.get(i + 1).equals("V")) {
+                        result += 4;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
+                    }
                 }
-            }
 
-            if (list.get(i).equals("I")) {
-                if (list.get(i+1).equals("X")) {
-                    result += 9;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
+                if (list.get(i).equals("I")) {
+                    if (list.get(i + 1).equals("X")) {
+                        result += 9;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
 
+                    }
                 }
-            }
 
-            if (list.get(i).equals("X")) {
-                if (list.get(i+1).equals("L")) {
-                    result += 40;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
+                if (list.get(i).equals("X")) {
+                    if (list.get(i + 1).equals("L")) {
+                        result += 40;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
 
+                    }
                 }
-            }
-            if (list.get(i).equals("X")) {
-                if (list.get(i+1).equals("C")) {
-                    result += 90;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
+                if (list.get(i).equals("X")) {
+                    if (list.get(i + 1).equals("C")) {
+                        result += 90;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
 
+                    }
                 }
-            }
 
-            if (list.get(i).equals("C")) {
-                if (list.get(i+1).equals("D")) {
-                    result += 400;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
+                if (list.get(i).equals("C")) {
+                    if (list.get(i + 1).equals("D")) {
+                        result += 400;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
 
+                    }
                 }
-            }
-            if (list.get(i).equals("C")) {
-                if (list.get(i+1).equals("M")) {
-                    result += 900;
-                    list.remove(i);
-                    i--;
-                    list.remove(i + 1);
-
+                if (list.get(i).equals("C")) {
+                    if (list.get(i + 1).equals("M")) {
+                        result += 900;
+                        list.remove(i);
+                        i--;
+                        list.remove(i + 1);
+                    }
                 }
+
             }
 
         }

@@ -1,7 +1,6 @@
 package hackerrank;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,28 +10,35 @@ public class SoLonNhi {
         String s = scanner.nextLine();
         String[] strings = s.split(" ");
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i <strings.length; i++) {
+        for (int i = 0; i < strings.length; i++) {
             list.add(Integer.parseInt(strings[i]));
         }
-        int iMax = findIndexMax(list);
-        int isDeleted = 0;
-        for (int i = 0; i < list.size() ; i++) {
-            if (list.get(iMax).equals(list.get(i))){
-                list.remove(i);
-                isDeleted++;
-            }
-        }
-        System.out.println(findIndexMax(list)+isDeleted);
+        System.out.println(findIndex(list));
+//        int iMax = findIndexMax(list);
+//        int isDeleted = 0;
+//        for (int i = 0; i < list.size() ; i++) {
+//            if (list.get(iMax).equals(list.get(i))){
+//                list.remove(i);
+//                isDeleted++;
+//            }
+//        }
+//        System.out.println(findIndexMax(list)+isDeleted);
     }
-    public static int findIndexMax(List<Integer> list){
-        int max = list.get(0);
-        int index = 0;
-        for (int i = 0; i < list.size() ; i++) {
-            if (max<list.get(i)){
-                max = list.get(i);
-                index = i;
+
+    public static int findIndex(List<Integer> list) {
+        ArrayList<Integer> list1 = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            list1.add(list.get(i));
+        }
+        if (list.size() <= 2) {
+            return -1;
+        }
+        list.sort((o1, o2) -> o2 - o1);
+        for (int i = 0; i < list.size(); i++) {
+            if (!list.get(i).equals(list.get(0))) {
+                return list1.indexOf(list.get(i));
             }
         }
-        return index;
+        return -1;
     }
 }

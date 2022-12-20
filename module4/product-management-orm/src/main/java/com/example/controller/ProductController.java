@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -86,5 +87,11 @@ public String deleteProduct(Product product, RedirectAttributes redirectAttribut
         }
         redirectAttributes.addFlashAttribute("mess",mess);
         return "redirect:/show-list";
+}
+@GetMapping(value = "/search")
+public String searchByName(Model model, @RequestParam("searchName") String name){
+List<Product> productList = productService.searchByName(name);
+model.addAttribute("productList",productList);
+    return "list";
 }
 }

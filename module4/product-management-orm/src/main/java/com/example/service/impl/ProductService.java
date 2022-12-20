@@ -69,13 +69,19 @@ public class ProductService implements IProductService {
     }
 
     public Product findById(int id) {
-        List<Product> productList = getAllProduct();
-        for (Product p : productList) {
-            if (p.getId() == id) {
-                return p;
+        Session session = null;
+      Product product = null;
+        try {
+            session = ConnectionUtil.sessionFactory.openSession();
+            product = (Product) session.createQuery("from Product where id = :id")
+                    .setParameter("id",id)
+                    .getSingleResult();
+        } finally {
+            if (session != null) {
+                session.close();
             }
         }
-        return null;
+        return product;
     }
 
     public String editProduct(Product product) {
@@ -86,7 +92,7 @@ public class ProductService implements IProductService {
             transaction = session.beginTransaction();
             session.merge(product);
             transaction.commit();
-            return  "Successfully deleted";
+            return  "Successfully edited";
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -99,5 +105,21 @@ public class ProductService implements IProductService {
         }
         return "Failed to edit";
 
+    }
+
+    public List<Product> searchByName(String searchName){
+        Session session = null;
+        List<Product> productList = null;
+        try {
+            session = ConnectionUtil.sessionFactory.openSession();
+            productList = session.createQuery("from Product where name like CONCAT('%',:searchName,'%') ")
+                    .setParameter("searchName",searchName)
+                    .getResultList();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return productList;
     }
 }

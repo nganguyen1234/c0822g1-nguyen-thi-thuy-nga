@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dbd574de-55e4-47f2-8250-7980553ffcfb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/java/com/example/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/java/com/example/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/java/com/example/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/java/com/example/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/java/com/example/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/resources/templates/blog/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/resources/templates/blog/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/product-management-orm-using-modal/.idea/modules/product-management-orm.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/product-management-orm-using-modal/.idea/product-management-orm-using-modal.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/product-management-orm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/modules/product-management-orm.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/product-management-orm/.idea/modules/product-management-orm.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/classes/java/main/com/example/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/classes/java/main/com/example/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/classes/java/main/com/example/service/IProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/classes/java/main/com/example/service/impl/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/libs/product_manager-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/service/IProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/service/impl/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/product_manager/.idea/workspace.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2JDbtSqyF7mQ4AWphUZTGoDjMOj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbd574de-55e4-47f2-8250-7980553ffcfb" name="Changes" comment="" />
+      <created>1671615816061</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671615816061</updated>
+      <workItem from="1671615817311" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

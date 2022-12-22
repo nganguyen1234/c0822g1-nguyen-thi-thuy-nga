@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class BlogController {
@@ -24,13 +23,13 @@ public class BlogController {
         List<Blog> blogList = blogService.getAllBlog();
         model.addAttribute("blogList", blogList);
         Blog blog = new Blog();
-        model.addAttribute("blog", blog);
+        model.addAttribute("blog",blog);
         return "blog/list";
     }
 
     @GetMapping(value = "/show-detail/{id}")
     public String showDetail(Model model, @PathVariable("id") int id) {
-        Optional<Blog> blog = blogService.findBlogById(id);
+        Blog blog = (Blog) blogService.findBlogById(id);
         model.addAttribute("blog", blog);
         return "blog/detail";
     }
@@ -57,7 +56,7 @@ public class BlogController {
 
     @GetMapping(value = "/show-edit-form/{id}")
     public String showEditForm(Model model, @PathVariable("id") int id) {
-        Optional<Blog> blog = blogService.findBlogById(id);
+        Blog blog = blogService.findBlogById(id);
         model.addAttribute("blog", blog);
         return "blog/edit";
     }

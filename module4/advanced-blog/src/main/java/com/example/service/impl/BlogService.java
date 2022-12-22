@@ -7,59 +7,58 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLDataException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BlogService implements IBlogService {
     @Autowired
     private IBlogRepository blogRepository;
 
-    @Override
     public List<Blog> getAllBlog() {
         return blogRepository.findAll();
     }
 
-    @Override
     public boolean addNewBlog(Blog blog) {
         try {
-            if (blogRepository.findByTitle(blog.getTitle()) != null) {
-                throw new SQLDataException();
-            }
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date =  LocalDate.parse(blog.getDate(),formatter);
+            String d = "";
+            d += date;
+            blog.setDate(d);
             blogRepository.save(blog);
-        } catch (IllegalArgumentException | OptimisticLockingFailureException | SQLDataException e) {
+        } catch (IllegalArgumentException e) {
+return false;
+        } catch (OptimisticLockingFailureException e) {
             return false;
         }
-        return true;
+return true;
     }
 
-    @Override
     public boolean updateBlog(Blog blog) {
-        if (!blogRepository.existsById(blog.getId())) {
-            return false;
-        }
         try {
             blogRepository.save(blog);
-        } catch (IllegalArgumentException | OptimisticLockingFailureException e) {
+        } catch (IllegalArgumentException e) {
+            return false;
+        } catch (OptimisticLockingFailureException e) {
             return false;
         }
         return true;
     }
 
-    @Override
     public boolean removeBlog(int id) {
         try {
             blogRepository.deleteById(id);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e){
             return false;
         }
         return true;
     }
 
     @Override
-    public Optional<Blog> findBlogById(int id) {
-        return blogRepository.findById(id);
+    public Blog findBlogById(int id) {
+        return blogRepository.findBlogById(id);
     }
 
 }

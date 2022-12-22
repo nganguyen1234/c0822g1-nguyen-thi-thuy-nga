@@ -8,8 +8,22 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <form class="d-flex" th:action="@{show-list}" method="get">
+            <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 <a href="/show-add-form">add</a>
 <p th:text="${mess}"></p>
+<div class="col-ld-3">
+    <ul class="list-group">
+        <li class="list-group-item"  th:each="category:${categoryList}" th:value="${category.id}" th:text="${category.name}"><a th:action="@{/show-list/__${category.id}__}"></a></li>
+    </ul>
+</div>
+<div class="col-lg-6">
 <table class="table table-striped">
     <thead>
     <tr>
@@ -17,18 +31,20 @@
         <th scope="col">Title</th>
         <th scope="col">Author</th>
         <th scope="col">Date</th>
+        <th scope="col">Category</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="blog,stt: ${blogList}">
+    <tr th:each="blog,stt: ${blogList.content}">
 
         <th scope="row" th:text="${stt.count}"></th>
         <td><a th:href="@{/show-detail/__${blog.id}__}" th:text="${blog.title}">
         </a></td>
         <td th:text="${blog.author}"></td>
         <td th:text="${blog.date}"></td>
+        <td th:text="${blog.category.name}"></td>
         <td><a th:href="@{/show-edit-form/__${blog.id}__}">Edit</a></td>
         <td>
             <button type="button" th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|" class="btn btn-primary"
@@ -39,6 +55,7 @@
     </tr>
     </tbody>
 </table>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

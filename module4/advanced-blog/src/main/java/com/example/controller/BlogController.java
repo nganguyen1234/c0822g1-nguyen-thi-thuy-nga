@@ -1,16 +1,23 @@
 package com.example.controller;
 
 import com.example.model.Blog;
+import com.example.model.Category;
 import com.example.service.IBlogService;
+import com.example.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class BlogController {
@@ -18,18 +25,29 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
+    @Autowired
+    private ICategoryService categoryService;
+
     @GetMapping(value = "/show-list")
-    public String showList(Model model) {
-        List<Blog> blogList = blogService.getAllBlog();
+    public String showList(Model model, @RequestParam(value = "search", defaultValue = "") String search, @PageableDefault(size = 2) Pageable pageable) {
+        Page<Blog> blogList = blogService.searchTitle(search, pageable);
         model.addAttribute("blogList", blogList);
         Blog blog = new Blog();
-        model.addAttribute("blog",blog);
+        model.addAttribute("blog", blog);
+        return "blog/list";
+    }
+ @GetMapping(value = "/show-list/{categoryId}")
+    public String findBlogByCategory(Model model,@RequestParam("categoryId") int id, @PageableDefault(size = 2) Pageable pageable) {
+        Page<Blog> blogList = blogService.findBlogByCategory(id, pageable);
+        model.addAttribute("blogList", blogList);
+        Blog blog = new Blog();
+        model.addAttribute("blog", blog);
         return "blog/list";
     }
 
     @GetMapping(value = "/show-detail/{id}")
     public String showDetail(Model model, @PathVariable("id") int id) {
-        Blog blog = (Blog) blogService.findBlogById(id);
+        Optional<Blog> blog = blogService.findBlogById(id);
         model.addAttribute("blog", blog);
         return "blog/detail";
     }
@@ -37,6 +55,8 @@ public class BlogController {
     @GetMapping(value = "/show-add-form")
     public String showAddForm(Model model) {
         Blog blog = new Blog();
+        List<Category> categoryList = categoryService.getAllCategory();
+        model.addAttribute("categoryList", categoryList);
         model.addAttribute("blog", blog);
         return "blog/add";
     }
@@ -56,7 +76,9 @@ public class BlogController {
 
     @GetMapping(value = "/show-edit-form/{id}")
     public String showEditForm(Model model, @PathVariable("id") int id) {
-        Blog blog = blogService.findBlogById(id);
+        Optional<Blog> blog = blogService.findBlogById(id);
+        List<Category> categoryList = categoryService.getAllCategory();
+        model.addAttribute("categoryList", categoryList);
         model.addAttribute("blog", blog);
         return "blog/edit";
     }
@@ -76,7 +98,8 @@ public class BlogController {
 
     @PostMapping("/delete")
     public String deleteBlog(RedirectAttributes redirectAttributes, Blog blog) {
-        boolean check = blogService.removeBlog(blog.getId());
+        blog.setDeleted(true);
+        boolean check = blogService.updateBlog(blog);
         String mess;
         if (check) {
             mess = "Was successfully deleted";

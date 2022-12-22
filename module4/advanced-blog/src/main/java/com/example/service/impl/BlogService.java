@@ -5,60 +5,68 @@ import com.example.repository.IBlogRepository;
 import com.example.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.sql.SQLDataException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogService implements IBlogService {
     @Autowired
     private IBlogRepository blogRepository;
 
-    public List<Blog> getAllBlog() {
-        return blogRepository.findAll();
+    @Override
+    public Page<Blog> searchTitle(String title, Pageable pageable) {
+        return blogRepository.searchTitle(title, pageable);
     }
 
+    @Override
+    public Page<Blog> findBlogByCategory(int id, Pageable pageable) {
+        return blogRepository.findBlogByCategory(id,pageable);
+    }
+
+    @Override
     public boolean addNewBlog(Blog blog) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate date =  LocalDate.parse(blog.getDate(),formatter);
-            String d = "";
-            d += date;
-            blog.setDate(d);
+            if (blogRepository.findByTitle(blog.getTitle()) != null) {
+                throw new SQLDataException();
+            }
             blogRepository.save(blog);
-        } catch (IllegalArgumentException e) {
-return false;
-        } catch (OptimisticLockingFailureException e) {
-            return false;
-        }
-return true;
-    }
-
-    public boolean updateBlog(Blog blog) {
-        try {
-            blogRepository.save(blog);
-        } catch (IllegalArgumentException e) {
-            return false;
-        } catch (OptimisticLockingFailureException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean removeBlog(int id) {
-        try {
-            blogRepository.deleteById(id);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException | OptimisticLockingFailureException| SQLDataException e) {
             return false;
         }
         return true;
     }
 
     @Override
-    public Blog findBlogById(int id) {
-        return blogRepository.findBlogById(id);
+    public boolean updateBlog(Blog blog) {
+        if (!blogRepository.existsById(blog.getId())) {
+            return false;
+        }
+        try {
+            blogRepository.save(blog);
+        } catch (IllegalArgumentException | OptimisticLockingFailureException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean removeBlog(int id) {
+        try {
+            blogRepository.deleteById(id);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Optional<Blog> findBlogById(int id) {
+        return blogRepository.findById(id);
     }
 
 }

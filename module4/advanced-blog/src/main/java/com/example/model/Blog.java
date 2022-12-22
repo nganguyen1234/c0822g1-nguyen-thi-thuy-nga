@@ -5,17 +5,29 @@ import javax.persistence.*;
 @Entity
 public class Blog {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String date;
     private String title;
     private String author;
     @Column(columnDefinition = "text")
     private String content;
+    private boolean isDeleted;
+
+    @ManyToOne
+    private Category category;
 
     public Blog() {
+    }
+
+    public Blog(int id, String date, String title, String author, String content, boolean isDeleted, Category category) {
+        this.id = id;
+        this.date = date;
+        this.title = title;
+        this.author = author;
+        this.content = content;
+        this.isDeleted = isDeleted;
+        this.category = category;
     }
 
     public Blog(String date, String title, String author, String content) {
@@ -71,5 +83,21 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

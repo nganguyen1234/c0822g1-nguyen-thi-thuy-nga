@@ -18,43 +18,63 @@
 </nav>
 <a href="/show-add-form">add</a>
 <p th:text="${mess}"></p>
+<div class="row">
 <div class="col-ld-3">
-    <ul class="list-group">
-        <li class="list-group-item"  th:each="category:${categoryList}" th:value="${category.id}" th:text="${category.name}"><a th:action="@{/show-list/__${category.id}__}"></a></li>
-    </ul>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category:${categoryList}">
+            <td><a th:href="@{/show-list/__${category.id}__}" th:text="${category.name}" style="text-decoration: none"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 <div class="col-lg-6">
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Date</th>
-        <th scope="col">Category</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="blog,stt: ${blogList.content}">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            BLOG
+        </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Date</th>
+            <th scope="col">Category</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="blog,stt: ${blogList.content}">
 
-        <th scope="row" th:text="${stt.count}"></th>
-        <td><a th:href="@{/show-detail/__${blog.id}__}" th:text="${blog.title}">
-        </a></td>
-        <td th:text="${blog.author}"></td>
-        <td th:text="${blog.date}"></td>
-        <td th:text="${blog.category.name}"></td>
-        <td><a th:href="@{/show-edit-form/__${blog.id}__}">Edit</a></td>
-        <td>
-            <button type="button" th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|" class="btn btn-primary"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Delete
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+            <th scope="row" th:text="${stt.count+ blogList.number*blogList.size}"></th>
+            <td><a th:href="@{/show-detail/__${blog.id}__}" th:text="${blog.title}">
+            </a></td>
+            <td th:text="${blog.author}"></td>
+            <td th:text="${blog.date}"></td>
+            <td th:text="${blog.category.name}"></td>
+            <td><a th:href="@{/show-edit-form/__${blog.id}__}">Edit</a></td>
+            <td>
+                <button type="button" th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        <a th:href="@{/show-list(page=${blogList.number +1})}" th:if="${blogList.hasNext()}">
+            Next
+        </a>
+        </tbody>
+    </table>
+</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,7 +87,8 @@
             <form th:action="@{/delete}" th:object="${blog}" method="post">
                 <div class="modal-body">
                     <input id="deleteId" th:field="*{id}" type="hidden" name="deleteId" th:id="deleteId">
-                    <span>Are you sure that you want to delete information of article : </span><span id="deleteTitle"> </span>
+                    <span>Are you sure that you want to delete information of article : </span><span
+                        id="deleteTitle"> </span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

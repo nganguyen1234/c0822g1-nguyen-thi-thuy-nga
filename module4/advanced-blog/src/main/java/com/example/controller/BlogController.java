@@ -33,11 +33,13 @@ public class BlogController {
         Page<Blog> blogList = blogService.searchTitle(search, pageable);
         model.addAttribute("blogList", blogList);
         Blog blog = new Blog();
+        List<Category> categoryList = categoryService.getAllCategory();
+        model.addAttribute("categoryList", categoryList);
         model.addAttribute("blog", blog);
         return "blog/list";
     }
  @GetMapping(value = "/show-list/{categoryId}")
-    public String findBlogByCategory(Model model,@RequestParam("categoryId") int id, @PageableDefault(size = 2) Pageable pageable) {
+    public String findBlogByCategory(Model model,@PathVariable("categoryId") int id, @PageableDefault(size = 2) Pageable pageable) {
         Page<Blog> blogList = blogService.findBlogByCategory(id, pageable);
         model.addAttribute("blogList", blogList);
         Blog blog = new Blog();

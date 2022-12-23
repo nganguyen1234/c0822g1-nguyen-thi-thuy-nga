@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${mess}"></p>
+<form class="vh-100" th:action="@{/edit-music}" th:object="${musicDto}" method="post">
+    <div class="modal-body">
+        <div class="mb-3">
+            <input type="hidden" class="form-control" th:field="*{id}" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="song" class="form-label">song </label>
+            <input type="text" class="form-control" th:field="*{song}" id="exampleFormControlInput1" placeholder="enter song name">
+            <p th:errors = "*{song}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="artist"  class="form-label">artist </label>
+            <input type="text" class="form-control" th:field="*{artist}" placeholder="enter artist">
+            <p th:errors = "*{artist}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="genre" class="form-label">genre </label>
+            <input type="text" class="form-control" th:field="*{genre}" placeholder="enter genre">
+            <p th:errors = "*{genre}" class="text-danger"></p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
+</body>
+</html>

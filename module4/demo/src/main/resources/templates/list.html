@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/show-add-form">add</a>
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Song</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="blog,stt: ${musicList}">
+
+                <th scope="row" th:text="${stt.count}"></th>
+                <td th:text="${music.song}"></td>
+                <td th:text="${music.artist}"></td>
+                <td th:text="${music.genre}"></td>
+                <td><a th:href="@{/show-edit-form/__${music.id}__}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MusicService implements IMusicService {
     @Autowired
@@ -32,5 +34,10 @@ public class MusicService implements IMusicService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Optional<Music> findById(int id) {
+        return musicRepository.findById(id);
     }
 }

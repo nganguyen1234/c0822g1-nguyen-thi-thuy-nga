@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,10 +17,13 @@ public class MusicService implements IMusicService {
 
     @Override
     public boolean addNewSong(Music music) {
+        if (musicRepository.findBySong(music.getSong()) != null) {
+            return false;
+        }
         try {
             musicRepository.save(music);
-        }catch (
-                IllegalArgumentException | OptimisticLockingFailureException e){
+        } catch (
+                IllegalArgumentException | OptimisticLockingFailureException e) {
             return false;
         }
         return true;
@@ -27,10 +31,13 @@ public class MusicService implements IMusicService {
 
     @Override
     public boolean updateSong(Music music) {
+        if (!musicRepository.existsById(music.getId())) {
+            return false;
+        }
         try {
             musicRepository.save(music);
-        }catch (
-                IllegalArgumentException | OptimisticLockingFailureException e){
+        } catch (
+                IllegalArgumentException | OptimisticLockingFailureException e) {
             return false;
         }
         return true;
@@ -39,5 +46,10 @@ public class MusicService implements IMusicService {
     @Override
     public Optional<Music> findById(int id) {
         return musicRepository.findById(id);
+    }
+
+    @Override
+    public List<Music> getAllSong() {
+        return musicRepository.findAll();
     }
 }

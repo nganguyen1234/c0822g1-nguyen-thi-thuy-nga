@@ -12,12 +12,20 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class MusicController {
     @Autowired
     private IMusicService musicService;
+
+    @GetMapping("/show-list")
+    String showList(Model model) {
+        List<Music> musicList = musicService.getAllSong();
+        model.addAttribute("musicList", musicList);
+        return "list";
+    }
 
     @GetMapping(value = "/show-add-form")
     String showAddForm(Model model) {
@@ -54,20 +62,20 @@ public class MusicController {
         return "edit";
     }
 
-    String editSongInfo(@Validated MusicDto musicDto,BindingResult bindingResult,RedirectAttributes redirectAttributes){
-        if (bindingResult.hasErrors()){
+    String editSongInfo(@Validated MusicDto musicDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
             return "edit";
-        }else {
+        } else {
             Music music = new Music();
-            BeanUtils.copyProperties(music,musicDto);
+            BeanUtils.copyProperties(music, musicDto);
             boolean check = musicService.updateSong(music);
             String mess;
-            if (check){
+            if (check) {
                 mess = "Đã chỉnh sửa thành công";
-            }else {
+            } else {
                 mess = "Đã xảy ra lỗi";
             }
-            redirectAttributes.addFlashAttribute("mess",mess);
+            redirectAttributes.addFlashAttribute("mess", mess);
             return "redirect:/show-edit-form";
         }
     }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<p th:text="${mess}"></p>
+<form class="vh-100" th:action="@{/add-user}" th:object="${userDto}" method="post">
+    <div class="modal-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="firstName" class="form-label">First name </label>
+            <input type="text" class="form-control" th:field="*{firstName}" id="exampleFormControlInput1" placeholder="enter firstname">
+            <p th:errors = "*{firstName}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="lastName"  class="form-label">Last name </label>
+            <input type="text" class="form-control" th:field="*{lastName}" placeholder="enter last name">
+            <p th:errors = "*{lastName}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="phoneNumber" class="form-label">Phone number </label>
+            <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="enter phone number">
+            <p th:errors = "*{phoneNumber}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" th:for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="exampleFormControlTextarea1" th:field="*{age}" rows="3">
+            <p th:errors = "*{age}" class="text-danger"></p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" th:for="email" class="form-label">Email </label>
+            <input type="text" class="form-control" th:field="*{email}" placeholder="enter email">
+            <p th:errors = "*{email}" class="text-danger"></p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
+</body>
+</html>

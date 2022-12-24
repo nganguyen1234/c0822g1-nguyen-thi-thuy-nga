@@ -49,7 +49,7 @@ public class MusicController {
                 mess = "Đã xảy ra lỗi";
             }
             redirectAttributes.addFlashAttribute("mess", mess);
-            return "redirect:/show-add-form";
+            return "redirect:/show-list";
         }
     }
 
@@ -80,7 +80,7 @@ public class MusicController {
                 mess = "Đã xảy ra lỗi";
             }
             redirectAttributes.addFlashAttribute("mess", mess);
-            return "redirect:/show-edit-form";
+            return "redirect:/show-list";
         }
     }
 }

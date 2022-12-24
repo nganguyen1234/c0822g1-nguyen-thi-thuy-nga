@@ -57,11 +57,15 @@ public class MusicController {
     String showEditForm(Model model, @PathVariable("id") int id) {
         Optional<Music> music = musicService.findById(id);
         MusicDto musicDto = new MusicDto();
-        BeanUtils.copyProperties(music, musicDto);
+        musicDto.setId(music.get().getId());
+        musicDto.setArtist(music.get().getArtist());
+        musicDto.setGenre(music.get().getGenre());
+        musicDto.setSong(music.get().getSong());
         model.addAttribute("musicDto", musicDto);
         return "edit";
     }
-@PostMapping(value = "/edit-music")
+
+    @PostMapping(value = "/edit-music")
     String editSongInfo(@Validated @ModelAttribute("musicDto") MusicDto musicDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "edit";

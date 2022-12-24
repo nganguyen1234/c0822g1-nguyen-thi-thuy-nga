@@ -37,7 +37,7 @@ public class MusicController {
     @PostMapping(value = "/add-music")
     String addNewSong(@Validated MusicDto musicDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "show-add-form";
+            return "add";
         } else {
             Music music = new Music();
             BeanUtils.copyProperties(musicDto, music);

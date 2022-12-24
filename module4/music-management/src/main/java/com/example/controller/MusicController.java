@@ -61,13 +61,13 @@ public class MusicController {
         model.addAttribute("musicDto", musicDto);
         return "edit";
     }
-
-    String editSongInfo(@Validated MusicDto musicDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+@PostMapping(value = "/edit-music")
+    String editSongInfo(@Validated @ModelAttribute("musicDto") MusicDto musicDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "edit";
         } else {
             Music music = new Music();
-            BeanUtils.copyProperties(music, musicDto);
+            BeanUtils.copyProperties(musicDto, music);
             boolean check = musicService.updateSong(music);
             String mess;
             if (check) {

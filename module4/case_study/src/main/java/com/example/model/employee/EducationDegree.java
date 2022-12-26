@@ -11,7 +11,8 @@ public class EducationDegree {
     private String name;
     @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
-    @ManyToMany(mappedBy = "educationDegree")
+
+    @OneToMany(mappedBy = "educationDegree")
     private List<Employee> employeeList;
 
     public EducationDegree() {
@@ -39,5 +40,13 @@ public class EducationDegree {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 }

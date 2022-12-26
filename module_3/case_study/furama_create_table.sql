@@ -110,3 +110,7 @@ create table hop_dong_chi_tiet(
   ma_dich_vu_di_kem int,
  foreign key(ma_dich_vu_di_kem) references dich_vu_di_kem(ma_dich_vu_di_kem)
 );
+create database user_repo;
+use user_repo;
+select * from users order by name;
+

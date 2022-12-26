@@ -1,5 +1,7 @@
 package com.example.model.employee;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,9 +14,11 @@ public class Employee {
     private String dateOfBirth;
     private String idCard;
     private Double salary;
+
     private String phoneNumber;
     private String email;
     private String address;
+
     @ManyToOne
     @JoinColumn(name = "position_id", referencedColumnName = "id")
     private Position position;
@@ -23,9 +27,9 @@ public class Employee {
     private boolean isDeleted;
 
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(referencedColumnName = "id")
-    private List<EducationDegree> educationDegree;
+    private EducationDegree educationDegree;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
@@ -109,11 +113,11 @@ public class Employee {
         this.position = position;
     }
 
-    public List<EducationDegree> getEducationDegree() {
+    public EducationDegree getEducationDegree() {
         return educationDegree;
     }
 
-    public void setEducationDegree(List<EducationDegree> educationDegree) {
+    public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
     }
 

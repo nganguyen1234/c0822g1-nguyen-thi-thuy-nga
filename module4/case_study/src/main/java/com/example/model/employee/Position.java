@@ -9,8 +9,10 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
     @OneToMany(mappedBy = "position")
     private List<Employee> employeeList;
+
     @Column(columnDefinition = "boolean default false")
 private boolean isDeleted;
     public Position() {

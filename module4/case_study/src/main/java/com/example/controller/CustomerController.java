@@ -1,7 +1,10 @@
 package com.example.controller;
 
 import com.example.model.customer.Customer;
+import com.example.model.customer.CustomerDto;
+import com.example.model.customer.CustomerType;
 import com.example.service.ICustomerService;
+import com.example.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,17 +15,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/customer")
 public class CustomerController {
 
     @Autowired
     private ICustomerService customerService;
+    @Autowired
+    private ICustomerTypeService customerTypeService;
 
     @GetMapping(value = "/show-list")
-    public String showList(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @PageableDefault(size = 5) Pageable pageable) {
-        Page<Customer> customerList = customerService.searchName(name, pageable);
+    public String showList(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, @RequestParam(value = "searchPhoneNumber", defaultValue = "") String phoneNumber, @PageableDefault(size = 5) Pageable pageable) {
+        Page<Customer> customerList = customerService.searchName(name, email, phoneNumber, pageable);
+        CustomerDto customerDto = new CustomerDto();
+        List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
+        model.addAttribute("customerDto", customerDto);
         model.addAttribute("customerList", customerList);
+        model.addAttribute("customerTypeList", customerTypeList);
         return "/customer/list";
     }
 }

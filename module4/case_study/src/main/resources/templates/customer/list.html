@@ -34,10 +34,10 @@
 <!-------------------------------------------------display customer list------------------------------------------------------->
 <div class=" col-lg-9>
 <div class=" row>
-<h4>Customer list</h4>
+    <h4>Customer list</h4>
 </div>
 <div class="row justify-content-center">
-    <form class="d-flex" action="/customer?action=search" method="post">
+    <form class="d-flex" th:action="@{/customer/show-list}" method="get">
         <div class="col-lg-3">
             <input class="form-control me-2" name="searchName" type="search" placeholder="Search by name"
                    aria-label="Search">
@@ -47,7 +47,6 @@
                    aria-label="Search">
         </div>
         <div class="col-lg-3">
-
             <input class="form-control me-2" name="searchPhoneNumber" type="search"
                    placeholder="Search by phone number" aria-label="Search">
         </div>
@@ -87,7 +86,8 @@
         <td th:text="${stt.count + customerList.number*customerList.size}"></td>
         <td th:text="${customer.name}"></td>
         <td th:text="${customer.dateOfBirth}"></td>
-        <td th:text="${customer.gender}"></td>
+        <td th:if="${customer.gender}==0">Nữ</td>
+        <td th:if="${customer.gender}==1">Nam</td>
         <td th:text="${customer.idCard}"></td>
         <td th:text="${customer.phoneNumber}"></td>
         <td th:text="${customer.email}"></td>
@@ -109,6 +109,10 @@
             </button>
         </td>
     </tr>
+    <a th:href="@{/customer/show-list(page=${customerList.number-1})}" th:if="${customerList.hasPrevious()}"
+       style="text-decoration: none">Back</a>
+    <a th:href="@{/customer/show-list(page=${customerList.number+1})}" th:if="${customerList.hasNext()}"
+       style="text-decoration: none">Next</a>
     </tbody>
 </table>
 </div>
@@ -125,66 +129,61 @@
                 <h5 class="modal-title">Add customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/customer?action=add" method="post">
+            <form action="/customer?action=add" th:object="${customerDto}" method="post">
                 <div class="modal-body">
                     <form class="vh-100">
                         <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input type="text" value="${errorCustomer.name}" class="form-control" name="name" required>
-                            <c:if test="${!errorMap.isEmpty}">
-                                <p style="color: red">${errorMap.get("name")}</p>
-                            </c:if>
+                            <label class="form-label" th:for="name">Name</label>
+                            <input type="text" th:field="${name}"
+                                   pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$"
+                                   class="form-control" name="name" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Birthday</label>
-                            <input type="date" value="${errorCustomer.dateOfBirth}" class="form-control"
+                            <label class="form-label" th:for="dateOfBirth">Birthday</label>
+                            <input type="date" th:field="${dateOfBirth}"
+                                   class="form-control"
                                    name="dateOfBirth " required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Gender</label>
-                            <input type="text" value="${errorCustomer.gender}" class="form-control" name="gender"
+                            <label class="form-label" th:for="gender">Gender</label>
+                            <input type="text" th:field="${gender}" class="form-control"
+                                   name="gender"
                                    required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">ID card</label>
-                            <input type="text" value="${errorCustomer.idCard}" class="form-control" name="idCard"
+                            <label class="form-label" th:for="idCard">ID card</label>
+                            <input type="text" th:field="${idCard}" class="form-control"
+                                   name="idCard"
                                    required>
-                            <c:if test="${!errorMap.isEmpty}">
-                                <p style="color: red">${errorMap.get("idCard")}</p>
-                            </c:if>
+
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Phone number</label>
-                            <input type="text" value="${errorCustomer.phoneNumber}"
-                                   pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
-                                   class="form-control" name="phoneNumber" required>
-                            <c:if test="${!errorMap.isEmpty}">
-                                <p style="color: red">${errorMap.get("phoneNumber")}</p>
-                            </c:if>
+                            <label class="form-label" th:for="phoneNumber">Phone number</label>
+                            <input type="text"  pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
+                                   class="form-control" name="phoneNumber" th:field="${phoneNumber}" required>
+
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="text" value="${errorCustomer.email}" pattern="[a-zA-Z]\w+@gmail\.com"
+                            <label class="form-label" th:for="email">Email</label>
+                            <input type="text" th:field="${email}"
+                                   pattern="[a-zA-Z]\w+@gmail\.com"
                                    class="form-control" name="email"
                                    required>
-                            <c:if test="${!errorMap.isEmpty}">
-                                <p style="color: red">${errorMap.get("email")}</p>
-                            </c:if>
+
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer type</label>
                             <select class="form-select" id="inputGroupSelect03"
                                     aria-label="Example select with button addon" name="customerTypeId">
-                                <c:forEach var="type" items="${customerTypeList}">
-                                    <option value="${type.id}">${type.name}</option>
-                                </c:forEach>
+                                <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
+                                        th:text="${customerType.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" value="${errorCustomer.address}" class="form-control" name="address"
+                            <input type="text" th:field="${address}" class="form-control"
+                                   name="address"
                                    required>
-
                         </div>
                     </form>
                     <div class="modal-footer">
@@ -312,7 +311,9 @@
     // setting for table paging sorting
 
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>

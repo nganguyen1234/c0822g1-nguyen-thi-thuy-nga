@@ -132,65 +132,60 @@
             </div>
             <form th:action="@{/customer/add}" th:object="${customerDto}" method="post">
                 <div class="modal-body">
-                    <form class="vh-100">
-                        <div class="mb-3">
-                            <label class="form-label" th:for="name">Name</label>
-                            <input type="text" th:field="${name}"
-                                   pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$"
-                                   class="form-control" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" th:for="dateOfBirth">Birthday</label>
-                            <input type="date" th:field="${dateOfBirth}"
-                                   class="form-control"
-                                   name="dateOfBirth " required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" th:for="gender">Gender</label>
-                            <input type="text" th:field="${gender}" class="form-control"
-                                   name="gender"
-                                   required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" th:for="idCard">ID card</label>
-                            <input type="text" th:field="${idCard}" class="form-control"
-                                   name="idCard"
-                                   required>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="name">Name</label>
+                        <input type="text" th:field="*{name}"
+                               pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$"
+                               class="form-control" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="dateOfBirth">Birthday</label>
+                        <input type="date" th:field="*{dateOfBirth}"
+                               class="form-control"
+                               name="dateOfBirth " required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="gender">Gender</label>
+                        <input type="text" th:field="*{gender}" class="form-control"
+                               name="gender"
+                               required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="idCard">ID card</label>
+                        <input type="text" th:field="*{idCard}" class="form-control"
+                               name="idCard"
+                               required>
 
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" th:for="phoneNumber">Phone number</label>
-                            <input type="text"  pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
-                                   class="form-control" name="phoneNumber" th:field="${phoneNumber}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="phoneNumber">Phone number</label>
+                        <input type="text" pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
+                               class="form-control" name="phoneNumber" th:field="*{phoneNumber}" required>
 
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" th:for="email">Email</label>
-                            <input type="text" th:field="${email}"
-                                   pattern="[a-zA-Z]\w+@gmail\.com"
-                                   class="form-control" name="email"
-                                   required>
-
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Customer type</label>
-                            <select class="form-select" id="inputGroupSelect03"
-                                    aria-label="Example select with button addon" name="customerTypeId">
-                                <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
-                                        th:text="${customerType.name}"></option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Address</label>
-                            <input type="text" th:field="${address}" class="form-control"
-                                   name="address"
-                                   required>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="email">Email</label>
+                        <input type="text" th:field="*{email}"
+                               pattern="[a-zA-Z]\w+@gmail\.com"
+                               class="form-control" name="email"
+                               required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Customer type</label>
+                        <select th:field ="*{customerTyper}" class="form-select" id="inputGroupSelect03"
+                                aria-label="Example select with button addon" name="customerTypeId">
+                            <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
+                                    th:text="${customerType.name}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" th:for="address">Address</label>
+                        <input type="text" th:field="*{address}" class="form-control"
+                               name="address"
+                               required>
+                    </div>
                     <div class="modal-footer">
-                        <form action="/customer">
-                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </form>
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="Submit" class="btn btn-danger">Submit</button>
                     </div>
                 </div>

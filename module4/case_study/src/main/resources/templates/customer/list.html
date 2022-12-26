@@ -34,6 +34,7 @@
 <!-------------------------------------------------display customer list------------------------------------------------------->
 <div class=" col-lg-9>
 <div class=" row>
+    <h2 th:text="${mess}"></h2>
     <h4>Customer list</h4>
 </div>
 <div class="row justify-content-center">
@@ -129,7 +130,7 @@
                 <h5 class="modal-title">Add customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/customer?action=add" th:object="${customerDto}" method="post">
+            <form action="/customer/add" th:object="${customerDto}" method="post">
                 <div class="modal-body">
                     <form class="vh-100">
                         <div class="mb-3">

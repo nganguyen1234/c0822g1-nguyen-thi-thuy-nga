@@ -119,9 +119,6 @@
 </div>
 </div>
 <div class="row " id="footer">@copyright by me</div>
-</div>
-</div>
-</div>
 <!------------------------------------------------------------add modal-------------------------------------------------------->
 <div class="modal fade" id="addCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -172,7 +169,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Customer type</label>
-                        <select th:field ="*{customerTyper}" class="form-select" id="inputGroupSelect03"
+                        <select th:field="*{customerType}" class="form-select" id="inputGroupSelect03"
                                 aria-label="Example select with button addon" name="customerTypeId">
                             <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
                                     th:text="${customerType.name}"></option>

@@ -20,17 +20,18 @@ public class CustomerDto implements Validator {
     private int gender;
 
     @NotBlank(message = "số cmnd không được để trống")
-    @UniqueElements(message = "số cmnd đã tồn tại")
+//    @UniqueElements(message = "số cmnd đã tồn tại")
     @Pattern(regexp = "(\\d{9})|(\\d{12})",message = "số cmnd phải đúng định dạng,vd:XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).")
     private String idCard;
 
     @Pattern(regexp = "(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})",message = "Số điện thoại phải đúng định dạng, vd:090xxxxxxx; 091xxxxxxx; (84)+90xxxxxxx; (84)+91xxxxxxx " )
-    @UniqueElements(message = "số điện thoại bạn nhập đã tồn tại")
+//    @UniqueElements(message = "số điện thoại bạn nhập đã tồn tại")
     @NotBlank(message = "số điện thoại không được để trống")
     private String phoneNumber;
+    @Pattern(regexp = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+", message = "email phải đúng định dạng, vd: abc123@gmail.com")
     private String email;
 
-    @Pattern(regexp = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+",message = "email phải đúng định dạng, vd: abc123@gmail.com")
+
     private String address;
 
     public CustomerDto() {

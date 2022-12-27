@@ -42,9 +42,17 @@ public class CustomerController {
         model.addAttribute("customerTypeList", customerTypeList);
         return "/customer/list";
     }
-@PostMapping(value = "/add")
-    public String addNewCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+
+    @PostMapping(value = "/add")
+    public String addNewCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
+            Pageable pageable = null;
+            Page<Customer> customerList = customerService.searchName("", "", "", pageable);
+            List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
+            boolean isModal = true;
+            model.addAttribute("isModal", isModal);
+            model.addAttribute("customerList", customerList);
+            model.addAttribute("customerTypeList", customerTypeList);
             return "/customer/list";
         } else {
             Customer customer = new Customer();
@@ -59,5 +67,46 @@ public class CustomerController {
             redirectAttributes.addFlashAttribute("mess", mess);
             return "redirect:/customer/show-list";
         }
+
+    }
+
+    @PostMapping(value = "/edit")
+    public String editCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            Pageable pageable = null;
+            Page<Customer> customerList = customerService.searchName("", "", "", pageable);
+            List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
+            boolean isModal = true;
+            model.addAttribute("isModal", isModal);
+            model.addAttribute("customerList", customerList);
+            model.addAttribute("customerTypeList", customerTypeList);
+            return "/customer/list";
+        } else {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
+            boolean check = customerService.editCustomer(customer);
+            String mess;
+            if (check) {
+                mess = "Chỉnh sửa thành công";
+            } else {
+                mess = "Đã xảy ra lỗi";
+            }
+            redirectAttributes.addFlashAttribute("mess", mess);
+            return "redirect:/customer/show-list";
+        }
+    }
+    @PostMapping(value = "/delete")
+    public String deleteCustomer(CustomerDto customerDto,Model model, RedirectAttributes redirectAttributes) {
+            Customer customer = customerService.findById(customerDto.getId());
+            customer.setDeleted(true);
+            boolean check = customerService.editCustomer(customer);
+            String mess;
+            if (check) {
+                mess = "Xóa thành công";
+            } else {
+                mess = "Đã xảy ra lỗi";
+            }
+            redirectAttributes.addFlashAttribute("mess", mess);
+            return "redirect:/customer/show-list";
     }
 }

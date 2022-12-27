@@ -13,13 +13,20 @@ public class Customer {
     private String name;
     private String dateOfBirth;
     private int gender;
+
+    @Column(columnDefinition = "varchar(255) unique")
     private String idCard;
+
+    @Column(columnDefinition = "varchar(255) unique")
     private String phoneNumber;
+
+    @Column(columnDefinition = "varchar(255) unique")
     private String email;
     private String address;
 
     @Column(columnDefinition = "boolean default false")
-private boolean isDeleted;
+    private boolean isDeleted;
+
     public Customer() {
     }
 

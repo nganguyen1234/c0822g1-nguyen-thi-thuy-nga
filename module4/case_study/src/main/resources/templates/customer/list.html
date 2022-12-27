@@ -95,14 +95,14 @@
         <td th:text="${customer.customerType.name}"></td>
         <td th:text="${customer.address}"></td>
         <td>
-            <button onclick="getCustomerInfo('${customer.id}','${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.idCard}','${customer.phoneNumber}','${customer.email}','${customer.address}')"
+            <button th:attr="onclick=|getCustomerInfo('${customer.id}','${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.idCard}','${customer.phoneNumber}','${customer.email}','${customer.customerType.id}','${customer.address}')|"
                     type="button" class="btn btn-light" data-bs-toggle="modal"
                     data-bs-target="#editCustomer">
                 <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
             </button>
         </td>
         <td>
-            <button onclick="getCustomerId('${customer.id}','${customer.name}')"
+            <button th:attr="onclick=|getCustomerId('${customer.id}','${customer.name}')|"
                     type="button"
                     class="btn btn-light" data-bs-toggle="modal"
                     data-bs-target="#deleteCustomer">
@@ -121,6 +121,7 @@
 <div class="row " id="footer">@copyright by me</div>
 <!------------------------------------------------------------add modal-------------------------------------------------------->
 <div class="modal fade" id="addCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--    <script th:inline="javascript" th:if="${#fields.hasErrors('*')}">$("#addCustomer").modal("show")</script>-->
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -134,31 +135,44 @@
                         <input type="text" th:field="*{name}"
                                pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$"
                                class="form-control" name="name" required>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:for="dateOfBirth">Birthday</label>
                         <input type="date" th:field="*{dateOfBirth}"
                                class="form-control"
                                name="dateOfBirth " required>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
+                            <p>Incorrect date of birth</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:for="gender">Gender</label>
-                        <input type="text" th:field="*{gender}" class="form-control"
-                               name="gender"
-                               required>
+                        <select th:field="*{gender}" class="form-select"
+                                aria-label="Example select with button addon" name="gender">
+                            <option th:value="0" th:text="Nữ"></option>
+                            <option th:value="1" th:text="Nam"></option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:for="idCard">ID card</label>
                         <input type="text" th:field="*{idCard}" class="form-control"
                                name="idCard"
                                required>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}">
+                            <p>Incorrect ID card</p>
+                        </div>
 
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:for="phoneNumber">Phone number</label>
                         <input type="text" pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"
                                class="form-control" name="phoneNumber" th:field="*{phoneNumber}" required>
-
+                        <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+                            <p>Incorrect phone number</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:for="email">Email</label>
@@ -166,6 +180,9 @@
                                pattern="[a-zA-Z]\w+@gmail\.com"
                                class="form-control" name="email"
                                required>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                            <p>Incorrect email</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Customer type</label>
@@ -180,6 +197,9 @@
                         <input type="text" th:field="*{address}" class="form-control"
                                name="address"
                                required>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">
+                            <p>Incorrect Class Name</p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -199,45 +219,66 @@
                 <h5 class="modal-title">Edit customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/customer?action=edit" method="post">
+            <form th:action="@{/customer/edit}" th:object="${customerDto}" method="post">
                 <div class="modal-body">
-                    <input type="text" id="id" name="id" hidden>
+                    <input type="text" id="id" th:field="*{id}" name="id" hidden>
                     <div class="mb-3">
                         <label class="form-label">New name</label>
-                        <input type="text" class="form-control" name="newName" id="newName">
+                        <input type="text" class="form-control"  pattern="^([\p{Lu}][\p{Ll}]{1,8})(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$" th:field="*{name}" name="newName" id="newName">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New birthday</label>
-                        <input type="text" class="form-control" name="newBirthday" id="newBirthday">
+                        <input type="date" class="form-control" th:field="*{dateOfBirth}" name="newBirthday" id="newBirthday">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
+                            <p>Incorrect date of birth</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New gender</label>
-                        <input type="text" class="form-control" name="newGender" id="newGender">
+                        <select th:field="*{gender}" class="form-select"
+                                aria-label="Example select with button addon" name="newGender" id="newGender">
+                            <option th:value="0" th:text="Female"></option>
+                            <option th:value="1" th:text="Male"></option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New ID card</label>
-                        <input type="text" class="form-control" name="newIdCard" id="newIdCard">
+                        <input type="text" class="form-control" th:field="*{idCard}" name="newIdCard" id="newIdCard">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}">
+                            <p>Incorrect ID card</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New phone number</label>
-                        <input type="text" class="form-control" name="newPhoneNumber" id="newPhoneNumber">
+                        <input type="text" class="form-control" pattern="(090\d{7})|(091\d{7})|(\(84\)\+90\d{7})|(\(84\)\+91\d{7})"  th:field="*{phoneNumber}" name="newPhoneNumber" id="newPhoneNumber">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+                            <p>Incorrect phone number</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New email</label>
-                        <input type="text" class="form-control" name="newEmail" id="newEmail">
+                        <input type="text" attern="[a-zA-Z]\w+@gmail\.com" class="form-control" th:field="*{email}" name="newEmail" id="newEmail">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                            <p>Incorrect email</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New customer type</label>
-                        <select class="form-select"
+                        <select class="form-select" th:field="*{customerType}"
                                 aria-label="Example select with button addon" name="newCustomerType" id="customerType">
-                            <c:forEach var="type" items="${customerTypeList}">
-                                <option value="${type.id}">${type.name}</option>
-                            </c:forEach>
+                            <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
+                                    th:text="${customerType.name}"></option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New address</label>
-                        <input type="text" class="form-control" name="newAddress" id="newAddress">
+                        <input type="text" class="form-control" th:field="*{address}"  name="newAddress" id="newAddress">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">
+                            <p>Incorrect Class Name</p>
+                        </div>
                     </div>
 
                 </div>
@@ -257,9 +298,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Delete customer information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/customer?action=delete" method="post">
+            <form th:action="@{/customer/delete}" th:object="${customerDto}" method="post">
                 <div class="modal-body">
-                    <input id="deleteId" type="text" name="deleteId" hidden>
+                    <input id="deleteId" type="text" th:field="*{id}" name="deleteId" hidden>
                     <span>Are you sure that you want to delete information of </span><span id="deleteName"> ?</span>
                 </div>
                 <div class="modal-footer">
@@ -270,14 +311,14 @@
         </div>
     </div>
 </div>
-<input id="flag" type="text" value="${isModal}" hidden>
+<input id="flag" type="text" th:value="${isModal}" hidden>
 <script>
     function getCustomerId(id, name) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
     }
 
-    function getCustomerInfo(id, name, dateOfBirth, gender, idCard, phoneNumber, email, address) {
+    function getCustomerInfo(id, name, dateOfBirth, gender, idCard, phoneNumber, email, customerTypeId,address) {
         document.getElementById("id").value = id
         document.getElementById("newName").value = name;
         document.getElementById("newBirthday").value = dateOfBirth;
@@ -285,39 +326,31 @@
         document.getElementById("newIdCard").value = idCard;
         document.getElementById("newPhoneNumber").value = phoneNumber;
         document.getElementById("newEmail").value = email;
+        document.getElementById("customerType").value = customerTypeId;
         document.getElementById("newAddress").value = address;
     }
 
     // show message after delete,add,edit
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    document.getElementById("message").innerText = urlParams.get('message');
+    // const queryString = window.location.search;
+    // const urlParams = new URLSearchParams(queryString);
+    // document.getElementById("message").innerText = urlParams.get('message');
 
 
     // show edit , add modal if have error
     if ($("#flag").val() == "true") {
         $(document).ready(function () {
-            $("#addCustomer").modal("show");
+            $('#addCustomer').modal('show');
+            // $("#addCustomer").show();
         });
     }
-
-    // setting for table paging sorting
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#tableStudent').dataTable({
-            "dom": 'lrtip',
-            "lengthChange": false,
-            "pageLength": 5
-        });
-    });
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!--<script src="datatables/js/jquery.dataTables.min.js"></script>-->
+<!--<script src="datatables/js/dataTables.bootstrap5.min.js"></script>-->
 </body>
 </html>

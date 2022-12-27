@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,53 +23,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe12e60d-87a4-43a2-9131-53c1aaa4aaff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/example/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/example/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/example/service/impl/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product_management/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/oop_exercise.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuoiLap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuoiPalindrome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSoQuaTA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/CongDanhSach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/CongNhiPhan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/DauTuNgoaiTe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/DuongDanToiThieu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangConTrungLap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/PhanTuBatDauSoLe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoDu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoXaSoXNhat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TamGiacVaDiem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TimSoNhoNhatLonHon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TrungViHaiMang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/VongDeoTay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/common/InvalidCodeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/model/History.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/repository/IBookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/repository/IHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/service/IBookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/service/IHistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/service/impl/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/service/impl/HistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book-management/src/main/resources/templates/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/ChuyenSo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/ChuyenSo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/ChuyenSoLaMaQuaSTN.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/ChuyenSoLaMaQuaSTN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/DauNgoacDon.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/DauNgoacDon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MangChuaSoLienTiep.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MangChuaSoLienTiep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MangDep.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MangDep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/SoLonNhi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/SoLonNhi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/TrungBinhCong5so.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/TrungBinhCong5so.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/DauNgoacDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/DauNgoacDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangChuaSoLienTiep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangChuaSoLienTiep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangDep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/MangDep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoLonNhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/SoLonNhi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_3/src/hackerrank/TrungBinhCong5so.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/hackerrank/TrungBinhCong5so.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/KyTuCuoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/KyTuCuoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MaHoaChuoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MaHoaChuoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MaHoaChuoiNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/out/production/module_3/hackerrank/MaHoaChuoiNew.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/text_edit/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/text_edit/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/src/text_edit/TextEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/src/text_edit/TextEdit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,10 +77,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -253,6 +228,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -268,11 +244,12 @@
       <workItem from="1671078546548" duration="632000" />
       <workItem from="1671079700921" duration="1276000" />
       <workItem from="1671422054937" duration="2016000" />
+      <workItem from="1672114753790" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

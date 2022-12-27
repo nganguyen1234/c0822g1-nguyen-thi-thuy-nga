@@ -48,8 +48,13 @@
                    aria-label="Search">
         </div>
         <div class="col-lg-3">
-            <input class="form-control me-2" name="searchPhoneNumber" type="search"
-                   placeholder="Search by phone number" aria-label="Search">
+            <select name="searchCustomerTypeId" class="form-select"
+                    aria-label="Example select with button addon" >
+                <option th:each="customerType: ${customerTypeList}" th:value="${customerType.id}"
+                        th:text="${customerType.name}"></option>
+            </select>
+<!--            <input class="form-control me-2"  type="search"-->
+<!--                   placeholder="Search by phone number" aria-label="Search">-->
         </div>
         <div class="col-lg-3">
             <button class="btn btn-outline-success" type="submit">Search</button>

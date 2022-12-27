@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 
 
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
-    @Query(value = "select * from customer where name like concat('%',:name,'%') and email like concat('%',:email,'%') and phone_number like concat('%',:phoneNumber,'%') and is_deleted=false", nativeQuery = true)
-    Page<Customer> searchName(@Param("name") String name, @Param("email") String email, @Param("phoneNumber") String phoneNumber, Pageable pageable);
+    @Query(value = "select * from customer where name like concat('%',:name,'%') and email like concat('%',:email,'%') and customer_type_id = :customerTypeId and is_deleted=false", nativeQuery = true)
+    Page<Customer> searchName(@Param("name") String name, @Param("email") String email, @Param("customerTypeId") int customerTypeId, Pageable pageable);
+    @Query(value = "select * from customer where name like concat('%',:name,'%') and email like concat('%',:email,'%')and is_deleted=false", nativeQuery = true)
+    Page<Customer> searchName(@Param("name") String name, @Param("email") String email, Pageable pageable);
 
     Customer findByIdCard(String idCard);
 }

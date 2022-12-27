@@ -33,8 +33,13 @@ public class CustomerController {
     private ICustomerTypeService customerTypeService;
 
     @GetMapping(value = "/show-list")
-    public String showList(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, @RequestParam(value = "searchPhoneNumber", defaultValue = "") String phoneNumber, @PageableDefault(size = 5) Pageable pageable) {
-        Page<Customer> customerList = customerService.searchName(name, email, phoneNumber, pageable);
+    public String showList(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, @RequestParam(value = "searchCustomerTypeId", defaultValue = "-1") int customerTypeId, @PageableDefault(size = 5) Pageable pageable) {
+        Page<Customer> customerList;
+        if (customerTypeId == -1) {
+            customerList = customerService.searchName(name, email, pageable);
+        } else {
+            customerList = customerService.searchName(name, email, customerTypeId, pageable);
+        }
         CustomerDto customerDto = new CustomerDto();
         List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
         model.addAttribute("customerDto", customerDto);
@@ -47,7 +52,7 @@ public class CustomerController {
     public String addNewCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             Pageable pageable = null;
-            Page<Customer> customerList = customerService.searchName("", "", "", pageable);
+            Page<Customer> customerList = customerService.searchName("", "", pageable);
             List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
             boolean isModal = true;
             model.addAttribute("isModal", isModal);
@@ -74,7 +79,7 @@ public class CustomerController {
     public String editCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             Pageable pageable = null;
-            Page<Customer> customerList = customerService.searchName("", "", "", pageable);
+            Page<Customer> customerList = customerService.searchName("", "", pageable);
             List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
             boolean isModal = true;
             model.addAttribute("isModal", isModal);
@@ -95,18 +100,19 @@ public class CustomerController {
             return "redirect:/customer/show-list";
         }
     }
+
     @PostMapping(value = "/delete")
-    public String deleteCustomer(CustomerDto customerDto,Model model, RedirectAttributes redirectAttributes) {
-            Customer customer = customerService.findById(customerDto.getId());
-            customer.setDeleted(true);
-            boolean check = customerService.editCustomer(customer);
-            String mess;
-            if (check) {
-                mess = "Xóa thành công";
-            } else {
-                mess = "Đã xảy ra lỗi";
-            }
-            redirectAttributes.addFlashAttribute("mess", mess);
-            return "redirect:/customer/show-list";
+    public String deleteCustomer(CustomerDto customerDto, Model model, RedirectAttributes redirectAttributes) {
+        Customer customer = customerService.findById(customerDto.getId());
+        customer.setDeleted(true);
+        boolean check = customerService.editCustomer(customer);
+        String mess;
+        if (check) {
+            mess = "Xóa thành công";
+        } else {
+            mess = "Đã xảy ra lỗi";
+        }
+        redirectAttributes.addFlashAttribute("mess", mess);
+        return "redirect:/customer/show-list";
     }
 }

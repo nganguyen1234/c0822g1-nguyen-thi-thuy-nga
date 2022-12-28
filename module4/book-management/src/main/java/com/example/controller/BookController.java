@@ -34,7 +34,7 @@ public class BookController {
     public String borrowBook(@PathVariable("id") int id, RedirectAttributes redirectAttributes) throws OutOfBookException {
         Integer code = bookService.borrowBook(id);
         String mess;
-        if (code != null) {
+        if (code != null && code != -1) {
             mess = "Successfully borrowed, code: " + code;
         } else {
             mess = "Failed to borrow";

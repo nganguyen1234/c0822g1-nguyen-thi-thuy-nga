@@ -10,10 +10,12 @@ import com.example.service.IHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional(rollbackFor = Throwable.class)
 @Service
 public class BookService implements IBookService {
 
@@ -29,8 +31,11 @@ public class BookService implements IBookService {
 
     @Override
     public Integer borrowBook(int id) throws OutOfBookException {
-        Book book = bookRepository.findById(id).get();
-        if (book.getQuantity()==0){
+        Book book = bookRepository.findById(id).orElse(null);
+        if (book == null) {
+            return -1;
+        }
+        if (book.getQuantity() == 0) {
             throw new OutOfBookException("");
         }
         book.setQuantity(book.getQuantity() - 1);

@@ -40,6 +40,6 @@ public class ProductController {
     public String addProduct(Model model, @PathVariable("id") int id, @SessionAttribute("cart") CartDto cartDto) {
         Product product = productService.findById(id);
         cartDto.addProduct(product, 1);
-        return "cart";
+        return "redirect:/show-cart";
     }
 }

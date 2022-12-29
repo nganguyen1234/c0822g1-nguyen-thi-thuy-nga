@@ -29,28 +29,31 @@
   </style>
 </head>
 <body>
-//header
-  <%---------------------------------------------------------list------------------------------------------------------%>
-  <div class="row main vh-100">
-    <div class="col-lg-3 overflow-scroll" style="border: 1px solid black">
-      <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
-    </div>
-    <%---------------------------------------------------------display service list------------------------------------------------------%>
+<!------------------------------------------------------header----------------------------------------------------->
+<div class="insert" th:insert="~{/home/header::header}"></div>
+
+<!------------------------------------------------display facility list ---------------------------------------------------------->
     <div class="col-lg-9">
       <div class="row">
         <h4>Service list</h4>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-4">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex" th:action="@{/facility/show-list}" method="get">
+            <div class="col-lg-3">
+              <input class="form-control me-2" name="searchName" type="search" placeholder="Search by name"
+                     aria-label="Search">
+            </div>
+            <div class="col-lg-3">
+              <select name="searchTypeId" class="form-select"
+                      aria-label="Example select with button addon" >
+                <option th:each="facilityType: ${facilityTypeList}" th:value="${facilityType.id}"
+                        th:text="${facilityType.name}"></option>
+              </select>
+            </div>
+            <div class="col-lg-3">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
           </form>
         </div>
         <div class="col-lg-4">
@@ -82,37 +85,39 @@
           </tr>
           </thead>
           <tbody>
-          <c:forEach var="facility" items="${facilityList}" varStatus="stt">
-            <tr>
-              <th scope="row">${stt.count}</th>
-              <td>${facility.name}</td>
-              <td>${facility.area}</td>
-              <td>${facility.cost}</td>
-              <td>${facility.maxPeople}</td>
-              <td>${facility.rentType.name}</td>
-              <td>${facility.standardRoom}</td>
-              <td>${facility.descriptionOtherConvenience}</td>
-              <td>${facility.poolArea}</td>
-              <td>${facility.numberOfFloors}</td>
-              <td>${facility.facilityFree}</td>
+            <tr th:each="facility,stt:${facilityPage.content}">
+              <th scope="row" th:text="${stt.count}"></th>
+              <td th:text="${facility.name}"></td>
+              <td th:text="${facility.area}"></td>
+              <td th:text="${facility.cost}"></td>
+              <td th:text="${facility.maxPeople}"></td>
+              <td th:text="${facility.rentType.name}"></td>
+              <td th:text="${facility.standardRoom}"></td>
+              <td th:text="${facility.descriptionOtherConvenience}"></td>
+              <td th:text="${facility.poolArea}"></td>
+              <td th:text="${facility.numberOfFloors}"></td>
+              <td th:text="${facility.facilityFree}"></td>
               <td>
                 <button type="button"
-                        onclick="getFacilityInfo('${facility.id}','${facility.facilityType.id}','${facility.name}','${facility.area}','${facility.cost}','${facility.maxPeople}','${facility.standardRoom}','${facility.descriptionOtherConvenience}','${facility.poolArea}','${facility.numberOfFloors}','${facility.facilityFree}')"
+                      th:attr="onclick=|getFacilityInfo('${facility.id}','${facility.facilityType.id}','${facility.name}','${facility.area}','${facility.cost}','${facility.maxPeople}','${facility.standardRoom}','${facility.descriptionOtherConvenience}','${facility.poolArea}','${facility.numberOfFloors}','${facility.facilityFree}')|"
                         class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editService">
                   <img src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/null/external-create-social-media-interface-anggara-basic-outline-anggara-putra.png"/>
                 </button>
               </td>
               <td>
-                <button type="button" onclick="getFacilityId('${facility.id}','${facility.name}')"
+                <button type="button" th:attr="onclick=|getFacilityId('${facility.id}','${facility.name}')|"
                         class="btn btn-light" data-bs-toggle="modal"
                         data-bs-target="#deleteService">
                   <img src="https://img.icons8.com/ios-glyphs/30/null/trash--v1.png"/>
                 </button>
               </td>
             </tr>
-          </c:forEach>
           </tbody>
         </table>
+        <a th:href="@{/facility/show-list(page=${facilityPage.number-1})}" th:if="${facilityPage.hasPrevious()}"
+           style="text-decoration: none">Back</a>
+        <a th:href="@{/facility/show-list(page=${facilityPage.number+1})}" th:if="${facilityPage.hasNext()}"
+           style="text-decoration: none">Next</a>
       </div>
     </div>
   </div>

@@ -11,4 +11,6 @@ public interface IFacilityService {
 
     Page<Facility> searchNameAndFacilityType(String name, Integer typeId, Pageable pageable);
     boolean addNewFacility(Facility facility);
+    boolean editFacility(Facility facility);
+    Facility findById(int id);
 }

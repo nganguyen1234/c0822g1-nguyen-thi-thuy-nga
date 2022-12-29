@@ -38,5 +38,24 @@ public class FacilityService implements IFacilityService {
         return true;
     }
 
+    @Override
+    public boolean editFacility(Facility facility) {
+        if (!facilityRepository.findById(facility.getId()).isPresent()){
+            return false;
+        }
+        try {
+            facilityRepository.save(facility);
+        } catch (
+                IllegalArgumentException | OptimisticLockingFailureException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Facility findById(int id) {
+        return facilityRepository.findById(id).orElse(null);
+    }
+
 
 }

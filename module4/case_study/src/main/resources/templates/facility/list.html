@@ -167,7 +167,8 @@
                     <div class="mb-3">
                         <label class="form-label">Max people</label>
                         <input type="text" th:field="*{maxPeople}" class="form-control" name="maxPeople">
-                        <div class="text text-danger" th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('maxPeople')}"
+                             th:errors="*{maxPeople}">
                             <p>Incorrect name</p>
                         </div>
                     </div>
@@ -182,7 +183,8 @@
                     <div class="mb-3" id="standardRoom">
                         <label class="form-label">Standard room</label>
                         <input type="text" th:field="*{standardRoom}" class="form-control" name="standardRoom">
-                        <div class="text text-danger" th:if="${#fields.hasErrors('standardRoom')}" th:errors="*{standardRoom}">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('standardRoom')}"
+                             th:errors="*{standardRoom}">
                             <p>Incorrect name</p>
                         </div>
                     </div>
@@ -190,7 +192,8 @@
                         <label class="form-label">Description other convenience</label>
                         <input type="text" th:field="*{descriptionOtherConvenience}" class="form-control"
                                name="descriptionOtherConvenience">
-                        <div class="text text-danger" th:if="${#fields.hasErrors('descriptionOtherConvenience')}" th:errors="*{descriptionOtherConvenience}">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('descriptionOtherConvenience')}"
+                             th:errors="*{descriptionOtherConvenience}">
                             <p>Incorrect name</p>
                         </div>
                     </div>
@@ -204,14 +207,16 @@
                     <div class="mb-3" id="numberOfFloors">
                         <label class="form-label">Number of floors</label>
                         <input type="text" th:field="*{numberOfFloor}" class="form-control" name="numberOfFloors">
-                        <div class="text text-danger" th:if="${#fields.hasErrors('numberOfFloor')}" th:errors="*{numberOfFloor}">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('numberOfFloor')}"
+                             th:errors="*{numberOfFloor}">
                             <p>Incorrect name</p>
                         </div>
                     </div>
                     <div class="mb-3" id="facilityFree">
                         <label class="form-label">Facility free</label>
                         <input type="text" th:field="*{facilityFree}" class="form-control" name="facilityFree">
-                        <div class="text text-danger" th:if="${#fields.hasErrors('facilityFree')}" th:errors="*{facilityFree}">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('facilityFree')}"
+                             th:errors="*{facilityFree}">
                             <p>Incorrect name</p>
                         </div>
                     </div>
@@ -235,24 +240,37 @@
             </div>
             <form action="/facility/edit-facility" th:object="${facility}" method="post">
                 <div class="modal-body">
-                    <input type="text" id="editId" name="editId" hidden>
-                    <input type="text" id="editFacilityType" name="editFacilityType" hidden>
+                    <input type="text" th:field="*{id}" id="editId" name="editId" hidden>
+                    <input type="text" th:field="*{facilityType}" id="editFacilityType" name="editFacilityType" hidden>
                     <div class="mb-3">
                         <label class="form-label">New name</label>
                         <input type="text" th:field="*{name}" class="form-control" id="newName" name="newName">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New area</label>
                         <input type="text" th:field="*{area}" class="form-control" id="newArea" name="newArea">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('area')}" th:errors="*{area}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New cost</label>
                         <input type="text" th:field="*{cost}" class="form-control" id="newCost" name="newCost">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New max people</label>
                         <input type="text" th:field="*{maxPeople}" class="form-control" id="newMaxPeople"
                                name="newMaxPeople">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('maxPeople')}"
+                             th:errors="*{maxPeople}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New rent type</label>
@@ -266,26 +284,45 @@
                         <label class="form-label">New standard room</label>
                         <input type="text" th:field="*{standardRoom}" class="form-control" id="newStandardRoom"
                                name="newStandardRoom">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('standardRoom')}"
+                             th:errors="*{standardRoom}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3" id="editDescriptionOtherConvenience">
                         <label class="form-label">New description other convenience</label>
                         <input type="text" th:field="*{descriptionOtherConvenience}" class="form-control"
                                id="newDescriptionOtherConvenience" name="newDescriptionOtherConvenience">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('descriptionOtherConvenience')}"
+                             th:errors="*{descriptionOtherConvenience}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3" id="editPoolArea">
                         <label class="form-label">New pool area</label>
                         <input type="text" th:field="*{poolArea}" class="form-control" id="newPoolArea"
                                name="newPoolArea">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3" id="editNumberOfFloors">
                         <label class="form-label">New number of floors</label>
                         <input type="text" th:field="*{numberOfFloor}" class="form-control" id="newNumberOfFloors"
                                name="newNumberOfFloors">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('numberOfFloor')}"
+                             th:errors="*{numberOfFloor}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                     <div class="mb-3" id="editFacilityFree">
                         <label class="form-label">New facility free</label>
                         <input type="text" th:field="*{facilityFree}" class="form-control" id="newFacilityFree"
                                name="newFacilityFree">
+                        <div class="text text-danger" th:if="${#fields.hasErrors('facilityFree')}"
+                             th:errors="*{facilityFree}">
+                            <p>Incorrect name</p>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -301,13 +338,13 @@
 <div class="modal fade" id="deleteService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="/service?action=delete">
+            <form method="post" th:object="${facility}" th:action="@{/facility/delete-facility}">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Delete service information</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="deleteId" id="deleteId" hidden>
+                    <input type="text" th:field="*{id}" name="deleteId" id="deleteId" hidden>
                     <span>Are you sure that you want to delete information of </span><span
                         id="deleteName"> ?</span>
                 </div>

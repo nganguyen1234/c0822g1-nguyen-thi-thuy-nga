@@ -15,11 +15,11 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public Page<Facility> searchName(String name, Pageable pageable) {
-        return facilityRepository.findByName(name,pageable);
+        return facilityRepository.searchName(name,pageable);
     }
 
     @Override
     public Page<Facility> searchNameAndFacilityType(String name, Integer typeId, Pageable pageable) {
-        return facilityRepository.findByNameAndAndFacilityType(name,typeId,pageable);
+        return facilityRepository.searchNameAndFacilityType(name,typeId,pageable);
     }
 }

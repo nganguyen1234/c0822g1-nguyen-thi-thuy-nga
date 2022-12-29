@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Controller
 public class CartController {
-    private CartDto cartDto;
+    
 
     @GetMapping(value = "/show-cart")
     public String showCart(@SessionAttribute("cart") CartDto cartDto, Model model) {

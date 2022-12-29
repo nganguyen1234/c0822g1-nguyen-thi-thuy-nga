@@ -22,6 +22,7 @@ public class FacilityController {
     @Autowired
     private IFacilityService facilityService;
 
+    @Autowired
     private IFacilityTypeService facilityTypeService;
     @GetMapping(value = "/show-list")
     public String showList(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchTypeId", defaultValue = "") String typeId, Pageable pageable) {
@@ -32,6 +33,7 @@ public class FacilityController {
             facilityPage = facilityService.searchNameAndFacilityType(name, Integer.parseInt(typeId),pageable);
         }
         List<FacilityType> facilityTypeList = facilityTypeService.getAllType();
+        model.addAttribute("facility",new Facility());
         model.addAttribute("facilityPage", facilityPage);
         model.addAttribute("facilityTypeList",facilityTypeList);
         return "facility/list";

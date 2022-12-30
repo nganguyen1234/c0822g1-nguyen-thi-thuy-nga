@@ -34,6 +34,10 @@
 
         function findBlogsByCategory() {
             let id = $('#searchCategory').val();
+            if (id===""){
+                init();
+                return;
+            }
             let link = "http://localhost:8080/blogs/show-list-by-category/";
             link += id;
             $.ajax({
@@ -42,7 +46,6 @@
                 url: link,
                 //xử lý khi thành công
                 success: function (data) {
-                    debugger
                     //data => đang ở dạng json
                     let table = '';// lưu trữ table
                     for (let i = 0; i < data.length; i++) {
@@ -75,7 +78,7 @@
                 success: function (data) {
                     debugger
                     //data => đang ở dạng json
-                    let option = '';// lưu trữ table
+                    let option = '<option value="">Select category</option>';// lưu trữ table
                     for (let i = 0; i < data.length; i++) {
                         option +=
                             `

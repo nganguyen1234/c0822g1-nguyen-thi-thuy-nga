@@ -169,7 +169,7 @@ modal----------------------------------------------%>
             </div>
             <form th:action="@{/contract/add-attach-facility}" th:object="${contractDetail}" method="post">
                 <div class="modal-body">
-                    <input th:field="*{contract.id}" id="contractId">
+                    <input th:field="*{contract.id}" id="contractId" hidden>
                     <select th:field="*{attachFacility.id}" class="form-select" aria-label="Default select example">
                         <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
                                 th:text="${attachFacility.name}"></option>

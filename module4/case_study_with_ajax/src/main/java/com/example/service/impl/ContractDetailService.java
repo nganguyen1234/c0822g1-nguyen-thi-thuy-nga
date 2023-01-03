@@ -50,12 +50,23 @@ public class ContractDetailService implements IContractDetailService {
     }
 
     @Override
-    public boolean addContractDetail(ContractDetail contractDetail) {
-        if (!contractService.isExist(contractDetail.getContract())) {
+    public boolean addContractDetail(ContractDetail newContractDetail) {
+        if (!contractService.isExist(newContractDetail.getContract())) {
             return false;
         }
+        List<ContractDetail> contractDetailList = getAllContractDetails();
+        int contractId;
+        int attachFacilityId;
+        for (ContractDetail contractDetail : contractDetailList) {
+            contractId = contractDetail.getContract().getId();
+            attachFacilityId = contractDetail.getAttachFacility().getId();
+            if (contractId == newContractDetail.getContract().getId() && attachFacilityId == newContractDetail.getAttachFacility().getId()) {
+                newContractDetail.setId(contractDetail.getId());
+                newContractDetail.setQuantity(contractDetail.getQuantity() + newContractDetail.getQuantity());
+            }
+        }
         try {
-            contractDetailRepository.save(contractDetail);
+            contractDetailRepository.save(newContractDetail);
         } catch (
                 IllegalArgumentException | OptimisticLockingFailureException e) {
             return false;

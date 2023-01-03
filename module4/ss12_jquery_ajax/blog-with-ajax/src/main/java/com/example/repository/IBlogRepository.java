@@ -19,6 +19,11 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     @Query(value = "select * from blog where category_id = :id and is_deleted = false", nativeQuery = true)
     Page<Blog> findBlogByCategory(@Param("id") int id, Pageable pageable);
 
+      @Query(value = "select * from blog where is_deleted = false", nativeQuery = true)
+    Page<Blog> getAllBlog(Pageable pageable);
+
+
+
   @Query(value = "select * from blog where category_id = :id and is_deleted = false", nativeQuery = true)
     List<Blog> findBlogByCategory(@Param("id") int id);
 

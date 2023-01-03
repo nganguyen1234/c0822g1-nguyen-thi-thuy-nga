@@ -34,6 +34,11 @@ public class BlogService implements IBlogService {
     }
 
     @Override
+    public Page<Blog> getAllBlog(Pageable pageable) {
+        return blogRepository.getAllBlog(pageable);
+    }
+
+    @Override
     public boolean addNewBlog(Blog blog) {
         try {
             if (blogRepository.findByTitle(blog.getTitle()) != null) {

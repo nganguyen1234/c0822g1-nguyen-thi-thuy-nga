@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ContractService implements IContractService {
@@ -23,5 +24,16 @@ public class ContractService implements IContractService {
     @Override
     public Page<Contract> getAllContracts(Pageable pageable) {
         return contractRepository.getAllContract(pageable);
+    }
+
+    @Override
+    public boolean isExist(Contract contract) {
+        List<Contract> contractList = getAllContracts();
+        for (Contract ct : contractList) {
+            if (Objects.equals(ct.getId(), contract.getId())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

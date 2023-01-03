@@ -9,4 +9,5 @@ import java.util.List;
 public interface IContractService {
     List<Contract> getAllContracts();
     Page<Contract> getAllContracts(Pageable pageable);
+    boolean isExist(Contract contract);
 }

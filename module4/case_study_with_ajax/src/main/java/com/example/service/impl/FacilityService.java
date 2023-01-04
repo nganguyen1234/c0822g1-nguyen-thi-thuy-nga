@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FacilityService implements IFacilityService {
     @Autowired
@@ -22,6 +24,11 @@ public class FacilityService implements IFacilityService {
     @Override
     public Page<Facility> searchNameAndFacilityType(String name, Integer typeId, Pageable pageable) {
         return facilityRepository.searchNameAndFacilityType(name, typeId, pageable);
+    }
+
+    @Override
+    public List<Facility> getAllFacility() {
+        return facilityRepository.findAll();
     }
 
     @Override

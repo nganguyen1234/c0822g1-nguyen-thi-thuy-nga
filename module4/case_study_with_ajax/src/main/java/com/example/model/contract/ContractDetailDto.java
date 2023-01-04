@@ -7,7 +7,6 @@ public class ContractDetailDto {
     private AttachFacility attachFacility;
     @Min(value = 1, message = "Số lượng phải là số nguyên dương")
     private int quantity;
-
     public ContractDetailDto() {
     }
 

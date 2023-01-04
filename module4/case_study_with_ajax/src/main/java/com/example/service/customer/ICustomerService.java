@@ -9,6 +9,7 @@ import java.util.List;
 public interface ICustomerService {
     Page<Customer> searchName(String name,String email, int customerTypeId, Pageable pageable);
     Page<Customer> searchName(String name,String email, Pageable pageable);
+    List<Customer> getAllCustomer();
     boolean addNewCustomer(Customer customer);
     boolean editCustomer(Customer customer);
     Customer findById(int id);

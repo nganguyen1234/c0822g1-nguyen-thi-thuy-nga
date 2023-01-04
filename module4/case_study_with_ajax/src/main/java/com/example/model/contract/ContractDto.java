@@ -10,18 +10,29 @@ import javax.validation.constraints.Min;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class ContractDto implements Validator {
+    private int id;
     private String startDate;
     private String endDate;
-    @Min(value = 1,message = "Tiền đặt cọc phải là số dương")
+    @Min(value = 1, message = "Tiền đặt cọc phải là số dương")
     private Double deposit;
     private Customer customer;
     private Employee employee;
     private Facility facility;
-    private ContractDetail contractDetail;
+    private List<ContractDetail> contractDetail;
+    private Double total;
 
     public ContractDto() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStartDate() {
@@ -72,12 +83,20 @@ public class ContractDto implements Validator {
         this.facility = facility;
     }
 
-    public ContractDetail getContractDetail() {
+    public List<ContractDetail> getContractDetail() {
         return contractDetail;
     }
 
-    public void setContractDetail(ContractDetail contractDetail) {
+    public void setContractDetail(List<ContractDetail> contractDetail) {
         this.contractDetail = contractDetail;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
     @Override

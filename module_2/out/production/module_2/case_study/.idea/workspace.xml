@@ -2,58 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d063f2cf-ed2b-4942-989d-6d0388df4546" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/css/bootstrap.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.esm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.esm.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/test/src/main/webapp/css/bootstrap-5.0.2-dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/furama_insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/ContractController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/FacilityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/AttachFacility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/Contract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDetailDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/CustomerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Division.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/EducationDegree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/EmployeeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/Facility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/FacilityDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/FacilityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IAttachFacilityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IContractDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/customer/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/customer/ICustomerTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IFacilityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IFacilityTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IRentTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IAttachFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IContractDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/customer/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/customer/ICustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IFacilityTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IRentTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/AttachFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/ContractDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/ContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/CustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/FacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/FacilityTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/RentTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/contract/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/facility/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/home/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/home/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/test/java/com/example/CaseStudyApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/rest/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/rest/BlogRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/repository/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/impl/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/impl/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/views/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/views/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/build/libs/case_study_web-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/build/libs/case_study_web-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/src/main/webapp/view/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/src/main/webapp/view/customer/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,8 +94,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../module_3/case_study_web" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -89,16 +113,11 @@
       <workItem from="1667756735221" duration="20000" />
       <workItem from="1670298321468" duration="12000" />
       <workItem from="1670807907796" duration="525000" />
+      <workItem from="1672655755571" duration="115000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="122" y="263" key="FileChooserDialogImpl" timestamp="1670808430505">
-      <screen x="0" y="0" width="1707" height="1019" />
-    </state>
-    <state x="122" y="263" key="FileChooserDialogImpl/0.0.1707.1019@0.0.1707.1019" timestamp="1670808430505" />
+    <option name="version" value="3" />
   </component>
 </project>

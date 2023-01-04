@@ -14,6 +14,7 @@ public class Blog {
     private String author;
     @Column(columnDefinition = "text")
     private String content;
+    @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
 
 

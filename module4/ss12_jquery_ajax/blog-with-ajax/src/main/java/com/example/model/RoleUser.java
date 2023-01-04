@@ -8,10 +8,10 @@ public class RoleUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @OneToOne
     private User user;
 
-    @ManyToOne
+    @OneToOne
     private Role role;
 
     public int getId() {

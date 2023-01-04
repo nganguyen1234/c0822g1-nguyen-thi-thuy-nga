@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module_2/src/giai_thuat/IsoscelesTriangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDetailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/customer/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/customer/ICustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/facility/IFacilityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/facility/IFacilityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/FacilityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/FacilityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/facility/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/facility/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_2/out/production/module_2/case_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/out/production/module_2/case_study/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +47,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Spring-JPA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module_1" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -123,6 +108,7 @@
       <workItem from="1672821441654" duration="155000" />
       <workItem from="1672822329761" duration="657000" />
       <workItem from="1672823404625" duration="601000" />
+      <workItem from="1672842272505" duration="6114000" />
     </task>
     <servers />
   </component>

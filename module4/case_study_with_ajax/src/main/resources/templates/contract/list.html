@@ -108,28 +108,28 @@
                 <h5 class="modal-title" id="exampleModalLabel">Add detail contract</h5>
                 <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
- <form class="vh-100" th:object="${contractDetailDto}" th:action="@{/contract/add-contract}" method="post">
-            <div class="modal-body">
+            <form class="vh-100" th:object="${contractDetailDto}" th:action="@{/contract/add-contract}" method="post">
+                <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Start date</label>
                         <input type="date" class="form-control" th:field="*{contract.startDate}">
-<!--                        <div class="text text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{contract.startDate}">-->
-<!--                            <p>Incorrect name</p>-->
-<!--                        </div>-->
+                        <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{contract.startDate}">-->
+                        <!--                            <p>Incorrect name</p>-->
+                        <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">End date</label>
                         <input type="date" class="form-control" th:field="*{contract.endDate}">
-<!--                        <div class="text text-danger" th:if="${#fields.hasErrors('endDate')}" th:errors="*{contract.endDate}">-->
-<!--                            <p>Incorrect name</p>-->
-<!--                        </div>-->
+                        <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('endDate')}" th:errors="*{contract.endDate}">-->
+                        <!--                            <p>Incorrect name</p>-->
+                        <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Deposit</label>
                         <input type="text" class="form-control" th:field="*{contract.deposit}">
-<!--                        <div class="text text-danger" th:if="${#fields.hasErrors('deposit')}" th:errors="*{contract.deposit}">-->
-<!--                            <p>Incorrect name</p>-->
-<!--                        </div>-->
+                        <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('deposit')}" th:errors="*{contract.deposit}">-->
+                        <!--                            <p>Incorrect name</p>-->
+                        <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Total</label>
@@ -138,15 +138,31 @@
                     <div class="mb-3">
                         <label class="form-label" th:field="*{contract.customer}">Customer</label>
                         <select class="form-select" aria-label="Default select example">
-                            <option th:each="customer:${customerList}" th:value="${customer.id}" th:text="${customer.name}"></option>
+                            <option th:each="customer:${customerList}" th:value="${customer.id}"
+                                    th:text="${customer.name}"></option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" >Service</label>
+                        <label class="form-label">Service</label>
                         <select class="form-select" aria-label="Default select example" th:field="*{contract.facility}">
-                            <option th:each="facility:${facilityList}" th:value="${facility.id}" th:text="${facility.name}"></option>
+                            <option th:each="facility:${facilityList}" th:value="${facility.id}"
+                                    th:text="${facility.name}"></option>
 
                         </select>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">attach facility</th>
+                                <th scope="col">quantity</th>
+                            </tr>
+                            </thead>
+                            <tbody id="attachFacilityTable">
+                            </tbody>
+                        </table>
+                        </table>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Attach facility</label>
@@ -155,45 +171,15 @@
                             <img src="https://img.icons8.com/offices/30/null/plus-2-math.png"/>
                         </button>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!------------------------------------------------------------add attach facility modal--------------------------------------------------------->
-
-<div class="modal fade" id="addAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add attach facility</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form th:action="@{/contract/add-attach-facility}" th:object="${contractDetail}" method="post">
-                <div class="modal-body">
-                    <input th:field="*{contract.id}" id="contractId1" hidden>
-                    <select th:field="*{attachFacility.id}" class="form-select" aria-label="Default select example">
-                        <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
-                                th:text="${attachFacility.name}"></option>
-                    </select>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input th:field="*{quantity}" type="number" class="form-control">
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 <!-----------------------------------------------------------add detail contract modal---------------------------------------------------->
 
 <div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -223,6 +209,37 @@
         </div>
     </div>
 </div>
+<!------------------------------------------------------------add attach facility modal--------------------------------------------------------->
+
+<div class="modal fade" id="addAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add attach facility</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:object="${contractDetail}" method="post">
+                <div class="modal-body">
+                    <!--                    <input th:field="*{contract.id}" id="contractId1" hidden>-->
+                    <select th:field="*{attachFacility.id}" id="selectedAttachFacility" class="form-select"
+                            aria-label="Default select example">
+                        <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
+                                th:text="${attachFacility.name}"></option>
+                    </select>
+                    <div class="mb-3">
+                        <label class="form-label">Quantity</label>
+                        <input th:field="*{quantity}" id="selectedQuantity" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="reset" id="addContract" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!--------------------------------------------------------display attach facility list---------------------------------------------->
 <div class="modal fade" id="dislayAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -242,10 +259,67 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
         crossorigin="anonymous"></script>
 <script>
+    class AttachFacility {
+        getAttachFacilityId() {
+            return this.attachFacilityId;
+        }
+
+        setAttachFacilityId(value) {
+            this.attachFacilityId = value;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getQuantity() {
+            return this.quantity;
+        }
+
+        setQuantity(value) {
+            this.quantity = value;
+        }
+
+        constructor(attachFacilityId, name, quantity) {
+
+            this.attachFacilityId = attachFacilityId;
+            this.name = name;
+            this.quantity = quantity;
+        }
+
+        constructor(attachFacilityId, quantity) {
+            this.attachFacilityId = attachFacilityId;
+            this.quantity = quantity;
+        }
+    }
+
+    attachFacilityArr = [];
+
     function getContractId(id) {
         debugger
         document.getElementById("contractId").value = id;
     }
+
+    let stt = 1;
+    $('#addContract').click(function () {
+        debugger
+        let attachFacilityId = document.getElementById("selectedAttachFacility").value;
+        let quantity = document.getElementById("selectedQuantity").value;
+        attachFacility = new AttachFacility(attachFacilityId, quantity);
+        attachFacilityArr[stt] = attachFacility;
+        let table = $('#attachFacilityTable').html();
+        table += `  "        <tr>\n" +
+                "        <td>${stt}</td>\n" +
+                "        <td>${attachFacilityId}</td>\n" +
+                "        <td>${quantity}</td>\n"
+                +  " </tr>\n"`
+        stt++;
+        $('#attachFacilityTable').html(table);
+    })
 
     function getAttachFacilityInfo(contractId) {
         debugger
@@ -287,8 +361,6 @@
                 $('#my-body').html(table)
             }
         });
-
-
     }
 </script>
 </body>

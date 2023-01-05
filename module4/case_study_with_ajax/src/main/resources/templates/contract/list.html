@@ -33,7 +33,7 @@
     <!--------------------------------------------------------header---------------------------------------------------------------->
     <div class="insert" th:insert="~{/home/header::header}"></div>
     <!-------------------------------------------------display customer list------------------------------------------------------->
-    <div class="row main vh-100">
+    <div class="row">
         <div class="col-lg-9">
             <div class="row">
                 <h4>Contract list</h4>
@@ -182,36 +182,7 @@
         </div>
     </div>
 </div>
-<!-----------------------------------------------------------add attach facility in detail contract by modal---------------------------------------------------->
-
-<div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add attach facility</h5>
-                <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form th:action="@{/contract/add-attach-facility}" th:object="${contractDetail}" method="post">
-                <div class="modal-body">
-                    <input th:field="*{contract.id}" id="contractId" hidden>
-                    <select th:field="*{attachFacility.id}" class="form-select" aria-label="Default select example">
-                        <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
-                                th:text="${attachFacility.name}" ></option>
-                    </select>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input th:field="*{quantity}" type="number" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!------------------------------------------------------------add attach facility modal--------------------------------------------------------->
+<!-------------------------------------------------------add attach facility in detail contract by modal-------------------------------------------------------------->
 
 <div class="modal fade" id="addAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -241,6 +212,36 @@
         </div>
     </div>
 </div>
+<!-----------------------------------------------------------add attach facility modal---------------------------------------------------->
+
+<div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add attach facility</h5>
+                <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:action="@{/contract/add-attach-facility}" th:object="${contractDetail}" method="post">
+                <div class="modal-body">
+                    <input th:field="*{contract.id}" id="contractId" hidden>
+                    <select th:field="*{attachFacility.id}" class="form-select" aria-label="Default select example">
+                        <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
+                                th:text="${attachFacility.name}"></option>
+                    </select>
+                    <div class="mb-3">
+                        <label class="form-label">Quantity</label>
+                        <input th:field="*{quantity}" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <!--------------------------------------------------------display attach facility list---------------------------------------------->
 <div class="modal fade" id="dislayAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -261,14 +262,6 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
         crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function () {
-        const addContractSuccessfullyMsg = sessionStorage.getItem("AddContractSuccessfullyMsg");
-        if (addContractSuccessfullyMsg) {
-            document.getElementById("mess").innerText = addContractSuccessfullyMsg;
-            sessionStorage.removeItem("AddContractSuccessfullyMsg");
-        }
-    })
-
     class AttachFacility {
         getAttachFacilityId() {
             return this.attachFacilityId;
@@ -301,26 +294,41 @@
             this.name = name;
             this.quantity = quantity;
         }
-
-        // constructor(attachFacilityId, quantity) {
-        //     this.attachFacilityId = attachFacilityId;
-        //     this.quantity = quantity;
-        // }
     }
 
-    attachFacilityArr = [];
+    // bootstrap modal reset to previous content on close
+    $('.modal').on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    })
+    $('#addDetailContract').on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+        $('#attachFacilityTable').html('');
+        stt = 0;
+
+    })
+
+    //show message after add contract successfully
+    $(document).ready(function () {
+        const addContractSuccessfullyMsg = sessionStorage.getItem("AddContractSuccessfullyMsg");
+        if (addContractSuccessfullyMsg) {
+            document.getElementById("mess").innerText = addContractSuccessfullyMsg;
+            sessionStorage.removeItem("AddContractSuccessfullyMsg");
+        }
+    })
 
     function getContractId(id) {
         document.getElementById("contractId").value = id;
     }
 
+    // add attach facility in detail contract
+    attachFacilityArr = [];
     let stt = 0;
     $('#addContract').click(function () {
         let attachFacilityId = document.getElementById("selectedAttachFacility").value;
         let attachFacilityName = $(`#atf_${attachFacilityId}`).text();
         let quantity = document.getElementById("selectedQuantity").value;
-        attachFacility = new AttachFacility(attachFacilityId,attachFacilityName, quantity);
-        attachFacilityArr.push(attachFacility) ;
+        attachFacility = new AttachFacility(attachFacilityId, attachFacilityName, quantity);
+        attachFacilityArr.push(attachFacility);
         let table = $('#attachFacilityTable').html();
         table += `  "        <tr>\n" +
                 "        <td>${stt}</td>\n" +
@@ -387,6 +395,7 @@
         event.defaultPrevented();
     }
 
+    //show attach facility list
     function getAttachFacilityInfo(contractId) {
         $.ajax({
             type: "GET",

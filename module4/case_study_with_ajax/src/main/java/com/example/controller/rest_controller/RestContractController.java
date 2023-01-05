@@ -1,16 +1,22 @@
 package com.example.controller.rest_controller;
 
-import com.example.model.contract.AttachFacility;
-import com.example.model.contract.AttachFacilityDto;
-import com.example.model.contract.ContractDetail;
+import com.example.dto.AddContractErrorDto;
+import com.example.model.contract.*;
 import com.example.service.contract.IAttachFacilityService;
 import com.example.service.contract.IContractDetailService;
 import com.example.service.contract.IContractService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,12 +36,44 @@ public class RestContractController {
     }
 
     @PostMapping("/add-contract")
-    public ResponseEntity<?> add(@RequestBody ContractDetail[] contractDetails) {
-        contractService.addContract(contractDetails[0].getContract());
-        for (int i = 0; i < contractDetails.length; i++) {
-            contractDetails[i].setContract(contractDetails[0].getContract());
-            contractDetailService.addContractDetail(contractDetails[i]);
+    public ResponseEntity<?> add(@Validated @RequestBody ContractDetailDto[] contractDetailDtos) {
+        BindingResult contractBindingResult =  new BeanPropertyBindingResult(contractDetailDtos[0].getContract(), "contract");
+        contractDetailDtos[0].getContract().validate(contractDetailDtos[0].getContract(), contractBindingResult);
+
+        List<BindingResult> contractDetailBindingResult = new ArrayList<>();
+
+        for (ContractDetailDto dto : contractDetailDtos) {
+            BindingResult br = new BeanPropertyBindingResult(dto, "dto");
+            dto.validate(dto, br);
+            contractDetailBindingResult.add(br);
         }
+
+        AddContractErrorDto responseDto = null;
+
+        if (contractBindingResult.hasErrors()) {
+            responseDto = new AddContractErrorDto();
+            if (contractBindingResult.getFieldError("startDate") != null) {
+                responseDto.setStartDate(contractBindingResult.getFieldError("startDate").getDefaultMessage());
+            }
+
+        }
+
+        if (responseDto != null) {
+            // has error
+            return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+        }
+
+
+
+//        Contract contract = new Contract();
+//        BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
+//        contractService.addContract(contract);
+//        for (int i = 0; i < contractDetailDtos.length; i++) {
+//            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
+//            ContractDetail contractDetail = new ContractDetail();
+//            BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
+//            contractDetailService.addContractDetail(contractDetail);
+//        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

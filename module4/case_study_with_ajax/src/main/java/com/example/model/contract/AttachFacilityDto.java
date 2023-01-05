@@ -6,7 +6,7 @@ public class AttachFacilityDto {
     private Double cost;
     private String unit;
     private String status;
-    private Integer quantity;
+    private int quantity;
 
     public Integer getId() {
         return id;
@@ -48,11 +48,11 @@ public class AttachFacilityDto {
         this.status = status;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

@@ -8,14 +8,11 @@ import com.example.service.contract.IContractDetailService;
 import com.example.service.contract.IContractService;
 import com.example.service.customer.ICustomerService;
 import com.example.service.facility.IFacilityService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/contract")
@@ -48,7 +44,7 @@ public class ContractController {
     public String displayContractList(Model model, Pageable pageable) {
         List<Customer> customerList = customerService.getAllCustomer();
         ContractDetailDto contractDetailDto = new ContractDetailDto();
-        Page<ContractDto> contractPage = contractService.getAllContractDto(pageable);
+        Page<ShowContractDto> contractPage = contractService.getAllContractDto(pageable);
         List<AttachFacility> attachFacilityList = attachFacilityService.getAllAttachFacility();
         List<Facility> facilityList = facilityService.getAllFacility();
         ContractDetail contractDetail = new ContractDetail();

@@ -1,8 +1,6 @@
 package com.example.repository.contract;
 
 import com.example.model.contract.Contract;
-import com.example.model.contract.ContractDetailDto;
-import com.example.model.contract.ContractDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

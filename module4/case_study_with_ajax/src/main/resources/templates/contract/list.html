@@ -196,7 +196,7 @@
                     <input th:field="*{contract.id}" id="contractId" hidden>
                     <select th:field="*{attachFacility.id}" class="form-select" aria-label="Default select example">
                         <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
-                                th:text="${attachFacility.name}"></option>
+                                th:text="${attachFacility.name}" ></option>
                     </select>
                     <div class="mb-3">
                         <label class="form-label">Quantity</label>
@@ -226,7 +226,7 @@
                     <select th:field="*{attachFacility.id}" id="selectedAttachFacility" class="form-select"
                             aria-label="Default select example">
                         <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}"
-                                th:text="${attachFacility.name}"></option>
+                                th:text="${attachFacility.name}" th:id="${'atf_' + attachFacility.id}"></option>
                     </select>
                     <div class="mb-3">
                         <label class="form-label">Quantity</label>
@@ -317,10 +317,10 @@
     let stt = 0;
     $('#addContract').click(function () {
         let attachFacilityId = document.getElementById("selectedAttachFacility").value;
-        let attachFacilityName = $('#selectedAttachFacility').text();
+        let attachFacilityName = $(`#atf_${attachFacilityId}`).text();
         let quantity = document.getElementById("selectedQuantity").value;
         attachFacility = new AttachFacility(attachFacilityId,attachFacilityName, quantity);
-        attachFacilityArr[stt] = attachFacility;
+        attachFacilityArr.push(attachFacility) ;
         let table = $('#attachFacilityTable').html();
         table += `  "        <tr>\n" +
                 "        <td>${stt}</td>\n" +

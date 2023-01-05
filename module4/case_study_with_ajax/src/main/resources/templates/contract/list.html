@@ -37,7 +37,7 @@
         <div class="col-lg-9">
             <div class="row">
                 <h4>Contract list</h4>
-                <p th:text="${mess}" style="color: red"></p>
+                <p th:text="${mess}" style="color: red" id="mess"></p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4">
@@ -112,39 +112,41 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Start date</label>
-                        <input type="date" class="form-control" th:field="*{contract.startDate}">
+                        <input type="date" class="form-control" id="newStartDate" th:field="*{contract.startDate}">
                         <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{contract.startDate}">-->
                         <!--                            <p>Incorrect name</p>-->
                         <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">End date</label>
-                        <input type="date" class="form-control" th:field="*{contract.endDate}">
+                        <input type="date" class="form-control" id="newEndDate" th:field="*{contract.endDate}">
                         <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('endDate')}" th:errors="*{contract.endDate}">-->
                         <!--                            <p>Incorrect name</p>-->
                         <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Deposit</label>
-                        <input type="text" class="form-control" th:field="*{contract.deposit}">
+                        <input type="text" class="form-control" id="newDeposit" th:field="*{contract.deposit}">
                         <!--                        <div class="text text-danger" th:if="${#fields.hasErrors('deposit')}" th:errors="*{contract.deposit}">-->
                         <!--                            <p>Incorrect name</p>-->
                         <!--                        </div>-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Total</label>
-                        <input class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
+                        <input class="form-control" type="text" id="newTotal" aria-label="Disabled input example"
+                               disabled readonly>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" th:field="*{contract.customer}">Customer</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" id="newCustomerId" aria-label="Default select example">
                             <option th:each="customer:${customerList}" th:value="${customer.id}"
                                     th:text="${customer.name}"></option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Service</label>
-                        <select class="form-select" aria-label="Default select example" th:field="*{contract.facility}">
+                        <select class="form-select" id="newFacilityId" aria-label="Default select example"
+                                th:field="*{contract.facility}">
                             <option th:each="facility:${facilityList}" th:value="${facility.id}"
                                     th:text="${facility.name}"></option>
 
@@ -174,13 +176,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" id="addContractDetail" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<!-----------------------------------------------------------add detail contract modal---------------------------------------------------->
+<!-----------------------------------------------------------add attach facility in detail contract by modal---------------------------------------------------->
 
 <div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -259,6 +261,14 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
         crossorigin="anonymous"></script>
 <script>
+    $(document).ready(function () {
+        const addContractSuccessfullyMsg = sessionStorage.getItem("AddContractSuccessfullyMsg");
+        if (addContractSuccessfullyMsg) {
+            document.getElementById("mess").innerText = addContractSuccessfullyMsg;
+            sessionStorage.removeItem("AddContractSuccessfullyMsg");
+        }
+    })
+
     class AttachFacility {
         getAttachFacilityId() {
             return this.attachFacilityId;
@@ -284,6 +294,7 @@
             this.quantity = value;
         }
 
+
         constructor(attachFacilityId, name, quantity) {
 
             this.attachFacilityId = attachFacilityId;
@@ -291,38 +302,92 @@
             this.quantity = quantity;
         }
 
-        constructor(attachFacilityId, quantity) {
-            this.attachFacilityId = attachFacilityId;
-            this.quantity = quantity;
-        }
+        // constructor(attachFacilityId, quantity) {
+        //     this.attachFacilityId = attachFacilityId;
+        //     this.quantity = quantity;
+        // }
     }
 
     attachFacilityArr = [];
 
     function getContractId(id) {
-        debugger
         document.getElementById("contractId").value = id;
     }
 
-    let stt = 1;
+    let stt = 0;
     $('#addContract').click(function () {
-        debugger
         let attachFacilityId = document.getElementById("selectedAttachFacility").value;
+        let attachFacilityName = $('#selectedAttachFacility').text();
         let quantity = document.getElementById("selectedQuantity").value;
-        attachFacility = new AttachFacility(attachFacilityId, quantity);
+        attachFacility = new AttachFacility(attachFacilityId,attachFacilityName, quantity);
         attachFacilityArr[stt] = attachFacility;
         let table = $('#attachFacilityTable').html();
         table += `  "        <tr>\n" +
                 "        <td>${stt}</td>\n" +
-                "        <td>${attachFacilityId}</td>\n" +
+                "        <td>${attachFacilityName}</td>\n" +
                 "        <td>${quantity}</td>\n"
                 +  " </tr>\n"`
         stt++;
         $('#attachFacilityTable').html(table);
     })
 
-    function getAttachFacilityInfo(contractId) {
+    $('#addContractDetail').click(addContractDetail)
+
+    function addContractDetail() {
         debugger
+        contractDetailArr = [];
+        let startDate = document.getElementById("newStartDate").value;
+        let endDate = document.getElementById("newEndDate").value;
+        let deposit = document.getElementById("newDeposit").value;
+        let customerId = document.getElementById("newCustomerId").value;
+        let facilityId = document.getElementById("newFacilityId").value;
+        customer = {
+            id: customerId
+        }
+        facility = {
+            id: facilityId
+        }
+        let contract = {
+            startDate: startDate,
+            endDate: endDate,
+            deposit: deposit,
+            customer: customer,
+            facility: facility
+        }
+        for (let i = 0; i < attachFacilityArr.length; i++) {
+            let newAttachFacility = {
+                id: attachFacilityArr[i].attachFacilityId
+            }
+            let newContractDetail = {
+                isDeleted: false,
+                contract: contract,
+                attachFacility: newAttachFacility,
+                quantity: attachFacilityArr[i].quantity
+            }
+            contractDetailArr.push(newContractDetail)
+        }
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            data: JSON.stringify(contractDetailArr),
+            url: "/contract/add-contract",
+            success: function () {
+                sessionStorage.setItem("AddContractSuccessfullyMsg", "Đã thêm mới thành công");
+                // document.getElementById("mess").innerText = ;
+                window.location.reload();
+            },
+            error: function () {
+
+            }
+        });
+        event.defaultPrevented();
+    }
+
+    function getAttachFacilityInfo(contractId) {
         $.ajax({
             type: "GET",
             //tên API

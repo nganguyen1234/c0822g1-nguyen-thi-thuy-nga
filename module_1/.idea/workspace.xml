@@ -4,7 +4,7 @@
     <list default="true" id="f285af2e-b03d-42bf-96d4-97c890528f3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../module4/case_study_with_ajax/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study_with_ajax/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../module4/case_study_with_ajax/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study_with_ajax/src/main/resources/templates/contract/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
       <workItem from="1662353389933" duration="324000" />
       <workItem from="1662359211585" duration="2795000" />
       <workItem from="1662362040878" duration="1952000" />
-      <workItem from="1672854869271" duration="506000" />
+      <workItem from="1672854869271" duration="955000" />
     </task>
     <servers />
   </component>

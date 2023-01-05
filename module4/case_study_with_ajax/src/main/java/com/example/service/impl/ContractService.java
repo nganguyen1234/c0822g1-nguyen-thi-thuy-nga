@@ -1,11 +1,13 @@
 package com.example.service.impl;
 
 import com.example.model.contract.Contract;
+import com.example.model.contract.ContractDetail;
 import com.example.model.contract.ContractDto;
 import com.example.repository.contract.IContractRepository;
 import com.example.service.contract.IContractService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -41,6 +43,20 @@ public class ContractService implements IContractService {
             contractDtoList.add(contractDto);
         }
         return new PageImpl<>(contractDtoList);
+    }
+
+    @Override
+    public boolean addContract(Contract contract) {
+        if (isExist(contract)) {
+            return false;
+        }
+        try {
+            contractRepository.save(contract);
+        } catch (
+                IllegalArgumentException | OptimisticLockingFailureException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override

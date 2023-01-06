@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/AddContractErrorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/AddContractDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/AttachFacilityErrorDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/contract/AttachFacilityDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/AttachFacilityDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDetailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/contract/ShowContractDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../nga-nguyen/convert-text-to-mindmap/mxgraph" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -120,6 +110,8 @@
       <workItem from="1672823404625" duration="601000" />
       <workItem from="1672842272505" duration="8781000" />
       <workItem from="1672881353482" duration="24150000" />
+      <workItem from="1672935253365" duration="15000" />
+      <workItem from="1672968556519" duration="5054000" />
     </task>
     <servers />
   </component>

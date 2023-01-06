@@ -37,11 +37,11 @@ public class RestContractController {
 
     @PostMapping("/add-contract")
     public ResponseEntity<?> add(@Validated @RequestBody ContractDetailDto[] contractDetailDtos) {
-        BindingResult contractBindingResult =  new BeanPropertyBindingResult(contractDetailDtos[0].getContract(), "contract");
+        BindingResult contractBindingResult = new BeanPropertyBindingResult(contractDetailDtos[0].getContract(), "contract");
         contractDetailDtos[0].getContract().validate(contractDetailDtos[0].getContract(), contractBindingResult);
 
         List<BindingResult> contractDetailBindingResult = new ArrayList<>();
-
+List<BindingResult> attachFacilityBr = new ArrayList<>();
         for (ContractDetailDto dto : contractDetailDtos) {
             BindingResult br = new BeanPropertyBindingResult(dto, "dto");
             dto.validate(dto, br);
@@ -55,6 +55,9 @@ public class RestContractController {
             if (contractBindingResult.getFieldError("startDate") != null) {
                 responseDto.setStartDate(contractBindingResult.getFieldError("startDate").getDefaultMessage());
             }
+            if (contractBindingResult.getFieldError("endDate") != null) {
+                responseDto.setEndDate(contractBindingResult.getFieldError("endDate").getDefaultMessage());
+            }
 
         }
 
@@ -64,16 +67,15 @@ public class RestContractController {
         }
 
 
-
-//        Contract contract = new Contract();
-//        BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
-//        contractService.addContract(contract);
-//        for (int i = 0; i < contractDetailDtos.length; i++) {
-//            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
-//            ContractDetail contractDetail = new ContractDetail();
-//            BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
-//            contractDetailService.addContractDetail(contractDetail);
-//        }
+        Contract contract = new Contract();
+        BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
+        contractService.addContract(contract);
+        for (int i = 0; i < contractDetailDtos.length; i++) {
+            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
+            ContractDetail contractDetail = new ContractDetail();
+            BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
+            contractDetailService.addContractDetail(contractDetail);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

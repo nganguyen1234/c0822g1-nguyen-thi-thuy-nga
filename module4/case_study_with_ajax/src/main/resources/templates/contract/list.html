@@ -324,6 +324,10 @@
     attachFacilityArr = [];
     let stt = 0;
     $('#addContract').click(function () {
+        $(document).ready(function () {
+                $('#addAttachFacility').modal('hide');
+
+        })
         let attachFacilityId = document.getElementById("selectedAttachFacility").value;
         let attachFacilityName = $(`#atf_${attachFacilityId}`).text();
         let quantity = document.getElementById("selectedQuantity").value;

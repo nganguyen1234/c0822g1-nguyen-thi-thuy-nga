@@ -33,9 +33,13 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public boolean addNewCustomer(Customer customer) {
-        if (customerRepository.findByIdCard(customer.getIdCard()) != null) {
+        Customer checkId = customerRepository.findByIdCard(customer.getIdCard());
+        Customer checkPhoneNumber = customerRepository.findByPhoneNumber(customer.getPhoneNumber());
+        Customer checkEmail = customerRepository.findByEmail(customer.getEmail());
+        if (checkId != null || checkEmail != null || checkPhoneNumber != null) {
             return false;
         }
+
         try {
             customerRepository.save(customer);
         } catch (

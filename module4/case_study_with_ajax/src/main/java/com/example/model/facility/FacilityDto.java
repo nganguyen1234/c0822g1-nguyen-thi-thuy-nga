@@ -1,9 +1,12 @@
 package com.example.model.facility;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.validation.constraints.Min;
 
 public class FacilityDto {
     private Integer id;
+    @UniqueElements(message = "Tên dịch vụ bạn muốn thêm mới đã tồn tại")
     private String name;
     @Min(value = 1,message = "Diện tích của dịch vụ phải là một số dương")
     private Double area;

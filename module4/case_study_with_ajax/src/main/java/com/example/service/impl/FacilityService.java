@@ -21,6 +21,8 @@ public class FacilityService implements IFacilityService {
         return facilityRepository.searchName(name, pageable);
     }
 
+
+
     @Override
     public Page<Facility> searchNameAndFacilityType(String name, Integer typeId, Pageable pageable) {
         return facilityRepository.searchNameAndFacilityType(name, typeId, pageable);

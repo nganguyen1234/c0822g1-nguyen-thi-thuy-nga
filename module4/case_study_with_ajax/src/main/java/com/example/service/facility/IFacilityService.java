@@ -10,7 +10,6 @@ import java.util.List;
 
 public interface IFacilityService {
     Page<Facility> searchName(String name, Pageable pageable);
-
     Page<Facility> searchNameAndFacilityType(String name, Integer typeId, Pageable pageable);
     List<Facility> getAllFacility();
     boolean addNewFacility(Facility facility);

@@ -3,6 +3,7 @@ package com.example.dto.customer;
 import com.example.model.customer.CustomerType;
 import com.example.service.customer.ICustomerService;
 import com.example.service.impl.CustomerService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -15,6 +16,7 @@ import java.time.format.DateTimeParseException;
 public class CustomerDto implements Validator {
     private int id;
     private CustomerType customerType;
+    //    @DateTimeFormat(pattern = "DD/MM/YYYY")
     private String dateOfBirth;
 
     @NotBlank(message = "tên khách hàng không được để trống")
@@ -118,12 +120,9 @@ public class CustomerDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-//        ICustomerService customerService = new CustomerService();
         CustomerDto customerDto = (CustomerDto) target;
-//        boolean checkId = customerService.checkIdCardPresent(customerDto.getIdCard());
-//        boolean checkEmail = customerService.checkEmailPresent(customerDto.getEmail());
-//        boolean checkPhoneNumber = customerService.checkPhoneNumberPresent(customerDto.getPhoneNumber());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
             LocalDate dateOfBirth1 = LocalDate.parse(customerDto.dateOfBirth, formatter);
         } catch (DateTimeParseException e) {

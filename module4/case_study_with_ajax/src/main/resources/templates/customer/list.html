@@ -159,7 +159,7 @@
                         <label class="form-label" th:for="dateOfBirth">Birthday</label>
                         <input type="date" th:field="*{dateOfBirth}"
                                class="form-control"
-                               name="dateOfBirth " required>
+                               name="dateOfBirth " required pattern="\d{2}/\d{2}/\d{4}">
                         <div class="text text-danger" th:if="${#fields.hasErrors('dateOfBirth')}"
                              th:errors="*{dateOfBirth}">
                             <p>Incorrect date of birth</p>

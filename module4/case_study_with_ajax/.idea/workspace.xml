@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/util/exception/DataDuplicationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidEmailException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidIdCardException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidPhoneNumberException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/customer/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/customer/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/customer/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/customer/ICustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/customer/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/customer/ICustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +117,7 @@
       <workItem from="1673093384986" duration="775000" />
       <workItem from="1673096697063" duration="1696000" />
       <workItem from="1673189471065" duration="6548000" />
-      <workItem from="1673226923238" duration="9544000" />
+      <workItem from="1673226923238" duration="11557000" />
     </task>
     <servers />
   </component>
@@ -167,21 +158,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java</url>
           <line>39</line>
           <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java</url>

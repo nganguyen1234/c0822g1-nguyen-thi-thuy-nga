@@ -150,8 +150,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">STT</th>
-                                <th scope="col">attach facility</th>
-                                <th scope="col">quantity</th>
+                                <th scope="col">Attach facility</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <tbody id="attachFacilityTable">
@@ -195,10 +196,6 @@
                     <div class="mb-3">
                         <label class="form-label">Quantity</label>
                         <input th:field="*{quantity}" id="selectedQuantity" type="number" class="form-control">
-                    </div><div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input th:field="*{quantity}" id="selectedQuantity" type="number" class="form-control">
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -336,7 +333,7 @@
         document.getElementById("contractId").value = id;
     }
 
-    // add attach facility in detail contract
+    // add attach facility in detail contract 1
     attachFacilityArr = [];
     let stt = 0;
     $('#addContract').click(function () {
@@ -350,12 +347,13 @@
         attachFacility = new AttachFacility(attachFacilityId, attachFacilityName, quantity);
         attachFacilityArr.push(attachFacility);
         let table = '';
+        debugger
         for (let i = 0; i < attachFacilityArr.length; i++) {
             table += `  "        <tr>\n" +
                 "        <td>${i}</td>\n" +
                 "        <td>${attachFacilityArr[i].name}</td>\n" +
                 "        <td>${attachFacilityArr[i].quantity}</td>\n"  +
-                // "        <td>  <button onclick="getDeleteInfo(${i},${attachFacilityArr[i].name})"
+                // "        <td><button onclick="getDeleteInfo(${i},${attachFacilityArr[i].name})"
                         type="button"
                         class="btn btn-light" data-bs-toggle="modal"
                         data-bs-target="#deleteAttachFacility">

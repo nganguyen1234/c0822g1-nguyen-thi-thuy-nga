@@ -144,15 +144,5 @@ public class CustomerDto implements Validator {
                 }
             }
         }
-        // constraint unique ID card, email, phone number
-//        if (checkId) {
-//            errors.rejectValue("idCard", "idCard", "số CMND bạn vừa nhập đã tồn tại");
-//        }
-//        if (checkEmail) {
-//            errors.rejectValue("email", "email", "Email bạn vừa nhập đã tồn tại");
-//        }
-//        if (checkPhoneNumber) {
-//            errors.rejectValue("phoneNumber", "phoneNumber", "số điện thoại bạn vừa nhập đã tồn tại");
-//        }
     }
 }

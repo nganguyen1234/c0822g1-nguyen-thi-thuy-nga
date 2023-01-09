@@ -1,10 +1,14 @@
 package com.example.controller;
 
 import com.example.model.customer.Customer;
-import com.example.model.customer.CustomerDto;
+import com.example.dto.customer.CustomerDto;
 import com.example.model.customer.CustomerType;
 import com.example.service.customer.ICustomerService;
 import com.example.service.customer.ICustomerTypeService;
+import com.example.util.exception.DataDuplicationException;
+import com.example.util.exception.InvalidEmailException;
+import com.example.util.exception.InvalidIdCardException;
+import com.example.util.exception.InvalidPhoneNumberException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -43,24 +47,17 @@ public class CustomerController {
         List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
         model.addAttribute("customerDto", customerDto);
         model.addAttribute("customerList", customerList);
+        model.addAttribute("size", customerList.getTotalPages());
         model.addAttribute("customerTypeList", customerTypeList);
         return "/customer/list";
     }
 
     @PostMapping(value = "/add")
     public String addNewCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()) {
-            Pageable pageable = null;
-            Page<Customer> customerList = customerService.searchName("", "", pageable);
-            List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
-            boolean isModal = true;
-            model.addAttribute("isModal", isModal);
-            model.addAttribute("customerList", customerList);
-            model.addAttribute("customerTypeList", customerTypeList);
-            return "/customer/list";
-        } else {
-            Customer customer = new Customer();
-            BeanUtils.copyProperties(customerDto, customer);
+        customerDto.validate(customerDto, bindingResult);
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
+        try {
             boolean check = customerService.addNewCustomer(customer);
             String mess;
             if (check) {
@@ -70,24 +67,33 @@ public class CustomerController {
             }
             redirectAttributes.addFlashAttribute("mess", mess);
             return "redirect:/customer/show-list";
+        } catch (DataDuplicationException dataDuplicationException) {
+            if (dataDuplicationException.getErrorMap().get("email") != null) {
+                bindingResult.rejectValue("email", "email", "Email bạn vừa nhập đã tồn tại");
+            }
+            if (dataDuplicationException.getErrorMap().get("idCard") != null) {
+                bindingResult.rejectValue("idCard", "idCard", "số CMND bạn vừa nhập đã tồn tại");
+            }
+            if (dataDuplicationException.getErrorMap().get("phoneNumber") != null) {
+                bindingResult.rejectValue("phoneNumber", "phoneNumber", "Số điện thoại bạn vừa nhập đã tồn tại");
+            }
         }
-
+        Pageable pageable = null;
+        Page<Customer> customerList = customerService.searchName("", "", pageable);
+        List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
+        boolean isModal = true;
+        model.addAttribute("isModal", isModal);
+        model.addAttribute("customerList", customerList);
+        model.addAttribute("customerTypeList", customerTypeList);
+        return "/customer/list";
     }
 
     @PostMapping(value = "/edit")
     public String editCustomer(@Validated CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()) {
-            Pageable pageable = null;
-            Page<Customer> customerList = customerService.searchName("", "", pageable);
-            List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
-            boolean isModal = true;
-            model.addAttribute("isModal", isModal);
-            model.addAttribute("customerList", customerList);
-            model.addAttribute("customerTypeList", customerTypeList);
-            return "/customer/list";
-        } else {
-            Customer customer = new Customer();
-            BeanUtils.copyProperties(customerDto, customer);
+        customerDto.validate(customerDto, bindingResult);
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
+        try {
             boolean check = customerService.editCustomer(customer);
             String mess;
             if (check) {
@@ -97,14 +103,32 @@ public class CustomerController {
             }
             redirectAttributes.addFlashAttribute("mess", mess);
             return "redirect:/customer/show-list";
+        } catch (DataDuplicationException dataDuplicationException) {
+            if (dataDuplicationException.getErrorMap().get("email") != null) {
+                bindingResult.rejectValue("email", "email", "Email bạn vừa nhập đã tồn tại");
+            }
+            if (dataDuplicationException.getErrorMap().get("idCard") != null) {
+                bindingResult.rejectValue("idCard", "idCard", "số CMND bạn vừa nhập đã tồn tại");
+            }
+            if (dataDuplicationException.getErrorMap().get("phoneNumber") != null) {
+                bindingResult.rejectValue("phoneNumber", "phoneNumber", "Số điện thoại bạn vừa nhập đã tồn tại");
+            }
         }
+        Pageable pageable = null;
+        Page<Customer> customerList = customerService.searchName("", "", pageable);
+        List<CustomerType> customerTypeList = customerTypeService.getAllCustomerType();
+        boolean isModal = true;
+        model.addAttribute("isEditModal", isModal);
+        model.addAttribute("customerList", customerList);
+        model.addAttribute("customerTypeList", customerTypeList);
+        return "/customer/list";
     }
 
     @PostMapping(value = "/delete")
     public String deleteCustomer(CustomerDto customerDto, Model model, RedirectAttributes redirectAttributes) {
         Customer customer = customerService.findById(customerDto.getId());
         customer.setDeleted(true);
-        boolean check = customerService.editCustomer(customer);
+        boolean check = customerService.deleteCustomer(customer);
         String mess;
         if (check) {
             mess = "Xóa thành công";

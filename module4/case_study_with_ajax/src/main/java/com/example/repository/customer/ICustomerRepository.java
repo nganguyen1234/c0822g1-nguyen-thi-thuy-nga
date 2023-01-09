@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select * from customer where name like concat('%',:name,'%') and email like concat('%',:email,'%') and customer_type_id = :customerTypeId and is_deleted=false", nativeQuery = true)
@@ -15,7 +17,7 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select * from customer where name like concat('%',:name,'%') and email like concat('%',:email,'%')and is_deleted=false", nativeQuery = true)
     Page<Customer> searchName(@Param("name") String name, @Param("email") String email, Pageable pageable);
 
-    Customer findByIdCard(String idCard);
-    Customer findByPhoneNumber(String phoneNumber);
-    Customer findByEmail(String email);
+    List<Customer> findByIdCard(String idCard);
+    List<Customer> findByPhoneNumber(String phoneNumber);
+    List<Customer> findByEmail(String email);
 }

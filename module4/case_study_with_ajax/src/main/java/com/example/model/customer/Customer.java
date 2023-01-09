@@ -13,7 +13,6 @@ public class Customer {
     private String name;
     private String dateOfBirth;
     private int gender;
-
     @Column(columnDefinition = "varchar(255) unique")
     private String idCard;
 

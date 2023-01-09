@@ -1,6 +1,8 @@
-package com.example.model.customer;
+package com.example.dto.customer;
 
-import org.hibernate.validator.constraints.UniqueElements;
+import com.example.model.customer.CustomerType;
+import com.example.service.customer.ICustomerService;
+import com.example.service.impl.CustomerService;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -16,15 +18,15 @@ public class CustomerDto implements Validator {
     private String dateOfBirth;
 
     @NotBlank(message = "tên khách hàng không được để trống")
-    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$",message = "Tên khách hàng không thể chứa ký tự đặc biệt và không thể chứa số")
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "Tên khách hàng không thể chứa ký tự đặc biệt và không thể chứa số")
     private String name;
     private int gender;
 
     @NotBlank(message = "số cmnd không được để trống")
-    @Pattern(regexp = "(\\d{9})|(\\d{12})",message = "số cmnd phải đúng định dạng,vd:XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).")
+    @Pattern(regexp = "(\\d{9})|(\\d{12})", message = "số cmnd phải đúng định dạng,vd:XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).")
     private String idCard;
 
-    @Pattern(regexp = "(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})",message = "Số điện thoại phải đúng định dạng, vd:090xxxxxxx; 091xxxxxxx; (84)+90xxxxxxx; (84)+91xxxxxxx " )
+    @Pattern(regexp = "(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})", message = "Số điện thoại phải đúng định dạng, vd:090xxxxxxx; 091xxxxxxx; (84)+90xxxxxxx; (84)+91xxxxxxx ")
     @NotBlank(message = "số điện thoại không được để trống")
     private String phoneNumber;
     @Pattern(regexp = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+", message = "email phải đúng định dạng, vd: abc123@gmail.com")
@@ -113,9 +115,14 @@ public class CustomerDto implements Validator {
         return false;
     }
 
+
     @Override
     public void validate(Object target, Errors errors) {
+//        ICustomerService customerService = new CustomerService();
         CustomerDto customerDto = (CustomerDto) target;
+//        boolean checkId = customerService.checkIdCardPresent(customerDto.getIdCard());
+//        boolean checkEmail = customerService.checkEmailPresent(customerDto.getEmail());
+//        boolean checkPhoneNumber = customerService.checkPhoneNumberPresent(customerDto.getPhoneNumber());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         try {
             LocalDate dateOfBirth1 = LocalDate.parse(customerDto.dateOfBirth, formatter);
@@ -129,15 +136,24 @@ public class CustomerDto implements Validator {
         String upperRegex = "[A-Z]";
         if (!customerDto.getName().matches(strRegex)) {
             errors.rejectValue("name", "name", "Tên khách hàng không được chứa ký tự đặc biệt và chứa số");
-            return;
-        }
-        char firstLetter;
-        for (int i = 0; i < names.length; i++) {
-            firstLetter = names[i].charAt(0);
-            if (firstLetter < 'A' || firstLetter > 'Z') {
-errors.rejectValue("name","name","Ký tự đầu tiên phải viết hoa");
+        } else {
+            char firstLetter;
+            for (int i = 0; i < names.length; i++) {
+                firstLetter = names[i].charAt(0);
+                if (firstLetter < 'A' || firstLetter > 'Z') {
+                    errors.rejectValue("name", "name", "Ký tự đầu tiên phải viết hoa");
+                }
             }
         }
-
+        // constraint unique ID card, email, phone number
+//        if (checkId) {
+//            errors.rejectValue("idCard", "idCard", "số CMND bạn vừa nhập đã tồn tại");
+//        }
+//        if (checkEmail) {
+//            errors.rejectValue("email", "email", "Email bạn vừa nhập đã tồn tại");
+//        }
+//        if (checkPhoneNumber) {
+//            errors.rejectValue("phoneNumber", "phoneNumber", "số điện thoại bạn vừa nhập đã tồn tại");
+//        }
     }
 }

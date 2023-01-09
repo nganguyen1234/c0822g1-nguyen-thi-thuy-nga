@@ -22,4 +22,13 @@ public class AttachFacilityService implements IAttachFacilityService {
     public List<AttachFacility> getAllAttachFacility() {
         return attachFacilityRepository.findAll();
     }
+
+    @Override
+    public String getNameById(Integer id) {
+        AttachFacility attachFacility = attachFacilityRepository.findById(id).orElse(null);
+        if (attachFacility != null) {
+            return attachFacility.getName();
+        }
+        return null;
+    }
 }

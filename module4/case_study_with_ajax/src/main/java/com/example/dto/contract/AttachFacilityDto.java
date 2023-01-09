@@ -1,4 +1,4 @@
-package com.example.model.contract;
+package com.example.dto.contract;
 
 public class AttachFacilityDto {
     private Integer id;

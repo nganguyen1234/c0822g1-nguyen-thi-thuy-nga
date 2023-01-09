@@ -1,5 +1,6 @@
-package com.example.model.contract;
+package com.example.dto.contract;
 
+import com.example.model.contract.ContractDetail;
 import com.example.model.customer.Customer;
 import com.example.model.employee.Employee;
 import com.example.model.facility.Facility;
@@ -10,9 +11,9 @@ import javax.validation.constraints.Min;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
-
-public class AddContractDto implements Validator {
+public class ShowContractDto implements Validator {
     private int id;
     private String startDate;
     private String endDate;
@@ -21,30 +22,10 @@ public class AddContractDto implements Validator {
     private Customer customer;
     private Employee employee;
     private Facility facility;
+    private List<ContractDetail> contractDetail;
+    private Double total;
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-        AddContractDto addContractDto = (AddContractDto) target;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        try {
-            LocalDate startDate = LocalDate.parse(addContractDto.startDate, formatter);
-        } catch (DateTimeParseException e) {
-            errors.rejectValue("startDate", "startDate", "Ngày bắt đầu phải đúng định dạng dd/MM/yyyy");
-        }
-        try {
-            LocalDate endDate = LocalDate.parse(addContractDto.endDate, formatter);
-        } catch (DateTimeParseException e) {
-            errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải đúng định dạng dd/MM/yyyy");
-        }
-
-        if (addContractDto.getDeposit() <= 0) {
-            errors.rejectValue("deposit", "deposit", "The deposit must greater than 0");
-        }
+    public ShowContractDto() {
     }
 
     public int getId() {
@@ -101,5 +82,42 @@ public class AddContractDto implements Validator {
 
     public void setFacility(Facility facility) {
         this.facility = facility;
+    }
+
+    public List<ContractDetail> getContractDetail() {
+        return contractDetail;
+    }
+
+    public void setContractDetail(List<ContractDetail> contractDetail) {
+        this.contractDetail = contractDetail;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        ShowContractDto contractDto = (ShowContractDto) target;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        try {
+            LocalDate startDate1 = LocalDate.parse(contractDto.startDate, formatter);
+        } catch (DateTimeParseException e) {
+            errors.rejectValue("startDate", "startDate", "Ngày bắt đầu phải đúng định dạng dd/MM/yyyy");
+        }
+        try {
+            LocalDate endDate1 = LocalDate.parse(contractDto.endDate, formatter);
+        } catch (DateTimeParseException e) {
+            errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải đúng định dạng dd/MM/yyyy");
+        }
     }
 }

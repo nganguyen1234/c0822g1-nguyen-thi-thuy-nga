@@ -1,8 +1,6 @@
 package com.example.service.impl;
 
-import com.example.model.contract.AttachFacility;
-import com.example.model.contract.AttachFacilityDto;
-import com.example.model.contract.Contract;
+import com.example.dto.contract.AttachFacilityDto;
 import com.example.model.contract.ContractDetail;
 import com.example.repository.contract.IContractDetailRepository;
 import com.example.service.contract.IAttachFacilityService;
@@ -14,9 +12,7 @@ import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ContractDetailService implements IContractDetailService {

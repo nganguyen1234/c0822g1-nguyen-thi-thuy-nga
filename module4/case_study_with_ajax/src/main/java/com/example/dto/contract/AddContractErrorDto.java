@@ -1,6 +1,4 @@
-package com.example.dto;
-
-import com.example.model.contract.AttachFacilityErrorDto;
+package com.example.dto.contract;
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
-package com.example.model.facility;
+package com.example.dto.facility;
 
+import com.example.model.facility.FacilityType;
+import com.example.model.facility.RentType;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.validation.constraints.Min;

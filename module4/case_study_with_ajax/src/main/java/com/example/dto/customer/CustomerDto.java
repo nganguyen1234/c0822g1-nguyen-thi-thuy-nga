@@ -1,9 +1,6 @@
 package com.example.dto.customer;
 
 import com.example.model.customer.CustomerType;
-import com.example.service.customer.ICustomerService;
-import com.example.service.impl.CustomerService;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -16,7 +13,6 @@ import java.time.format.DateTimeParseException;
 public class CustomerDto implements Validator {
     private int id;
     private CustomerType customerType;
-    //    @DateTimeFormat(pattern = "DD/MM/YYYY")
     private String dateOfBirth;
 
     @NotBlank(message = "tên khách hàng không được để trống")

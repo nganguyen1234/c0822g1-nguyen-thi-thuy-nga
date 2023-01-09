@@ -1,7 +1,7 @@
 package com.example.service.contract;
 
 import com.example.model.contract.Contract;
-import com.example.model.contract.ShowContractDto;
+import com.example.dto.contract.ShowContractDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

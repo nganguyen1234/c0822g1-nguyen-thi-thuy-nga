@@ -1,5 +1,6 @@
-package com.example.model.contract;
+package com.example.dto.contract;
 
+import com.example.model.contract.AttachFacility;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

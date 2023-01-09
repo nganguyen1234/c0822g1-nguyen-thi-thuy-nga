@@ -1,7 +1,7 @@
 package com.example.service.impl;
 
 import com.example.model.contract.Contract;
-import com.example.model.contract.ShowContractDto;
+import com.example.dto.contract.ShowContractDto;
 import com.example.repository.contract.IContractRepository;
 import com.example.service.contract.IContractService;
 import org.springframework.beans.BeanUtils;

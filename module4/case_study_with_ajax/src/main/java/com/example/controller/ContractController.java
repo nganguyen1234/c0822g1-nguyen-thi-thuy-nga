@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import com.example.dto.contract.ContractDetailDto;
+import com.example.dto.contract.ShowContractDto;
 import com.example.model.contract.*;
 import com.example.model.customer.Customer;
 import com.example.model.facility.Facility;

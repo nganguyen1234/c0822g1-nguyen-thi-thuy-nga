@@ -1,8 +1,13 @@
-package com.example.model.contract;
+package com.example.dto.contract;
 
 public class AttachFacilityErrorDto {
     private String name;
     private String quantityError;
+
+    public AttachFacilityErrorDto(String name, String quantityError) {
+        this.name = name;
+        this.quantityError = quantityError;
+    }
 
     public String getName() {
         return name;

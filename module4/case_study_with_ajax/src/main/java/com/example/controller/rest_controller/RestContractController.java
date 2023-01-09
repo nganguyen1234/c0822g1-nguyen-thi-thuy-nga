@@ -1,6 +1,9 @@
 package com.example.controller.rest_controller;
 
-import com.example.dto.AddContractErrorDto;
+import com.example.dto.contract.AddContractErrorDto;
+import com.example.dto.contract.AttachFacilityDto;
+import com.example.dto.contract.AttachFacilityErrorDto;
+import com.example.dto.contract.ContractDetailDto;
 import com.example.model.contract.*;
 import com.example.service.contract.IAttachFacilityService;
 import com.example.service.contract.IContractDetailService;
@@ -11,14 +14,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/contract")
@@ -28,6 +28,9 @@ public class RestContractController {
     private IContractDetailService contractDetailService;
     @Autowired
     private IContractService contractService;
+
+    @Autowired
+    private IAttachFacilityService attachFacilityService;
 
     @GetMapping("/get-attach-facility-list")
     public ResponseEntity<List<AttachFacilityDto>> getAllAttachFacility(@RequestParam("contractId") int id) {
@@ -39,17 +42,21 @@ public class RestContractController {
     public ResponseEntity<?> add(@Validated @RequestBody ContractDetailDto[] contractDetailDtos) {
         BindingResult contractBindingResult = new BeanPropertyBindingResult(contractDetailDtos[0].getContract(), "contract");
         contractDetailDtos[0].getContract().validate(contractDetailDtos[0].getContract(), contractBindingResult);
-
         List<BindingResult> contractDetailBindingResult = new ArrayList<>();
-List<BindingResult> attachFacilityBr = new ArrayList<>();
+//        List<BindingResult> attachFacilityBr = new ArrayList<>();
+        List<AttachFacilityErrorDto> attachFacilityErrorDtos = new ArrayList<>();
         for (ContractDetailDto dto : contractDetailDtos) {
             BindingResult br = new BeanPropertyBindingResult(dto, "dto");
             dto.validate(dto, br);
+            if (br.hasErrors()) {
+                if (br.getFieldError("quantity") != null) {
+                    String name = attachFacilityService.getNameById(dto.getAttachFacility().getId());
+                    attachFacilityErrorDtos.add(new AttachFacilityErrorDto(name, "số lượng phải là số dương"));
+                }
+            }
             contractDetailBindingResult.add(br);
         }
-
         AddContractErrorDto responseDto = null;
-
         if (contractBindingResult.hasErrors()) {
             responseDto = new AddContractErrorDto();
             if (contractBindingResult.getFieldError("startDate") != null) {
@@ -58,7 +65,12 @@ List<BindingResult> attachFacilityBr = new ArrayList<>();
             if (contractBindingResult.getFieldError("endDate") != null) {
                 responseDto.setEndDate(contractBindingResult.getFieldError("endDate").getDefaultMessage());
             }
-
+            if (contractBindingResult.getFieldError("deposit") != null) {
+                responseDto.setDeposit("tiền đặt cọc phải là số dương");
+            }
+            if (!contractDetailBindingResult.isEmpty()) {
+                responseDto.setAttachFacilityErrorDtos(attachFacilityErrorDtos);
+            }
         }
 
         if (responseDto != null) {

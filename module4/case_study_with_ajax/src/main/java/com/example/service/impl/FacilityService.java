@@ -3,6 +3,7 @@ package com.example.service.impl;
 import com.example.model.facility.Facility;
 import com.example.repository.facility.IFacilityRepository;
 import com.example.service.facility.IFacilityService;
+import com.example.util.exception.FacilityNameDuplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.data.domain.Page;
@@ -34,9 +35,9 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public boolean addNewFacility(Facility facility) {
+    public boolean addFacility(Facility facility) throws FacilityNameDuplicationException {
         if (facilityRepository.findByName(facility.getName())!=null){
-            return false;
+            throw new FacilityNameDuplicationException("error");
         }
         try {
             facilityRepository.save(facility);

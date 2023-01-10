@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -58,33 +59,18 @@ public class ContractController {
         ContractDetail contractDetail = new ContractDetail();
         model.addAttribute("attachFacilityList", attachFacilityList);
         model.addAttribute("facilityList", facilityList);
-        model.addAttribute("employeeList",employeeList);
+        model.addAttribute("employeeList", employeeList);
         model.addAttribute("contractDetailDto", contractDetailDto);
         model.addAttribute("contractDetail", contractDetail);
         model.addAttribute("contractPage", contractPage);
         model.addAttribute("customerList", customerList);
         return "/contract/list";
     }
-//  @GetMapping(value = "/show-list")
-//    public String displayContractList(Model model, Pageable pageable) {
-//        List<Customer> customerList = customerService.getAllCustomer();
-//        ContractDetailDto contractDetailDto = new ContractDetailDto();
-//        Page<Contract> contractPage = contractService.getAllContracts(pageable);
-//        List<AttachFacility> attachFacilityList = attachFacilityService.getAllAttachFacility();
-//        List<Facility> facilityList = facilityService.getAllFacility();
-//        ContractDetail contractDetail = new ContractDetail();
-//        model.addAttribute("attachFacilityList", attachFacilityList);
-//        model.addAttribute("facilityList", facilityList);
-//        model.addAttribute("contractDetailDto", contractDetailDto);
-//        model.addAttribute("contractDetail", contractDetail);
-//        model.addAttribute("contractPage", contractPage);
-//        model.addAttribute("customerList", customerList);
-//        return "/contract/list";
-//    }
 
     @PostMapping("/add-attach-facility")
     public String addDetailContract(@ModelAttribute("contractDetail") ContractDetail contractDetail, RedirectAttributes redirectAttributes) {
         boolean check = contractDetailService.addContractDetail(contractDetail);
+        contractDetail.getContract().setEditHistory(String.valueOf(LocalDateTime.now()));
         String mess;
         if (check) {
             mess = "Đã thêm mới dịch vụ đi kèm thành công";
@@ -96,30 +82,4 @@ public class ContractController {
     }
 
 
-//    @PostMapping(value = "/add-contract")
-//    public String addContract(@Validated ContractDetailDto contractDetailDto, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            Pageable pageable = null;
-//            Page<Contract> contractPage = contractService.getAllContracts(pageable);
-//            List<AttachFacility> attachFacilityList = attachFacilityService.getAllAttachFacility();
-//            ContractDetail contractDetail = new ContractDetail();
-//            model.addAttribute("attachFacilityList", attachFacilityList);
-//            model.addAttribute("contractDetailDto", contractDetailDto);
-//            model.addAttribute("contractDetail", contractDetail);
-//            model.addAttribute("contractPage", contractPage);
-//            return "contract/list";
-//        } else {
-//            ContractDetail contractDetail = new ContractDetail();
-//            BeanUtils.copyProperties(contractDetailDto, contractDetail);
-//            boolean check = contractDetailService.addContractDetail(contractDetail);
-//            String mess;
-//            if (check) {
-//                mess = "Đã thêm mới thành công";
-//            } else {
-//                mess = "Đã xảy ra lỗi";
-//            }
-//            model.addAttribute("mess", mess);
-//            return "redirect:/contract/show-list";
-//        }
-//    }
 }

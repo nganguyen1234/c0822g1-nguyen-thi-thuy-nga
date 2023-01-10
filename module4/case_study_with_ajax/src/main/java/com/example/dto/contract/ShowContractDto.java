@@ -9,6 +9,7 @@ import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Min;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -24,6 +25,15 @@ public class ShowContractDto implements Validator {
     private Facility facility;
     private List<ContractDetail> contractDetail;
     private Double total;
+   private String editHistory;
+
+    public String getEditHistory() {
+        return editHistory;
+    }
+
+    public void setEditHistory(String editHistory) {
+        this.editHistory = editHistory;
+    }
 
     public ShowContractDto() {
     }

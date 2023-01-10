@@ -7,6 +7,7 @@ import com.example.model.facility.RentType;
 import com.example.service.facility.IFacilityService;
 import com.example.service.facility.IFacilityTypeService;
 import com.example.service.facility.IRentTypeService;
+import com.example.util.exception.FacilityNameDuplicationException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -53,27 +54,31 @@ public class FacilityController {
 
     @PostMapping(value = "/add-facility")
     public String addNewFacility(@Validated @ModelAttribute("facility") FacilityDto facilityDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Pageable pageable, Model model) {
-        if (bindingResult.hasErrors()) {
-            Page<Facility> facilityPage = facilityService.searchName("", pageable);
-            List<RentType> rentTypeList = rentTypeService.getAllRentType();
-            List<FacilityType> facilityTypeList = facilityTypeService.getAllType();
-            model.addAttribute("facility", facilityDto);
-            model.addAttribute("facilityPage", facilityPage);
-            model.addAttribute("facilityTypeList", facilityTypeList);
-            model.addAttribute("rentTypeList", rentTypeList);
-            return "facility/list";
-        }
         Facility facility = new Facility();
         BeanUtils.copyProperties(facilityDto, facility);
-        boolean check = facilityService.addNewFacility(facility);
-        String mess;
-        if (check) {
-            mess = "Thêm mới dịch vụ thành công";
-        } else {
-            mess = "Đã xảy ra lỗi";
+        try {
+            boolean check = facilityService.addFacility(facility);
+            String mess;
+            if (check) {
+                mess = "Thêm mới dịch vụ thành công";
+            } else {
+                mess = "Đã xảy ra lỗi";
+            }
+            redirectAttributes.addFlashAttribute("mess", mess);
+            return "redirect:/facility/show-list";
+        } catch (FacilityNameDuplicationException e) {
+            bindingResult.rejectValue("name", "name", "Tên dịch vụ đã tồn tại");
         }
-        redirectAttributes.addFlashAttribute("mess", mess);
-        return "redirect:/facility/show-list";
+        Page<Facility> facilityPage = facilityService.searchName("", pageable);
+        List<RentType> rentTypeList = rentTypeService.getAllRentType();
+        List<FacilityType> facilityTypeList = facilityTypeService.getAllType();
+        model.addAttribute("facility", facilityDto);
+        model.addAttribute("facilityPage", facilityPage);
+        model.addAttribute("facilityTypeList", facilityTypeList);
+        model.addAttribute("rentTypeList", rentTypeList);
+        model.addAttribute("isModal",true);
+        return "facility/list";
+
     }
 
     @PostMapping(value = "/edit-facility")
@@ -100,7 +105,8 @@ public class FacilityController {
         redirectAttributes.addFlashAttribute("mess", mess);
         return "redirect:/facility/show-list";
     }
-@PostMapping(value = "/delete-facility")
+
+    @PostMapping(value = "/delete-facility")
     public String deleteFacility(@ModelAttribute("facility") FacilityDto facilityDto, RedirectAttributes redirectAttributes) {
         Facility facility = facilityService.findById(facilityDto.getId());
         String mess;

@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,11 +84,14 @@ public class RestContractController {
         BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
         contractService.addContract(contract);
         for (int i = 0; i < contractDetailDtos.length; i++) {
-//            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
+            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
             ContractDetail contractDetail = new ContractDetail();
             BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
-            contractDetail.setContract(contract);
+            contractDetail.getContract().setEditHistory(String.valueOf(LocalDateTime.now()));
+//            contractDetail.setContract(contract);
             contractDetailService.addContractDetail(contractDetail);
+//            contract.setEditHistory(String.valueOf(LocalDateTime.now()));
+//            contractService.editContract(contract);
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }

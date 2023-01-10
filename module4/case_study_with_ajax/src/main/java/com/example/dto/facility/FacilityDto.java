@@ -4,25 +4,25 @@ import com.example.model.facility.FacilityType;
 import com.example.model.facility.RentType;
 import org.hibernate.validator.constraints.UniqueElements;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Min;
 
 public class FacilityDto {
     private Integer id;
-    @UniqueElements(message = "Tên dịch vụ bạn muốn thêm mới đã tồn tại")
     private String name;
-    @Min(value = 1,message = "Diện tích của dịch vụ phải là một số dương")
+    @Min(value = 1, message = "Diện tích của dịch vụ phải là một số dương")
     private Double area;
-    @Min(value = 1,message = "Gía phải là một số dương")
+    @Min(value = 1, message = "Gía phải là một số dương")
     private Double cost;
-    @Min(value = 1,message = "Số người tối đa phải là một số dương")
+    @Min(value = 1, message = "Số người tối đa phải là một số dương")
     private Integer maxPeople;
     private RentType rentType;
     private FacilityType facilityType;
     private String standardRoom;
     private String descriptionOtherConvenience;
-    @Min(value = 1,message = "Diện tích bể bơi phải là một số dương")
+    @Min(value = 1, message = "Diện tích bể bơi phải là một số dương")
     private Double poolArea;
-    @Min(value = 1,message = "Số tầng phải là một số dương")
+    @Min(value = 1, message = "Số tầng phải là một số dương")
     private Integer numberOfFloor;
     private String facilityFree;
 

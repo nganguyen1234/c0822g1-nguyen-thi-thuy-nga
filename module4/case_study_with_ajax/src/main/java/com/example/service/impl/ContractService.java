@@ -34,11 +34,12 @@ public class ContractService implements IContractService {
     @Override
     public Page<ShowContractDto> getAllContractDto(Pageable pageable) {
         List<ShowContractDto> contractDtoList = new ArrayList<>();
-        List<Contract> contractList = contractRepository.findAll();
+        List<Contract> contractList = contractRepository.getAllContract();
         for (Contract ct : contractList) {
             ShowContractDto contractDto = new ShowContractDto();
             BeanUtils.copyProperties(ct, contractDto);
             contractDto.setTotal(contractRepository.calculateTotal(ct.getId()));
+//            contractDto.setHistory();
             contractDtoList.add(contractDto);
         }
         return new PageImpl<>(contractDtoList);
@@ -60,12 +61,27 @@ public class ContractService implements IContractService {
 
     @Override
     public boolean isExist(Contract contract) {
-        List<Contract> contractList = getAllContracts();
-        for (Contract ct : contractList) {
-            if (Objects.equals(ct.getId(), contract.getId())) {
-                return true;
-            }
+        Contract contract1 = contractRepository.findById(contract.getId()).orElse(null);
+        return contract1 != null;
+    }
+
+    @Override
+    public Contract findById(int id) {
+        return contractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public boolean
+    editContract(Contract contract) {
+        if (!isExist(contract)) {
+            return false;
         }
-        return false;
+        try {
+            contractRepository.save(contract);
+        } catch (
+                IllegalArgumentException | OptimisticLockingFailureException e) {
+            return false;
+        }
+        return true;
     }
 }

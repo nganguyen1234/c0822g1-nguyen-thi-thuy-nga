@@ -13,4 +13,6 @@ public interface IContractService {
     Page<ShowContractDto> getAllContractDto(Pageable pageable);
     boolean addContract(Contract contract);
     boolean isExist(Contract contract);
+    Contract findById(int id);
+    boolean editContract(Contract contract);
 }

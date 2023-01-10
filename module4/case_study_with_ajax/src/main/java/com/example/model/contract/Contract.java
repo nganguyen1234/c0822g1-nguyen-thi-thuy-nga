@@ -35,7 +35,17 @@ public class Contract {
     @OneToMany(mappedBy = "contract")
     private List<ContractDetail> contractDetail;
 
+    private String editHistory;
+
     public Contract() {
+    }
+
+    public String getEditHistory() {
+        return editHistory;
+    }
+
+    public void setEditHistory(String editHistory) {
+        this.editHistory = editHistory;
     }
 
     public Integer getId() {

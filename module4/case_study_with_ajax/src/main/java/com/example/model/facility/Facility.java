@@ -7,6 +7,7 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition = "varchar(255) unique")
     private String name;
     private Double area;
     private Double cost;

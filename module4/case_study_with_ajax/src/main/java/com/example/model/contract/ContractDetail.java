@@ -1,6 +1,7 @@
 package com.example.model.contract;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class ContractDetail {
@@ -20,6 +21,7 @@ public class ContractDetail {
 
     @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
+
 
     public ContractDetail() {
     }
@@ -63,4 +65,6 @@ public class ContractDetail {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+
 }

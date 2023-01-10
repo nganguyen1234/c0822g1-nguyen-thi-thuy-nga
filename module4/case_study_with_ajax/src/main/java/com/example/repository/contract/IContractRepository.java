@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
     @Query(value = "select * from contract where is_deleted = false", nativeQuery = true)
@@ -20,4 +23,9 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
             "where c.id = :contractId\n and c.is_deleted = false " +
             "group by c.id", nativeQuery = true)
     Double calculateTotal(@Param("contractId") int contractId);
+
+    @Query(value = "select * from contract where is_deleted = false", nativeQuery = true)
+    List<Contract> getAllContract();
+
+
 }

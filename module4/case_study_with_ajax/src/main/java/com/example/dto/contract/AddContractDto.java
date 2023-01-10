@@ -30,7 +30,7 @@ public class AddContractDto implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         AddContractDto addContractDto = (AddContractDto) target;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
             LocalDate startDate = LocalDate.parse(addContractDto.startDate, formatter);
         } catch (DateTimeParseException e) {

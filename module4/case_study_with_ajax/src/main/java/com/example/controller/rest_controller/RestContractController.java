@@ -43,19 +43,21 @@ public class RestContractController {
         BindingResult contractBindingResult = new BeanPropertyBindingResult(contractDetailDtos[0].getContract(), "contract");
         contractDetailDtos[0].getContract().validate(contractDetailDtos[0].getContract(), contractBindingResult);
         List<BindingResult> contractDetailBindingResult = new ArrayList<>();
-//        List<BindingResult> attachFacilityBr = new ArrayList<>();
         List<AttachFacilityErrorDto> attachFacilityErrorDtos = new ArrayList<>();
-        for (ContractDetailDto dto : contractDetailDtos) {
-            BindingResult br = new BeanPropertyBindingResult(dto, "dto");
-            dto.validate(dto, br);
-            if (br.hasErrors()) {
-                if (br.getFieldError("quantity") != null) {
-                    String name = attachFacilityService.getNameById(dto.getAttachFacility().getId());
-                    attachFacilityErrorDtos.add(new AttachFacilityErrorDto(name, "số lượng phải là số dương"));
+        if (contractDetailDtos[0].getAttachFacility() != null) {
+            for (ContractDetailDto dto : contractDetailDtos) {
+                BindingResult br = new BeanPropertyBindingResult(dto, "dto");
+                dto.validate(dto, br);
+                if (br.hasErrors()) {
+                    if (br.getFieldError("quantity") != null) {
+                        String name = attachFacilityService.getNameById(dto.getAttachFacility().getId());
+                        attachFacilityErrorDtos.add(new AttachFacilityErrorDto(name, "số lượng phải là số dương"));
+                    }
                 }
+                contractDetailBindingResult.add(br);
             }
-            contractDetailBindingResult.add(br);
         }
+
         AddContractErrorDto responseDto = null;
         if (contractBindingResult.hasErrors()) {
             responseDto = new AddContractErrorDto();
@@ -77,15 +79,14 @@ public class RestContractController {
             // has error
             return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
         }
-
-
         Contract contract = new Contract();
         BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
         contractService.addContract(contract);
         for (int i = 0; i < contractDetailDtos.length; i++) {
-            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
+//            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
             ContractDetail contractDetail = new ContractDetail();
             BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
+            contractDetail.setContract(contract);
             contractDetailService.addContractDetail(contractDetail);
         }
         return new ResponseEntity<>(HttpStatus.OK);

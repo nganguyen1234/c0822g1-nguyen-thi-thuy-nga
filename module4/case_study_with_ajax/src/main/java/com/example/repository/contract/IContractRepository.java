@@ -17,7 +17,7 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
             "         left join contract_detail cd on c.id = cd.contract_id\n" +
             "         left join attach_facility af on af.id = cd.attach_facility_id\n" +
             "         left join facility f on c.facility_id = f.id\n" +
-            "where c.id = :contractId\n" +
+            "where c.id = :contractId\n and c.is_deleted = false " +
             "group by c.id", nativeQuery = true)
-    Double calculateTotal(@Param("contractId") int contracId);
+    Double calculateTotal(@Param("contractId") int contractId);
 }

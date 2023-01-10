@@ -138,11 +138,17 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Employee</label>
+                        <select class="form-select" id="newEmployeeId" aria-label="Default select example">
+                            <option th:each="employee:${employeeList}" th:value="${employee.id}"
+                                    th:text="${employee.name}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Service</label>
                         <select class="form-select" id="newFacilityId" aria-label="Default select example">
                             <option th:each="facility:${facilityList}" th:value="${facility.id}"
                                     th:text="${facility.name}"></option>
-
                         </select>
                     </div>
                     <div>
@@ -196,11 +202,11 @@
                     <div class="mb-3">
                         <label class="form-label">Quantity</label>
                         <input th:field="*{quantity}" id="selectedQuantity" type="number" class="form-control">
-                </div>
-                <div class="modal-footer">
-                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="reset" id="addContract" class="btn btn-primary">Save changes</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="reset" id="addContract" class="btn btn-primary">Save changes</button>
+                    </div>
             </form>
         </div>
     </div>
@@ -234,8 +240,6 @@
         </div>
     </div>
 </div>
-
-
 <!--------------------------------------------------------display attach facility list ---------------------------------------------->
 <div class="modal fade" id="dislayAttachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -261,14 +265,13 @@
                 <div id="deleteAFId"></div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-                <div class="modal-body">
-                    <span>Are you sure that you want to delete attach facility: </span><span id="deleteAFName"> ?</span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" onclick="confirmDelete()" class="btn btn-danger">Delete</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <span>Are you sure that you want to delete attach facility: </span><span id="deleteAFName"> ?</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+            </div>
         </div>
     </div>
 </div>
@@ -347,13 +350,12 @@
         attachFacility = new AttachFacility(attachFacilityId, attachFacilityName, quantity);
         attachFacilityArr.push(attachFacility);
         let table = '';
-        debugger
         for (let i = 0; i < attachFacilityArr.length; i++) {
             table += `  "        <tr>\n" +
                 "        <td>${i}</td>\n" +
                 "        <td>${attachFacilityArr[i].name}</td>\n" +
                 "        <td>${attachFacilityArr[i].quantity}</td>\n"  +
-                // "        <td><button onclick="getDeleteInfo(${i},${attachFacilityArr[i].name})"
+                "        <td><button onclick="getDeleteInfo(${i},${attachFacilityArr[i].name})"
                         type="button"
                         class="btn btn-light" data-bs-toggle="modal"
                         data-bs-target="#deleteAttachFacility">
@@ -366,22 +368,26 @@
     })
 
     function getDeleteInfo(id, name) {
+        debugger
         document.getElementById("deleteAFId").value = id;
         document.getElementById("deleteAFName").innerText = name;
     }
 
     function confirmDelete() {
+        debugger
         let id = document.getElementById("deleteAFId").value;
         attachFacilityArr.splice(id, 1);
     }
 
     // add detail contract 1
     function addContractDetail() {
+        debugger
         contractDetailArr = [];
         let startDate = document.getElementById("newStartDate").value;
         let endDate = document.getElementById("newEndDate").value;
         let deposit = document.getElementById("newDeposit").value;
         let customerId = document.getElementById("newCustomerId").value;
+        let employeeId = document.getElementById("newEmployeeId").value;
         let facilityId = document.getElementById("newFacilityId").value;
         customer = {
             id: customerId
@@ -389,25 +395,38 @@
         facility = {
             id: facilityId
         }
+        employee = {
+            id: employeeId
+        }
         let contract = {
             startDate: startDate,
             endDate: endDate,
             deposit: deposit,
             customer: customer,
+            employee: employee,
             facility: facility
         }
-        for (let i = 0; i < attachFacilityArr.length; i++) {
-            let newAttachFacility = {
-                id: attachFacilityArr[i].attachFacilityId
+        if (attachFacilityArr.length > 0) {
+            for (let i = 0; i < attachFacilityArr.length; i++) {
+                let newAttachFacility = {
+                    id: attachFacilityArr[i].attachFacilityId
+                }
+                let newContractDetail = {
+                    isDeleted: false,
+                    contract: contract,
+                    attachFacility: newAttachFacility,
+                    quantity: attachFacilityArr[i].quantity
+                }
+                contractDetailArr.push(newContractDetail)
             }
+        } else {
             let newContractDetail = {
                 isDeleted: false,
-                contract: contract,
-                attachFacility: newAttachFacility,
-                quantity: attachFacilityArr[i].quantity
+                contract: contract
             }
             contractDetailArr.push(newContractDetail)
         }
+
 
         $.ajax({
             headers: {

@@ -4,11 +4,13 @@ import com.example.dto.contract.ContractDetailDto;
 import com.example.dto.contract.ShowContractDto;
 import com.example.model.contract.*;
 import com.example.model.customer.Customer;
+import com.example.model.employee.Employee;
 import com.example.model.facility.Facility;
 import com.example.service.contract.IAttachFacilityService;
 import com.example.service.contract.IContractDetailService;
 import com.example.service.contract.IContractService;
 import com.example.service.customer.ICustomerService;
+import com.example.service.employee.IEmployeeService;
 import com.example.service.facility.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +42,9 @@ public class ContractController {
     private ICustomerService customerService;
 
     @Autowired
+    private IEmployeeService employeeService;
+
+    @Autowired
     private IFacilityService facilityService;
 
     @GetMapping(value = "/show-list")
@@ -49,9 +54,11 @@ public class ContractController {
         Page<ShowContractDto> contractPage = contractService.getAllContractDto(pageable);
         List<AttachFacility> attachFacilityList = attachFacilityService.getAllAttachFacility();
         List<Facility> facilityList = facilityService.getAllFacility();
+        List<Employee> employeeList = employeeService.getAllEmployee();
         ContractDetail contractDetail = new ContractDetail();
         model.addAttribute("attachFacilityList", attachFacilityList);
         model.addAttribute("facilityList", facilityList);
+        model.addAttribute("employeeList",employeeList);
         model.addAttribute("contractDetailDto", contractDetailDto);
         model.addAttribute("contractDetail", contractDetail);
         model.addAttribute("contractPage", contractPage);

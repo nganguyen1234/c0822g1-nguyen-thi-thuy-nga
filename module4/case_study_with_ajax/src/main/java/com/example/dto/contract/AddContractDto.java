@@ -7,7 +7,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -16,6 +18,7 @@ public class AddContractDto implements Validator {
     private int id;
     private String startDate;
     private String endDate;
+    @NotBlank
     @Min(value = 1, message = "Tiền đặt cọc phải là số dương")
     private Double deposit;
     private Customer customer;
@@ -30,16 +33,23 @@ public class AddContractDto implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         AddContractDto addContractDto = (AddContractDto) target;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate newStartDate = null;
+        LocalDate newEndDate = null;
         try {
-            LocalDate startDate = LocalDate.parse(addContractDto.startDate, formatter);
+            newStartDate = LocalDate.parse(addContractDto.startDate, formatter);
         } catch (DateTimeParseException e) {
-            errors.rejectValue("startDate", "startDate", "Ngày bắt đầu phải đúng định dạng dd/MM/yyyy");
+            errors.rejectValue("startDate", "startDate", "Ngày bắt đầu yêu cầu đúng định dạng dd/MM/yyyy");
         }
         try {
-            LocalDate endDate = LocalDate.parse(addContractDto.endDate, formatter);
+            newEndDate = LocalDate.parse(addContractDto.endDate, formatter);
         } catch (DateTimeParseException e) {
             errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải đúng định dạng dd/MM/yyyy");
+        }
+        Period period = Period.between(newStartDate, newEndDate);
+        if (period.isZero() || period.isNegative()) {
+            errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất là 1 ngày");
+
         }
 
         if (addContractDto.getDeposit() <= 0) {

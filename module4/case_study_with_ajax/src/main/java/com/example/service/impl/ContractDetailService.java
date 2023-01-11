@@ -1,6 +1,7 @@
 package com.example.service.impl;
 
 import com.example.dto.contract.AttachFacilityDto;
+import com.example.model.contract.Contract;
 import com.example.model.contract.ContractDetail;
 import com.example.repository.contract.IContractDetailRepository;
 import com.example.service.contract.IAttachFacilityService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,22 +49,23 @@ public class ContractDetailService implements IContractDetailService {
 
     @Override
     public boolean addContractDetail(ContractDetail newContractDetail) {
-        if (!contractService.isExist(newContractDetail.getContract())) {
+        Contract contract = newContractDetail.getContract();
+        if (!contractService.isExist(contract)) {
             return false;
         }
-        List<ContractDetail> contractDetailList = getAllContractDetails();
-        int contractId;
+        List<ContractDetail> contractDetailList = contractDetailRepository.findByContract(contract);
         int attachFacilityId;
         for (ContractDetail contractDetail : contractDetailList) {
-            contractId = contractDetail.getContract().getId();
             attachFacilityId = contractDetail.getAttachFacility().getId();
-            if (contractId == newContractDetail.getContract().getId() && attachFacilityId == newContractDetail.getAttachFacility().getId()) {
+            if (attachFacilityId == newContractDetail.getAttachFacility().getId()) {
                 newContractDetail.setId(contractDetail.getId());
                 newContractDetail.setQuantity(contractDetail.getQuantity() + newContractDetail.getQuantity());
             }
         }
         try {
             contractDetailRepository.save(newContractDetail);
+            contract.setEditHistory(String.valueOf(LocalDateTime.now()));
+            contractService.editContract(contract);
         } catch (
                 IllegalArgumentException | OptimisticLockingFailureException e) {
             return false;

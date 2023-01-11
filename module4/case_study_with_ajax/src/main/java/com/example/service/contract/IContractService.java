@@ -11,7 +11,7 @@ public interface IContractService {
     List<Contract> getAllContracts();
     Page<Contract> getAllContracts(Pageable pageable);
     Page<ShowContractDto> getAllContractDto(Pageable pageable);
-    boolean addContract(Contract contract);
+    Contract addContract(Contract contract);
     boolean isExist(Contract contract);
     Contract findById(int id);
     boolean editContract(Contract contract);

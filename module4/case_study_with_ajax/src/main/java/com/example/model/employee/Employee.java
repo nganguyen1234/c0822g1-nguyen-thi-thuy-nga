@@ -1,5 +1,6 @@
 package com.example.model.employee;
 
+import com.example.model.user.User;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;

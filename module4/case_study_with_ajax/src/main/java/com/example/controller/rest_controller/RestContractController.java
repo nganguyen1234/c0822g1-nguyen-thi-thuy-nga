@@ -82,16 +82,16 @@ public class RestContractController {
         }
         Contract contract = new Contract();
         BeanUtils.copyProperties(contractDetailDtos[0].getContract(), contract);
-        contractService.addContract(contract);
+        Contract contract1 = contractService.addContract(contract);
         for (int i = 0; i < contractDetailDtos.length; i++) {
-            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
+//            contractDetailDtos[i].setContract(contractDetailDtos[0].getContract());
             ContractDetail contractDetail = new ContractDetail();
             BeanUtils.copyProperties(contractDetailDtos[i], contractDetail);
-            contractDetail.getContract().setEditHistory(String.valueOf(LocalDateTime.now()));
+//            contract1.setEditHistory(String.valueOf(LocalDateTime.now()));
+//            contractService.editContract(contract1);
+            contractDetail.setContract(contract1);
 //            contractDetail.setContract(contract);
             contractDetailService.addContractDetail(contractDetail);
-//            contract.setEditHistory(String.valueOf(LocalDateTime.now()));
-//            contractService.editContract(contract);
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }

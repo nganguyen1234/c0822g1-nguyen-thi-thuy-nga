@@ -1,25 +1,26 @@
-package com.example.model.employee;
+package com.example.model.user;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
 
-    @Column(columnDefinition = "boolean default false")
-    private boolean isDeleted;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
     public Role() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,11 +32,11 @@ public class Role {
         this.name = name;
     }
 
-    public boolean isDeleted() {
-        return isDeleted;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setDeleted(boolean deleted) {
-        isDeleted = deleted;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

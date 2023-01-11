@@ -46,17 +46,16 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public boolean addContract(Contract contract) {
+    public Contract addContract(Contract contract) {
         if (isExist(contract)) {
-            return false;
+            return null;
         }
         try {
-            contractRepository.save(contract);
+            return contractRepository.save(contract);
         } catch (
                 IllegalArgumentException | OptimisticLockingFailureException e) {
-            return false;
+            return null;
         }
-        return true;
     }
 
     @Override

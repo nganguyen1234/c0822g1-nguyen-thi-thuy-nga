@@ -70,7 +70,6 @@ public class ContractController {
     @PostMapping("/add-attach-facility")
     public String addDetailContract(@ModelAttribute("contractDetail") ContractDetail contractDetail, RedirectAttributes redirectAttributes) {
         boolean check = contractDetailService.addContractDetail(contractDetail);
-        contractDetail.getContract().setEditHistory(String.valueOf(LocalDateTime.now()));
         String mess;
         if (check) {
             mess = "Đã thêm mới dịch vụ đi kèm thành công";

@@ -5,10 +5,12 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 public class ContractDetailDto implements Validator {
     private AddContractDto contract;
     private AttachFacility attachFacility;
+    @NotBlank
     @Min(value = 1, message = "Số lượng phải là số nguyên dương")
     private int quantity;
     public ContractDetailDto() {

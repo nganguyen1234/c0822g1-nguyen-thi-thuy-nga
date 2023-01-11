@@ -1,4 +1,4 @@
-package com.example.controller.rest_controller;
+package com.example.controller;
 
 import com.example.dto.contract.AddContractErrorDto;
 import com.example.dto.contract.AttachFacilityDto;

@@ -117,14 +117,9 @@ public class CustomerDto implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         CustomerDto customerDto = (CustomerDto) target;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try {
             LocalDate dateOfBirth1 = LocalDate.parse(customerDto.dateOfBirth, formatter);
-            String[] s = customerDto.dateOfBirth.split("-");
-            String newDate = s[2] + "/" + s[1] + "/" + s[0];
-            LocalDate.parse(newDate, formatter1);
-            customerDto.setDateOfBirth(newDate);
         } catch (DateTimeParseException e) {
             errors.rejectValue("dateOfBirth", "dateOfBirth", "Ngày sinh phải đúng định dạng dd/MM/yyyy");
         }

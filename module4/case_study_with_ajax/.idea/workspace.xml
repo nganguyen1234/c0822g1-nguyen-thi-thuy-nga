@@ -5,35 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ExceptionHandlerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/user/MyUserDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/user/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/user/IUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/service/user/MyUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/loginPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/loginPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage/errorPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/loginPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/CaseStudyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/ContractDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/ContractDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/RestContractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/employee/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/employee/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/employee/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/contract/IContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module_2/src/giai_thuat/IsoscelesTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/src/giai_thuat/IsoscelesTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/errorPage/errorPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage/errorPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +146,7 @@
       <workItem from="1673313766736" duration="18068000" />
       <workItem from="1673351407447" duration="6420000" />
       <workItem from="1673399581384" duration="12924000" />
+      <workItem from="1673418723544" duration="4129000" />
     </task>
     <servers />
   </component>
@@ -231,11 +209,6 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractService.java</url>
           <line>74</line>
           <option name="timeStamp" value="53" />
@@ -246,9 +219,19 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/RestContractController.java</url>
           <line>84</line>
           <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/controller/RestContractController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

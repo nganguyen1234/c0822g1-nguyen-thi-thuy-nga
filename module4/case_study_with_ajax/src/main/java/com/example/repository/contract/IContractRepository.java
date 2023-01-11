@@ -24,7 +24,7 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
             "group by c.id", nativeQuery = true)
     Double calculateTotal(@Param("contractId") int contractId);
 
-    @Query(value = "select * from contract where is_deleted = false", nativeQuery = true)
+    @Query(value = "select * from contract where is_deleted = false ", nativeQuery = true)
     List<Contract> getAllContract();
 
 

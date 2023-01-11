@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/rest_controller/RestContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/RestContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/customer/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contract/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/errorPage/errorPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage/errorPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +144,7 @@
       <workItem from="1673313766736" duration="18068000" />
       <workItem from="1673351407447" duration="6420000" />
       <workItem from="1673399581384" duration="12924000" />
-      <workItem from="1673418723544" duration="4129000" />
+      <workItem from="1673418723544" duration="6361000" />
     </task>
     <servers />
   </component>
@@ -175,7 +173,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java</url>
-          <line>65</line>
+          <line>69</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

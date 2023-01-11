@@ -49,17 +49,21 @@ public class ContractDetailService implements IContractDetailService {
 
     @Override
     public boolean addContractDetail(ContractDetail newContractDetail) {
-        Contract contract = newContractDetail.getContract();
+        Contract contract = contractService.findById(newContractDetail.getContract().getId());
         if (!contractService.isExist(contract)) {
             return false;
         }
         List<ContractDetail> contractDetailList = contractDetailRepository.findByContract(contract);
         int attachFacilityId;
         for (ContractDetail contractDetail : contractDetailList) {
+            if (contractDetail.getAttachFacility() == null) {
+                continue;
+            }
             attachFacilityId = contractDetail.getAttachFacility().getId();
             if (attachFacilityId == newContractDetail.getAttachFacility().getId()) {
                 newContractDetail.setId(contractDetail.getId());
                 newContractDetail.setQuantity(contractDetail.getQuantity() + newContractDetail.getQuantity());
+                break;
             }
         }
         try {

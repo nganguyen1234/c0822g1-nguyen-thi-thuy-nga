@@ -36,25 +36,39 @@ public class AddContractDto implements Validator {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate newStartDate = null;
         LocalDate newEndDate = null;
-        try {
-            newStartDate = LocalDate.parse(addContractDto.startDate, formatter);
-        } catch (DateTimeParseException e) {
-            errors.rejectValue("startDate", "startDate", "Ngày bắt đầu yêu cầu đúng định dạng dd/MM/yyyy");
+        if (startDate != "") {
+            try {
+                newStartDate = LocalDate.parse(addContractDto.startDate, formatter);
+            } catch (DateTimeParseException e) {
+                errors.rejectValue("startDate", "startDate", "Ngày bắt đầu yêu cầu đúng định dạng dd/MM/yyyy");
+            }
+        } else {
+            errors.rejectValue("startDate", "startDate", "Vui lòng nhập ngày bắt đầu");
         }
-        try {
-            newEndDate = LocalDate.parse(addContractDto.endDate, formatter);
-        } catch (DateTimeParseException e) {
-            errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải đúng định dạng dd/MM/yyyy");
-        }
-        Period period = Period.between(newStartDate, newEndDate);
-        if (period.isZero() || period.isNegative()) {
-            errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất là 1 ngày");
+        if (endDate != "") {
+            try {
+                newEndDate = LocalDate.parse(addContractDto.endDate, formatter);
+                if (newEndDate != null && newStartDate != null) {
+                    Period period = Period.between(newStartDate, newEndDate);
+                    if (period.isZero() || period.isNegative()) {
+                        errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất là 1 ngày");
 
+                    }
+                }
+            } catch (DateTimeParseException e) {
+                errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải đúng định dạng dd/MM/yyyy");
+            }
+        } else {
+            errors.rejectValue("endDate", "endDate", "Vui lòng nhập ngày kết thúc");
+        }
+        if (addContractDto.getDeposit() != null) {
+            if (addContractDto.getDeposit() <= 0) {
+                errors.rejectValue("deposit", "deposit", "Tiền cọc phải lớn hơn 0");
+            }
+        } else {
+            errors.rejectValue("deposit", "deposit", "Vui lòng nhập tiền cọc");
         }
 
-        if (addContractDto.getDeposit() <= 0) {
-            errors.rejectValue("deposit", "deposit", "The deposit must greater than 0");
-        }
     }
 
     public int getId() {

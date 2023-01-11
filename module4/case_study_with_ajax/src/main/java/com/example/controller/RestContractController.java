@@ -69,7 +69,7 @@ public class RestContractController {
                 responseDto.setEndDate(contractBindingResult.getFieldError("endDate").getDefaultMessage());
             }
             if (contractBindingResult.getFieldError("deposit") != null) {
-                responseDto.setDeposit("tiền đặt cọc phải là số dương");
+                responseDto.setDeposit(contractBindingResult.getFieldError("deposit").getDefaultMessage());
             }
             if (!contractDetailBindingResult.isEmpty()) {
                 responseDto.setAttachFacilityErrorDtos(attachFacilityErrorDtos);

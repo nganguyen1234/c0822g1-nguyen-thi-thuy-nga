@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../module_2/src/giai_thuat/mau_tang_dan/DaoNgu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/ContractDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_2/src/giai_thuat/IsoscelesTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/src/giai_thuat/IsoscelesTriangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,7 @@
       <workItem from="1673313766736" duration="18068000" />
       <workItem from="1673351407447" duration="6420000" />
       <workItem from="1673399581384" duration="12924000" />
-      <workItem from="1673418723544" duration="6361000" />
+      <workItem from="1673418723544" duration="7405000" />
     </task>
     <servers />
   </component>

@@ -52,7 +52,6 @@ public class AddContractDto implements Validator {
                     Period period = Period.between(newStartDate, newEndDate);
                     if (period.isZero() || period.isNegative()) {
                         errors.rejectValue("endDate", "endDate", "Ngày kết thúc phải lớn hơn ngày bắt đầu ít nhất là 1 ngày");
-
                     }
                 }
             } catch (DateTimeParseException e) {

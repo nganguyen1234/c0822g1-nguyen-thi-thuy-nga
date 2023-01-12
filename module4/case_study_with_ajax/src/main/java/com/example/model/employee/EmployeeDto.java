@@ -1,6 +1,5 @@
 package com.example.model.employee;
 
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -13,26 +12,28 @@ import java.time.format.DateTimeParseException;
 
 public class EmployeeDto implements Validator {
     @NotBlank(message = "tên nhân viên không thể để trống")
-    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$",message = "Tên nhân viên không thể chứa ký tự đặc biệt và không thể chứa số")
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "Tên nhân viên không thể chứa ký tự đặc biệt và không thể chứa số")
     private String name;
     private String dateOfBirth;
 
     @NotBlank(message = "số cmnd không thể để trống")
-    @UniqueElements(message = "số cmnd đã tồn tại")
-    @Pattern(regexp = "(\\d{9})|(\\d{12})",message = "số cmnd phải đúng định dạng,vd:XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).")
+    @Pattern(regexp = "(\\d{9})|(\\d{12})", message = "số cmnd phải đúng định dạng,vd:XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).")
     private String idCard;
 
     @NotBlank(message = "số điện thoại không được để trống")
-    @Pattern(regexp = "(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})",message = "Số điện thoại phải đúng định dạng, vd:090xxxxxxx; 091xxxxxxx; (84)+90xxxxxxx; (84)+91xxxxxxx " )
-    @UniqueElements(message = "số điện thoại bạn nhập đã tồn tại")
+    @Pattern(regexp = "(090\\d{7})|(091\\d{7})|(\\(84\\)\\+90\\d{7})|(\\(84\\)\\+91\\d{7})", message = "Số điện thoại phải đúng định dạng, vd:090xxxxxxx; 091xxxxxxx; (84)+90xxxxxxx; (84)+91xxxxxxx ")
     private String phoneNumber;
 
-    @Min(value = 1,message = "Lương phải là số dương")
+    @Min(value = 1, message = "Lương phải là số dương")
     private Double salary;
 
-    @Pattern(regexp = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+",message = "email phải đúng định dạng, vd: abc123@gmail.com")
+    @Pattern(regexp = "[a-zA-Z]+\\w+@\\w+(\\.\\w+)+", message = "email phải đúng định dạng, vd: abc123@gmail.com")
     private String email;
     private String address;
+//    private User user;
+    private Position position;
+    private Division division;
+    private EducationDegree educationDegree;
 
     public EmployeeDto() {
     }
@@ -93,6 +94,38 @@ public class EmployeeDto implements Validator {
         this.address = address;
     }
 
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
+    }
+
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
+    }
+
     @Override
     public boolean supports(Class<?> clazz) {
         return false;
@@ -100,7 +133,7 @@ public class EmployeeDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-EmployeeDto employeeDto = (EmployeeDto) target;
+        EmployeeDto employeeDto = (EmployeeDto) target;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         try {
             LocalDate dateOfBirth1 = LocalDate.parse(employeeDto.dateOfBirth, formatter);

@@ -2,78 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d063f2cf-ed2b-4942-989d-6d0388df4546" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/furama_insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/ContractController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/FacilityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/AttachFacility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/Contract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDetailDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/contract/ContractDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/CustomerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/customer/CustomerType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Division.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/EducationDegree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/EmployeeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/employee/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/Facility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/FacilityDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/FacilityType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/model/facility/RentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IAttachFacilityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IContractDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/contract/IContractRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/customer/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/customer/ICustomerTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IFacilityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IFacilityTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/repository/facility/IRentTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IAttachFacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IContractDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/contract/IContractService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/customer/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/customer/ICustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IFacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IFacilityTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/facility/IRentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/AttachFacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/ContractDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/ContractService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/CustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/FacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/FacilityTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/service/impl/RentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/contract/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/employee/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/facility/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/home/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/resources/templates/home/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/test/java/com/example/CaseStudyApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/rest/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/controller/rest/BlogRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/repository/IBlogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/IBlogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/impl/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/blog-with-ajax/src/main/java/com/example/service/impl/BlogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/views/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ss12_jquery_ajax/views/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2_test/src/demo/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../giai_thuat/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../giai_thuat/t8_2023/AddTwoNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../giai_thuat/t8_2023/FutureFocus1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../giai_thuat/t8_2023/MaximumMultiple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2_test/out/production/module2_test/META-INF/module2_test.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/book-management/src/main/java/com/example/common/config/LogAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/book-management/src/main/java/com/example/common/config/LogAOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/dictionary/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/dictionary/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/music-management/src/main/java/com/example/MusicManagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/music-management/src/main/java/com/example/MusicManagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/module_2/oop_exercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/module_2/oop_exercise/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama_resort/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/furama_resort/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/common/CompleteArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/common/CompleteArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/exercise2_dem_so_lan_xuat_hien/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/exercise2_dem_so_lan_xuat_hien/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/exercise3_check_so_fibonacci_snt/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/exercise3_check_so_fibonacci_snt/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/exercise4_tinh_tong_chan_o_index_le/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/exercise4_tinh_tong_chan_o_index_le/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/exercise6_check_mang_con/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/exercise6_check_mang_con/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giai_thuat/exercise7_tong_day_phan_so/mau_tang_dan/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../giai_thuat/exercise7_tong_day_phan_so/mau_tang_dan/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oop_exercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../oop_exercise/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module_3/test/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/test/.gradle/checksums/checksums.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +36,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/furama_resort/controllers/CustomerController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2HBRxBXAddl9yCPVvG3tcHIG2PL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -94,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../module_3/case_study_web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../UOW-year1/sem1-y2/csit213/assignment/Assignment1" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -114,6 +71,13 @@
       <workItem from="1670298321468" duration="12000" />
       <workItem from="1670807907796" duration="525000" />
       <workItem from="1672655755571" duration="115000" />
+      <workItem from="1695109573957" duration="799000" />
+      <workItem from="1695685139686" duration="234000" />
+      <workItem from="1696082955552" duration="596000" />
+      <workItem from="1701144560601" duration="4000" />
+      <workItem from="1707187028206" duration="639000" />
+      <workItem from="1709386341341" duration="6000" />
+      <workItem from="1709511857423" duration="78000" />
     </task>
     <servers />
   </component>

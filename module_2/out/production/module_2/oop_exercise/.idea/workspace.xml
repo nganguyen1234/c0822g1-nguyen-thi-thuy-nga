@@ -2,47 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4133f920-ee19-44da-9b6f-c718e266e754" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/repository/IProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/java/com/example/service/impl/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module4/product_management/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuoiLap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuoiPalindrome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuyenSoQuaTA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/CongDanhSach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/CongNhiPhan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/DauTuNgoaiTe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/DuongDanToiThieu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/MangConTrungLap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/PhanTuBatDauSoLe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/SoDu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/SoXaSoXNhat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/TamGiacVaDiem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/TimSoNhoNhatLonHon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/TrungViHaiMang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/VongDeoTay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2_test/src/demo/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/test/.idea/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2_test/out/production/module2_test/META-INF/module2_test.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/book-management/src/main/java/com/example/common/config/LogAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/book-management/src/main/java/com/example/common/config/LogAOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study_with_ajax/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../module4/dictionary/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/dictionary/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/case_study_web/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/ChuyenSo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/ChuyenSo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/ChuyenSoLaMaQuaSTN.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/ChuyenSoLaMaQuaSTN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/DauNgoacDon.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/DauNgoacDon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/MangChuaSoLienTiep.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/MangChuaSoLienTiep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/MangDep.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/MangDep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/SoLonNhi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/SoLonNhi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/TrungBinhCong5so.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/out/production/module_3/hackerrank/TrungBinhCong5so.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuyenSo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuyenSo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/ChuyenSoLaMaQuaSTN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/DauNgoacDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/DauNgoacDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/MangChuaSoLienTiep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/MangChuaSoLienTiep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/MangDep.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/MangDep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/SoLonNhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/SoLonNhi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../module_3/src/hackerrank/TrungBinhCong5so.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/src/hackerrank/TrungBinhCong5so.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module_3/test/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module_3/test/.gradle/checksums/checksums.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +34,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../nga-nguyen/beginN-mindmap/back-end" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -79,16 +51,12 @@
       <option name="presentableId" value="Default" />
       <updated>1671423297690</updated>
       <workItem from="1671423298859" duration="86000" />
+      <workItem from="1683187605115" duration="74000" />
+      <workItem from="1683480224548" duration="104000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="0" y="0" key="#Project_Structure" timestamp="1671423311960">
-      <screen x="0" y="0" width="1707" height="1019" />
-    </state>
-    <state x="0" y="0" key="#Project_Structure/0.0.1707.1019@0.0.1707.1019" timestamp="1671423311960" />
+    <option name="version" value="3" />
   </component>
 </project>

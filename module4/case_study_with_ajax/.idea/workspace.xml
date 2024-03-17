@@ -5,28 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408b93a1-c518-4e15-896e-18af8d338dad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/employee/IDivisionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/employee/IEducationDegreeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/employee/IPositionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2_test/src/demo/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_2/src/giai_thuat/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_3/test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_3/test/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module_3/test/.idea/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2_test/out/production/module2_test/META-INF/module2_test.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../book-management/src/main/java/com/example/common/config/LogAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../book-management/src/main/java/com/example/common/config/LogAOP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dto/contract/AddContractDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/employee/EmployeeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/employee/EmployeeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/employee/IEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/employee/IEmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/employee/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/employee/IEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidEmailException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidIdCardException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/exception/InvalidPhoneNumberException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/CaseStudyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/CaseStudyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dictionary/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dictionary/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music-management/src/main/java/com/example/MusicManagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music-management/src/main/java/com/example/MusicManagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_2/out/production/module_2/oop_exercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/out/production/module_2/oop_exercise/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_2/src/oop_exercise/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module_3/test/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module_3/test/.gradle/checksums/checksums.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -81,10 +82,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module_3/case_study_web" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module_2/src/giai_thuat" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -103,14 +104,98 @@
       <recent name="com.example.service" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.69">
     <configuration name="CaseStudyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="case_study.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.CaseStudyApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 9.0.69" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.69" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="d37df9f8-1d41-4916-a803-380a2bd4de9a" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58416" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CaseStudyApplication" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.69" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -161,6 +246,31 @@
       <workItem from="1673418723544" duration="7408000" />
       <workItem from="1673438059046" duration="2679000" />
       <workItem from="1673487580982" duration="15243000" />
+      <workItem from="1673546542116" duration="29000" />
+      <workItem from="1678345394156" duration="171000" />
+      <workItem from="1678882810184" duration="823000" />
+      <workItem from="1678885137850" duration="938000" />
+      <workItem from="1678926725970" duration="748000" />
+      <workItem from="1679284548495" duration="616000" />
+      <workItem from="1679285312503" duration="1277000" />
+      <workItem from="1679371241505" duration="87000" />
+      <workItem from="1679485796312" duration="631000" />
+      <workItem from="1679491409428" duration="1811000" />
+      <workItem from="1679538801522" duration="337000" />
+      <workItem from="1679570643474" duration="643000" />
+      <workItem from="1680165171266" duration="272000" />
+      <workItem from="1680622305067" duration="681000" />
+      <workItem from="1681193176199" duration="28000" />
+      <workItem from="1681307947797" duration="640000" />
+      <workItem from="1681378823010" duration="8000" />
+      <workItem from="1681475202810" duration="2507000" />
+      <workItem from="1681617728312" duration="1770000" />
+      <workItem from="1681968350783" duration="546000" />
+      <workItem from="1682092343550" duration="608000" />
+      <workItem from="1682257231473" duration="12000" />
+      <workItem from="1691035033119" duration="54000" />
+      <workItem from="1691035374400" duration="695000" />
+      <workItem from="1692024668058" duration="28000" />
     </task>
     <servers />
   </component>

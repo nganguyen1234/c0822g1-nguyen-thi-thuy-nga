@@ -26,6 +26,7 @@ public class CustomerController {
                     "4.\tReturn main menu\n");
             System.out.println("Enter your next choice:");
             choice = exceptionHandling.enterPositiveInteger();
+            scanner.next();
             switch (choice) {
                 case 1:
                     this.display();
